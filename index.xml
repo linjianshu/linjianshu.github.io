@@ -2,10 +2,654 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Example Site</title>
-        <link>https://example.com/</link>
+        <link>https://linjianshu.github.io/</link>
         <description>Recent content on Example Site</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 31 Aug 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Tue, 31 Aug 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>My First Post</title>
+        <link>https://linjianshu.github.io/p/my-first-post/</link>
+        <pubDate>Tue, 31 Aug 2021 16:18:59 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/my-first-post/</guid>
+        <description>&lt;h2 id=&#34;git学习文档&#34;&gt;Git学习文档&lt;/h2&gt;
+&lt;p&gt;学习git之前，我们需要先明白一个概念，版本控制！&lt;/p&gt;
+&lt;h4 id=&#34;版本控制&#34;&gt;版本控制&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;什么是版本控制 版本迭代 版本管理器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现跨区域多人协同开发&lt;/li&gt;
+&lt;li&gt;追踪和记载一个或者多个文件的历史记录&lt;/li&gt;
+&lt;li&gt;组织和保护你的源代码和文档&lt;/li&gt;
+&lt;li&gt;统计工作量&lt;/li&gt;
+&lt;li&gt;并行开发、提高开发效率&lt;/li&gt;
+&lt;li&gt;跟踪记录整个软件的开发过程&lt;/li&gt;
+&lt;li&gt;减轻开发人员的负担，节省时间，同时降低人为错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;简单说就是用于管理多人协同开发项目的技术。&lt;/p&gt;
+&lt;p&gt;没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将引入很多问题，如关键代码的冗余，软件过程的事物性，软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。&lt;/p&gt;
+&lt;p&gt;多人开发就必须要使用版本控制，否则代价比较大&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;常见的版本控制工具&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;主流的版本控制器有如下这些：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;SVN(subversion)&lt;/li&gt;
+&lt;li&gt;CVS(concurrent versions system)&lt;/li&gt;
+&lt;li&gt;VSS(Microsoft Visual SourceSafe)&lt;/li&gt;
+&lt;li&gt;TFS(team Foundation Server)&lt;/li&gt;
+&lt;li&gt;Visual Studio Online&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;版本控制分类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;本地版本控制&lt;/p&gt;
+&lt;p&gt;记录文件每次的更新，可以对每个版本做一个快照，或者记录补丁文件，适合个人用，如RCS&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722211743148-16304204111211.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722211743148-16304204111211.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210722211743148&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210722211743148&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;集中版本控制&lt;/p&gt;
+&lt;p&gt;所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722211927845-16304204111212.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722211927845-16304204111212.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210722211927845&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210722211927845&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品有：SVN、CVS、VSS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分布版本控制 “GIT”&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;每个人都拥有全部的代码 安全隐患&lt;/p&gt;
+&lt;p&gt;所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题，就可以恢复所有的数据，但这增加了本地存储空间的占用&lt;/p&gt;
+&lt;p&gt;不会因为服务器损坏或者网络问题，造成不能工作的情况！&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722212449100-16304204111213.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722212449100-16304204111213.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210722212449100&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210722212449100&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git和svn最主要区别&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;svn是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所有首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要吧自己做完的推送到中央服务器。集中式版本控制是必须连网才能工作，对网络带宽要求较高。&lt;/p&gt;
+&lt;p&gt;git是分布式版本控制系统，没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候不需要联网了，因为版本都在自己的电脑上，协同的方法是这样的：比如说自己在电脑上修改了文件A，其他人也在电脑上修改了文件A，这时，你们俩之间只需要吧各自的修改推送给对方，就可以相互看到对方的修改了。git可以直接看到更新了那些代码和文件！！&lt;/p&gt;
+&lt;p&gt;Git是目前世界上最先进的分布式版本控制系统。&lt;/p&gt;
+&lt;h3 id=&#34;聊聊git的历史&#34;&gt;聊聊git的历史&lt;/h3&gt;
+&lt;p&gt;同生活中的许多伟大事物一样，git诞生于一个极富纷争大举创新的时代。&lt;/p&gt;
+&lt;p&gt;linux内核开源项目有着为数众多的参与者，绝大多数的linux内核维护工作都花在了提交补丁和保存归档的繁琐事务上1991-2002年，到了2002年，整个项目组开始启用一个专有的分布式版本控制系统bitkeeper来管理和维护代码。&lt;/p&gt;
+&lt;p&gt;到了2005年，开发bitkeeper的商业公司通linux内核开源社区的合作关系结束，她们收回了linux内核社区免费使用bitkeeper的权力。这就迫使linux开源社区（特别是linux的缔造者linux torvalds）基于使用bitkeeper时的经验教训，开发出了自己的版本系统。也就是后来的git！&lt;/p&gt;
+&lt;p&gt;git是目前世界上最先进的分布式版本控制系统。&lt;/p&gt;
+&lt;p&gt;git开源、免费，最初git是为了辅助linux内核开发的，来替代bitkeeper。&lt;/p&gt;
+&lt;h3 id=&#34;git环境配置&#34;&gt;git环境配置&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;软件下载&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;打开git，下载对应操作系统的版本&lt;/p&gt;
+&lt;p&gt;所有东西下载慢的话就去找镜像！&lt;/p&gt;
+&lt;p&gt;官网下载太慢，我们可以使用淘宝镜像下载&lt;/p&gt;
+&lt;p&gt;卸载&lt;/p&gt;
+&lt;p&gt;直接反安装、然后清理环境变量&lt;/p&gt;
+&lt;p&gt;安装，无脑安装&lt;/p&gt;
+&lt;p&gt;git bash ： unix与linux风格的命令行，使用最多，推荐最多&lt;/p&gt;
+&lt;p&gt;git cmd ： windows风格的命令行&lt;/p&gt;
+&lt;p&gt;git gui ： 图形界面的git ， 不建议初学者使用，尽量先熟悉常用命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;基本的linux命令学习&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;cd： 改变目录&lt;/li&gt;
+&lt;li&gt;cd  .. 回退到上一个目录，直接cd进默认目录&lt;/li&gt;
+&lt;li&gt;pwd  显示当前所在的目录路径&lt;/li&gt;
+&lt;li&gt;ls （ll） 列出当前目录中的所有文件，只不过ll列出的内容更为详细&lt;/li&gt;
+&lt;li&gt;touch 新建一个文件&lt;/li&gt;
+&lt;li&gt;rm 删除一个文件&lt;/li&gt;
+&lt;li&gt;mkdir 新建一个目录 ， 就是新建一个文件夹&lt;/li&gt;
+&lt;li&gt;rm - r 删除一个文件夹 rm-r src 就是删除src目录&lt;/li&gt;
+&lt;li&gt;mv 移动文件&lt;/li&gt;
+&lt;li&gt;reset 重新初始化终端、清屏&lt;/li&gt;
+&lt;li&gt;clear清屏&lt;/li&gt;
+&lt;li&gt;history查看命令历史&lt;/li&gt;
+&lt;li&gt;help帮助&lt;/li&gt;
+&lt;li&gt;exit 退出&lt;/li&gt;
+&lt;li&gt;#&#39;&#39;  表示注释&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;平时一定要多使用这些命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所有的配置文件，其实都保存在本地！&lt;/p&gt;
+&lt;p&gt;查看配置 git config -l&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722223828219-16304204111214.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722223828219-16304204111214.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210722223828219&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210722223828219&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;用户名是必须要有的&lt;/p&gt;
+&lt;p&gt;git相关的配置文件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;git\etc\gitconfig: git 安装目录下的gitconfig &amp;ndash;system系统级&lt;/li&gt;
+&lt;li&gt;users\administrator.gitconfig 只适用于当前登陆用户的配置 &amp;ndash;global全局 这里可以直接编辑配置文件，通过命令设置后会响应到这里&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;设置用户名与邮箱（用户标识、必要）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;git config &amp;ndash;global user.name &amp;ldquo;linjianshu&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;git config &amp;ndash;global user.email &lt;a class=&#34;link&#34; href=&#34;mailto:1018814650@qq.com&#34; &gt;1018814650@qq.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;git基本理论核心&#34;&gt;Git基本理论（核心）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;工作区域&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;git本地有三个工作区域：工作目录（working directory）、暂存区（stage/index）、资源库（repository或Git Directory）。如果在加上远程的git仓库（Remote Directory）就可以分为四个工作区域。文件在这四个区域质检的转换关系如下：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722235632313-16304204111215.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210722235632313-16304204111215.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210722235632313&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210722235632313&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;workspace：工作区，就是你平时存放项目代码的地方&lt;/li&gt;
+&lt;li&gt;stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息&lt;/li&gt;
+&lt;li&gt;history：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交的所有版本的数据。其中HEAD指向最新放入的版本&lt;/li&gt;
+&lt;li&gt;remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换本地的三个区域确切的说应该是git中HEAD指向的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;master 主分支&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210723000244325-16304204111216.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210723000244325-16304204111216.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210723000244325&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210723000244325&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;directory ： 使用git管理的一个目录，也就是一个仓库，包含我们的工作空间和git的管理空间。&lt;/li&gt;
+&lt;li&gt;workspace：需要通过git进行版本控制的目录和文件，这些目录和文件组成了工作空间&lt;/li&gt;
+&lt;li&gt;.git： 存放git管理信息的目录，初始化仓库的时候自动创建&lt;/li&gt;
+&lt;li&gt;index/stage： 暂存区，或者叫待提交更新区，在提交进入repo之前，我们可以把所有的更新放在暂存区。&lt;/li&gt;
+&lt;li&gt;local repo：本地仓库，一个存放在本地的版本库；HEAD会只是当前的开发分支(branch)&lt;/li&gt;
+&lt;li&gt;Stash：隐藏，是一个工作状态保存栈，用于保存/恢复 WorkSpace中的临时状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;工作流程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;git的工作流程一般是这样的:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在工作目录中添加、修改文件；&lt;/li&gt;
+&lt;li&gt;将需要进行版本管理的文件放入暂存区域；&lt;/li&gt;
+&lt;li&gt;将暂存区域的文件提交到git仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，git管理的文件有三种状态：已修改(modified) , 已暂存(staged) , 已提交(committed)&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210723000906476-16304204111218.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210723000906476-16304204111218.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210723000906476&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210723000906476&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;git add .&lt;/p&gt;
+&lt;p&gt;git commit&lt;/p&gt;
+&lt;p&gt;git push&lt;/p&gt;
+&lt;h3 id=&#34;git项目搭建&#34;&gt;git项目搭建&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;创建工作目录与常用指令&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;工作目录（workspace）一般就是你希望git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。&lt;/p&gt;
+&lt;p&gt;日常使用只要记住下图6个命令：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210723232353522-1627053833758-16304204111217.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210723232353522-1627053833758-16304204111217.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210723232353522&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210723232353522&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本地仓库搭建&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库&lt;/p&gt;
+&lt;p&gt;1.创建全新的仓库，需要用git管理的项目的根目录执行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在当前目录新建一个git代码库&lt;/span&gt;
+$ git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2.执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;克隆远程仓库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.另一种方式是克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 克隆一个项目和它的整个代码历史（版本信息）&lt;/span&gt;
+ git clone &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;url&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2.去gitee或者github上克隆一个试试看&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724000439421-16304204111219.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724000439421-16304204111219.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724000439421&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724000439421&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;git文件操作&#34;&gt;git文件操作&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;文件4种状态&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者提交的文件没提交上。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;untracked：未跟踪，此文件在文件夹中，但并没有加入到git库，不参与版本控制，通过 git add 状态变为staged&lt;/li&gt;
+&lt;li&gt;unmodify：文件已经入库，未修改，即版本库中的文件快照内容与文件夹中完全一致，这种类型的文件有两种去处，如果它被修改，而变为modified ， 如果使用 git rm 移出版本库，则成为untracked文件&lt;/li&gt;
+&lt;li&gt;modified：文件已修改，仅仅是修改，并没有进行其他的操作，这个文件也有两个去处，通过git add 可进入暂存stagged状态，使用git checkout 则丢弃修改过，返回到unmodifiy状态，这个git checkout即从库中取出文件，覆盖当前修改！&lt;/li&gt;
+&lt;li&gt;staged：暂存状态， 执行git commit，则将修改同步到数据库中，这时库中的文件和本地文件又变为一致，文件为unmodify状态，执行git reset HEAD filename取消暂存，文件状态为modified&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724001457370-163042041112110.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724001457370-163042041112110.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724001457370&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724001457370&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724001837514-163042041112111.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724001837514-163042041112111.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724001837514&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724001837514&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看文件状态&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面说文件有四种状态，通过如下命令可以查看到文件的状态：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看指定文件状态&lt;/span&gt;
+git status &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;filename&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 查看所有文件状态&lt;/span&gt;
+git status 
+
+&lt;span class=&#34;c1&#34;&gt;# git add . 添加所有文件到暂存区&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# git commit -m 提交暂存区中的内容到本地仓库 -m 提交信息&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;忽略文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有些时候我们不想吧某些文件纳入进版本控制中，比如数据库文件，临时文件，设计文件等&lt;/p&gt;
+&lt;p&gt;在主目录下建立.gitignore文件 ， 此文件有如下规则：&lt;/p&gt;
+&lt;p&gt;1.忽略文件中的空行或以#号开始的行将会被忽略&lt;/p&gt;
+&lt;p&gt;2.可以使用linux通配符。例如星号*代表任意多个字符，问号？代表一个字符，方括号[abc]代表可选字符范围，大括号({string1},{string2})代表可选的字符串等&lt;/p&gt;
+&lt;p&gt;3.如果名称的最前面有一个感叹号！，表示例外规则，将不被忽略&lt;/p&gt;
+&lt;p&gt;4.如果名称的最前面是一个路径分隔符/，表示要忽略的此文件在此目录下，而子目录中的文件不忽略。&lt;/p&gt;
+&lt;p&gt;5.如果名称的最后面是一个路径分隔符/，表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 为注释&lt;/span&gt;
+*.txt  &lt;span class=&#34;c1&#34;&gt;#忽略所有 .txt 结尾的文件，这样的话上传就不会被选中&lt;/span&gt;
+!llib.txt &lt;span class=&#34;c1&#34;&gt;#但lib.txt除外&lt;/span&gt;
+/temp  &lt;span class=&#34;c1&#34;&gt;#仅忽略项目根目录下的todo文件，不包括其他目录temp&lt;/span&gt;
+build/ &lt;span class=&#34;c1&#34;&gt;#仅忽略build/目录下的所有文件&lt;/span&gt;
+doc/*.txt &lt;span class=&#34;c1&#34;&gt;#会忽略 doc/notes.txt 但不包括doc/server/arch.txt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用码云&#34;&gt;使用码云&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;github是有墙的，比较慢，在国内的话，我们一般使用gitee，公司中有时候会搭建自己的gitlab服务器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.注册登陆码云，完善个人信息&lt;/p&gt;
+&lt;p&gt;这个其实可以作为大家未来找工作的&lt;/p&gt;
+&lt;p&gt;2.设置本机绑定ssh公钥，实现免密码登陆！（免密码登陆，这一步挺重要的，码云是远程仓库，我们是平时工作在本地仓库！）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 进入C:\Users\Sweetie\.ssh 目录&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 生成公钥&lt;/span&gt;
+ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724202958752-163042041112112.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724202958752-163042041112112.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724202958752&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724202958752&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;使用ssh-keygen -t rsa 命令&lt;/p&gt;
+&lt;p&gt;3.将公钥信息public key 添加到码云账户中即可！&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724203418738-163042041112113.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724203418738-163042041112113.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724203418738&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724203418738&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;4.使用码云创建一个而自己的仓库&lt;/p&gt;
+&lt;p&gt;新建仓库&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724203745902-163042041112114.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724203745902-163042041112114.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724203745902&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724203745902&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;许可证：开源是否可以随意转载，开源但是不能商业使用，不能转载，&amp;hellip;限制！&lt;/p&gt;
+&lt;p&gt;也就是在git上图形化界面上建立仓库，在本地通过git bash 克隆远程仓库&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724203950054-163042041112115.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724203950054-163042041112115.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724203950054&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724203950054&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ieda中集成git&#34;&gt;IEDA中集成git&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;新建项目，绑定git&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将我们远程的git文件目录拷贝到项目中即可！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724204839883-163042041112116.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724204839883-163042041112116.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724204839883&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724204839883&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724204938532-163042041112117.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724204938532-163042041112117.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724204938532&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724204938532&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改文件，使用IDEA操作git&lt;/p&gt;
+&lt;p&gt;一种方式&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724205441507-163042041112118.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724205441507-163042041112118.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724205441507&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724205441507&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;第二种方式&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724205923872-163042041112119.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724205923872-163042041112119.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724205923872&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724205923872&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;第三种方式 对于单个文件的add&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724210043644-163042041112120.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724210043644-163042041112120.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724210043644&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724210043644&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;提交测试&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724210212802-163042041112121.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724210212802-163042041112121.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724210212802&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724210212802&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;commit只是添加到本地仓库&lt;/p&gt;
+&lt;p&gt;push到远程仓库&lt;/p&gt;
+&lt;p&gt;git push 通过terminal或者可视化来搞&lt;/p&gt;
+&lt;p&gt;在log中可以看到每次的操作&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724211848407-163042041112122.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724211848407-163042041112122.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724211848407&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724211848407&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;说明git分支&#34;&gt;说明：git分支&lt;/h3&gt;
+&lt;p&gt;分支在git中相对较难，分支就是科幻电影里的平行宇宙，如果两个平行宇宙互不干扰，哪对现在的你也没有影响。不过在某个时间点，两个平行宇宙合并了，我们就需要处理一下问题了&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212223989-1627132944219-163042041112223.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212223989-1627132944219-163042041112223.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724212223989&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724212223989&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212233880-163042041112224.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212233880-163042041112224.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724212233880&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724212233880&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;git分支中常用指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 列出所有本地分支&lt;/span&gt;
+git branch 
+
+&lt;span class=&#34;c1&#34;&gt;# 列出所有远程分支&lt;/span&gt;
+git branch -r 
+
+&lt;span class=&#34;c1&#34;&gt;# 新建一个分支，但依然停留在当前分支&lt;/span&gt;
+git branch &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;branch-name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 新建一个分支，并切换到该分支&lt;/span&gt;
+git checkout -b &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;branch&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 合并指定分支到当前分支&lt;/span&gt;
+git merge &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;branch&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 删除分支&lt;/span&gt;
+git branch -d &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;branch-name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 删除远程分支&lt;/span&gt;
+git push origin --delete &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;branch-name&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+git branch -dr &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;remote/branch&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212621289-163042041112225.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212621289-163042041112225.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724212621289&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724212621289&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;新建分支 git branch dev 但是停留在当前分支&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212732716-163042041112226.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/githubLearning.assets/image-20210724212732716-163042041112226.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20210724212732716&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20210724212732716&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;多个分支如果并行执行，就会导致我们代码不冲突，也就是同时存在多个版本！&lt;/p&gt;
+&lt;p&gt;如果同一个文件在合并分支时被修改了，则会引起冲突：解决的办法是我们可以修改冲突文件后重新提交！选择要保留他的代码还是你的代码！&lt;/p&gt;
+&lt;p&gt;master主分支应该非常稳定，用来发布新版本，一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作，工作完成后，比如上要发布，或者说dev分支代码稳定后可以合并到朱分支master上来。&lt;/p&gt;
+&lt;p&gt;因此可以这样，在dev上做改动，改动完在dev上进行commit和push，这样dev就是相当于一个新的版本&lt;/p&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>

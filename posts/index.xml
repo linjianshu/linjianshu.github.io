@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Example Site</title>
-    <link>https://example.com/posts/</link>
+    <link>https://linjianshu.github.io/posts/</link>
     <description>Recent content in Posts on Example Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Aug 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Aug 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>https://example.com/posts/my-first-post/</link>
+      <link>https://linjianshu.github.io/posts/my-first-post/</link>
       <pubDate>Tue, 31 Aug 2021 16:18:59 +0800</pubDate>
       
-      <guid>https://example.com/posts/my-first-post/</guid>
+      <guid>https://linjianshu.github.io/posts/my-first-post/</guid>
       <description></description>
     </item>
     

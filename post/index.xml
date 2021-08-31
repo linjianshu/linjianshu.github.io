@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Example Site</title>
+    <link>https://linjianshu.github.io/post/</link>
+    <description>Recent content in Posts on Example Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Aug 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>https://linjianshu.github.io/p/my-first-post/</link>
+      <pubDate>Tue, 31 Aug 2021 16:18:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/my-first-post/</guid>
+      <description>Git学习文档 学习git之前，我们需要先明白一个概念，版本控制！
+版本控制  什么是版本控制 版本迭代 版本管理器
+ 版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
+ 实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误  简单说就是用于管理多人协同开发项目的技术。
+没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将引入很多问题，如关键代码的冗余，软件过程的事物性，软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。
+多人开发就必须要使用版本控制，否则代价比较大
+ 常见的版本控制工具
+ 主流的版本控制器有如下这些：
+ Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online  版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
+ 版本控制分类
+   本地版本控制
+记录文件每次的更新，可以对每个版本做一个快照，或者记录补丁文件，适合个人用，如RCS
+image-20210722211743148</description>
+    </item>
+    
+  </channel>
+</rss>
