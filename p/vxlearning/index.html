@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='小程序组件
+view标签 类比p便签
+text标签 类比span标签
+selecttable :文档是否可选
+image-20210404164128223
+decode标签 :选中＆ｎｂｓｐ；/lt/gt/amp.apos/ensp/emsp这样的可以识别出来
+button标签:
+​	type: primary / default / warn
+image-20210404164342281
+​	form-type=&amp;ldquo;submit&amp;rdquo;/reset
+​	open-type getuserinfo/getphonenumber/contact
+image-20210404164741208
+checkbox image-20210404165141036
+开闭标签,可以在开闭标签内写上复选文字内容
+value可以填入真实的值
+checkboxgroup
+radio单选按钮
+开闭标签 , value可以填入真实的值 , 实现单选需要配合实现radiogroup
+image-20210404165511648
+block标签
+​	标签块 , 其本身不会被渲染到页面中 , 只有内部的标签会被渲染进html页面
+image-20210404170226484
+image-20210404171030254
+绑定事件&#43;编写js方法
+image-20210404183815644
+image-20210404183822112
+data的数据绑定以及数据更新
+image-20210404185119026'><title>VXLearning</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/vxlearning/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='VXLearning'>
+<meta property='og:description' content='小程序组件
+view标签 类比p便签
+text标签 类比span标签
+selecttable :文档是否可选
+image-20210404164128223
+decode标签 :选中＆ｎｂｓｐ；/lt/gt/amp.apos/ensp/emsp这样的可以识别出来
+button标签:
+​	type: primary / default / warn
+image-20210404164342281
+​	form-type=&amp;ldquo;submit&amp;rdquo;/reset
+​	open-type getuserinfo/getphonenumber/contact
+image-20210404164741208
+checkbox image-20210404165141036
+开闭标签,可以在开闭标签内写上复选文字内容
+value可以填入真实的值
+checkboxgroup
+radio单选按钮
+开闭标签 , value可以填入真实的值 , 实现单选需要配合实现radiogroup
+image-20210404165511648
+block标签
+​	标签块 , 其本身不会被渲染到页面中 , 只有内部的标签会被渲染进html页面
+image-20210404170226484
+image-20210404171030254
+绑定事件&#43;编写js方法
+image-20210404183815644
+image-20210404183822112
+data的数据绑定以及数据更新
+image-20210404185119026'>
+<meta property='og:url' content='https://linjianshu.github.io/p/vxlearning/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-09-01T00:27:43&#43;08:00'/><meta property='article:modified_time' content='2021-09-01T00:27:43&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/' />
+<meta name="twitter:site" content="@ljs56495989">
+    <meta name="twitter:creator" content="@ljs56495989"><meta name="twitter:title" content="VXLearning">
+<meta name="twitter:description" content="小程序组件
+view标签 类比p便签
+text标签 类比span标签
+selecttable :文档是否可选
+image-20210404164128223
+decode标签 :选中＆ｎｂｓｐ；/lt/gt/amp.apos/ensp/emsp这样的可以识别出来
+button标签:
+​	type: primary / default / warn
+image-20210404164342281
+​	form-type=&amp;ldquo;submit&amp;rdquo;/reset
+​	open-type getuserinfo/getphonenumber/contact
+image-20210404164741208
+checkbox image-20210404165141036
+开闭标签,可以在开闭标签内写上复选文字内容
+value可以填入真实的值
+checkboxgroup
+radio单选按钮
+开闭标签 , value可以填入真实的值 , 实现单选需要配合实现radiogroup
+image-20210404165511648
+block标签
+​	标签块 , 其本身不会被渲染到页面中 , 只有内部的标签会被渲染进html页面
+image-20210404170226484
+image-20210404171030254
+绑定事件&#43;编写js方法
+image-20210404183815644
+image-20210404183822112
+data的数据绑定以及数据更新
+image-20210404185119026"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/' />
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/about' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/vxlearning/">VXLearning</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 01, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>小程序组件</p>
+<p>view标签 类比p便签</p>
+<p>text标签 类比span标签</p>
+<p>selecttable :文档是否可选</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404164128223.png" >
+		<img src="/VXLearning.assets/image-20210404164128223.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404164128223">
+	</a>
+	
+	<figcaption>image-20210404164128223</figcaption>
+	
+</figure></p>
+<p>decode标签 :选中＆ｎｂｓｐ；/lt/gt/amp.apos/ensp/emsp这样的可以识别出来</p>
+<p>button标签:</p>
+<p>​		type: primary / default / warn</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404164342281.png" >
+		<img src="/VXLearning.assets/image-20210404164342281.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404164342281">
+	</a>
+	
+	<figcaption>image-20210404164342281</figcaption>
+	
+</figure></p>
+<p>​		form-type=&ldquo;submit&rdquo;/reset</p>
+<p>​		open-type   getuserinfo/getphonenumber/contact</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404164741208.png" >
+		<img src="/VXLearning.assets/image-20210404164741208.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404164741208">
+	</a>
+	
+	<figcaption>image-20210404164741208</figcaption>
+	
+</figure></p>
+<p>checkbox <figure 
+	>
+	<a href="/VXLearning.assets/image-20210404165141036.png" >
+		<img src="/VXLearning.assets/image-20210404165141036.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404165141036">
+	</a>
+	
+	<figcaption>image-20210404165141036</figcaption>
+	
+</figure></p>
+<p>开闭标签,可以在开闭标签内写上复选文字内容</p>
+<p>value可以填入真实的值</p>
+<p>checkboxgroup</p>
+<p>radio单选按钮</p>
+<p>开闭标签 , value可以填入真实的值  , 实现单选需要配合实现radiogroup</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404165511648.png" >
+		<img src="/VXLearning.assets/image-20210404165511648.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404165511648">
+	</a>
+	
+	<figcaption>image-20210404165511648</figcaption>
+	
+</figure></p>
+<p>block标签</p>
+<p>​	标签块  , 其本身不会被渲染到页面中 , 只有内部的标签会被渲染进html页面</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404170226484.png" >
+		<img src="/VXLearning.assets/image-20210404170226484.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404170226484">
+	</a>
+	
+	<figcaption>image-20210404170226484</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404171030254.png" >
+		<img src="/VXLearning.assets/image-20210404171030254.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404171030254">
+	</a>
+	
+	<figcaption>image-20210404171030254</figcaption>
+	
+</figure></p>
+<p>绑定事件+编写js方法</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404183815644.png" >
+		<img src="/VXLearning.assets/image-20210404183815644.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404183815644">
+	</a>
+	
+	<figcaption>image-20210404183815644</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404183822112.png" >
+		<img src="/VXLearning.assets/image-20210404183822112.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404183822112">
+	</a>
+	
+	<figcaption>image-20210404183822112</figcaption>
+	
+</figure></p>
+<p>data的数据绑定以及数据更新</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404185119026.png" >
+		<img src="/VXLearning.assets/image-20210404185119026.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404185119026">
+	</a>
+	
+	<figcaption>image-20210404185119026</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404190648374.png" >
+		<img src="/VXLearning.assets/image-20210404190648374.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404190648374">
+	</a>
+	
+	<figcaption>image-20210404190648374</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404190705626.png" >
+		<img src="/VXLearning.assets/image-20210404190705626.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404190705626">
+	</a>
+	
+	<figcaption>image-20210404190705626</figcaption>
+	
+</figure></p>
+<p>富文本识别展示</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404191510461.png" >
+		<img src="/VXLearning.assets/image-20210404191510461.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404191510461">
+	</a>
+	
+	<figcaption>image-20210404191510461</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404191516120.png" >
+		<img src="/VXLearning.assets/image-20210404191516120.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404191516120">
+	</a>
+	
+	<figcaption>image-20210404191516120</figcaption>
+	
+</figure></p>
+<p>可以携带css样式结构</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404191528289.png" >
+		<img src="/VXLearning.assets/image-20210404191528289.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404191528289">
+	</a>
+	
+	<figcaption>image-20210404191528289</figcaption>
+	
+</figure></p>
+<p>弹出窗体</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404193546211.png" >
+		<img src="/VXLearning.assets/image-20210404193546211.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404193546211">
+	</a>
+	
+	<figcaption>image-20210404193546211</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404193554023.png" >
+		<img src="/VXLearning.assets/image-20210404193554023.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404193554023">
+	</a>
+	
+	<figcaption>image-20210404193554023</figcaption>
+	
+</figure></p>
+<p>加载窗体 , 等待时间 , 图标 成功的事件</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404193628433.png" >
+		<img src="/VXLearning.assets/image-20210404193628433.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404193628433">
+	</a>
+	
+	<figcaption>image-20210404193628433</figcaption>
+	
+</figure></p>
+<p>弹出确定/取消按钮</p>
+<p>click事件判定</p>
+<p>页面跳转事件并且传参</p>
+<p>两种方式</p>
+<p>1.<figure 
+	>
+	<a href="/VXLearning.assets/image-20210404195554226.png" >
+		<img src="/VXLearning.assets/image-20210404195554226.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404195554226">
+	</a>
+	
+	<figcaption>image-20210404195554226</figcaption>
+	
+</figure></p>
+<p>2.<figure 
+	>
+	<a href="/VXLearning.assets/image-20210404195605659.png" >
+		<img src="/VXLearning.assets/image-20210404195605659.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404195605659">
+	</a>
+	
+	<figcaption>image-20210404195605659</figcaption>
+	
+</figure></p>
+<p>携带数据</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404195614999.png" >
+		<img src="/VXLearning.assets/image-20210404195614999.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404195614999">
+	</a>
+	
+	<figcaption>image-20210404195614999</figcaption>
+	
+</figure></p>
+<p>js中处理</p>
+<p>通过webapi获取后端数据</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404212911407.png" >
+		<img src="/VXLearning.assets/image-20210404212911407.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404212911407">
+	</a>
+	
+	<figcaption>image-20210404212911407</figcaption>
+	
+</figure></p>
+<p>xy+5x/2+20y/2 = (5+y)(20+x)/2</p>
+<p>100 + 5x + 20 y +xy = 2xy + 5x + 20y</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210404213731063.png" >
+		<img src="/VXLearning.assets/image-20210404213731063.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210404213731063">
+	</a>
+	
+	<figcaption>image-20210404213731063</figcaption>
+	
+</figure></p>
+<p>webapi采用的是.net 5.0 使用efcore , 所以和原来的略有不同呢 亲爱的 , 例如使用依赖诸如, appconnectionstring得写在不同的地方,在静默管道里添加sqlserver服务,并且指定特定的dbcontext,以及重构一下dbcontext的构造函数等等,此外还需要额外添加efsqlserver的nuget包</p>
+<p>video标签 以及填充样式</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405105945483.png" >
+		<img src="/VXLearning.assets/image-20210405105945483.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405105945483">
+	</a>
+	
+	<figcaption>image-20210405105945483</figcaption>
+	
+</figure></p>
+<p>image标签以及宽度修正样式</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405110043711.png" >
+		<img src="/VXLearning.assets/image-20210405110043711.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405110043711">
+	</a>
+	
+	<figcaption>image-20210405110043711</figcaption>
+	
+</figure></p>
+<p>数值回传以及样式绑定</p>
+<p>在data里绑定静态数据</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405110238337.png" >
+		<img src="/VXLearning.assets/image-20210405110238337.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405110238337">
+	</a>
+	
+	<figcaption>image-20210405110238337</figcaption>
+	
+</figure></p>
+<p>在wxml里利用wx:for来遍历data中的静态数据</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405110319681.png" >
+		<img src="/VXLearning.assets/image-20210405110319681.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405110319681">
+	</a>
+	
+	<figcaption>image-20210405110319681</figcaption>
+	
+</figure></p>
+<p>通过插值判断是否页签被选中,以及页签颜色样式修正</p>
+<p>data-id传值</p>
+<p>selectbar方法处理</p>
+<p>传值处都要用插值法包裹 实际上很像java的模版引擎</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405110458011.png" >
+		<img src="/VXLearning.assets/image-20210405110458011.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405110458011">
+	</a>
+	
+	<figcaption>image-20210405110458011</figcaption>
+	
+</figure></p>
+<p>携带id值过来,处理data中的静态typeindex</p>
+<p>使用wx:if wx:else wx:for配合block来进行内容展示</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405152741173.png" >
+		<img src="/VXLearning.assets/image-20210405152741173.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405152741173">
+	</a>
+	
+	<figcaption>image-20210405152741173</figcaption>
+	
+</figure></p>
+<p>data中展示新闻的content</p>
+<p>view界面中使用wx：for来遍历newslist</p>
+<p>使用插值法取数据</p>
+<p>使用wx:if和else配合使用</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405152813430.png" >
+		<img src="/VXLearning.assets/image-20210405152813430.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405152813430">
+	</a>
+	
+	<figcaption>image-20210405152813430</figcaption>
+	
+</figure></p>
+<p>模拟后端接收数据,onload操作</p>
+<p>并且存入data中</p>
+<p>并且在前端将data中的值取出来展示</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405154550041.png" >
+		<img src="/VXLearning.assets/image-20210405154550041.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405154550041">
+	</a>
+	
+	<figcaption>image-20210405154550041</figcaption>
+	
+</figure></p>
+<p>通过wx：request方法获取，通过success回调函数来将值存入data中</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405154625869.png" >
+		<img src="/VXLearning.assets/image-20210405154625869.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405154625869">
+	</a>
+	
+	<figcaption>image-20210405154625869</figcaption>
+	
+</figure></p>
+<p>接着就是前端的wxml去取数据啦</p>
+<p>wx:for 需要配合wx:key 使用以提高性能</p>
+<p>否则默认将以index为检索</p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405162607882.png" >
+		<img src="/VXLearning.assets/image-20210405162607882.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405162607882">
+	</a>
+	
+	<figcaption>image-20210405162607882</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/VXLearning.assets/image-20210405162912572.png" >
+		<img src="/VXLearning.assets/image-20210405162912572.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210405162912572">
+	</a>
+	
+	<figcaption>image-20210405162912572</figcaption>
+	
+</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

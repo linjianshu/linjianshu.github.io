@@ -6,7 +6,357 @@
     <description>Recent content in Posts on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Aug 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Sep 2021 00:33:33 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RedisLearning</title>
+      <link>https://linjianshu.github.io/p/redislearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:33:33 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/redislearning/</guid>
+      <description>Redis学习文档 nosql讲解
+阿里巴巴架构演进
+nosql数据模型
+nosql四大分类
+cap
+base
+redis入门
+redis安装
+五大基本数据类型
+string
+list
+set
+hash
+zset
+三种特殊数据类型
+geo
+hyperloglog
+bitmap
+Redis配置详解
+redis持久化
+rdb
+aof
+redis事务操作
+redis实现订阅发布
+redis主从复制
+redis哨兵模式
+缓存穿透及解决方案
+缓存击穿及解决方案
+缓存雪崩及解决方案
+基础api之jedis详解
+springboot继承redis操作
+redis的实践分析
+nosql概述
+大数据时代，一般的数据库无法进行分析处理了！
+springboot+springcloud
+1.单机mysql年代
+app=&amp;gt;dal=&amp;gt;mysql
+90年代静态网页html 服务器没有太大的压力
+1.数据量如果太大，一台机器放不下了
+2.数据的索引 300万条就一定要建立索引，那么一个机器的内存放不下
+3.访问量，读写混合，一个服务器受不了
+2.Memcached（缓存）mysql+垂直拆分（读写分离）
+网站80%都在读，如果每次去查询数据库的话就十分的麻烦！所以说我们希望减轻数据的压力，我们可以使用缓存来保证效率
+image-20200923185840123
+发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
+3.分库分表+水平拆分+mysql集群
+image-20200923190414174
+本质：数据库（读写）
+早些年mysiam：表锁（影响效率），高并发下出现严重的锁问题
+早些年innodb：行锁，慢慢的就开始使用分库分表来解决写的压力！mysql在那个年代推出了表分区，这个并没有多少公司使用！
+mysql的集群，很好的满足了那个年代的所有需求！
+4.如今最近的年代
+技术爆炸：
+2000-2010：十年间，变化太快了（热榜、音乐）
+mysql等关系型数据库就不够用了！数据量很多，变化很快！
+mysql有的使用它来存储一些比较大的文件、播客、图片！数据库表很大，效率就很低了
+如果有一种数据库来专门处理这种数据，mysql的压力就会变得十分小，（研究如何处理这些问题）大数据的io压力下，表几乎没法更改，
+ 目前一个基本互联网项目！
+ image-20200923191743309</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQLearning</title>
+      <link>https://linjianshu.github.io/p/rabbitmqlearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:29:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/rabbitmqlearning/</guid>
+      <description>RabbiMQ学习文档 rabbitMQ是遵循amqp协议的一个erlang实现。
+amqp协议：高级消息队列协议
+http协议：request、response
+telnet协议：经常用来查看某一台ip上的指定端口是否是ping通的【远程登陆协议】
+AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
+ connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制  详细设计书一样
+image-20201026164558077
+image-20201026164701153
+延时处理，拉长时间
+以更长的时间来换取堆积的业务逻辑
+异步处理：响应很快，增加服务器承载能力
+流量削峰：
+扩展性：UI和业务的解耦，可以独立演化
+高可用：处理器发生故障以后，不会影响可用性
+缺陷：
+即时性降低，降低了用户体验&amp;mdash;无法避免；业务上来屈服；
+复杂性提高
+vhost：避免命名冲突
+exchange：
+ direct headers topic fanout  image-20201026211929666
+在windows上是一个服务</description>
+    </item>
+    
+    <item>
+      <title>ApsDotnetCoreMVCLearning</title>
+      <link>https://linjianshu.github.io/p/apsdotnetcoremvclearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:28:25 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/apsdotnetcoremvclearning/</guid>
+      <description>asp .net core mvc 学习文档 控制器向界面传值 通过viewbag/viewdata 来进行弱传递
+controller中:
+image-20210421230444662
+index中:
+image-20210421230455113
+通过model进行强类型传递
+controller中:
+image-20210421230520009
+index中:
+@model IEnumerable&amp;lt;webmvcdemo.Models.Movie&amp;gt; &amp;lt;form asp-controller=&amp;#34;Movies&amp;#34; asp-action=&amp;#34;Index&amp;#34; &amp;gt; &amp;lt;p&amp;gt; &amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; @foreach (var item in typeof(Movie).GetProperties()) { &amp;lt;option value=@item.Name&amp;gt;@item.Name&amp;lt;/option&amp;gt; } &amp;lt;/select&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/form&amp;gt; 界面向控制器传参 通过name来准确传递
+index:
+&amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; 控制器中:
+image-20210421230911623
+通过定位点标记帮助程序
+https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-5.0#asp-route-value
+Razor语法 使用@符号将c#转化为html代码提供展示 显式/隐式razor表达式 razor代码块 ​	Razor 代码块以开头 @ ，并由括起来 {} 。 代码块内的 C# 代码不会呈现，这点与表达式不同。 一个视图中的代码块和表达式共享相同的作用域并按顺序进行定义</description>
+    </item>
+    
+    <item>
+      <title>BlazorLearning</title>
+      <link>https://linjianshu.github.io/p/blazorlearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:27:56 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/blazorlearning/</guid>
+      <description>Blazor学习文档 调用webapi
+ httpclient ihttpclientfactory  数据绑定
+  单项绑定
+  双向绑定
+  &amp;lt;input @bind = &amp;#34;CurrentValue&amp;#34; /&amp;gt; &amp;lt;input @bind = &amp;#34;CurrentValue&amp;#34; @bind:event = &amp;#34;oninput&amp;#34;     &amp;lt;h1&amp;gt;单向绑定&amp;lt;/h1&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;@Apsdetail.ProductBornCode&amp;lt;/h2&amp;gt; &amp;lt;h2&amp;gt;@Apsdetail.ProcedureCode&amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h3&amp;gt;@Apsdetail.ProductBornCode&amp;lt;/h3&amp;gt; &amp;lt;h3&amp;gt;@Apsdetail.ProcedureCode&amp;lt;/h3&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;hr /&amp;gt; &amp;lt;h1&amp;gt;双向绑定&amp;lt;/h1&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h3&amp;gt;产品出生证&amp;lt;/h3&amp;gt; &amp;lt;input @bind=&amp;#34;@Apsdetail.ProductBornCode&amp;#34; /&amp;gt; &amp;lt;h3&amp;gt;工序编号&amp;lt;/h3&amp;gt; &amp;lt;input @bind=&amp;#34;@Apsdetail.ProcedureCode&amp;#34; /&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;h2&amp;gt;不同的触发event:&amp;lt;/h2&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h3&amp;gt;产品出生证&amp;lt;/h3&amp;gt; &amp;lt;input @bind=&amp;#34;@Apsdetail.ProductBornCode&amp;#34; @bind:event=&amp;#34;oninput&amp;#34;/&amp;gt; &amp;lt;h3&amp;gt;工序编号&amp;lt;/h3&amp;gt; &amp;lt;input @bind=&amp;#34;@Apsdetail.ProcedureCode&amp;#34; @bind:event=&amp;#34;oninput&amp;#34; /&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;button @onclick=&amp;#34;@button_click&amp;#34;&amp;gt;click&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; EditForm</description>
+    </item>
+    
+    <item>
+      <title>VXLearning</title>
+      <link>https://linjianshu.github.io/p/vxlearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:27:43 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/vxlearning/</guid>
+      <description>小程序组件
+view标签 类比p便签
+text标签 类比span标签
+selecttable :文档是否可选
+image-20210404164128223
+decode标签 :选中＆ｎｂｓｐ；/lt/gt/amp.apos/ensp/emsp这样的可以识别出来
+button标签:
+​	type: primary / default / warn
+image-20210404164342281
+​	form-type=&amp;ldquo;submit&amp;rdquo;/reset
+​	open-type getuserinfo/getphonenumber/contact
+image-20210404164741208
+checkbox image-20210404165141036
+开闭标签,可以在开闭标签内写上复选文字内容
+value可以填入真实的值
+checkboxgroup
+radio单选按钮
+开闭标签 , value可以填入真实的值 , 实现单选需要配合实现radiogroup
+image-20210404165511648
+block标签
+​	标签块 , 其本身不会被渲染到页面中 , 只有内部的标签会被渲染进html页面
+image-20210404170226484
+image-20210404171030254
+绑定事件+编写js方法
+image-20210404183815644
+image-20210404183822112
+data的数据绑定以及数据更新
+image-20210404185119026</description>
+    </item>
+    
+    <item>
+      <title>ComputerZCYLLearning</title>
+      <link>https://linjianshu.github.io/p/computerzcyllearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:26:49 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/computerzcyllearning/</guid>
+      <description>计算机组成原理学习文档 CPU
+内存
+硬盘
+主板
+计算机硬件识别数据
+高低电平0/1
+通过电信号传递数据
+金属针脚：传递电信号用的通道
+通过很多条电路，可以传递多个二进制数位，每个二进制数位称为1bit比特
+文字、数字、图像如何用二进制表示
+如何存储二进制数
+CPU如何对二进制数字进行加减乘除
+如何从内存中取出想要的数据
+CPU如何识别和执行我们写的程序
+计算机系统 = 硬件 + 软件
+硬件是计算机的实体，软件由具有各类特殊功能的程序组成
+计算机性能的好坏取决于软硬件功能的总和
+软件
+  系统软件：用来管理整个计算机系统
+ 操作系统、DBMS、标准程序库、网络软件、语言处理程序、服务程序    应用软件
+ 按照任务需要编制成的各种程序    硬件的发展
+第一台电子数字计算机 ENIAC1946 冯诺依曼
+逻辑元件：电子管
+第一代：电子管时代 纸带机编程
+第二代：晶体管 开始出现操作系统 开始出现高级语言
+第三代：中小规模集成电路 高级语言迅速发展 开始出现分时操作系统
+第四代：大规模、超大规模集成电路 出现微处理器、微型计算机、个人计算机PC萌芽 、 操作系统
+微处理器的发展：
+机器字长：计算机一次整数运算所能处理的二进制位数
+摩尔定律：揭示了信息技术进步的速度，集成电路上可容纳的晶体管数目，约每隔18个月就会增加一倍，整体性能也将提升一倍
+软件的发展：
+机器语言010101=&amp;gt;汇编语言=&amp;gt;FORTRAN/PASCAL/C++=&amp;gt;java、python
+DOC操作系统=&amp;gt;windows、android、ios
+目前的发展趋势：
+两极分化：
+1.微型计算机更微型化、网络化、高性能、多用途方向发展
+2.巨型化、超高速、并行处理、智能化方向发展
+计算机硬件的基本组成：
+1.早期冯诺依曼的结构
+2.现代计算机的结构
+ENIAC手动接线来控制计算
+冯诺依曼：”存储程序“的概念是指将指令以二进制代码的形式事先输入计算机的主存储器（内存），然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直至程序执行结束。
+早期冯诺依曼机：</description>
+    </item>
+    
+    <item>
+      <title>C#LinuxDeployLearning</title>
+      <link>https://linjianshu.github.io/p/c#linuxdeploylearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:25:03 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/c#linuxdeploylearning/</guid>
+      <description>Linux学习 如果是阿里云记得配置安全组!!!
+css js 静态文件都在wwwroot中,所以如果后台启动或者使用mvcTest.dll 的话会无法找到静态文件 因为静态文件的层级在她们上面一层 , 所以要cp一份wwwroot到存放dll那一层中 , 这样就可以看到样式了!!!
+windows倾向于GUI操作，windows下的命令到了linux下不一定能用
+windows有扩展名，linux中可以没有扩展名
+windows不区分大小写，linux区分大小写
+linux不同版本使用方法配置文件变化很大，要反复查找和调试
+linux内核和发行版
+linux内核是由linus及开源社区维护，内核包含内存管理、存储管理、进程管理、网络通讯等基础模块。很多公司、开元组织基于linux内核打包出很多发行版，不同的发行版的内核版本可能不一致，包含的软件也不一致，界面差别较大，但是命令行操作时互通的，大部分程序也是互通的。
+内核和发行版的关系就像android内核和小米手机系统、华为手机系统的关系一样。常用的发行版有redhat、centos、debian、ubuntu等等。这里我们用ubuntu，因为其内置的软件最适合程序员，其他发行版要自己装。
+linux常见命令
+windows有多根目录
+linux是单根
+常用目录
+boot 存放用于系统引导时的各种文件
+bin 存放二进制可执行文件 例如ls，cat，mkdir等等
+sbin 存放二进制可执行文件，只有root用户才能访问
+usr 用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录
+opt 额外安装的可选应用程序包所放置的位置
+dev用于存放设备文件
+etc存放系统配置文件
+home存放所有用户文件的根目录
+lib存放跟文件系统中的程序运行所需要的共享库及内核模块
+tmp 用于存放各种临时文件
+var 用于存放运行时需要改变数据的文件
+mnt 安装临时文件系统的安装点
+常见命令
+pwd 显示当前工作目录 print working directory
+ls 目录
+cd 更改目录 cd .. 返回上级目录 cd / 返回根目录 cd 文件夹 进入文件夹
+mkdir 创建目录
+rmdir 目录名 删除非空目录
+rm-r 目录名 删除目录及其下目录与文件（递归删除）</description>
+    </item>
+    
+    <item>
+      <title>DockerLearning</title>
+      <link>https://linjianshu.github.io/p/dockerlearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:23:34 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/dockerlearning/</guid>
+      <description>docker学习   docker概述
+  docker安装
+  docker命令
+ 镜像命令 容器命令 操作命令 &amp;hellip;    docker镜像
+  容器数据卷
+  dockerfile
+  docker网络原理
+  idea整合docker
+  以上单机版本docker
+ 集群 docker compose docker swarm 简化版k8s ci/cd jenkins  docker概述
+开发&amp;ndash;上线 两套环境 应用环境，应用配置
+开发人员 运维人员
+开发即运维！
+环境配置麻烦，每个机器都要部署环境（集群redis、es、hadoop&amp;hellip;）费事费力
+发布项目 jar（redis mysql jdk es） war
+jar带上环境进行发布，项目能不能带上环境安装打包
+之前在服务器配置一个应用的环境 redis mysql jdk es hadoop ，配置超麻烦，不能跨平台
+windows与linux
+传统：开发提供jar 运维部署环境
+现在：开发打包部署上线，一套流程做完</description>
+    </item>
+    
+    <item>
+      <title>DataStructionLearning</title>
+      <link>https://linjianshu.github.io/p/datastructionlearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:22:19 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/datastructionlearning/</guid>
+      <description>数据结构与算法 解决问题方法的效率，跟数据的组织方式有关。
+循环和递归
+解决问题方法的效率，跟空间的利用效率有关。
+image-20210818161452286
+image-20210818162018882
+解决问题方法的效率，跟算法的巧妙程度有关
+数据结构 数据对象在计算机中的组织方式
+ 逻辑结构：线性结构和树结构、图结构 物理存储结构：数组、链表  数据对象必定与一系列加在其上的操作相关联
+完成这些操作所用的方法就是算法
+抽象数据类型(Abstract Data Type)  数据类型  数据对象集 数据集合相关联的操作集   抽象：描述数据类型的方法不依赖于具体实现  与存放数据的机器无关 与数据存储的物理结构无关 与实现操作的算法和编程语言均无关    只描述数据对象集和相关操作集是什么，并不涉及如何做到的问题
+抽象 image-20210818163548512
+算法  一个有限指令集 接收一些输入（有些情况下不需要输入） 产生输出 一定在有限步骤之后终止 每一条指令必须  有充分明确的目标，不可以有歧义 计算机能处理的范围之内 描述应不依赖与任何一种计算机语言以及具体的实现手段    image-20210818164049310
+什么是好算法  空间复杂度sn  根据算法写成的程序在执行时占用存储单元的长度。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。
+ 时间复杂度Tn  根据算法写成的程序在执行时耗费时间的长度。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行结果。
+递归的时候会占用内存，因为递归下一层的时候要暂存上一层的结果
+Sn = C*N</description>
+    </item>
+    
+    <item>
+      <title>GoLearning</title>
+      <link>https://linjianshu.github.io/p/golearning/</link>
+      <pubDate>Wed, 01 Sep 2021 00:17:57 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/golearning/</guid>
+      <description>Go语言学习 alt+enter
+ctrl+space
+ctrl+shift+space
+ctrl+alt+L
+ctrl+alt+M重构
+F2查看错误
+alt+6查看问题
+ctrl+shift+/
+alt+F8 评估表达式
+ctrl+F8 切换断点
+环境搭建，编译之后生成可执行exe文件，就可以直接使用了
+image-20210725102106105
+image-20210725102139391
+编译
+使用 go build
+1.在项目目录下执行go build
+2.在其他路径下执行go build ，需要在后面加上项目的路径（项目路径从gopath/src后开始写起，编译之后的可执行文件就保存在当前目录下）
+3.go build -o hello.exe
+go run
+像执行脚本文件一样执行go代码
+go install
+分为两步：
+1.先编译得到一个可执行文件
+2.将可执行文件拷贝到gopath的bin目录
+交叉编译，可以跨平台跑程序
+例如在windows平台编译一个能在linux平台上执行的可执行文件
+这个似乎要在源文件位置处使用cmd命令操作,并且要用大写!!!
+E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET CGO_ENABLE=0 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOOS=linux E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOARCH=amd64 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;go build image-20210725103733683
+go语言的基本结构
+package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数 //函数外部只能放置标识符（变量、常量、函数、类型）的声明 func main() { fmt.Println(&amp;#34;hello world&amp;#34;) } 变量和常量</description>
+    </item>
+    
     <item>
       <title>My First Post</title>
       <link>https://linjianshu.github.io/p/my-first-post/</link>
