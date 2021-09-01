@@ -3820,8 +3820,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;末行模式 按： 进入末行模式  w写 q退出&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626201259638.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626201259638.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626201259638.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626201259638.png&#34;
 			
 			
 			
@@ -3875,8 +3875,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;service mysql start&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626211935982.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626211935982.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626211935982.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626211935982.png&#34;
 			
 			
 			
@@ -3892,8 +3892,8 @@ setnx(set if not exist)  #不存在设置
 &lt;ol&gt;
 &lt;li&gt;编辑mysql的配置文件mysqld.cnf ， 由于mysql是系统服务，因此需要以su 运行vi , 才有权限，执行sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf ， 由于不同mysql版本配置文件的位置可能不一样，因此最好的找路径的方式就是cd / dir 一级级的看看。linux下不同版本差异性很大，之前查资料都是改/etc/mysql/conf.d/mysql.cnf ，但是使用status；命令查询mysql版本之后搜索mysql5.7 远程访问，就可以找到正确的做法&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626212914858.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626212914858.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626212914858.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626212914858.png&#34;
 			
 			
 			
@@ -3914,8 +3914,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;&lt;strong&gt;在4之前，由于这个版本的mysql密码是空的，所以没办法呜呜呜，需要改个密码&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626220925687.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626220925687.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626220925687.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626220925687.png&#34;
 			
 			
 			
@@ -3930,8 +3930,8 @@ setnx(set if not exist)  #不存在设置
     &gt;MySQL 8.0 安装后修改root@localhost的默认空密码 - 汉家羽林郎 - 博客园 (cnblogs.com)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626220955199.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626220955199.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626220955199.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626220955199.png&#34;
 			
 			
 			
@@ -3948,8 +3948,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;mysql8.0之后必须要先创建用户，然后才能授权&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626232148904.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210626232148904.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626232148904.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210626232148904.png&#34;
 			
 			
 			
@@ -3998,8 +3998,8 @@ setnx(set if not exist)  #不存在设置
 &lt;/ol&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627111809617.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627111809617.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627111809617.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627111809617.png&#34;
 			
 			
 			
@@ -4012,8 +4012,8 @@ setnx(set if not exist)  #不存在设置
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627112544733.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627112544733.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627112544733.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627112544733.png&#34;
 			
 			
 			
@@ -4027,8 +4027,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;也可以执行debug里的dll文件，linux没有exe哈，执行dll就可以了&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627113402515.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627113402515.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627113402515.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627113402515.png&#34;
 			
 			
 			
@@ -4065,8 +4065,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;修改默认端口绑定的方法：再program.cs的build之前加入useurls(&amp;ldquo;http://*.5001&amp;rdquo;);&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627121128266.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627121128266.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627121128266.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627121128266.png&#34;
 			
 			
 			
@@ -4080,8 +4080,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;新版有点区别&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627121508698.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627121508698.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627121508698.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627121508698.png&#34;
 			
 			
 			
@@ -4096,8 +4096,8 @@ setnx(set if not exist)  #不存在设置
     &gt;https://blog.csdn.net/zxy13826134783/article/details/105908201/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627121540245.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627121540245.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627121540245.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627121540245.png&#34;
 			
 			
 			
@@ -4111,8 +4111,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;ECS做到了呜呜呜&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627122036170.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627122036170.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627122036170.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627122036170.png&#34;
 			
 			
 			
@@ -4131,8 +4131,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;kill -9 PID（进程id就行了）&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627154748097.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627154748097.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627154748097.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627154748097.png&#34;
 			
 			
 			
@@ -4150,8 +4150,8 @@ setnx(set if not exist)  #不存在设置
 &lt;/ol&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627114214395.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627114214395.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627114214395.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627114214395.png&#34;
 			
 			
 			
@@ -4183,8 +4183,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;windows下可以直接使用命令行来建立项目，就像linux下操作的一样&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627162043186.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627162043186.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627162043186.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627162043186.png&#34;
 			
 			
 			
@@ -4198,8 +4198,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;发布dotnet publish&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627162548407.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627162548407.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627162548407.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627162548407.png&#34;
 			
 			
 			
@@ -4222,8 +4222,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;远程桌面需要启动一下xrdp服务&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627195747795.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627195747795.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627195747795.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627195747795.png&#34;
 			
 			
 			
@@ -4256,8 +4256,8 @@ setnx(set if not exist)  #不存在设置
 &lt;/ol&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627202824466.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627202824466.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627202824466.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627202824466.png&#34;
 			
 			
 			
@@ -4270,8 +4270,8 @@ setnx(set if not exist)  #不存在设置
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627203154894.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627203154894.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627203154894.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627203154894.png&#34;
 			
 			
 			
@@ -4285,8 +4285,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;对着主项目运行&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627203449885.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210627203449885.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627203449885.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210627203449885.png&#34;
 			
 			
 			
@@ -4313,8 +4313,8 @@ setnx(set if not exist)  #不存在设置
 &lt;p&gt;注：可以通过发布到FTP、FTPS服务器上的方式，来试试看，端口是21&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210630110707778.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210630110707778.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210630110707778.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210630110707778.png&#34;
 			
 			
 			
@@ -4331,8 +4331,8 @@ setnx(set if not exist)  #不存在设置
 chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210630230743574.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210630230743574.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210630230743574.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210630230743574.png&#34;
 			
 			
 			
@@ -4359,8 +4359,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeline&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210630235351891.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210630235351891.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210630235351891.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210630235351891.png&#34;
 			
 			
 			
@@ -4394,8 +4394,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;p&gt;selfhost&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701213916890.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701213916890.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701213916890.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701213916890.png&#34;
 			
 			
 			
@@ -4418,8 +4418,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;p&gt;因为这样的话可以在myservcice中通过构造函数注入其他服务&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701215502596.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701215502596.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701215502596.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701215502596.png&#34;
 			
 			
 			
@@ -4432,8 +4432,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701215509943.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701215509943.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701215509943.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701215509943.png&#34;
 			
 			
 			
@@ -4446,8 +4446,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701215618664.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210701215618664.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701215618664.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210701215618664.png&#34;
 			
 			
 			
@@ -4463,8 +4463,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;p&gt;就恨他吗离谱 ， 注意运行时 ，不能选择可移植&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210702000338015.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210702000338015.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210702000338015.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210702000338015.png&#34;
 			
 			
 			
@@ -4480,8 +4480,8 @@ chmod -R 777 srv/ftp&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;单元测试&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
-	&lt;a href=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210722203914320.png&#34; &gt;
-		&lt;img src=&#34;https://linjianshu.github.io/C#LinuxDeployLearning.assets/image-20210722203914320.png&#34;
+	&lt;a href=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210722203914320.png&#34; &gt;
+		&lt;img src=&#34;https://linjianshu.github.io/C%23LinuxDeployLearning.assets/image-20210722203914320.png&#34;
 			
 			
 			
@@ -4801,9 +4801,13 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;常用其他命令&lt;/p&gt;
 &lt;p&gt;后台启动&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run -d centos docker容器使用后台运行，就必须要有一个前台进程，docker发现没有应用，就会自动停止dockerlogs 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run -d centos 
+docker容器使用后台运行，就必须要有一个前台进程，docker发现没有应用，就会自动停止
+
+dockerlogs 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看容器当中的进程信息&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker top 命令docker inspect 容器id 查看容器信息
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker top 命令
+docker inspect 容器id 查看容器信息
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210609223653271.png&#34; &gt;
@@ -4819,7 +4823,14 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;进入当前正在进行的容器&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it 容器id docker attach 容器id正在执行当前的代码exec进入容器后开启一个新的终端，可以在里面操作（常用）attach 进入容器正在执行的终端，不会启动新的进程
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置
+docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it 容器id 
+docker attach 容器id
+正在执行当前的代码
+
+
+exec进入容器后开启一个新的终端，可以在里面操作（常用）
+attach 进入容器正在执行的终端，不会启动新的进程
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210609224319430.png&#34; &gt;
@@ -4850,7 +4861,41 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210609230304773&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;当前主机目录root@yourtreedad:~# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /homeroot@yourtreedad:/home#  lskuanshen.java  test.javaroot@yourtreedad:/home# touch kuangshen.javaroot@yourtreedad:/home#  lskuangshen.java  kuanshen.java  test.java进入容器内部root@yourtreedad:/home# docker attach 3a26ef468c27&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd /homebash: cd: $&amp;#39;\343/home&amp;#39;: No such file or directory[root@3a26ef468c27 /]# lsbin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var[root@3a26ef468c27 /]# cd /home[root@3a26ef468c27 home]# ls创建文件[root@3a26ef468c27 home]# touch test1.java[root@3a26ef468c27 home]# lstest1.java退出容器[root@3a26ef468c27 home]# exitexitroot@yourtreedad:/home# docker psCONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMESroot@yourtreedad:/home# docker ps -aCONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS               NAMES3a26ef468c27        centos              &amp;#34;/bin/bash&amp;#34;         20 minutes ago      Exited (0) 16 seconds ago                            suspicious_wilburcee72dcd9187        centos              &amp;#34;-it /bin/bash&amp;#34;     21 minutes ago      Created                                              eager_einstein73d060aad5ac        centos              &amp;#34;/bin/bash&amp;#34;         27 hours ago        Exited (255) About an hour ago                       optimistic_leakey从容器内拷贝文件至主机root@yourtreedad:/home# docker cp 3a26ef468c27:/home/test1.java /homeroot@yourtreedad:/home# lskuangshen.java  kuanshen.java  test.java  test1.java拷贝是一个手动过程，未来我们使用 -v 卷的技术，可以实现自动同步&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;当前主机目录
+root@yourtreedad:~# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /home
+root@yourtreedad:/home#  ls
+kuanshen.java  test.java
+root@yourtreedad:/home# touch kuangshen.java
+root@yourtreedad:/home#  ls
+kuangshen.java  kuanshen.java  test.java
+
+进入容器内部
+root@yourtreedad:/home# docker attach 3a26ef468c27
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd /home&lt;/span&gt;
+bash: cd: &lt;span class=&#34;s1&#34;&gt;$&amp;#39;\343/home&amp;#39;&lt;/span&gt;: No such file or directory
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd /home&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+创建文件
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# touch test1.java&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+test1.java
+退出容器
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@3a26ef468c27 home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# exit&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+root@yourtreedad:/home# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+root@yourtreedad:/home# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                           PORTS               NAMES
+3a26ef468c27        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; minutes ago      Exited &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; seconds ago                            suspicious_wilbur
+cee72dcd9187        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;-it /bin/bash&amp;#34;&lt;/span&gt;     &lt;span class=&#34;m&#34;&gt;21&lt;/span&gt; minutes ago      Created                                              eager_einstein
+73d060aad5ac        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;27&lt;/span&gt; hours ago        Exited &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;255&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; About an hour ago                       optimistic_leakey
+从容器内拷贝文件至主机
+root@yourtreedad:/home# docker cp 3a26ef468c27:/home/test1.java /home
+root@yourtreedad:/home# ls
+kuangshen.java  kuanshen.java  test.java  test1.java
+拷贝是一个手动过程，未来我们使用 -v 卷的技术，可以实现自动同步
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker命令很多，以上是最常用的&lt;/p&gt;
 &lt;p&gt;docker安装nginx&lt;/p&gt;
 &lt;p&gt;1.搜索镜像&lt;/p&gt;
@@ -4903,12 +4948,54 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;思考问题：每次改动nignx配置文件，都需要进入容器内部？都十分麻烦，我要是可以在容器外部提供一个映射路径，达到在容器外部修改文件，容器内部就可以自动修改？  -v 数据卷技术&lt;/p&gt;
 &lt;p&gt;docker装一个tomcat&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run -it --rm tomcat:9.0之前的启动都是后台，停止了容器之后，容器还是可以查到docker run -it --rm 一般用来测试，用完就删除进入容器PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker run -d -p 3355:8080 --name tomcat01 tomcatc42f39b1590834eb3720faa3cee74b79a909550fe02bc2ed383676908c3accf2PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat01 /bin/bashroot@c42f39b15908:/usr/local/tomcat# lslinux命令少了没有webapps阿里云镜像原因，默认是最小的镜像，所有的不必要的都剔除了。保证最小可运行的环境root@c42f39b15908:/usr/local/tomcat/webapps# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..root@c42f39b15908:/usr/local/tomcat# lsBUILDING.txt     LICENSE  README.md      RUNNING.txt  conf  logs            temp     webapps.distCONTRIBUTING.md  NOTICE   RELEASE-NOTES  bin          lib   native-jni-lib  webapps  workroot@c42f39b15908:/usr/local/tomcat# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; webapps.distroot@c42f39b15908:/usr/local/tomcat/webapps.dist# lsROOT  docs  examples  host-manager  managerroot@c42f39b15908:/usr/local/tomcat/webapps.dist# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..root@c42f39b15908:/usr/local/tomcat# cp -r webapps.dist/* webappsroot@c42f39b15908:/usr/local/tomcat# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; webappsroot@c42f39b15908:/usr/local/tomcat/webapps# lsROOT  docs  examples  host-manager  manager
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run -it --rm tomcat:9.0
+之前的启动都是后台，停止了容器之后，容器还是可以查到
+docker run -it --rm 一般用来测试，用完就删除
+
+进入容器
+PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker run -d -p 3355:8080 --name tomcat01 tomcat
+c42f39b1590834eb3720faa3cee74b79a909550fe02bc2ed383676908c3accf2
+PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat01 /bin/bash
+root@c42f39b15908:/usr/local/tomcat# ls
+linux命令少了
+没有webapps
+阿里云镜像原因，默认是最小的镜像，所有的不必要的都剔除了。
+保证最小可运行的环境
+
+
+root@c42f39b15908:/usr/local/tomcat/webapps# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
+root@c42f39b15908:/usr/local/tomcat# ls
+BUILDING.txt     LICENSE  README.md      RUNNING.txt  conf  logs            temp     webapps.dist
+CONTRIBUTING.md  NOTICE   RELEASE-NOTES  bin          lib   native-jni-lib  webapps  work
+root@c42f39b15908:/usr/local/tomcat# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; webapps.dist
+root@c42f39b15908:/usr/local/tomcat/webapps.dist# ls
+ROOT  docs  examples  host-manager  manager
+root@c42f39b15908:/usr/local/tomcat/webapps.dist# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
+root@c42f39b15908:/usr/local/tomcat# cp -r webapps.dist/* webapps
+root@c42f39b15908:/usr/local/tomcat# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; webapps
+root@c42f39b15908:/usr/local/tomcat/webapps# ls
+ROOT  docs  examples  host-manager  manager
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以后要部署项目，如果每次都要进入容器是不是十分麻烦，要是可以在容器外部提供一个映射路径，达到在容器修改文件名，容器内部就可以自动修改？ -v 数据卷技术&lt;/p&gt;
 &lt;p&gt;webapps，在外部放置项目，就自动同步到内部就好了！！！&lt;/p&gt;
 &lt;p&gt;docker容器 tomcat+网站 docker+mysql&lt;/p&gt;
 &lt;p&gt;部署es+kibana&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;es暴露的端口很多es十分耗内存es的数据一般需要放置在安全目录！挂载--net somenetwork ? 网络配置下载启动docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;discovery.type=single-node&amp;#34;&lt;/span&gt;elasticsearch:7.6.2一启动就顶不住了，很好内存docker statuc 查看cpu的状态赶紧关闭，增加内存的限制，修改配置文件 -e 配置修改docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;discovery.type=single-node&amp;#34;&lt;/span&gt; -e &lt;span class=&#34;nv&#34;&gt;ES_JAVA_OPTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;-Xms64m -Xmx512m&amp;#34;&lt;/span&gt; elasticsearch:7.6.2环境配置
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;es暴露的端口很多
+es十分耗内存
+es的数据一般需要放置在安全目录！挂载
+
+--net somenetwork ? 网络配置
+
+下载启动
+docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;discovery.type=single-node&amp;#34;&lt;/span&gt;
+elasticsearch:7.6.2
+
+一启动就顶不住了，很好内存
+docker statuc 查看cpu的状态
+
+赶紧关闭，增加内存的限制，修改配置文件 -e 配置修改
+docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;discovery.type=single-node&amp;#34;&lt;/span&gt; -e &lt;span class=&#34;nv&#34;&gt;ES_JAVA_OPTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;-Xms64m -Xmx512m&amp;#34;&lt;/span&gt; elasticsearch:7.6.2
+环境配置
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;作业：使用kibana 连接elasticsearch&lt;/p&gt;
 &lt;p&gt;因为相互隔离，所以直接localhost来连不现实，可以使用linux内网ip来搞，需要了解docker网络原理，网络的基本知识&lt;/p&gt;
 &lt;p&gt;可视化&lt;/p&gt;
@@ -4922,7 +5009,12 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/ul&gt;
 &lt;p&gt;什么是portainer&lt;/p&gt;
 &lt;p&gt;docker图形化界面管理工具！提供一个后台面板，供我们操作！&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run -d -p 8088:9000 --restart&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;always -v /var/run/docker.sock:/var/run/docker.sock --privileged&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt; portainer/portainer访问测试 外网8088端口通过它来访问可视化面板，我们平时不会使用，测试玩玩即可
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run -d -p 8088:9000 --restart&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;always -v /var/run/docker.sock:/var/run/docker.sock --privileged&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt; portainer/portainer
+
+访问测试 外网8088端口
+通过它来访问
+
+可视化面板，我们平时不会使用，测试玩玩即可
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker镜像讲解&lt;/p&gt;
 &lt;p&gt;镜像是什么&lt;/p&gt;
 &lt;p&gt;镜像是一种轻量级、可执行的独立软件包，用来打包软件运行环境和基于运行环境开发的软件，它包含运行某个软件所需的所有内容，包括代码、运行时、库、环境变量和配置文件&lt;/p&gt;
@@ -4944,11 +5036,35 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;平时我们安装进虚拟机的centos都是好几个G，为什么docker这里才200M&lt;/p&gt;
 &lt;p&gt;对于一个精简的OS，rootfs可以很小，只需要包含最基本的命令，工具和程序库就可以了，因为底层直接用host的kernel，自己只需要提供rootfs就可以了，由此可见对于不同的linux发行版，bootfs基本是一致的，rootfs会有差别，因此不同的发行版本可以共用bootfs&lt;/p&gt;
 &lt;p&gt;分层理解&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker pull redisUsing default tag: latestlatest: Pulling from library/redis69692152171a: Already existsa4a46f2fd7e0: Pull completebcdf6fddc3bd: Pull complete2902e41faefa: Pull completedf3e1d63cdb1: Pull completefa57f005a60d: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker pull redis
+Using default tag: latest
+latest: Pulling from library/redis
+69692152171a: Already exists
+a4a46f2fd7e0: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+bcdf6fddc3bd: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+2902e41faefa: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+df3e1d63cdb1: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+fa57f005a60d: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们可以去下载一个镜像，注意观察下载的日志输出，可以看到是一层一层在下载的！&lt;/p&gt;
 &lt;p&gt;思考：为什么docker镜像要采用这种分层的结构呢？&lt;/p&gt;
 &lt;p&gt;最大的好处，我觉得莫过于是资源共享！比如有多个镜像都从相同的base镜像构建而来，那么宿主机只需要在磁盘上保留一份base镜像，同时内存中也只需要加载一份base镜像，这样就可以为所有的容器服务了，而且镜像的每一层都可以被共享&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;     &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;RootFS&amp;#34;&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;Type&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;layers&amp;#34;&lt;/span&gt;,            &lt;span class=&#34;s2&#34;&gt;&amp;#34;Layers&amp;#34;&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:02c055ef67f5904019f43a41ea5f099996d8e7633749b6e606c400526b2c4b33&amp;#34;&lt;/span&gt;,                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:ec5652c3523d96657d66169c0eb71b572ff065711c705a15ec02f60a21c212c3&amp;#34;&lt;/span&gt;,                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:76d3e24d63f60e6a73af70be15959eb4021dd7a5a09da6925037d3b4a1673fca&amp;#34;&lt;/span&gt;,                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:f06719b0aa43029f32c821c8f14f9f5941a8be6d3b61dcd9f3f884b39e9a4f23&amp;#34;&lt;/span&gt;,                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:b896f490f2edc62cc9d190465bbeab871619590d1e9beeffb92e4ca9cc08116d&amp;#34;&lt;/span&gt;,                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:e3f4077f577bf07c0940d6345ddd17014ff824d3f4f7f3effc9a8c4dae3e527b&amp;#34;&lt;/span&gt;            &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Metadata&amp;#34;&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;LastTagTime&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;0001-01-01T00:00:00Z&amp;#34;&lt;/span&gt;        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;     &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;RootFS&amp;#34;&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;s2&#34;&gt;&amp;#34;Type&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;layers&amp;#34;&lt;/span&gt;,
+            &lt;span class=&#34;s2&#34;&gt;&amp;#34;Layers&amp;#34;&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;
+                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:02c055ef67f5904019f43a41ea5f099996d8e7633749b6e606c400526b2c4b33&amp;#34;&lt;/span&gt;,
+                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:ec5652c3523d96657d66169c0eb71b572ff065711c705a15ec02f60a21c212c3&amp;#34;&lt;/span&gt;,
+                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:76d3e24d63f60e6a73af70be15959eb4021dd7a5a09da6925037d3b4a1673fca&amp;#34;&lt;/span&gt;,
+                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:f06719b0aa43029f32c821c8f14f9f5941a8be6d3b61dcd9f3f884b39e9a4f23&amp;#34;&lt;/span&gt;,
+                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:b896f490f2edc62cc9d190465bbeab871619590d1e9beeffb92e4ca9cc08116d&amp;#34;&lt;/span&gt;,
+                &lt;span class=&#34;s2&#34;&gt;&amp;#34;sha256:e3f4077f577bf07c0940d6345ddd17014ff824d3f4f7f3effc9a8c4dae3e527b&amp;#34;&lt;/span&gt;
+            &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Metadata&amp;#34;&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;s2&#34;&gt;&amp;#34;LastTagTime&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;0001-01-01T00:00:00Z&amp;#34;&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;理解：&lt;/p&gt;
 &lt;p&gt;所有的docker镜像都起始于一个基础镜像层，当进行修改或者增加新的内容时，就会在当前镜像层之上，创建新的镜像层。举一个简单的例子，假如基于ubuntu linux 16.04 创建一个新的镜像，这就是新镜像的第一层；如果在该镜像中添加python包，该镜像就会在基础镜像层之上创建第二个镜像层，如果继续添加一个安全不定，就会创建第三个镜像层。&lt;/p&gt;
 &lt;p&gt;在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合，理解这一点非常重要。&lt;/p&gt;
@@ -4959,13 +5075,20 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;这一层就是我们通常说的容器层，容器之下的都叫镜像&lt;/p&gt;
 &lt;p&gt;如何提交一个自己的镜像&lt;/p&gt;
 &lt;p&gt;commit镜像&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker commit 提交容器成为一个新的副本docker commit -m&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;提交的描述信息&amp;#34;&lt;/span&gt; -a&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;作者&amp;#34;&lt;/span&gt; 容器id 目标镜像名:&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;TAG&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker commit 提交容器成为一个新的副本
+docker commit -m&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;提交的描述信息&amp;#34;&lt;/span&gt; -a&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;作者&amp;#34;&lt;/span&gt; 容器id 目标镜像名:&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;TAG&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;启动默认tomcat&lt;/li&gt;
 &lt;li&gt;没有文件的webapps&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@e7c2f9ef26e4:/usr/local/tomcat# cp -r webapps.dist/* webappsroot@e7c2f9ef26e4:/usr/local/tomcat# lsBUILDING.txt     LICENSE  README.md      RUNNING.txt  conf  logs            temp     webapps.distCONTRIBUTING.md  NOTICE   RELEASE-NOTES  bin          lib   native-jni-lib  webapps  workroot@e7c2f9ef26e4:/usr/local/tomcat# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; webappsroot@e7c2f9ef26e4:/usr/local/tomcat/webapps# lsROOT  docs  examples  host-manager  manager
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@e7c2f9ef26e4:/usr/local/tomcat# cp -r webapps.dist/* webapps
+root@e7c2f9ef26e4:/usr/local/tomcat# ls
+BUILDING.txt     LICENSE  README.md      RUNNING.txt  conf  logs            temp     webapps.dist
+CONTRIBUTING.md  NOTICE   RELEASE-NOTES  bin          lib   native-jni-lib  webapps  work
+root@e7c2f9ef26e4:/usr/local/tomcat# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; webapps
+root@e7c2f9ef26e4:/usr/local/tomcat/webapps# ls
+ROOT  docs  examples  host-manager  manager
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;cp命令拷贝进webapps&lt;/li&gt;
 &lt;/ul&gt;
@@ -4987,7 +5110,19 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;li&gt;浏览器可以访问&lt;/li&gt;
 &lt;li&gt;commit提交为一个新的镜像，我们以后就使用我们修改过的镜像即可，这就是我们自己的一个修改过的镜像&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker commit -m&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;add webapps app&amp;#34;&lt;/span&gt; -a&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ljs&amp;#34;&lt;/span&gt; e7c2f9ef26e4  tomcatupdate1.0sha256:2a308d5b7f5a2b5b471a193c596369ee1ec2168d04221397ced9c9201a94075ePS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker imagesREPOSITORY            TAG       IMAGE ID       CREATED         SIZEtomcatupdate1.0       latest    2a308d5b7f5a   &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; seconds ago   672MBredis                 latest    fad0ee7e917a   &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; days ago     105MBnginx                 latest    d1a364dc548d   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago     133MBtomcat                latest    c43a65faae57   &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago     667MBportainer/portainer   latest    580c0e4e98b0   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; months ago    79.1MBcentos                latest    300e315adb2f   &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago    209MBelasticsearch         7.6.2     f29a1ee41030   &lt;span class=&#34;m&#34;&gt;14&lt;/span&gt; months ago   791MBelasticsearch         latest    5acf0e8da90b   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; years ago     486MB
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker commit -m&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;add webapps app&amp;#34;&lt;/span&gt; -a&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ljs&amp;#34;&lt;/span&gt; e7c2f9ef26e4  tomcatupdate1.0
+sha256:2a308d5b7f5a2b5b471a193c596369ee1ec2168d04221397ced9c9201a94075e
+PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;weetie&amp;gt; docker images
+REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
+tomcatupdate1.0       latest    2a308d5b7f5a   &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; seconds ago   672MB
+redis                 latest    fad0ee7e917a   &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; days ago     105MB
+nginx                 latest    d1a364dc548d   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago     133MB
+tomcat                latest    c43a65faae57   &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago     667MB
+portainer/portainer   latest    580c0e4e98b0   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; months ago    79.1MB
+centos                latest    300e315adb2f   &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago    209MB
+elasticsearch         7.6.2     f29a1ee41030   &lt;span class=&#34;m&#34;&gt;14&lt;/span&gt; months ago   791MB
+elasticsearch         latest    5acf0e8da90b   &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; years ago     486MB
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210612162537739.png&#34; &gt;
@@ -5022,7 +5157,16 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;这就是数据卷技术！目录的挂载，将容器内的目录挂载linux上&lt;/p&gt;
 &lt;p&gt;总结一句话：容器的持久化和同步操作！容器间也是可以数据共享的！&lt;/p&gt;
 &lt;p&gt;使用数据卷&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;方式一：直接使用命令挂载-v docker run -it -v 主机目录地址：容器内目录地址 -p 主机端口：容器端口root@yourtreedad:~# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /homeroot@yourtreedad:/home# lskuangshen.java  kuanshen.java  test.java  test1.javaroot@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..root@yourtreedad:/# docker run -it -v /home/ceshi:/home centos /bin/bash
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;方式一：直接使用命令挂载
+-v 
+docker run -it -v 主机目录地址：容器内目录地址 -p 主机端口：容器端口
+
+
+root@yourtreedad:~# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /home
+root@yourtreedad:/home# ls
+kuangshen.java  kuanshen.java  test.java  test1.java
+root@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
+root@yourtreedad:/# docker run -it -v /home/ceshi:/home centos /bin/bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210612164241555.png&#34; &gt;
@@ -5039,9 +5183,25 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;使用 docker inspect 容器id 查看具体信息&lt;/p&gt;
 &lt;p&gt;在外面建立文件，可以看到里面也有&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd home[root@ffb011d1322a home]# lsouttoint.txt&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd home&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+outtoint.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在里面见文件，可以看到里面也有&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# touch intoout.java[root@ffb011d1322a home]# lsintoout.java  outtoint.txt[root@ffb011d1322a home]# exitexitroot@yourtreedad:/# docker psCONTAINER ID        IMAGE                 COMMAND             CREATED             STATUS              PORTS                                       NAMESffb011d1322a        centos                &amp;#34;/bin/bash&amp;#34;         12 minutes ago      Up 10 minutes                                                   eager_heyrovskye7c2f9ef26e4        tomcat:latest         &amp;#34;catalina.sh run&amp;#34;   34 minutes ago      Up 34 minutes       0.0.0.0:5555-&amp;gt;8080/tcp                      sweet_ramanujanb90d3528ae04        portainer/portainer   &amp;#34;/portainer&amp;#34;        6 hours ago         Up 37 minutes       0.0.0.0:8088-&amp;gt;9000/tcp, :::8088-&amp;gt;9000/tcp   confident_villaniroot@yourtreedad:/# cd homeroot@yourtreedad:/home# cd ceshiroot@yourtreedad:/home/ceshi# lsintoout.java  outtoint.txtroot@yourtreedad:/home/ceshi#&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# touch intoout.java&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+intoout.java  outtoint.txt
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@ffb011d1322a home&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# exit&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+root@yourtreedad:/# docker ps
+CONTAINER ID        IMAGE                 COMMAND             CREATED             STATUS              PORTS                                       NAMES
+ffb011d1322a        centos                &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt; minutes ago      Up &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; minutes                                                   eager_heyrovsky
+e7c2f9ef26e4        tomcat:latest         &lt;span class=&#34;s2&#34;&gt;&amp;#34;catalina.sh run&amp;#34;&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;34&lt;/span&gt; minutes ago      Up &lt;span class=&#34;m&#34;&gt;34&lt;/span&gt; minutes       0.0.0.0:5555-&amp;gt;8080/tcp                      sweet_ramanujan
+b90d3528ae04        portainer/portainer   &lt;span class=&#34;s2&#34;&gt;&amp;#34;/portainer&amp;#34;&lt;/span&gt;        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; hours ago         Up &lt;span class=&#34;m&#34;&gt;37&lt;/span&gt; minutes       0.0.0.0:8088-&amp;gt;9000/tcp, :::8088-&amp;gt;9000/tcp   confident_villani
+root@yourtreedad:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; home
+root@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ceshi
+root@yourtreedad:/home/ceshi# ls
+intoout.java  outtoint.txt
+root@yourtreedad:/home/ceshi#
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;容器停止了，但是只要容器还在，就能实现同步数据，类似双向绑定&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
@@ -5060,7 +5220,24 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;好处：我们以后修改只需要在本地修改即可，容器内会自动同步！&lt;/p&gt;
 &lt;p&gt;实战：安装mysql&lt;/p&gt;
 &lt;p&gt;思考：mysql的数据持久化的问题！&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;获取镜像docker pull mysql运行容器，需要做数据挂载，需要配置密码，这需要注意官方测试：docker run --name some-mysql -e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;my-secret-pw -d mysql:tag-d 后台运行-p 端口映射-v 数据卷挂在-e 环境配置--namedocker run -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; --name mysql01 mysql:5.7启动成功之后，我们在本地使用 sqlyog 来测试一下sqlyog --h -u -p 连接到服务器的3310 ----3310 和容器内的3306进行映射，这个时候我们就可以连接上了 在本地测试创建一个数据库，查看一下映射的路径是否ok假设我们将容器删除，发现我们挂载到本地的数据卷依旧没有丢失，这就实现了容器数据持久化功能
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;获取镜像
+docker pull mysql
+运行容器，需要做数据挂载，需要配置密码，这需要注意
+官方测试：docker run --name some-mysql -e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;my-secret-pw -d mysql:tag
+
+-d 后台运行
+-p 端口映射
+-v 数据卷挂在
+-e 环境配置
+--name
+docker run -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; --name mysql01 mysql:5.7
+
+启动成功之后，我们在本地使用 sqlyog 来测试一下
+sqlyog --h -u -p 连接到服务器的3310 ----3310 和容器内的3306进行映射，这个时候我们就可以连接上了 
+
+在本地测试创建一个数据库，查看一下映射的路径是否ok
+假设我们将容器删除，发现我们挂载到本地的数据卷依旧没有丢失，这就实现了容器数据持久化功能
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210612172111412.png&#34; &gt;
@@ -5076,7 +5253,49 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;具名挂载和匿名挂载&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;匿名挂载-v 容器内路径   相当于不指定主机的地址，直接指定容器地址root@yourtreedad:/# docker run -d -P --name nginx01 -v /etc/nginx nginx查看所有卷的情况docker volume ls这里发现 DRIVER              VOLUME NAMElocal               0faef3ffc2187555023c9a8e5dca5c11e47f0b436657e48f95e972e33c951c49这种就是匿名挂载，我们-v的时候只写了容器的路径，没有写容器外的路径！通过-v 卷名：容器内路径这就是具名挂载root@yourtreedad:/# docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx nginx11c306e0a80402c0c235042326f5db9da58570e01abac55379414d9d53abc797root@yourtreedad:/# docker volume lsDRIVER              VOLUME NAMElocal               0faef3ffc2187555023c9a8e5dca5c11e47f0b436657e48f95e972e33c951c49local               3c63eeef73128b24bbf1830f9cec7d383aae8413e232a857f1216456fb07fedflocal               941b4501fa7cefd9a341366fbe18cfeddd0f2d223c1eb87addf1a77a42c2ace8local               3826373b692739fc44eac10a00d8ddada7b0200c5833963c459d6db001384a70local               8440372a24dc57f1bcf100c1ef256abbff5713f1c96c2bd65276aea10f54864dlocal               cb64d53be430f816088a1f1bbd1f5aea8885a1be33ddd98a5fb98a9d452fa03clocal               juming-nginx查看一下这个卷挂载在主机的哪个位置了呢root@yourtreedad:/# docker volume inspect juming-nginx&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;CreatedAt&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;2021-06-13T02:11:30Z&amp;#34;&lt;/span&gt;,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Driver&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;local&amp;#34;&lt;/span&gt;,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Labels&amp;#34;&lt;/span&gt;: null,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Mountpoint&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;/var/lib/docker/volumes/juming-nginx/_data&amp;#34;&lt;/span&gt;,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Name&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;juming-nginx&amp;#34;&lt;/span&gt;,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Options&amp;#34;&lt;/span&gt;: null,        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Scope&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;local&amp;#34;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}]&lt;/span&gt;所有docker容器内的卷，如果没有指定目录的情况下，都是在/var/lib/docker/volumes/xxxx下我们通过具名挂载可以方便的找到我们的一个卷，大多数情况下使用的是具名挂载
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;匿名挂载
+-v 容器内路径   相当于不指定主机的地址，直接指定容器地址
+
+root@yourtreedad:/# docker run -d -P --name nginx01 -v /etc/nginx nginx
+
+查看所有卷的情况
+docker volume ls
+这里发现 
+DRIVER              VOLUME NAME
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               0faef3ffc2187555023c9a8e5dca5c11e47f0b436657e48f95e972e33c951c49
+
+这种就是匿名挂载，我们-v的时候只写了容器的路径，没有写容器外的路径！
+
+通过-v 卷名：容器内路径
+这就是具名挂载
+root@yourtreedad:/# docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx nginx
+11c306e0a80402c0c235042326f5db9da58570e01abac55379414d9d53abc797
+root@yourtreedad:/# docker volume ls
+DRIVER              VOLUME NAME
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               0faef3ffc2187555023c9a8e5dca5c11e47f0b436657e48f95e972e33c951c49
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               3c63eeef73128b24bbf1830f9cec7d383aae8413e232a857f1216456fb07fedf
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               941b4501fa7cefd9a341366fbe18cfeddd0f2d223c1eb87addf1a77a42c2ace8
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               3826373b692739fc44eac10a00d8ddada7b0200c5833963c459d6db001384a70
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               8440372a24dc57f1bcf100c1ef256abbff5713f1c96c2bd65276aea10f54864d
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               cb64d53be430f816088a1f1bbd1f5aea8885a1be33ddd98a5fb98a9d452fa03c
+&lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt;               juming-nginx
+
+查看一下这个卷挂载在主机的哪个位置了呢
+root@yourtreedad:/# docker volume inspect juming-nginx
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;CreatedAt&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;2021-06-13T02:11:30Z&amp;#34;&lt;/span&gt;,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Driver&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;local&amp;#34;&lt;/span&gt;,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Labels&amp;#34;&lt;/span&gt;: null,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Mountpoint&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;/var/lib/docker/volumes/juming-nginx/_data&amp;#34;&lt;/span&gt;,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Name&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;juming-nginx&amp;#34;&lt;/span&gt;,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Options&amp;#34;&lt;/span&gt;: null,
+        &lt;span class=&#34;s2&#34;&gt;&amp;#34;Scope&amp;#34;&lt;/span&gt;: &lt;span class=&#34;s2&#34;&gt;&amp;#34;local&amp;#34;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+所有docker容器内的卷，如果没有指定目录的情况下，都是在/var/lib/docker/volumes/xxxx下
+我们通过具名挂载可以方便的找到我们的一个卷，大多数情况下使用的是具名挂载
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210613100849422.png&#34; &gt;
@@ -5091,13 +5310,66 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210613100849422&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;如何确定是具名挂载还是匿名挂载 ，还是指定路径挂载-v 容器内路径 这就是匿名挂载-v 卷名：容器内路径 这就是具名挂载-v /宿主机路径：/容器内路径 这就是指定路径挂载拓展：通过 -v 容器内路径，ro 、 rw 改变读写权限docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx:ro nginxdocker run -d -P --name nginx02 -v juming-nginx:/etc/nginx:rw nginx只读ro readonly可读可写rw readwrite一旦设置了ro 容器对我们挂载出来的内容就有限定了！ro只要看到ro，就说明这个路径只能通过宿主机来操作，容器内部是无法操作的
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;如何确定是具名挂载还是匿名挂载 ，还是指定路径挂载
+-v 容器内路径 这就是匿名挂载
+-v 卷名：容器内路径 这就是具名挂载
+-v /宿主机路径：/容器内路径 这就是指定路径挂载
+拓展：
+
+通过 -v 容器内路径，ro 、 rw 改变读写权限
+docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx:ro nginx
+docker run -d -P --name nginx02 -v juming-nginx:/etc/nginx:rw nginx
+只读ro &lt;span class=&#34;nb&#34;&gt;readonly&lt;/span&gt;
+可读可写rw readwrite
+
+一旦设置了ro 容器对我们挂载出来的内容就有限定了！
+
+ro只要看到ro，就说明这个路径只能通过宿主机来操作，容器内部是无法操作的
+
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;初识dockerfile&lt;/p&gt;
 &lt;p&gt;方式二：&lt;/p&gt;
 &lt;p&gt;dockerfile就是用来构建docker镜像的构建文件！命令脚本！先体验一下！&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ctrl+U 删除当前命令mkdir 生成文件夹rm -rf 文件夹名字 强制删除文件夹名字pwd  查看当前在那个目录中进入文件后 esc 再：wq就是保存并退出vim 使用文本编辑器进入文件a后就可以编辑通过脚本可以生成镜像，镜像是一层一层的 touch 创建一个文件##创建一个dockerfile文件，名字可以随机，建议 dockerfile##文件中的内容 指令都是大写  参数##这里的每个命令，都是镜像的一层FROM centosVOLUME&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;volume01&amp;#34;&lt;/span&gt;,&lt;span class=&#34;s2&#34;&gt;&amp;#34;volume02&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;CMD &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;-----end-----&amp;#34;&lt;/span&gt;CMD /bin/bash好像要空行！！！！通过dockerfile 去构建镜像root@yourtreedad:/home/docker-test-volume# docker build -f /home/docker-test-volume/dockerfile1 -t kuangshen/centos:1.0 .
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ctrl+U 删除当前命令
+mkdir 生成文件夹
+rm -rf 文件夹名字 强制删除文件夹名字
+&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;  查看当前在那个目录中
+进入文件后 esc 再：wq就是保存并退出
+vim 使用文本编辑器进入文件
+a后就可以编辑
+通过脚本可以生成镜像，镜像是一层一层的 
+touch 创建一个文件
+
+&lt;span class=&#34;c1&#34;&gt;##创建一个dockerfile文件，名字可以随机，建议 dockerfile&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;##文件中的内容 指令都是大写  参数&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;##这里的每个命令，都是镜像的一层&lt;/span&gt;
+FROM centos
+
+VOLUME&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;volume01&amp;#34;&lt;/span&gt;,&lt;span class=&#34;s2&#34;&gt;&amp;#34;volume02&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+CMD &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;-----end-----&amp;#34;&lt;/span&gt;
+CMD /bin/bash
+好像要空行！！！！
+
+通过dockerfile 去构建镜像
+root@yourtreedad:/home/docker-test-volume# docker build -f /home/docker-test-volume/dockerfile1 -t kuangshen/centos:1.0 .
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动一下自己的生成的容器&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker imagesREPOSITORY               TAG                 IMAGE ID            CREATED             SIZEtomcatupdate             1.0                 ee149e8cdc20        &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; hours ago         672MBportainer/portainer-ce   latest              45be17a5903a        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         209MBnginx                    latest              d1a364dc548d        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         133MBtomcat                   latest              c43a65faae57        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         667MBmysql                    latest              c0cdc95609f1        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         556MBportainer/portainer      latest              580c0e4e98b0        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; months ago        79.1MBkuangshen/centos         1.0                 f75a47123694        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MBroot@yourtreedad:/# docker run -it f75a47123694 /bin/bash但是这个地方报错了，好象是说现在的destination 不能为相对路径 docker: Error response from daemon: OCI runtime create failed: invalid mount &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;Destination:volume01 Type:bind Source:/var/lib/docker/volumes/67cb8e440bfc475a6b8e0f091779f2c56fed443d1ca4e6edd10ca37f37d09e05/_data Options:&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;rbind&lt;span class=&#34;o&#34;&gt;]}&lt;/span&gt;: mount destination volume01 not absolute: unknown.ERRO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; error waiting &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; container: context canceled
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker images
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+tomcatupdate             1.0                 ee149e8cdc20        &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; hours ago         672MB
+portainer/portainer-ce   latest              45be17a5903a        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         209MB
+nginx                    latest              d1a364dc548d        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         133MB
+tomcat                   latest              c43a65faae57        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         667MB
+mysql                    latest              c0cdc95609f1        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         556MB
+portainer/portainer      latest              580c0e4e98b0        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; months ago        79.1MB
+kuangshen/centos         1.0                 f75a47123694        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MB
+root@yourtreedad:/# docker run -it f75a47123694 /bin/bash
+
+但是这个地方报错了，好象是说现在的destination 不能为相对路径 
+docker: Error response from daemon: OCI runtime create failed: invalid mount &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;Destination:volume01 Type:bind Source:/var/lib/docker/volumes/67cb8e440bfc475a6b8e0f091779f2c56fed443d1ca4e6edd10ca37f37d09e05/_data Options:&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;rbind&lt;span class=&#34;o&#34;&gt;]}&lt;/span&gt;: mount destination volume01 not absolute: unknown.
+ERRO&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;0000&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; error waiting &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; container: context canceled
+
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看一下卷挂载的路径&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
@@ -5118,11 +5390,50 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;假设构建镜像的时候没有挂载卷，要手动镜像挂载 -v卷名：容器内路径&lt;/p&gt;
 &lt;p&gt;数据卷容器：多个容器之间同步数据&lt;/p&gt;
 &lt;p&gt;两个mysql同步数据！&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;主从复制之类的就可能使用这个技术使用 --volumes-fromdocker run -it --name docker02 --volumes-from docker01 centosdocker run -it --name docker03 --volumes-from docker01 centos很像继承启动3个容器，通过我们刚才自己写的镜像启动
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;主从复制之类的就可能使用这个技术
+使用 --volumes-from
+docker run -it --name docker02 --volumes-from docker01 centos
+docker run -it --name docker03 --volumes-from docker01 centos
+很像继承
+启动3个容器，通过我们刚才自己写的镜像启动
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动完了就测试，测试的时候在主docker01中创建文件看看docker0203中会不会有就好了&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker psCONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMESdfb328e8f37f        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; minutes                            docker035787d6ea92e4        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; minutes                            docker02c8ba46a34155        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;13&lt;/span&gt; minutes ago      Up &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt; minutes                           docker01root@yourtreedad:/# docker attach c8ba46a34155&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd bin[root@c8ba46a34155 bin]# cd bashbash: cd: bash: Not a directory[root@c8ba46a34155 bin]# cd ..[root@c8ba46a34155 /]# lsbin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var[root@c8ba46a34155 /]# mkdir ceshi[root@c8ba46a34155 /]# lsbin  ceshi  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var[root@c8ba46a34155 /]# cd ceshi[root@c8ba46a34155 ceshi]# ls[root@c8ba46a34155 ceshi]# touch ceshi.java[root@c8ba46a34155 ceshi]# lsceshi.java[root@c8ba46a34155 ceshi]# cd ..[root@c8ba46a34155 /]# cd ..[root@c8ba46a34155 /]# exitexit&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+dfb328e8f37f        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; minutes                            docker03
+5787d6ea92e4        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; minutes                            docker02
+c8ba46a34155        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;13&lt;/span&gt; minutes ago      Up &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt; minutes                           docker01
+root@yourtreedad:/# docker attach c8ba46a34155
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd bin&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 bin&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd bash&lt;/span&gt;
+bash: cd: bash: Not a directory
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 bin&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd ..&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# mkdir ceshi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+bin  ceshi  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd ceshi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 ceshi&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 ceshi&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# touch ceshi.java&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 ceshi&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+ceshi.java
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 ceshi&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd ..&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd ..&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# exit&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没问题&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;oot@yourtreedad:/# docker psCONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMESdfb328e8f37f        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; minutes                            docker035787d6ea92e4        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt; minutes                            docker02c8ba46a34155        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;17&lt;/span&gt; minutes ago      Up &lt;span class=&#34;m&#34;&gt;41&lt;/span&gt; seconds                           docker01root@yourtreedad:/# docker attach c8ba46a34155&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# lsbin  ceshi  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var[root@c8ba46a34155 /]# cd ceshi[root@c8ba46a34155 ceshi]# lsceshi.java[root@c8ba46a34155 ceshi]#&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;oot@yourtreedad:/# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+dfb328e8f37f        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; minutes                            docker03
+5787d6ea92e4        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; minutes ago       Up &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt; minutes                            docker02
+c8ba46a34155        centos              &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;         &lt;span class=&#34;m&#34;&gt;17&lt;/span&gt; minutes ago      Up &lt;span class=&#34;m&#34;&gt;41&lt;/span&gt; seconds                           docker01
+root@yourtreedad:/# docker attach c8ba46a34155
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+bin  ceshi  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 /&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# cd ceshi&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 ceshi&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ls&lt;/span&gt;
+ceshi.java
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@c8ba46a34155 ceshi&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;问题：如果docker01 删除了，那么数据还有在docker02和docker03上有吗&lt;/p&gt;
 &lt;p&gt;有的，它是一种拷贝的概念 ，可能是链接吧&lt;/p&gt;
 &lt;p&gt;结论：容器之间配置信息的传递，数据卷的生命周期一直持续到没有容器使用为止&lt;/p&gt;
@@ -5153,7 +5464,18 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;dockercontainer：容器就是镜像运行起来提供服务的&lt;/p&gt;
 &lt;p&gt;dockerfile的指令：&lt;/p&gt;
 &lt;p&gt;以前的话我们都是使用别人的，现在我们知道了这些指令后，我们来练习自己写一个镜像！&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;FROM 基础镜像 一切从这里开始构建MAINTAINER 镜像是谁写的，有你的姓名+邮箱RUN docker镜像构建的时候需要运行的命令ADD  步骤：tomcat镜像，这个tomcat压缩包坑定要被添加进去嘛WORKDIR 镜像的工作目录 VOLUME 容器卷，要挂载的目录EXPOSE 指定暴露端口CMD 指定这个容器启动的时候要运行的命令 只有最后一个会生效，可被替代ENTRYPOINT 指定这个容器启动的时候要运行的命令，可以追加的命令ONBUILD  当构建一个被继承的dockerfile时候 就会运行onbuild指令，触发指令COPY 类似ADD,将我们的文件拷贝到镜像中ENV	构建的时候设置环境变量
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;FROM 基础镜像 一切从这里开始构建
+MAINTAINER 镜像是谁写的，有你的姓名+邮箱
+RUN docker镜像构建的时候需要运行的命令
+ADD  步骤：tomcat镜像，这个tomcat压缩包坑定要被添加进去嘛
+WORKDIR 镜像的工作目录 
+VOLUME 容器卷，要挂载的目录
+EXPOSE 指定暴露端口
+CMD 指定这个容器启动的时候要运行的命令 只有最后一个会生效，可被替代
+ENTRYPOINT 指定这个容器启动的时候要运行的命令，可以追加的命令
+ONBUILD  当构建一个被继承的dockerfile时候 就会运行onbuild指令，触发指令
+COPY 类似ADD,将我们的文件拷贝到镜像中
+ENV	构建的时候设置环境变量
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实战测试！&lt;/p&gt;
 &lt;p&gt;docker hub 中 99% 都是从这个基础镜像过来的 FROM scratch ， 然后配置需要的软件和配置来进行的构建&lt;/p&gt;
 &lt;p&gt;&lt;figure 
@@ -5186,11 +5508,76 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;问题：vim clear 等命令都不支持，我们可以在此镜像的基础上在加一点完善一下&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;1.编写dockerdile的文件root@yourtreedad:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; homeroot@yourtreedad:/home# lsdocker-test-volume  mysql  nginx  tomcatroot@yourtreedad:/home# mkdir dockerfileroot@yourtreedad:/home# lsdocker-test-volume  dockerfile  mysql  nginx  tomcatroot@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; dockerfileroot@yourtreedad:/home/dockerfile# lsroot@yourtreedad:/home/dockerfile# vim mydockerfileroot@yourtreedad:/home/dockerfile# cat mydockerfileFROM centosMAINTAINER ljs&amp;lt;1018814650@qq.com&amp;gt;ENV MYPATH /uer/localWORKDIR &lt;span class=&#34;nv&#34;&gt;$MYPATHRUN&lt;/span&gt; yum -y install vimRUN yum -y install clearRUM yum -y install net-toolsEXPOSE 80CMD &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$MYPATHCMD&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;-----end-----&amp;#34;&lt;/span&gt;CMD /bin/bashroot@yourtreedad:/home/dockerfile#2.通过这个文件构建镜像docker build  -f dockerfile文件路径 -t 镜像名：&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;tag&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; root@yourtreedad:/home/dockerfile# docker build -f mydockerfile -t mycentos:0.1 .&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Building 2.2s &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;8/8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;FINISHED&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load build definition from mydockerfile                                                                 0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring dockerfile: 245B                                                                                   0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load .dockerignore                                                                                      0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring context: 2B                                                                                        0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load metadata &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; docker.io/library/centos:latest                                                       0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; FROM docker.io/library/centos                                                                                0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;2/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; WORKDIR /uer/local                                                                                    0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;3/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; RUN yum -y install vim                                                                                0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;4/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; RUN yum -y install net-tools                                                                                 1.8s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting to image                                                                                                 0.3s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting layers                                                                                                0.3s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; writing image sha256:2734e41a96b14a3e45a820363638a9f62dfd2c7d901757ea5e2a9ba25ababf50                           0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; naming to docker.io/library/mycentos:0.1	  3.测试 root@yourtreedad:/home/dockerfile# docker run -it --name mycentosdemo mycentos:0.1&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@51e42c44c78d local&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# pwd/uer/local[root@51e42c44c78d local]# ifconfigeth0: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500        inet 172.17.0.4  netmask 255.255.0.0  broadcast 172.17.255.255        ether 02:42:ac:11:00:04  txqueuelen 0  (Ethernet)        RX packets 9  bytes 726 (726.0 B)        RX errors 0  dropped 0  overruns 0  frame 0        TX packets 0  bytes 0 (0.0 B)        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0lo: flags=73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu 65536        inet 127.0.0.1  netmask 255.0.0.0        loop  txqueuelen 1000  (Local Loopback)        RX packets 0  bytes 0 (0.0 B)        RX errors 0  dropped 0  overruns 0  frame 0        TX packets 0  bytes 0 (0.0 B)        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0        &lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;1.编写dockerdile的文件
+root@yourtreedad:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; home
+root@yourtreedad:/home# ls
+docker-test-volume  mysql  nginx  tomcat
+root@yourtreedad:/home# mkdir dockerfile
+root@yourtreedad:/home# ls
+docker-test-volume  dockerfile  mysql  nginx  tomcat
+root@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; dockerfile
+root@yourtreedad:/home/dockerfile# ls
+root@yourtreedad:/home/dockerfile# vim mydockerfile
+root@yourtreedad:/home/dockerfile# cat mydockerfile
+FROM centos
+MAINTAINER ljs&amp;lt;1018814650@qq.com&amp;gt;
+ENV MYPATH /uer/local
+WORKDIR &lt;span class=&#34;nv&#34;&gt;$MYPATH&lt;/span&gt;
+RUN yum -y install vim
+RUN yum -y install clear
+RUM yum -y install net-tools
+EXPOSE &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+CMD &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$MYPATH&lt;/span&gt;
+CMD &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;-----end-----&amp;#34;&lt;/span&gt;
+CMD /bin/bash
+
+root@yourtreedad:/home/dockerfile#
+
+2.通过这个文件构建镜像
+docker build  -f dockerfile文件路径 -t 镜像名：&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;tag&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; 
+
+root@yourtreedad:/home/dockerfile# docker build -f mydockerfile -t mycentos:0.1 .
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Building 2.2s &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;8/8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;FINISHED&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load build definition from mydockerfile                                                                 0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring dockerfile: 245B                                                                                   0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load .dockerignore                                                                                      0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring context: 2B                                                                                        0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load metadata &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; docker.io/library/centos:latest                                                       0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; FROM docker.io/library/centos                                                                                0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;2/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; WORKDIR /uer/local                                                                                    0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;3/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; RUN yum -y install vim                                                                                0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;4/4&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; RUN yum -y install net-tools                                                                                 1.8s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting to image                                                                                                 0.3s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting layers                                                                                                0.3s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; writing image sha256:2734e41a96b14a3e45a820363638a9f62dfd2c7d901757ea5e2a9ba25ababf50                           0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; naming to docker.io/library/mycentos:0.1	
+ 
+ 3.测试
+ root@yourtreedad:/home/dockerfile# docker run -it --name mycentosdemo mycentos:0.1
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@51e42c44c78d local&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# pwd&lt;/span&gt;
+/uer/local
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;root@51e42c44c78d local&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# ifconfig&lt;/span&gt;
+eth0: &lt;span class=&#34;nv&#34;&gt;flags&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu &lt;span class=&#34;m&#34;&gt;1500&lt;/span&gt;
+        inet 172.17.0.4  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:ac:11:00:04  txqueuelen &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Ethernet&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        RX packets &lt;span class=&#34;m&#34;&gt;9&lt;/span&gt;  bytes &lt;span class=&#34;m&#34;&gt;726&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;726.0 B&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        RX errors &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  overruns &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  frame &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+        TX packets &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  bytes &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0.0 B&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        TX errors &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; overruns &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  carrier &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  collisions &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+
+lo: &lt;span class=&#34;nv&#34;&gt;flags&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu &lt;span class=&#34;m&#34;&gt;65536&lt;/span&gt;
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Local Loopback&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        RX packets &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  bytes &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0.0 B&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        RX errors &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  overruns &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  frame &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+        TX packets &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  bytes &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;0.0 B&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        TX errors &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; overruns &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  carrier &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  collisions &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+        
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对比:之前的原生的centos，工作目录默认根目录，没有vim ifconfig 命令&lt;/p&gt;
 &lt;p&gt;现在：基于原生centos，添加了这些命令&lt;/p&gt;
 &lt;p&gt;我们可以列出本地镜像的变更历史&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;history&lt;/span&gt; imageId
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210613204852480.png&#34; &gt;
@@ -5207,7 +5594,12 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;所以我们平时拿到一个镜像，可以研究一下他是怎么做的了&lt;/p&gt;
 &lt;p&gt;CMD 和 ENTRYPOINT 的区别&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;CMD  指定这个容器启动的时候需要运行的命令，只有最后一个会生效，可被替代cmd的情况下 -l 替换了CMD的&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ls&amp;#34;&lt;/span&gt;,&lt;span class=&#34;s2&#34;&gt;&amp;#34;-a&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;命令，-l 不是命令所以报错ENTRYPOINT  指定这个容器启动的时候需要运行的命令你，可以追加命令
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;CMD  指定这个容器启动的时候需要运行的命令，只有最后一个会生效，可被替代
+
+cmd的情况下 -l 替换了CMD的&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ls&amp;#34;&lt;/span&gt;,&lt;span class=&#34;s2&#34;&gt;&amp;#34;-a&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;命令，-l 不是命令所以报错
+
+ENTRYPOINT  指定这个容器启动的时候需要运行的命令你，可以追加命令
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210613235037903.png&#34; &gt;
@@ -5271,7 +5663,23 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;2.编写dockerfile文件 ， 官方命名Dockerfile ，build会自动寻找这个文件，就不需要-f 指定了&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen# cat DockerfileFROM centosMAINTAINER ljs&amp;lt;1018814650@qq.com&amp;gt;COPY readme.txt /usr/local/readme.txtADD jdk-8u291-linux-aarch64.tar.gz /usr/local/ADD apache-tomcat-9.0.46.tar.gz /usr/local/RUN yum -y install vimENV MYPATH /usr/localWORKDIR &lt;span class=&#34;nv&#34;&gt;$MYPATHENV&lt;/span&gt; JAVA_HOME /usr/local/jdk1.8.0_291ENV CLASSPATH &lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/lib/dt.jar:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/lib/tools.jarENV CATALINA_HOME /usr/local/apache-tomcat-9.0.46ENV CATALINA_BASH /usr/local/apache-tomcat-9.0.46ENV PATH &lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin:&lt;span class=&#34;nv&#34;&gt;$CATALINA_HOME&lt;/span&gt;/lib:&lt;span class=&#34;nv&#34;&gt;$CATALINA_HOME&lt;/span&gt;/binEXPOSE 8080CMD /usr/local/apache-tomcat-9.0.46/bin/startup.sh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tail -F /usr/local/apache-tomcat-9.0.46/bin/logs/catalina.outroot@yourtreedad:/home/kuangshen#
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen# cat Dockerfile
+FROM centos
+MAINTAINER ljs&amp;lt;1018814650@qq.com&amp;gt;
+COPY readme.txt /usr/local/readme.txt
+ADD jdk-8u291-linux-aarch64.tar.gz /usr/local/
+ADD apache-tomcat-9.0.46.tar.gz /usr/local/
+RUN yum -y install vim
+ENV MYPATH /usr/local
+WORKDIR &lt;span class=&#34;nv&#34;&gt;$MYPATH&lt;/span&gt;
+ENV JAVA_HOME /usr/local/jdk1.8.0_291
+ENV CLASSPATH &lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/lib/dt.jar:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/lib/tools.jar
+ENV CATALINA_HOME /usr/local/apache-tomcat-9.0.46
+ENV CATALINA_BASH /usr/local/apache-tomcat-9.0.46
+ENV PATH &lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;nv&#34;&gt;$JAVA_HOME&lt;/span&gt;/bin:&lt;span class=&#34;nv&#34;&gt;$CATALINA_HOME&lt;/span&gt;/lib:&lt;span class=&#34;nv&#34;&gt;$CATALINA_HOME&lt;/span&gt;/bin
+EXPOSE &lt;span class=&#34;m&#34;&gt;8080&lt;/span&gt;
+CMD /usr/local/apache-tomcat-9.0.46/bin/startup.sh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tail -F /usr/local/apache-tomcat-9.0.46/bin/logs/catalina.out
+root@yourtreedad:/home/kuangshen#
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614112215796.png&#34; &gt;
@@ -5301,8 +5709,27 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614110353773&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen# docker build -f Dockerfile -t diytomcat .&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Building 0.1s &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;11/11&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;FINISHED&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load build definition from Dockerfile                                                               0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring dockerfile: 670B                                                                               0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load .dockerignore                                                                                  0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring context: 2B                                                                                    0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load metadata &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; docker.io/library/centos:latest                                                   0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; FROM docker.io/library/centos                                                                            0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load build context                                                                                  0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring context: 130B                                                                                  0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;2/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; COPY readme.txt /usr/local/readme.txt                                                             0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;3/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; ADD jdk-8u291-linux-aarch64.tar.gz /usr/local/                                                    0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;4/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; ADD apache-tomcat-9.0.46.tar.gz /usr/local/                                                       0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;5/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; RUN yum -y install vim                                                                            0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;6/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; WORKDIR /usr/local                                                                                0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting to image                                                                                             0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting layers                                                                                            0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; writing image sha256:d65fc7234bf254fb93a262a640dcfb543b6f4780fa36ef881bb9992d9705359f                       0.0s &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; naming to docker.io/library/diytomcat
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;启动容器 分配端口 使用挂载 指定镜像root@yourtreedad:/home/kuangshen# docker run -d -p 9090:8080 --name kuangshendiytomcat -v /home/kuangshen/build/tomcat/test:/usr/local/apache-tomcat-9.0.46/webapps/test -v /home/kuangshen/build/tomcat/tomcatlogs:/usr/local/apache-tomcat-9.0.46/logs diytomcat:1.0
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen# docker build -f Dockerfile -t diytomcat .
+&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Building 0.1s &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;11/11&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;FINISHED&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load build definition from Dockerfile                                                               0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring dockerfile: 670B                                                                               0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load .dockerignore                                                                                  0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring context: 2B                                                                                    0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load metadata &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; docker.io/library/centos:latest                                                   0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; FROM docker.io/library/centos                                                                            0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;internal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; load build context                                                                                  0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; transferring context: 130B                                                                                  0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;2/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; COPY readme.txt /usr/local/readme.txt                                                             0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;3/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; ADD jdk-8u291-linux-aarch64.tar.gz /usr/local/                                                    0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;4/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; ADD apache-tomcat-9.0.46.tar.gz /usr/local/                                                       0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;5/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; RUN yum -y install vim                                                                            0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; CACHED &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;6/6&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; WORKDIR /usr/local                                                                                0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting to image                                                                                             0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; exporting layers                                                                                            0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; writing image sha256:d65fc7234bf254fb93a262a640dcfb543b6f4780fa36ef881bb9992d9705359f                       0.0s
+ &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt; naming to docker.io/library/diytomcat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;启动容器 分配端口 使用挂载 指定镜像
+root@yourtreedad:/home/kuangshen# docker run -d -p 9090:8080 --name kuangshendiytomcat -v /home/kuangshen/build/tomcat/test:/usr/local/apache-tomcat-9.0.46/webapps/test -v /home/kuangshen/build/tomcat/tomcatlogs:/usr/local/apache-tomcat-9.0.46/logs diytomcat:1.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614110934343.png&#34; &gt;
@@ -5317,9 +5744,25 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614110934343&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen# docker imagesREPOSITORY               TAG                 IMAGE ID            CREATED             SIZEdiytomcat                latest              d65fc7234bf2        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; hours ago         464MBmycentos                 0.1                 2734e41a96b1        &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; hours ago        284MBtomcatupdate             1.0                 ee149e8cdc20        &lt;span class=&#34;m&#34;&gt;28&lt;/span&gt; hours ago        672MBportainer/portainer-ce   latest              45be17a5903a        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         209MBnginx                    latest              d1a364dc548d        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         133MBtomcat                   latest              c43a65faae57        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         667MBmysql                    latest              c0cdc95609f1        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         556MBportainer/portainer      latest              580c0e4e98b0        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; months ago        79.1MBmycentosentrypointtest   1.0                 5198b187e833        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MBmycentostest             1.0                 be8cf7de8763        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MBkuangshen/centos         1.0                 f75a47123694        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MBcentos                   latest              300e315adb2f        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MBroot@yourtreedad:/home/kuangshen# docker run --name diytomcat01 -d -p 9090:8080 -v /home/kuangshen/build/tomcat/test:/usr/local/apache-tomcat-9.0.46/webapps/test -v /home/kuangshen/build/tomcat/tomcatlogs:/usr/local/apache-tomcat-9.0.46/logs diytomcat174cd08dab23fce852cae1ac5e721c985b377d1ff85a1e769384cb9dd369bde0
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen# docker images
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+diytomcat                latest              d65fc7234bf2        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; hours ago         464MB
+mycentos                 0.1                 2734e41a96b1        &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; hours ago        284MB
+tomcatupdate             1.0                 ee149e8cdc20        &lt;span class=&#34;m&#34;&gt;28&lt;/span&gt; hours ago        672MB
+portainer/portainer-ce   latest              45be17a5903a        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         209MB
+nginx                    latest              d1a364dc548d        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         133MB
+tomcat                   latest              c43a65faae57        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         667MB
+mysql                    latest              c0cdc95609f1        &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; weeks ago         556MB
+portainer/portainer      latest              580c0e4e98b0        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; months ago        79.1MB
+mycentosentrypointtest   1.0                 5198b187e833        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MB
+mycentostest             1.0                 be8cf7de8763        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MB
+kuangshen/centos         1.0                 f75a47123694        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MB
+centos                   latest              300e315adb2f        &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; months ago        209MB
+root@yourtreedad:/home/kuangshen# docker run --name diytomcat01 -d -p 9090:8080 -v /home/kuangshen/build/tomcat/test:/usr/local/apache-tomcat-9.0.46/webapps/test -v /home/kuangshen/build/tomcat/tomcatlogs:/usr/local/apache-tomcat-9.0.46/logs diytomcat
+174cd08dab23fce852cae1ac5e721c985b377d1ff85a1e769384cb9dd369bde0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进入容器查看&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen/build/tomcat# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it c7cff52b8760  /bin/bash这里的bin/bash就会自动跳转到我们设定好的usr/local目录之下
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/kuangshen/build/tomcat# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it c7cff52b8760  /bin/bash
+这里的bin/bash就会自动跳转到我们设定好的usr/local目录之下
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614111326218.png&#34; &gt;
@@ -5359,7 +5802,14 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;3.在服务器上提交自己的镜像&lt;/p&gt;
 &lt;p&gt;在此之前需要打tag&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker tag --helpUsage:  docker tag SOURCE_IMAGE&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;:TAG&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; TARGET_IMAGE&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;:TAG&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;Create a tag TARGET_IMAGE that refers to SOURCE_IMAGEroot@yourtreedad:/# docker tag tomcatupdate:1.0 yourtreedad/tomcatupdate:2.0
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker tag --help
+
+Usage:  docker tag SOURCE_IMAGE&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;:TAG&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; TARGET_IMAGE&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;:TAG&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+root@yourtreedad:/# docker tag tomcatupdate:1.0 yourtreedad/tomcatupdate:2.0
+
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614165331722.png&#34; &gt;
@@ -5438,7 +5888,9 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614170251978&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker login --username&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;把书掏出来 registry.cn-hangzhou.aliyuncs.comPassword:Login Succeeded	
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker login --username&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;把书掏出来 registry.cn-hangzhou.aliyuncs.com
+Password:
+Login Succeeded	
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;登陆&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker tag ee149e8cdc20 registry.cn-hangzhou.aliyuncs.com/hfutie/yourtree-test:1.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
@@ -5526,7 +5978,24 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;好多个网络，docker是如何处理容器网络访问的？&lt;/p&gt;
 &lt;p&gt;ES之前的问题&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker run -d -P --name tomcat01 tomcat查看容器的内部网络地址 ip addr,发现容器启动的时候会得到一个eth0@if22 ip地址，docker分配的root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat01 ip addr1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu &lt;span class=&#34;m&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN group default qlen &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00    inet 127.0.0.1/8 scope host lo       valid_lft forever preferred_lft forever2: sit0@NONE: &amp;lt;NOARP&amp;gt; mtu &lt;span class=&#34;m&#34;&gt;1480&lt;/span&gt; qdisc noop state DOWN group default qlen &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;    link/sit 0.0.0.0 brd 0.0.0.021: eth0@if22: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span class=&#34;m&#34;&gt;1500&lt;/span&gt; qdisc noqueue state UP group default    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0       valid_lft forever preferred_lft forever       发现windows好像ping不通啊  linux可以ping通 docker容器内部
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker run -d -P --name tomcat01 tomcat
+
+查看容器的内部网络地址 ip addr,发现容器启动的时候会得到一个eth0@if22 ip地址，docker分配的
+
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat01 ip addr
+1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu &lt;span class=&#34;m&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN group default qlen &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: sit0@NONE: &amp;lt;NOARP&amp;gt; mtu &lt;span class=&#34;m&#34;&gt;1480&lt;/span&gt; qdisc noop state DOWN group default qlen &lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;
+    link/sit 0.0.0.0 brd 0.0.0.0
+21: eth0@if22: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span class=&#34;m&#34;&gt;1500&lt;/span&gt; qdisc noqueue state UP group default
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+       
+发现windows好像ping不通啊  
+linux可以ping通 docker容器内部
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;原理&lt;/p&gt;
 &lt;p&gt;192.168.0.1路由器&lt;/p&gt;
 &lt;p&gt;192.168.0.3 同一个网段是能ping通的&lt;/p&gt;
@@ -5563,7 +6032,11 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614191119464&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;我们发现这个容器带来的网卡，都是一对一对的veth-pair 就是一对的虚拟设备接口，她们都是成对出现的，一端连着协议，一端彼此相连正因为有这个特性 我们就使用veth-pair 充当一个桥梁，连接各种虚拟网络设备的OpenStac，Docker容器之间的链接，OVS的连接，都是使用 veth-pair技术
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;我们发现这个容器带来的网卡，都是一对一对的
+veth-pair 就是一对的虚拟设备接口，她们都是成对出现的，一端连着协议，一端彼此相连
+正因为有这个特性 我们就使用veth-pair 充当一个桥梁，连接各种虚拟网络设备的
+OpenStac，Docker容器之间的链接，OVS的连接，都是使用 veth-pair技术
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3.我们来测试一下tomca01 和 tomcat02 是否可以ping通&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
@@ -5598,7 +6071,17 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;思考一个场景，我们编写了一个微服务，database url = ip：&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;项目不重启，数据库ip换掉了，我们希望可以处理这个问题，可以通过名字来进行访问容器？&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;直接ping服务名是不行的root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat02 ping tomcat01ping: tomcat01: Name or service not known解决？通过--link 就可以解决了网络连通root@yourtreedad:~# docker run -d --name tomcat03 --link tomcat02 tomcat832afb5618b02262a5f9cbe48072941cc4784c009d0f91962b371c218afa31c0root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat02 ping tomcat03ping: tomcat03: Name or service not knownroot@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat03 ping tomcat02
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;直接ping服务名是不行的
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat02 ping tomcat01
+ping: tomcat01: Name or service not known
+解决？
+
+通过--link 就可以解决了网络连通
+root@yourtreedad:~# docker run -d --name tomcat03 --link tomcat02 tomcat
+832afb5618b02262a5f9cbe48072941cc4784c009d0f91962b371c218afa31c0
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat02 ping tomcat03
+ping: tomcat03: Name or service not known
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat03 ping tomcat02
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614200734188.png&#34; &gt;
@@ -5643,7 +6126,9 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614201318560&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;link的本质查看hosts配置，在这里原理发现root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat03 cat /etc/hosts
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;link的本质
+查看hosts配置，在这里原理发现
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat03 cat /etc/hosts
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614201902916.png&#34; &gt;
@@ -5680,7 +6165,9 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;docker0问题：他不支持容器名连接访问！&lt;/p&gt;
 &lt;p&gt;自定义网络&lt;/p&gt;
 &lt;p&gt;容器互联：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;查看所有的docker网络docker network ls
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;查看所有的docker网络
+docker network ls
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614202322526.png&#34; &gt;
@@ -5701,7 +6188,14 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;host：和宿主机共享网络&lt;/p&gt;
 &lt;p&gt;container：容器内网络连通！（用得少，局限很大）&lt;/p&gt;
 &lt;p&gt;测试&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;我们直接启动的命令 默认，这个我们看了就是我们的docker0root@yourtreedad:~# docker run -d -P --name tomcat01 --net bridge tomcat实际上不写--net也是默认的docker0 特点，默认，域名不能访问 --link 可以打通连接！我们可以自定义一个网络！
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;我们直接启动的命令 默认，这个我们看了就是我们的docker0
+root@yourtreedad:~# docker run -d -P --name tomcat01 --net bridge tomcat
+实际上不写--net也是默认的
+
+docker0 特点，默认，域名不能访问 --link 可以打通连接！
+
+我们可以自定义一个网络！
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614202926510.png&#34; &gt;
@@ -5730,7 +6224,10 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614203159484&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;创建一个自定义网络docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet 桥接、子网、网关设置我们自己的网络就创建好了！
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;创建一个自定义网络
+docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 mynet 
+桥接、子网、网关设置
+我们自己的网络就创建好了！
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614203427052.png&#34; &gt;
@@ -5745,7 +6242,13 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614203427052&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;使用自己构建的网络来创建容器，塞进去root@yourtreedad:~# docker run -d -P --name tomcat-net-01 --net mynet tomcat8d24df7fb899de77db6b600aedbfacc32fdd161836dd638b56666ca2014ff5bfroot@yourtreedad:~# docker run -d -P --name tomcat-net-02 --net mynet tomcateee0d29dbed8e780487fcc4bf93f1b3a9ab5ad8ffac194861a3c2ee948d8ea9e查看网络情况root@yourtreedad:~# docker inspect mynet
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;使用自己构建的网络来创建容器，塞进去
+root@yourtreedad:~# docker run -d -P --name tomcat-net-01 --net mynet tomcat
+8d24df7fb899de77db6b600aedbfacc32fdd161836dd638b56666ca2014ff5bf
+root@yourtreedad:~# docker run -d -P --name tomcat-net-02 --net mynet tomcat
+eee0d29dbed8e780487fcc4bf93f1b3a9ab5ad8ffac194861a3c2ee948d8ea9e
+查看网络情况
+root@yourtreedad:~# docker inspect mynet
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614203821209.png&#34; &gt;
@@ -5761,7 +6264,10 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;看看能不能ping通&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;现在不使用 --link也可以ping名字了！root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat-net-01 ping 192.168.0.3root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat-net-01 ping tomcat-net-02
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;现在不使用 --link也可以ping名字了！
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat-net-01 ping 192.168.0.3
+
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat-net-01 ping tomcat-net-02
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们自定义的网络docker都已经帮我们维护好了对应的关系，推荐我们平时这样使用网络！&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
@@ -5796,7 +6302,19 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614204746483&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;构建两个tomcat 但是默认是docker0网络下的root@yourtreedad:~# docker run -d -P --name tomcat01 tomcat86e292de23f4c821375058608f49f6a5bbdcd0220a5c3e36999cafa86eb25f79root@yourtreedad:~# docker run -d -P --name tomcat02 tomcate45223474886d4f490ed66446c2eb1b7809b273c5b104fde27301d9746f4ebf6而tomcat-net-01是在mynet下的，所以连不通root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat02 ping 192.168.0.3不能让docker0和mynet连通，这样不安全，要单独让tomcat01 和mynet连通如何操作docker network connect测试打通 tomcat01 到 mynet
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;构建两个tomcat 但是默认是docker0网络下的
+root@yourtreedad:~# docker run -d -P --name tomcat01 tomcat
+86e292de23f4c821375058608f49f6a5bbdcd0220a5c3e36999cafa86eb25f79
+root@yourtreedad:~# docker run -d -P --name tomcat02 tomcat
+e45223474886d4f490ed66446c2eb1b7809b273c5b104fde27301d9746f4ebf6
+而tomcat-net-01是在mynet下的，所以连不通
+root@yourtreedad:~# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it tomcat02 ping 192.168.0.3
+
+不能让docker0和mynet连通，这样不安全，要单独让tomcat01 和mynet连通
+如何操作
+docker network connect
+测试打通 tomcat01 到 mynet
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614205014081.png&#34; &gt;
@@ -5811,7 +6329,11 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	&lt;figcaption&gt;image-20210614205014081&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:~# docker network connect mynet tomcat01root@yourtreedad:~# docker network inspect mynet连通之后就是将tomcat01 放置到了 mynet 网络下？一个容器两个ip地址！ 阿里云服务，公网ip 和 私网ip
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:~# docker network connect mynet tomcat01
+root@yourtreedad:~# docker network inspect mynet
+连通之后就是将tomcat01 放置到了 mynet 网络下？
+
+一个容器两个ip地址！ 阿里云服务，公网ip 和 私网ip
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210614205144180.png&#34; &gt;
@@ -5849,7 +6371,12 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;shell脚本建立！&lt;/p&gt;
 &lt;p&gt;3主3从&lt;/p&gt;
 &lt;p&gt;1.建立网络&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker network create redisnet --subnet 172.38.0.0/16root@yourtreedad:/# docker network lsroot@yourtreedad:/# docker network inspect redisnet
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker network create redisnet --subnet 172.38.0.0/16
+
+
+root@yourtreedad:/# docker network ls
+
+root@yourtreedad:/# docker network inspect redisnet
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617192710761.png&#34; &gt;
@@ -5865,7 +6392,23 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;2.通过脚本创建六个redis配置&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; port in &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;seq &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 6&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;domkdir -p /mydata/redis/node-&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/conftouch /mydata/redis/node-&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/conf/redis.confcat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt; EOF &amp;gt;&amp;gt;/mydata/redis/node-${port}/conf/redis.confport 6379bind 0.0.0.0cluster-enabled yescluster-config-file nodes.confcluster-node-timeout 5000cluster-announce-ip 172.38.0.1${port}cluster-announce-port 6379cluster-announce-bus-port 16379appendonly yes EOF&lt;/span&gt;done
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# 
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; port in &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;seq &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 6&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+mkdir -p /mydata/redis/node-&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/conf
+touch /mydata/redis/node-&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/conf/redis.conf
+cat &lt;span class=&#34;s&#34;&gt;&amp;lt;&amp;lt; EOF &amp;gt;&amp;gt;/mydata/redis/node-${port}/conf/redis.conf
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;port 6379
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;bind 0.0.0.0
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;cluster-enabled yes
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;cluster-config-file nodes.conf
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;cluster-node-timeout 5000
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;cluster-announce-ip 172.38.0.1${port}
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;cluster-announce-port 6379
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;cluster-announce-bus-port 16379
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;appendonly yes 
+&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617194321734.png&#34; &gt;
@@ -5895,7 +6438,17 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;3.拉取镜像，启动容器，分配端口，数据卷映射&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker run -p 6371:6379 -p 16371:16379 --name redis-1 -v /mydata/redis/node-1/data:/data -v /mydata/redis/node-1/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.11 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.confdocker run -p 6372:6379 -p 16372:16379 --name redis-2 -v /mydata/redis/node-2/data:/data -v /mydata/redis/node-2/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.12 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.confdocker run -p 6373:6379 -p 16373:16379 --name redis-3 -v /mydata/redis/node-3/data:/data -v /mydata/redis/node-3/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.13 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.confdocker run -p 6374:6379 -p 16374:16379 --name redis-4 -v /mydata/redis/node-4/data:/data -v /mydata/redis/node-4/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.14 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.confdocker run -p 6375:6379 -p 16375:16379 --name redis-5 -v /mydata/redis/node-5/data:/data -v /mydata/redis/node-5/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.15 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.confdocker run -p 6376:6379 -p 16376:16379 --name redis-6 -v /mydata/redis/node-6/data:/data -v /mydata/redis/node-6/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.16 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker run -p 6371:6379 -p 16371:16379 --name redis-1 -v /mydata/redis/node-1/data:/data -v /mydata/redis/node-1/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.11 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6372:6379 -p 16372:16379 --name redis-2 -v /mydata/redis/node-2/data:/data -v /mydata/redis/node-2/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.12 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6373:6379 -p 16373:16379 --name redis-3 -v /mydata/redis/node-3/data:/data -v /mydata/redis/node-3/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.13 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6374:6379 -p 16374:16379 --name redis-4 -v /mydata/redis/node-4/data:/data -v /mydata/redis/node-4/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.14 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6375:6379 -p 16375:16379 --name redis-5 -v /mydata/redis/node-5/data:/data -v /mydata/redis/node-5/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.15 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
+
+docker run -p 6376:6379 -p 16376:16379 --name redis-6 -v /mydata/redis/node-6/data:/data -v /mydata/redis/node-6/conf/redis.conf:/etc/redis/redis.conf -d --net redisnet --ip 172.38.0.16 redis:5.0.9-alpine3.11 redis-server /etc/redis/redis.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617200000188.png&#34; &gt;
@@ -5927,7 +6480,8 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;建立集群 切片&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/data &lt;span class=&#34;c1&#34;&gt;# redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.0.13:6379 172.38.0.14:6379 172.38.0.15:6379 172.38.0.16:6379 --cluster-replicas 1&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/data &lt;span class=&#34;c1&#34;&gt;# redis-cli --cluster create 172.38.0.11:6379 172.38.0.12:6379 172.38.0.13:6379 172.38.0.14:6379 172.38.0.15:6379 172.38.0.16:6379 --clust&lt;/span&gt;
+er-replicas &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617200738182.png&#34; &gt;
@@ -5943,7 +6497,14 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;查看集群信息&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/data &lt;span class=&#34;c1&#34;&gt;# redis-cli -c127.0.0.1:6379&amp;gt; cluster info127.0.0.1:6379&amp;gt; cluster nodes127.0.0.1:6379&amp;gt; set a b&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/data &lt;span class=&#34;c1&#34;&gt;# redis-cli -c&lt;/span&gt;
+127.0.0.1:6379&amp;gt; cluster info
+
+
+127.0.0.1:6379&amp;gt; cluster nodes
+
+
+127.0.0.1:6379&amp;gt; &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; a b
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617201019736.png&#34; &gt;
@@ -5959,7 +6520,15 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;测试，停掉一个master主机redis会不会使用备机来顶替主机&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker stop redis-3root@yourtreedad:/# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it redis-1 /bin/sh/data &lt;span class=&#34;c1&#34;&gt;# redis-cli -c127.0.0.1:6379&amp;gt; cluster info127.0.0.1:6379&amp;gt; get a&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/# docker stop redis-3
+
+
+root@yourtreedad:/# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it redis-1 /bin/sh
+
+/data &lt;span class=&#34;c1&#34;&gt;# redis-cli -c&lt;/span&gt;
+127.0.0.1:6379&amp;gt; cluster info
+127.0.0.1:6379&amp;gt; get a
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617201403193.png&#34; &gt;
@@ -6118,7 +6687,9 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;测试&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/idea# docker run -d --name kuangshen-springboot-web -P kuangshen666root@yourtreedad:/home/idea# curl localhost:49158/hello
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:/home/idea# docker run -d --name kuangshen-springboot-web -P kuangshen666
+
+root@yourtreedad:/home/idea# curl localhost:49158/hello
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure 
 	&gt;
 	&lt;a href=&#34;https://linjianshu.github.io/DockerLearning.assets/image-20210617225833450.png&#34; &gt;
@@ -6258,7 +6829,201 @@ docker &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; 容器id
 &lt;p&gt;nginx使用挂载的方式-v 来实现对容器内部nginx配置文件的替换，&lt;/p&gt;
 &lt;p&gt;利用docker cp 来把dist文件拷贝进去&lt;/p&gt;
 &lt;p&gt;使用-p 的方式替换端口&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:~# docker pull nginxUsing default tag: latestlatest: Pulling from library/nginxb4d181a07f80: Already exists66b1c490df3f: Pull completed0f91ae9b44c: Pull completebaf987068537: Pull complete6bbc76cbebeb: Pull complete32b766478bc2: Pull completeDigest: sha256:353c20f74d9b6aee359f30e8e4f69c3d7eaea2f610681c4a95849a2fd7c497f9Status: Downloaded newer image &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; nginx:latestdocker.io/library/nginx:latestroot@yourtreedad:~#root@yourtreedad:~# docker imagesREPOSITORY               TAG                 IMAGE ID            CREATED             SIZEnginx                    latest              4cdc5dd7eaad        &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; days ago         133MByourtreedad/blazordemo   latest              aa1397c0af05        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         207MBmysql                    latest              5c62e459e087        &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; weeks ago         556MBroot@yourtreedad:~# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..root@yourtreedad:/# pwd/root@yourtreedad:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; homeroot@yourtreedad:/home# lsblazortest    haierDemo  ljs      mvcwindowstest  nginx      tomcatconsoletest1  kuangshen  mvctest  mysql           nginxdemo  webapitestroot@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginxdemoroot@yourtreedad:/home/nginxdemo# lsnginx-1.14.2  nginx-1.14.2.ziproot@yourtreedad:/home/nginxdemo# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginx-1.14.2root@yourtreedad:/home/nginxdemo/nginx-1.14.2# lsconf  contrib  dist  docs  html  logs  nginx.exe  temproot@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker run --name nginxdemo2 -p 8889:8765 -v /home/nginxdemo/nginx-1.14.2/conf/myconf1.conf:/etc/nginx/nginx.conf:ro -d nginx6bed1ace8c9942f62e61ea18f7f632973fa1d7536ac3a6d1ada11e3d2c093b6eroot@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker cp /home/nginxdemo/nginx-1.14.2/dist 6bed1ace8c9942f62e:/etc/nginxroot@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it 6bed1ace8c9942f62e61ea18f7f632973fa1d7536ac3a6d1ada11e3d2c093b6e /bin/bashlslsroot@6bed1ace8c99:/# lsbin   docker-entrypoint.d   home   media  proc  sbin  tmpboot  docker-entrypoint.sh  lib    mnt    root  srv   usrdev   etc                   lib64  opt    run   sys   varroot@6bed1ace8c99:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /etcroot@6bed1ace8c99:/etc# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginxroot@6bed1ace8c99:/etc/nginx# lsconf.d  dist  fastcgi_params  mime.types  modules  nginx.conf  scgi_params  uwsgi_paramsroot@6bed1ace8c99:/etc/nginx# cat nginx.conf#user  nobody&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;c553c6ba5f13: Pushed#error_log  logs/error.log&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#error_log  logs/error.log  notice;Head https://registry-1.docker.io/v2/yourtreedad/nginxcontaindist/blobs/sha256:4d7903a7ce4bdf92461e0dd87d1fb712facb6881df3cbce68f55f4ec54791546: dial tcp: lookup registry-1.docker.io on 192.168.65.5:53: no such hostroot@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf#events {    worker_connections  1024;}http {    include       mime.types;    default_type  application/octet-stream;    #log_format  main  &amp;#39;$remote_addr - $remote_user [$time_local] &amp;#34;$request&amp;#34; &amp;#39;    #                  &amp;#39;$status $body_bytes_sent &amp;#34;$http_referer&amp;#34; &amp;#39;    #                  &amp;#39;&amp;#34;$http_user_agent&amp;#34; &amp;#34;$http_x_forwarded_for&amp;#34;&amp;#39;;    #access_log  logs/access.log  main;    # server {    #     listen 8765;    #     listen localhost;    #     location / {    #         root dist;    #         index index.html index.htm;    #     }    # }    sendfile        on;    #tcp_nopush     on;    #keepalive_timeout  0;    keepalive_timeout  65;    #gzip  on;    server {        listen       8765;        server_name  localhost;        #charset koi8-r;        #access_log  logs/host.access.log  main;        location / {            root   dist;            index  index.html index.htm;        }        #error_page  404              /404.html;        # redirect server error pages to the static page /50x.html        #        error_page   500 502 503 504  /50x.html;        location = /50x.html {            root   html;        }        # proxy the PHP scripts to Apache listening on 127.0.0.1:80        #        #location ~ \.php$ {        #    proxy_pass   http://127.0.0.1;        #}        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000        #        #location ~ \.php$ {        #    root           html;        #    fastcgi_pass   127.0.0.1:9000;        #    fastcgi_index  index.php;        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;        #    include        fastcgi_params;        #}67f2e8eb8c87: Pushing [&amp;gt;                                                  ]  77.82kB/4.758MB        # concurs with nginx&amp;#39;s one        #        #location ~ /\.ht {        #    deny  all;        #}    }    # another virtual host using mix of IP-, name-, and port-based configuration    #    #server {    #    listen       8000;    #    listen       somename:8080;    #    server_name  somename  alias  another.alias;    #    location / {    #        root   html;    #        index  index.html index.htm;    #    }    #}    # HTTPS server    #    #server {    #    listen       443 ssl;    #    server_name  localhost;    #    ssl_certificate      cert.pem;    #    ssl_certificate_key  cert.key;    #    ssl_session_cache    shared:SSL:1m;    #    ssl_session_timeout  5m;    #    ssl_ciphers  HIGH:!aNULL:!MD5;    #    ssl_prefer_server_ciphers  on;    #    location / {    #        root   html;    #        index  index.html index.htm;    #    }    #}}root@6bed1ace8c99:/etc/nginx# exitexitroot@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker commit -a=&amp;#34;yourtreedad&amp;#34; -m=&amp;#34;jien&amp;#39;s ui add ljs&amp;#39;s deploy new nginx that contains dist&amp;#34; 6bed1ace8c nginx:1.0sha256:4d7903a7ce4bdf92461e0dd87d1fb712facb6881df3cbce68f55f4ec54791546root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker push yourtreedad/nginx:1.0The push refers to repository [docker.io/yourtreedad/nginx]An image does not exist locally with the tag: yourtreedad/nginxroot@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker tag nginx:1.0 yourtreedad/nginxcontaindist:1.0root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker push yourtreedad/nginxcontaindist:1.0The push refers to repository [docker.io/yourtreedad/nginxcontaindist]67f2e8eb8c87: Preparing9d1af766c818: Preparingd97733c0a3b6: Preparingc553c6ba5f13: Preparing48b4a40de359: Preparingace9ed9bcfaf: Waiting764055ebc9a7: Waiting&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root@yourtreedad:~# docker pull nginx
+Using default tag: latest
+
+latest: Pulling from library/nginx
+b4d181a07f80: Already exists
+66b1c490df3f: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+d0f91ae9b44c: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+baf987068537: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+6bbc76cbebeb: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+32b766478bc2: Pull &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:353c20f74d9b6aee359f30e8e4f69c3d7eaea2f610681c4a95849a2fd7c497f9
+Status: Downloaded newer image &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; nginx:latest
+docker.io/library/nginx:latest
+root@yourtreedad:~#
+root@yourtreedad:~# docker images
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+nginx                    latest              4cdc5dd7eaad        &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; days ago         133MB
+yourtreedad/blazordemo   latest              aa1397c0af05        &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; weeks ago         207MB
+mysql                    latest              5c62e459e087        &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; weeks ago         556MB
+
+
+root@yourtreedad:~# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
+root@yourtreedad:/# &lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;
+/
+root@yourtreedad:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; home
+root@yourtreedad:/home# ls
+blazortest    haierDemo  ljs      mvcwindowstest  nginx      tomcat
+consoletest1  kuangshen  mvctest  mysql           nginxdemo  webapitest
+root@yourtreedad:/home# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginxdemo
+root@yourtreedad:/home/nginxdemo# ls
+nginx-1.14.2  nginx-1.14.2.zip
+root@yourtreedad:/home/nginxdemo# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginx-1.14.2
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2# ls
+conf  contrib  dist  docs  html  logs  nginx.exe  temp
+
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker run --name nginxdemo2 -p 8889:8765 -v /home/nginxdemo/nginx-1
+.14.2/conf/myconf1.conf:/etc/nginx/nginx.conf:ro -d nginx
+6bed1ace8c9942f62e61ea18f7f632973fa1d7536ac3a6d1ada11e3d2c093b6e
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker cp /home/nginxdemo/nginx-1.14.2/dist 6bed1ace8c9942f62e:/etc/nginx
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it 6bed1ace8c9942f62e61ea18f7f632973fa1d7536ac3a6d1ada11e3d2c093b6e /bin/bash
+ls
+ls
+root@6bed1ace8c99:/# ls
+bin   docker-entrypoint.d   home   media  proc  sbin  tmp
+boot  docker-entrypoint.sh  lib    mnt    root  srv   usr
+dev   etc                   lib64  opt    run   sys   var
+root@6bed1ace8c99:/# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /etc
+root@6bed1ace8c99:/etc# &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginx
+root@6bed1ace8c99:/etc/nginx# ls
+conf.d  dist  fastcgi_params  mime.types  modules  nginx.conf  scgi_params  uwsgi_params
+root@6bed1ace8c99:/etc/nginx# cat nginx.conf
+
+&lt;span class=&#34;c1&#34;&gt;#user  nobody;&lt;/span&gt;
+c553c6ba5f13: Pushed
+
+&lt;span class=&#34;c1&#34;&gt;#error_log  logs/error.log;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;#error_log  logs/error.log  notice;&lt;/span&gt;
+Head https://registry-1.docker.io/v2/yourtreedad/nginxcontaindist/blobs/sha256:4d7903a7ce4bdf92461e0dd87d1fb712facb6881df3cbce68f55f4ec54791546: dial tcp: lookup registry-1.docker.io on 192.168.65.5:53: no such host
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf#
+
+
+events &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    worker_connections  1024&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+
+http &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    include       mime.types&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    default_type  application/octet-stream&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#log_format  main  &amp;#39;$remote_addr - $remote_user [$time_local] &amp;#34;$request&amp;#34; &amp;#39;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#                  &amp;#39;$status $body_bytes_sent &amp;#34;$http_referer&amp;#34; &amp;#39;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#                  &amp;#39;&amp;#34;$http_user_agent&amp;#34; &amp;#34;$http_x_forwarded_for&amp;#34;&amp;#39;;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#access_log  logs/access.log  main;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;# server {&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#     listen 8765;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#     listen localhost;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#     location / {&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#         root dist;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#         index index.html index.htm;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#     }&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;# }&lt;/span&gt;
+
+    sendfile        on&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#tcp_nopush     on;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#keepalive_timeout  0;&lt;/span&gt;
+    keepalive_timeout  65&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#gzip  on;&lt;/span&gt;
+
+    server &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        listen       8765&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        server_name  localhost&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+        &lt;span class=&#34;c1&#34;&gt;#charset koi8-r;&lt;/span&gt;
+
+        &lt;span class=&#34;c1&#34;&gt;#access_log  logs/host.access.log  main;&lt;/span&gt;
+
+        location / &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            root   dist&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            index  index.html index.htm&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;c1&#34;&gt;#error_page  404              /404.html;&lt;/span&gt;
+
+        &lt;span class=&#34;c1&#34;&gt;# redirect server error pages to the static page /50x.html&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+        error_page   &lt;span class=&#34;m&#34;&gt;500&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;502&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;503&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;504&lt;/span&gt;  /50x.html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;nv&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; /50x.html &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            root   html&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+        &lt;span class=&#34;c1&#34;&gt;# proxy the PHP scripts to Apache listening on 127.0.0.1:80&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#location ~ \.php$ {&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    proxy_pass   http://127.0.0.1;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#}&lt;/span&gt;
+
+        &lt;span class=&#34;c1&#34;&gt;# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#location ~ \.php$ {&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    root           html;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    fastcgi_pass   127.0.0.1:9000;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    fastcgi_index  index.php;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    include        fastcgi_params;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#}&lt;/span&gt;
+
+67f2e8eb8c87: Pushing &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&amp;gt;                                                  &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;  77.82kB/4.758MB
+        &lt;span class=&#34;c1&#34;&gt;# concurs with nginx&amp;#39;s one&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#location ~ /\.ht {&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#    deny  all;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;#}&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&#34;c1&#34;&gt;# another virtual host using mix of IP-, name-, and port-based configuration&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#server {&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    listen       8000;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    listen       somename:8080;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    server_name  somename  alias  another.alias;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#    location / {&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#        root   html;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#        index  index.html index.htm;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    }&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#}&lt;/span&gt;
+
+
+    &lt;span class=&#34;c1&#34;&gt;# HTTPS server&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#server {&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    listen       443 ssl;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    server_name  localhost;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#    ssl_certificate      cert.pem;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    ssl_certificate_key  cert.key;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#    ssl_session_cache    shared:SSL:1m;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    ssl_session_timeout  5m;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#    ssl_ciphers  HIGH:!aNULL:!MD5;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    ssl_prefer_server_ciphers  on;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;#    location / {&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#        root   html;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#        index  index.html index.htm;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#    }&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;#}&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+root@6bed1ace8c99:/etc/nginx# &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt;
+
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker commit -a&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;yourtreedad&amp;#34;&lt;/span&gt; -m&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;jien&amp;#39;s ui add ljs&amp;#39;s deploy new nginx that contains dist&amp;#34;&lt;/span&gt; 6bed1ace8c nginx:1.0
+sha256:4d7903a7ce4bdf92461e0dd87d1fb712facb6881df3cbce68f55f4ec54791546
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker push yourtreedad/nginx:1.0
+The push refers to repository &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;docker.io/yourtreedad/nginx&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+An image does not exist locally with the tag: yourtreedad/nginx
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker tag nginx:1.0 yourtreedad/nginxcontaindist:1.0
+root@yourtreedad:/home/nginxdemo/nginx-1.14.2/conf# docker push yourtreedad/nginxcontaindist:1.0
+The push refers to repository &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;docker.io/yourtreedad/nginxcontaindist&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+67f2e8eb8c87: Preparing
+9d1af766c818: Preparing
+d97733c0a3b6: Preparing
+c553c6ba5f13: Preparing
+48b4a40de359: Preparing
+ace9ed9bcfaf: Waiting
+764055ebc9a7: Waiting
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是部署在本地 ， 现在开始演示部署到云服务器上&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	&gt;
