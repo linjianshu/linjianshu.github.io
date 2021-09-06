@@ -358,11 +358,11 @@ package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数
     </item>
     
     <item>
-      <title>My First Post</title>
-      <link>https://linjianshu.github.io/p/my-first-post/</link>
+      <title>git学习文档</title>
+      <link>https://linjianshu.github.io/p/git%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
       <pubDate>Tue, 31 Aug 2021 16:18:59 +0800</pubDate>
       
-      <guid>https://linjianshu.github.io/p/my-first-post/</guid>
+      <guid>https://linjianshu.github.io/p/git%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
       <description>Git学习文档 学习git之前，我们需要先明白一个概念，版本控制！
 版本控制  什么是版本控制 版本迭代 版本管理器
  版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
