@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MYSQL on think hy how to learn</title>
+    <link>https://linjianshu.github.io/tags/mysql/</link>
+    <description>Recent content in MYSQL on think hy how to learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Oct 2021 23:44:44 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysql基础</title>
+      <link>https://linjianshu.github.io/p/mysql%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sun, 10 Oct 2021 23:44:44 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/mysql%E5%9F%BA%E7%A1%80/</guid>
+      <description>mysql学习文档 一 为什么要学习数据库 二 数据库的相关概念 DBMS DB SQL
+三 数据库存储数据的特点 四 初始mysql mysql产品的介绍
+mysql产品的安装
+mysql服务的启动和停止
+mysql服务的登陆和退出
+mysql的常见命令和语法规范
+五DQL语言的学习 基础查询
+条件查询
+排序查询
+常见函数
+分组查询
+连接查询
+子查询
+分页查询
+union联合查询
+六 DML语言的学习 插入语句
+修改语句
+删除语句
+七 DDL语言的学习 库和表的管理
+常见数据类型介绍
+常见约束
+保存数据的容器:
+数组 集合 内存数据 断电就没了
+文件 但是文件不好查找
+因此把文件做成方便增删改查的软件 对文件进行操作 这样的软件就叫做数据库
+数据库的好处  实现数据持久化 使用完整的管理系统统一管理,易于查询  数据库的概念 DB 数据库 database:存储数据的仓库,保存了一系列有组织的数据.
+DBMS 数据库管理系统 database management system 数据库是通过dbms创建和操作的容器
+常见的数据库管理系统 mysql oracle db2 sqlserver
+SQL 结构化查询语言 structure query language :专门用来与数据库通信的语言</description>
+    </item>
+    
+  </channel>
+</rss>

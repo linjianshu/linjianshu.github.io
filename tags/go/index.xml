@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GO on think hy how to learn</title>
+    <link>https://linjianshu.github.io/tags/go/</link>
+    <description>Recent content in GO on think hy how to learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Aug 2021 00:17:57 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言学习</title>
+      <link>https://linjianshu.github.io/p/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 24 Aug 2021 00:17:57 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Go语言学习 alt+enter
+ctrl+space
+ctrl+shift+space
+ctrl+alt+L
+ctrl+alt+M重构
+F2查看错误
+alt+6查看问题
+ctrl+shift+/
+alt+F8 评估表达式
+ctrl+F8 切换断点
+环境搭建，编译之后生成可执行exe文件，就可以直接使用了
+image-20210725102106105
+image-20210725102139391
+编译
+使用 go build
+1.在项目目录下执行go build
+2.在其他路径下执行go build ，需要在后面加上项目的路径（项目路径从gopath/src后开始写起，编译之后的可执行文件就保存在当前目录下）
+3.go build -o hello.exe
+go run
+像执行脚本文件一样执行go代码
+go install
+分为两步：
+1.先编译得到一个可执行文件
+2.将可执行文件拷贝到gopath的bin目录
+交叉编译，可以跨平台跑程序
+例如在windows平台编译一个能在linux平台上执行的可执行文件
+这个似乎要在源文件位置处使用cmd命令操作,并且要用大写!!!
+E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET CGO_ENABLE=0 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOOS=linux E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOARCH=amd64 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;go build image-20210725103733683
+go语言的基本结构
+package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数 //函数外部只能放置标识符（变量、常量、函数、类型）的声明 func main() { fmt.Println(&amp;#34;hello world&amp;#34;) } 变量和常量</description>
+    </item>
+    
+  </channel>
+</rss>

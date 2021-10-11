@@ -5,6 +5,34 @@
     <link>https://linjianshu.github.io/tags/</link>
     <description>Recent content in Tags on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://linjianshu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Oct 2021 23:44:44 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MYSQL</title>
+      <link>https://linjianshu.github.io/tags/mysql/</link>
+      <pubDate>Sun, 10 Oct 2021 23:44:44 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GO</title>
+      <link>https://linjianshu.github.io/tags/go/</link>
+      <pubDate>Tue, 24 Aug 2021 00:17:57 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>容器化</title>
+      <link>https://linjianshu.github.io/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+      <pubDate>Mon, 26 Jul 2021 00:23:34 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
