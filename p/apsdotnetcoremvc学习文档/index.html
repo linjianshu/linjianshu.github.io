@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='asp .net core mvc 学习文档 控制器向界面传值 通过viewbag/viewdata 来进行弱传递
+controller中:
+image-20210421230444662
+index中:
+image-20210421230455113
+通过model进行强类型传递
+controller中:
+image-20210421230520009
+index中:
+@model IEnumerable&amp;lt;webmvcdemo.Models.Movie&amp;gt; &amp;lt;form asp-controller=&amp;#34;Movies&amp;#34; asp-action=&amp;#34;Index&amp;#34; &amp;gt; &amp;lt;p&amp;gt; &amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; @foreach (var item in typeof(Movie).GetProperties()) { &amp;lt;option value=@item.Name&amp;gt;@item.Name&amp;lt;/option&amp;gt; } &amp;lt;/select&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/form&amp;gt; 界面向控制器传参 通过name来准确传递
+index:
+&amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; 控制器中:
+image-20210421230911623
+通过定位点标记帮助程序
+https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-5.0#asp-route-value
+Razor语法 使用@符号将c#转化为html代码提供展示 显式/隐式razor表达式 razor代码块 ​	Razor 代码块以开头 @ ，并由括起来 {} 。 代码块内的 C# 代码不会呈现，这点与表达式不同。 一个视图中的代码块和表达式共享相同的作用域并按顺序进行定义'><title>ApsDotnetCoreMVC学习文档</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/apsdotnetcoremvc%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='ApsDotnetCoreMVC学习文档'>
+<meta property='og:description' content='asp .net core mvc 学习文档 控制器向界面传值 通过viewbag/viewdata 来进行弱传递
+controller中:
+image-20210421230444662
+index中:
+image-20210421230455113
+通过model进行强类型传递
+controller中:
+image-20210421230520009
+index中:
+@model IEnumerable&amp;lt;webmvcdemo.Models.Movie&amp;gt; &amp;lt;form asp-controller=&amp;#34;Movies&amp;#34; asp-action=&amp;#34;Index&amp;#34; &amp;gt; &amp;lt;p&amp;gt; &amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; @foreach (var item in typeof(Movie).GetProperties()) { &amp;lt;option value=@item.Name&amp;gt;@item.Name&amp;lt;/option&amp;gt; } &amp;lt;/select&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/form&amp;gt; 界面向控制器传参 通过name来准确传递
+index:
+&amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; 控制器中:
+image-20210421230911623
+通过定位点标记帮助程序
+https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-5.0#asp-route-value
+Razor语法 使用@符号将c#转化为html代码提供展示 显式/隐式razor表达式 razor代码块 ​	Razor 代码块以开头 @ ，并由括起来 {} 。 代码块内的 C# 代码不会呈现，这点与表达式不同。 一个视图中的代码块和表达式共享相同的作用域并按顺序进行定义'>
+<meta property='og:url' content='https://linjianshu.github.io/p/apsdotnetcoremvc%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-04-16T00:28:25&#43;08:00'/><meta property='article:modified_time' content='2021-04-16T00:28:25&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/' />
+<meta name="twitter:site" content="@ljs56495989">
+    <meta name="twitter:creator" content="@ljs56495989"><meta name="twitter:title" content="ApsDotnetCoreMVC学习文档">
+<meta name="twitter:description" content="asp .net core mvc 学习文档 控制器向界面传值 通过viewbag/viewdata 来进行弱传递
+controller中:
+image-20210421230444662
+index中:
+image-20210421230455113
+通过model进行强类型传递
+controller中:
+image-20210421230520009
+index中:
+@model IEnumerable&amp;lt;webmvcdemo.Models.Movie&amp;gt; &amp;lt;form asp-controller=&amp;#34;Movies&amp;#34; asp-action=&amp;#34;Index&amp;#34; &amp;gt; &amp;lt;p&amp;gt; &amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; @foreach (var item in typeof(Movie).GetProperties()) { &amp;lt;option value=@item.Name&amp;gt;@item.Name&amp;lt;/option&amp;gt; } &amp;lt;/select&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/form&amp;gt; 界面向控制器传参 通过name来准确传递
+index:
+&amp;lt;select name=&amp;#34;prop&amp;#34; required=&amp;#34;&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;SerachString&amp;#34;/&amp;gt; 控制器中:
+image-20210421230911623
+通过定位点标记帮助程序
+https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-5.0#asp-route-value
+Razor语法 使用@符号将c#转化为html代码提供展示 显式/隐式razor表达式 razor代码块 ​	Razor 代码块以开头 @ ，并由括起来 {} 。 代码块内的 C# 代码不会呈现，这点与表达式不同。 一个视图中的代码块和表达式共享相同的作用域并按顺序进行定义"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://linjianshu.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/apsdotnetcoremvc%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">ApsDotnetCoreMVC学习文档</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 16, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="asp-net-core-mvc-学习文档">asp .net core mvc 学习文档</h2>
+<h4 id="控制器向界面传值">控制器向界面传值</h4>
+<p>通过viewbag/viewdata 来进行弱传递</p>
+<p>controller中:</p>
+<p><figure 
+	>
+	<a href="/apsDotnetCoreMVCLearning.assets/image-20210421230444662.png" >
+		<img src="/apsDotnetCoreMVCLearning.assets/image-20210421230444662.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210421230444662">
+	</a>
+	
+	<figcaption>image-20210421230444662</figcaption>
+	
+</figure></p>
+<p>index中:</p>
+<p><figure 
+	>
+	<a href="/apsDotnetCoreMVCLearning.assets/image-20210421230455113.png" >
+		<img src="/apsDotnetCoreMVCLearning.assets/image-20210421230455113.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210421230455113">
+	</a>
+	
+	<figcaption>image-20210421230455113</figcaption>
+	
+</figure></p>
+<p>通过model进行强类型传递</p>
+<p>controller中:</p>
+<p><figure 
+	>
+	<a href="/apsDotnetCoreMVCLearning.assets/image-20210421230520009.png" >
+		<img src="/apsDotnetCoreMVCLearning.assets/image-20210421230520009.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210421230520009">
+	</a>
+	
+	<figcaption>image-20210421230520009</figcaption>
+	
+</figure></p>
+<p>index中:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">@model IEnumerable<span class="p">&lt;</span><span class="nt">webmvcdemo.Models.Movie</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">asp-controller</span><span class="o">=</span><span class="s">&#34;Movies&#34;</span> <span class="na">asp-action</span><span class="o">=</span><span class="s">&#34;Index&#34;</span> <span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;prop&#34;</span> <span class="na">required</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+            @foreach (var item in typeof(Movie).GetProperties())
+            {
+                    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">@item.Name</span><span class="p">&gt;</span>@item.Name<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            }
+        <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;SerachString&#34;</span><span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span> 
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div><h4 id="界面向控制器传参">界面向控制器传参</h4>
+<p>通过name来准确传递</p>
+<p>index:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">        <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;prop&#34;</span> <span class="na">required</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;SerachString&#34;</span><span class="p">/&gt;</span>
+</code></pre></div><p>控制器中:</p>
+<p><figure 
+	>
+	<a href="/apsDotnetCoreMVCLearning.assets/image-20210421230911623.png" >
+		<img src="/apsDotnetCoreMVCLearning.assets/image-20210421230911623.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210421230911623">
+	</a>
+	
+	<figcaption>image-20210421230911623</figcaption>
+	
+</figure></p>
+<p>通过定位点标记帮助程序</p>
+<p><a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-5.0#asp-route-value"  target="_blank" rel="noopener"
+    >https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-5.0#asp-route-value</a></p>
+<h3 id="razor语法">Razor语法</h3>
+<h5 id="使用符号将c转化为html代码提供展示">使用@符号将c#转化为html代码提供展示</h5>
+<h5 id="显式隐式razor表达式">显式/隐式razor表达式</h5>
+<h5 id="razor代码块">razor代码块</h5>
+<p>​	Razor 代码块以开头 <code>@</code> ，并由括起来 <code>{}</code> 。 代码块内的 C# 代码不会呈现，这点与表达式不同。 一个视图中的代码块和表达式共享相同的作用域并按顺序进行定义</p>
+<h5 id="控制结构if-else-if-else-and-switch">控制结构<code>@if, else if, else, and @switch</code></h5>
+<h5 id="循环结构for-foreach-while-and-do-while">循环结构<code>@for, @foreach, @while, and @do while</code></h5>
+<h5 id="复合语句using-try-catch-finally">复合语句<code>@using, @try, catch, finally</code></h5>
+<h5 id="attribute-指令将给定的属性添加到生成的页或视图的类中-以下示例添加-authorize-属性"><code>@attribute</code> 指令将给定的属性添加到生成的页或视图的类中。 以下示例添加 <code>[Authorize]</code> 属性：</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">@attribute [Authorize]
+</code></pre></div><h5 id="code和functions">@code和@functions</h5>
+<p><code>@code</code>块使<a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/blazor/components/?view=aspnetcore-5.0"  target="_blank" rel="noopener"
+    > Razor 组件</a>可以将 c # 成员添加 () 到组件的字段、属性和方法</p>
+<p><code>@functions</code> 指令允许将 C# 成员（字段、属性和方法）添加到生成的类中</p>
+<p>在razor组件中,我们使用@code 来代替js所做的操作和运算</p>
+<p>在razor页面中,我们使用@functions 来代替js所做的操作和运算</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">@functions {
+    public string GetHello()
+    {
+        return &#34;Hello&#34;;
+    }
+}
+
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>From method: @GetHello()<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><h5 id="implements-指令为生成的类实现接口"><code>@implements</code> 指令为生成的类实现接口。</h5>
+<h5 id="inherits-指令对视图继承的类提供完全控制"><code>@inherits</code> 指令对视图继承的类提供完全控制：</h5>
+<p><figure 
+	>
+	<a href="/apsDotnetCoreMVCLearning.assets/image-20210422102054166.png" >
+		<img src="/apsDotnetCoreMVCLearning.assets/image-20210422102054166.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210422102054166">
+	</a>
+	
+	<figcaption>image-20210422102054166</figcaption>
+	
+</figure></p>
+<p><code>@model</code> 和 <code>@inherits</code> 可在同一视图中使用。</p>
+<p><code>@inject</code>指令使 Razor 页面可以将服务从<a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0"  target="_blank" rel="noopener"
+    >服务容器</a>注入到视图。 有关详细信息，请参阅<a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/dependency-injection?view=aspnetcore-5.0"  target="_blank" rel="noopener"
+    >视图中的依赖关系注入</a>。</p>
+<p><code>@model</code> 指令指定传递到视图或页面的模型类型</p>
+<p><code>@namespace</code> 指令：</p>
+<ul>
+<li>设置生成的 Razor 页、MVC 视图或组件的类的命名空间 Razor 。</li>
+<li>在目录树中最近的导入文件中设置页面、视图或组件类的根派生命名空间， <em>_ViewImports</em>) 或 <em>_Imports razor</em> (组件) (视图或页面。 Razor</li>
+</ul>
+<p><code>@page</code> 指令具有不同的效果，具体取决于其所在文件的类型。 指令：</p>
+<ul>
+<li>在 <em>cshtml</em> 文件中，指示该文件是一个 Razor 页面。 有关详细信息，请参阅<a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/razor-pages/?view=aspnetcore-5.0#custom-routes"  target="_blank" rel="noopener"
+    >自定义路由</a>和 <a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/razor-pages/?view=aspnetcore-5.0"  target="_blank" rel="noopener"
+    >ASP.NET Core 中的 Razor Pages 介绍</a>。</li>
+<li>指定 Razor 组件应直接处理请求。 有关详细信息，请参阅 <a class="link" href="https://docs.microsoft.com/zh-cn/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-5.0"  target="_blank" rel="noopener"
+    >ASP.NET Core Blazor 路由</a>。</li>
+</ul>
+<p><code>@using</code> 指令用于向生成的视图添加 C# <code>using</code> 指令：</p>
+<pre><code class="language-cshtml" data-lang="cshtml">@using System.IO
+@{
+    var dir = Directory.GetCurrentDirectory();
+}
+&lt;p&gt;@dir&lt;/p&gt;
+</code></pre><p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="k">public</span> <span class="k">class</span> <span class="nc">Instructor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">ID</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="na">
+</span><span class="na">    [FromQuery(Name = &#34;Note&#34;)]</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">NoteFromQueryString</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<h5 id="表单标记帮助程序">表单标记帮助程序</h5>
+<p><!-- raw HTML omitted --></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#asp-net-core-mvc-学习文档">asp .net core mvc 学习文档</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#控制器向界面传值">控制器向界面传值</a></li>
+            <li><a href="#界面向控制器传参">界面向控制器传参</a></li>
+          </ol>
+        </li>
+        <li><a href="#razor语法">Razor语法</a>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

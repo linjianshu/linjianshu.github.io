@@ -1,0 +1,3150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='数据结构与算法 解决问题方法的效率，跟数据的组织方式有关。
+循环和递归
+解决问题方法的效率，跟空间的利用效率有关。
+image-20210818161452286
+image-20210818162018882
+解决问题方法的效率，跟算法的巧妙程度有关
+数据结构 数据对象在计算机中的组织方式
+ 逻辑结构：线性结构和树结构、图结构 物理存储结构：数组、链表  数据对象必定与一系列加在其上的操作相关联
+完成这些操作所用的方法就是算法
+抽象数据类型(Abstract Data Type)  数据类型  数据对象集 数据集合相关联的操作集   抽象：描述数据类型的方法不依赖于具体实现  与存放数据的机器无关 与数据存储的物理结构无关 与实现操作的算法和编程语言均无关    只描述数据对象集和相关操作集是什么，并不涉及如何做到的问题
+抽象 image-20210818163548512
+算法  一个有限指令集 接收一些输入（有些情况下不需要输入） 产生输出 一定在有限步骤之后终止 每一条指令必须  有充分明确的目标，不可以有歧义 计算机能处理的范围之内 描述应不依赖与任何一种计算机语言以及具体的实现手段    image-20210818164049310
+什么是好算法  空间复杂度sn  根据算法写成的程序在执行时占用存储单元的长度。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。
+ 时间复杂度Tn  根据算法写成的程序在执行时耗费时间的长度。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行结果。
+递归的时候会占用内存，因为递归下一层的时候要暂存上一层的结果
+Sn = C*N'><title>数据结构与算法学习文档</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='数据结构与算法学习文档'>
+<meta property='og:description' content='数据结构与算法 解决问题方法的效率，跟数据的组织方式有关。
+循环和递归
+解决问题方法的效率，跟空间的利用效率有关。
+image-20210818161452286
+image-20210818162018882
+解决问题方法的效率，跟算法的巧妙程度有关
+数据结构 数据对象在计算机中的组织方式
+ 逻辑结构：线性结构和树结构、图结构 物理存储结构：数组、链表  数据对象必定与一系列加在其上的操作相关联
+完成这些操作所用的方法就是算法
+抽象数据类型(Abstract Data Type)  数据类型  数据对象集 数据集合相关联的操作集   抽象：描述数据类型的方法不依赖于具体实现  与存放数据的机器无关 与数据存储的物理结构无关 与实现操作的算法和编程语言均无关    只描述数据对象集和相关操作集是什么，并不涉及如何做到的问题
+抽象 image-20210818163548512
+算法  一个有限指令集 接收一些输入（有些情况下不需要输入） 产生输出 一定在有限步骤之后终止 每一条指令必须  有充分明确的目标，不可以有歧义 计算机能处理的范围之内 描述应不依赖与任何一种计算机语言以及具体的实现手段    image-20210818164049310
+什么是好算法  空间复杂度sn  根据算法写成的程序在执行时占用存储单元的长度。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。
+ 时间复杂度Tn  根据算法写成的程序在执行时耗费时间的长度。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行结果。
+递归的时候会占用内存，因为递归下一层的时候要暂存上一层的结果
+Sn = C*N'>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-09-01T00:22:19&#43;08:00'/><meta property='article:modified_time' content='2021-09-01T00:22:19&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/' />
+<meta name="twitter:site" content="@ljs56495989">
+    <meta name="twitter:creator" content="@ljs56495989"><meta name="twitter:title" content="数据结构与算法学习文档">
+<meta name="twitter:description" content="数据结构与算法 解决问题方法的效率，跟数据的组织方式有关。
+循环和递归
+解决问题方法的效率，跟空间的利用效率有关。
+image-20210818161452286
+image-20210818162018882
+解决问题方法的效率，跟算法的巧妙程度有关
+数据结构 数据对象在计算机中的组织方式
+ 逻辑结构：线性结构和树结构、图结构 物理存储结构：数组、链表  数据对象必定与一系列加在其上的操作相关联
+完成这些操作所用的方法就是算法
+抽象数据类型(Abstract Data Type)  数据类型  数据对象集 数据集合相关联的操作集   抽象：描述数据类型的方法不依赖于具体实现  与存放数据的机器无关 与数据存储的物理结构无关 与实现操作的算法和编程语言均无关    只描述数据对象集和相关操作集是什么，并不涉及如何做到的问题
+抽象 image-20210818163548512
+算法  一个有限指令集 接收一些输入（有些情况下不需要输入） 产生输出 一定在有限步骤之后终止 每一条指令必须  有充分明确的目标，不可以有歧义 计算机能处理的范围之内 描述应不依赖与任何一种计算机语言以及具体的实现手段    image-20210818164049310
+什么是好算法  空间复杂度sn  根据算法写成的程序在执行时占用存储单元的长度。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。
+ 时间复杂度Tn  根据算法写成的程序在执行时耗费时间的长度。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行结果。
+递归的时候会占用内存，因为递归下一层的时候要暂存上一层的结果
+Sn = C*N"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://linjianshu.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">数据结构与算法学习文档</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 01, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="数据结构与算法">数据结构与算法</h3>
+<p>解决问题方法的效率，跟数据的组织方式有关。</p>
+<p>循环和递归</p>
+<p>解决问题方法的效率，跟空间的利用效率有关。</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818161452286.png" >
+		<img src="/DataStructionLearning.assets/image-20210818161452286.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818161452286">
+	</a>
+	
+	<figcaption>image-20210818161452286</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818162018882.png" >
+		<img src="/DataStructionLearning.assets/image-20210818162018882.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818162018882">
+	</a>
+	
+	<figcaption>image-20210818162018882</figcaption>
+	
+</figure></p>
+<p>解决问题方法的效率，跟算法的巧妙程度有关</p>
+<h5 id="数据结构">数据结构</h5>
+<p>数据对象在计算机中的组织方式</p>
+<ul>
+<li>逻辑结构：线性结构和树结构、图结构</li>
+<li>物理存储结构：数组、链表</li>
+</ul>
+<p>数据对象必定与一系列加在其上的操作相关联</p>
+<p>完成这些操作所用的方法就是算法</p>
+<h5 id="抽象数据类型abstract-data-type">抽象数据类型(Abstract Data Type)</h5>
+<ul>
+<li>数据类型
+<ul>
+<li>数据对象集</li>
+<li>数据集合相关联的操作集</li>
+</ul>
+</li>
+<li>抽象：描述数据类型的方法不依赖于具体实现
+<ul>
+<li>与存放数据的机器无关</li>
+<li>与数据存储的物理结构无关</li>
+<li>与实现操作的算法和编程语言均无关</li>
+</ul>
+</li>
+</ul>
+<p>只描述数据对象集和相关操作集是什么，并不涉及如何做到的问题</p>
+<h5 id="抽象">抽象</h5>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818163548512.png" >
+		<img src="/DataStructionLearning.assets/image-20210818163548512.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818163548512">
+	</a>
+	
+	<figcaption>image-20210818163548512</figcaption>
+	
+</figure></p>
+<h5 id="算法">算法</h5>
+<ul>
+<li>一个有限指令集</li>
+<li>接收一些输入（有些情况下不需要输入）</li>
+<li>产生输出</li>
+<li>一定在有限步骤之后终止</li>
+<li>每一条指令必须
+<ul>
+<li>有充分明确的目标，不可以有歧义</li>
+<li>计算机能处理的范围之内</li>
+<li>描述应不依赖与任何一种计算机语言以及具体的实现手段</li>
+</ul>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818164049310.png" >
+		<img src="/DataStructionLearning.assets/image-20210818164049310.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818164049310">
+	</a>
+	
+	<figcaption>image-20210818164049310</figcaption>
+	
+</figure></p>
+<h5 id="什么是好算法">什么是好算法</h5>
+<ul>
+<li>空间复杂度sn</li>
+</ul>
+<p>根据算法写成的程序在执行时占用存储单元的长度。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。</p>
+<ul>
+<li>时间复杂度Tn</li>
+</ul>
+<p>根据算法写成的程序在执行时耗费时间的长度。这个长度往往也与输入数据的规模有关。时间复杂度过高的低效算法可能导致我们在有生之年都等不到运行结果。</p>
+<p>递归的时候会占用内存，因为递归下一层的时候要暂存上一层的结果</p>
+<p>Sn = C*N</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818164648695.png" >
+		<img src="/DataStructionLearning.assets/image-20210818164648695.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818164648695">
+	</a>
+	
+	<figcaption>image-20210818164648695</figcaption>
+	
+</figure></p>
+<p>加减比乘除算的快</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818164842726.png" >
+		<img src="/DataStructionLearning.assets/image-20210818164842726.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818164842726">
+	</a>
+	
+	<figcaption>image-20210818164842726</figcaption>
+	
+</figure></p>
+<p>在分析一般算法的效率时，我们经常关注下面两种复杂度</p>
+<ul>
+<li>最坏情况复杂度T worst(n)</li>
+<li>平均复杂度T avg(n)</li>
+</ul>
+<p>基本上就是第一种：最坏情况复杂度</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818165255964-1629276776452.png" >
+		<img src="/DataStructionLearning.assets/image-20210818165255964-1629276776452.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818165255964">
+	</a>
+	
+	<figcaption>image-20210818165255964</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818165445992.png" >
+		<img src="/DataStructionLearning.assets/image-20210818165445992.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818165445992">
+	</a>
+	
+	<figcaption>image-20210818165445992</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818165457903.png" >
+		<img src="/DataStructionLearning.assets/image-20210818165457903.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818165457903">
+	</a>
+	
+	<figcaption>image-20210818165457903</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818165643710.png" >
+		<img src="/DataStructionLearning.assets/image-20210818165643710.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818165643710">
+	</a>
+	
+	<figcaption>image-20210818165643710</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818165759487.png" >
+		<img src="/DataStructionLearning.assets/image-20210818165759487.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818165759487">
+	</a>
+	
+	<figcaption>image-20210818165759487</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818191956566.png" >
+		<img src="/DataStructionLearning.assets/image-20210818191956566.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818191956566">
+	</a>
+	
+	<figcaption>image-20210818191956566</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818193405280-1629286445577.png" >
+		<img src="/DataStructionLearning.assets/image-20210818193405280-1629286445577.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818193405280">
+	</a>
+	
+	<figcaption>image-20210818193405280</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818193945679.png" >
+		<img src="/DataStructionLearning.assets/image-20210818193945679.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818193945679">
+	</a>
+	
+	<figcaption>image-20210818193945679</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818194726647.png" >
+		<img src="/DataStructionLearning.assets/image-20210818194726647.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818194726647">
+	</a>
+	
+	<figcaption>image-20210818194726647</figcaption>
+	
+</figure></p>
+<h5 id="什么是线性表">什么是线性表</h5>
+<h5 id="多项式表示问题的启示">多项式表示问题的启示</h5>
+<ol>
+<li>同一个问题可以有不同的表示（存储）方法</li>
+<li>有一类共性问题：有序线性序列的组织和管理</li>
+</ol>
+<h5 id="线性表">线性表</h5>
+<p>由同类型数据元素构成有序序列的线性结构</p>
+<ul>
+<li>表中元素个数成为线性表的长度</li>
+<li>线性表没有元素时，称为空表</li>
+<li>表起始位置称表头，表结束位置称表尾</li>
+</ul>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818195144256.png" >
+		<img src="/DataStructionLearning.assets/image-20210818195144256.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818195144256">
+	</a>
+	
+	<figcaption>image-20210818195144256</figcaption>
+	
+</figure></p>
+<p>链式存储实现</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818200032485.png" >
+		<img src="/DataStructionLearning.assets/image-20210818200032485.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818200032485">
+	</a>
+	
+	<figcaption>image-20210818200032485</figcaption>
+	
+</figure></p>
+<h5 id="广义表">广义表</h5>
+<ul>
+<li>广义表是线性表的推广</li>
+<li>对于线性表而言，n个元素都是基本的单元素</li>
+<li>广义表中，这些元素不仅可以是单元素也可以是另一个广义表</li>
+</ul>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818201230986.png" >
+		<img src="/DataStructionLearning.assets/image-20210818201230986.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818201230986">
+	</a>
+	
+	<figcaption>image-20210818201230986</figcaption>
+	
+</figure></p>
+<h5 id="多重链表">多重链表</h5>
+<p>多重链表：链表中的节点可能同时隶属于多个链</p>
+<ul>
+<li>多重链表中结点的指针域会有多个，如前面例子包含了netx和sublist两个指针域</li>
+<li>但包含两个指针域的链表并不一定是多重链表，比如在双向链表不是多重链表</li>
+</ul>
+<p>多重链表有广泛的用途：</p>
+<p>基本上如树、图这样相对复杂的数据结构都可以采用多重链表方式实现存储</p>
+<h5 id="堆栈">堆栈</h5>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818203628155.png" >
+		<img src="/DataStructionLearning.assets/image-20210818203628155.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818203628155">
+	</a>
+	
+	<figcaption>image-20210818203628155</figcaption>
+	
+</figure></p>
+<p>堆栈stack ：具有一定操作约束的线性表</p>
+<ul>
+<li>只有一端（栈顶，top）做插入、删除</li>
+<li>插入数据：push入栈</li>
+<li>删除数据：pop出栈</li>
+<li>后入先出：LIFO</li>
+</ul>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818203949646.png" >
+		<img src="/DataStructionLearning.assets/image-20210818203949646.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818203949646">
+	</a>
+	
+	<figcaption>image-20210818203949646</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818204030156.png" >
+		<img src="/DataStructionLearning.assets/image-20210818204030156.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818204030156">
+	</a>
+	
+	<figcaption>image-20210818204030156</figcaption>
+	
+</figure></p>
+<p>中缀表达式转成后缀表达式</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818210009984.png" >
+		<img src="/DataStructionLearning.assets/image-20210818210009984.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210818210009984">
+	</a>
+	
+	<figcaption>image-20210818210009984</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210818210256599.png" >
+		<img src="/DataStructionLearning.assets/image-20210818210256599.png"
+			
+			
+			
+			loading="lazy"
+			>
+	</a>
+	
+</figure></p>
+<p>堆栈的其他应用：</p>
+<ul>
+<li>函数调用及递归实现</li>
+<li>深度优先搜索</li>
+<li>回溯算法</li>
+</ul>
+<p>队列及实现</p>
+<p>队列：queue具有一定操作约束的线性表</p>
+<ul>
+<li>插入和删除操作：只能在一端插入，而在另一端删除</li>
+<li>数据插入 入队列 AddQ</li>
+<li>数据删除 出队列DeleteQ</li>
+<li>先来先服务</li>
+<li>先进先出 FIFO</li>
+</ul>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819200815843.png" >
+		<img src="/DataStructionLearning.assets/image-20210819200815843.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819200815843">
+	</a>
+	
+	<figcaption>image-20210819200815843</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819200925663.png" >
+		<img src="/DataStructionLearning.assets/image-20210819200925663.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819200925663">
+	</a>
+	
+	<figcaption>image-20210819200925663</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819201437552.png" >
+		<img src="/DataStructionLearning.assets/image-20210819201437552.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819201437552">
+	</a>
+	
+	<figcaption>image-20210819201437552</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819201758339.png" >
+		<img src="/DataStructionLearning.assets/image-20210819201758339.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819201758339">
+	</a>
+	
+	<figcaption>image-20210819201758339</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819202139270.png" >
+		<img src="/DataStructionLearning.assets/image-20210819202139270.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819202139270">
+	</a>
+	
+	<figcaption>image-20210819202139270</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819202326934.png" >
+		<img src="/DataStructionLearning.assets/image-20210819202326934.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819202326934">
+	</a>
+	
+	<figcaption>image-20210819202326934</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819203439780.png" >
+		<img src="/DataStructionLearning.assets/image-20210819203439780.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819203439780">
+	</a>
+	
+	<figcaption>image-20210819203439780</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819203707397.png" >
+		<img src="/DataStructionLearning.assets/image-20210819203707397.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819203707397">
+	</a>
+	
+	<figcaption>image-20210819203707397</figcaption>
+	
+</figure></p>
+<h5 id="什么是树">什么是树</h5>
+<p>分层次组织在管理上具有更高的效率</p>
+<p>数据管理的基本操作之一：查找</p>
+<p>如何实现有效率的查找</p>
+<p>searching</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819205601090-1629377761415.png" >
+		<img src="/DataStructionLearning.assets/image-20210819205601090-1629377761415.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819205601090">
+	</a>
+	
+	<figcaption>image-20210819205601090</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819205951769.png" >
+		<img src="/DataStructionLearning.assets/image-20210819205951769.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819205951769">
+	</a>
+	
+	<figcaption>image-20210819205951769</figcaption>
+	
+</figure></p>
+<p>二分查找</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819210521234.png" >
+		<img src="/DataStructionLearning.assets/image-20210819210521234.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819210521234">
+	</a>
+	
+	<figcaption>image-20210819210521234</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819211054628.png" >
+		<img src="/DataStructionLearning.assets/image-20210819211054628.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819211054628">
+	</a>
+	
+	<figcaption>image-20210819211054628</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819212247115.png" >
+		<img src="/DataStructionLearning.assets/image-20210819212247115.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819212247115">
+	</a>
+	
+	<figcaption>image-20210819212247115</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819212402458.png" >
+		<img src="/DataStructionLearning.assets/image-20210819212402458.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819212402458">
+	</a>
+	
+	<figcaption>image-20210819212402458</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819212620945.png" >
+		<img src="/DataStructionLearning.assets/image-20210819212620945.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819212620945">
+	</a>
+	
+	<figcaption>image-20210819212620945</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819212737409.png" >
+		<img src="/DataStructionLearning.assets/image-20210819212737409.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819212737409">
+	</a>
+	
+	<figcaption>image-20210819212737409</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819213128752.png" >
+		<img src="/DataStructionLearning.assets/image-20210819213128752.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819213128752">
+	</a>
+	
+	<figcaption>image-20210819213128752</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819213227642.png" >
+		<img src="/DataStructionLearning.assets/image-20210819213227642.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819213227642">
+	</a>
+	
+	<figcaption>image-20210819213227642</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819213322280.png" >
+		<img src="/DataStructionLearning.assets/image-20210819213322280.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819213322280">
+	</a>
+	
+	<figcaption>image-20210819213322280</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819213454497.png" >
+		<img src="/DataStructionLearning.assets/image-20210819213454497.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819213454497">
+	</a>
+	
+	<figcaption>image-20210819213454497</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819214643681.png" >
+		<img src="/DataStructionLearning.assets/image-20210819214643681.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819214643681">
+	</a>
+	
+	<figcaption>image-20210819214643681</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819214812719.png" >
+		<img src="/DataStructionLearning.assets/image-20210819214812719.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819214812719">
+	</a>
+	
+	<figcaption>image-20210819214812719</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819215245013.png" >
+		<img src="/DataStructionLearning.assets/image-20210819215245013.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819215245013">
+	</a>
+	
+	<figcaption>image-20210819215245013</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819215345900.png" >
+		<img src="/DataStructionLearning.assets/image-20210819215345900.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819215345900">
+	</a>
+	
+	<figcaption>image-20210819215345900</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819215519052.png" >
+		<img src="/DataStructionLearning.assets/image-20210819215519052.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819215519052">
+	</a>
+	
+	<figcaption>image-20210819215519052</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819220012636.png" >
+		<img src="/DataStructionLearning.assets/image-20210819220012636.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819220012636">
+	</a>
+	
+	<figcaption>image-20210819220012636</figcaption>
+	
+</figure></p>
+<p>DBEFAGHCI</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819220312388.png" >
+		<img src="/DataStructionLearning.assets/image-20210819220312388.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819220312388">
+	</a>
+	
+	<figcaption>image-20210819220312388</figcaption>
+	
+</figure></p>
+<p>DEFBHGICA</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819220547376.png" >
+		<img src="/DataStructionLearning.assets/image-20210819220547376.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819220547376">
+	</a>
+	
+	<figcaption>image-20210819220547376</figcaption>
+	
+</figure></p>
+<p>路线是一样的， 第一次碰到就输出的叫做先序、第二次的叫做中序、第三次的叫做后序</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210819220744178.png" >
+		<img src="/DataStructionLearning.assets/image-20210819220744178.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210819220744178">
+	</a>
+	
+	<figcaption>image-20210819220744178</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822092825462.png" >
+		<img src="/DataStructionLearning.assets/image-20210822092825462.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822092825462">
+	</a>
+	
+	<figcaption>image-20210822092825462</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822093926951-16295963677591.png" >
+		<img src="/DataStructionLearning.assets/image-20210822093926951-16295963677591.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822093926951">
+	</a>
+	
+	<figcaption>image-20210822093926951</figcaption>
+	
+</figure></p>
+<p>​	<figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822094347290.png" >
+		<img src="/DataStructionLearning.assets/image-20210822094347290.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822094347290">
+	</a>
+	
+	<figcaption>image-20210822094347290</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822094920689-16295969611932.png" >
+		<img src="/DataStructionLearning.assets/image-20210822094920689-16295969611932.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822094920689">
+	</a>
+	
+	<figcaption>image-20210822094920689</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095028474-16295970287243.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095028474-16295970287243.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095028474">
+	</a>
+	
+	<figcaption>image-20210822095028474</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095125615.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095125615.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095125615">
+	</a>
+	
+	<figcaption>image-20210822095125615</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095254235.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095254235.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095254235">
+	</a>
+	
+	<figcaption>image-20210822095254235</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095400071.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095400071.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095400071">
+	</a>
+	
+	<figcaption>image-20210822095400071</figcaption>
+	
+</figure><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095400133.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095400133.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095400133">
+	</a>
+	
+	<figcaption>image-20210822095400133</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095600852.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095600852.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095600852">
+	</a>
+	
+	<figcaption>image-20210822095600852</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095753944.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095753944.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095753944">
+	</a>
+	
+	<figcaption>image-20210822095753944</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822095955430.png" >
+		<img src="/DataStructionLearning.assets/image-20210822095955430.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822095955430">
+	</a>
+	
+	<figcaption>image-20210822095955430</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822100108869.png" >
+		<img src="/DataStructionLearning.assets/image-20210822100108869.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822100108869">
+	</a>
+	
+	<figcaption>image-20210822100108869</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822100248441.png" >
+		<img src="/DataStructionLearning.assets/image-20210822100248441.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822100248441">
+	</a>
+	
+	<figcaption>image-20210822100248441</figcaption>
+	
+</figure></p>
+<p>判断同构</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822100435562.png" >
+		<img src="/DataStructionLearning.assets/image-20210822100435562.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822100435562">
+	</a>
+	
+	<figcaption>image-20210822100435562</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822100843208.png" >
+		<img src="/DataStructionLearning.assets/image-20210822100843208.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822100843208">
+	</a>
+	
+	<figcaption>image-20210822100843208</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822101301912.png" >
+		<img src="/DataStructionLearning.assets/image-20210822101301912.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822101301912">
+	</a>
+	
+	<figcaption>image-20210822101301912</figcaption>
+	
+</figure></p>
+<p>判断有没有哪个节点没有被指向 哪个节点就是根</p>
+<p>例如231被指向了,那么意思就是0这个节点是根节点</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822101644943.png" >
+		<img src="/DataStructionLearning.assets/image-20210822101644943.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822101644943">
+	</a>
+	
+	<figcaption>image-20210822101644943</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822101656356.png" >
+		<img src="/DataStructionLearning.assets/image-20210822101656356.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822101656356">
+	</a>
+	
+	<figcaption>image-20210822101656356</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102023363.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102023363.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102023363">
+	</a>
+	
+	<figcaption>image-20210822102023363</figcaption>
+	
+</figure></p>
+<p>使用check来判断根节点</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102155154.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102155154.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102155154">
+	</a>
+	
+	<figcaption>image-20210822102155154</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102200845.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102200845.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102200845">
+	</a>
+	
+	<figcaption>image-20210822102200845</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102407846.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102407846.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102407846">
+	</a>
+	
+	<figcaption>image-20210822102407846</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102550689.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102550689.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102550689">
+	</a>
+	
+	<figcaption>image-20210822102550689</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102618697.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102618697.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102618697">
+	</a>
+	
+	<figcaption>image-20210822102618697</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102638201.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102638201.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102638201">
+	</a>
+	
+	<figcaption>image-20210822102638201</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102736696.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102736696.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102736696">
+	</a>
+	
+	<figcaption>image-20210822102736696</figcaption>
+	
+</figure></p>
+<p>尾递归可以用循环实现</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102824536.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102824536.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102824536">
+	</a>
+	
+	<figcaption>image-20210822102824536</figcaption>
+	
+</figure></p>
+<p>查找的效率决定于树的高度</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102911459.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102911459.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102911459">
+	</a>
+	
+	<figcaption>image-20210822102911459</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822102930132.png" >
+		<img src="/DataStructionLearning.assets/image-20210822102930132.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822102930132">
+	</a>
+	
+	<figcaption>image-20210822102930132</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822103127572.png" >
+		<img src="/DataStructionLearning.assets/image-20210822103127572.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822103127572">
+	</a>
+	
+	<figcaption>image-20210822103127572</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822103450196.png" >
+		<img src="/DataStructionLearning.assets/image-20210822103450196.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822103450196">
+	</a>
+	
+	<figcaption>image-20210822103450196</figcaption>
+	
+</figure></p>
+<p>​	<figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822103701343.png" >
+		<img src="/DataStructionLearning.assets/image-20210822103701343.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822103701343">
+	</a>
+	
+	<figcaption>image-20210822103701343</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822103721215.png" >
+		<img src="/DataStructionLearning.assets/image-20210822103721215.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822103721215">
+	</a>
+	
+	<figcaption>image-20210822103721215</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822103850804.png" >
+		<img src="/DataStructionLearning.assets/image-20210822103850804.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822103850804">
+	</a>
+	
+	<figcaption>image-20210822103850804</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822104154455.png" >
+		<img src="/DataStructionLearning.assets/image-20210822104154455.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822104154455">
+	</a>
+	
+	<figcaption>image-20210822104154455</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822104407357.png" >
+		<img src="/DataStructionLearning.assets/image-20210822104407357.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822104407357">
+	</a>
+	
+	<figcaption>image-20210822104407357</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822104658392.png" >
+		<img src="/DataStructionLearning.assets/image-20210822104658392.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822104658392">
+	</a>
+	
+	<figcaption>image-20210822104658392</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822105311867.png" >
+		<img src="/DataStructionLearning.assets/image-20210822105311867.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822105311867">
+	</a>
+	
+	<figcaption>image-20210822105311867</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822105726331.png" >
+		<img src="/DataStructionLearning.assets/image-20210822105726331.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822105726331">
+	</a>
+	
+	<figcaption>image-20210822105726331</figcaption>
+	
+</figure></p>
+<p>所以走台阶问题我大概懂了</p>
+<p>只能一次走一阶台阶或者一次走两阶台阶</p>
+<p>一阶台阶有1种走法</p>
+<p>二阶台阶有2种走法</p>
+<p>那么三阶台阶无非就是1阶台阶的走法+走2阶的走法(2)</p>
+<p>或者2阶台阶的走法+走1阶的走法(1)</p>
+<p>那么四阶台阶无非就是2阶台阶的走法+走2阶的走法(2)</p>
+<p>或者3阶台阶的走法+走1阶的走法(1)</p>
+<p>所以也就是斐波那契数列的性质</p>
+<p>F(n)=F(n-1)+1+F(n-2)+2</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822110716637.png" >
+		<img src="/DataStructionLearning.assets/image-20210822110716637.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822110716637">
+	</a>
+	
+	<figcaption>image-20210822110716637</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822111522588.png" >
+		<img src="/DataStructionLearning.assets/image-20210822111522588.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822111522588">
+	</a>
+	
+	<figcaption>image-20210822111522588</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822112334232.png" >
+		<img src="/DataStructionLearning.assets/image-20210822112334232.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822112334232">
+	</a>
+	
+	<figcaption>image-20210822112334232</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822112657646.png" >
+		<img src="/DataStructionLearning.assets/image-20210822112657646.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822112657646">
+	</a>
+	
+	<figcaption>image-20210822112657646</figcaption>
+	
+</figure></p>
+<p>必须保证是查找树 也就是左边小右边大</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822113538123.png" >
+		<img src="/DataStructionLearning.assets/image-20210822113538123.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822113538123">
+	</a>
+	
+	<figcaption>image-20210822113538123</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822113732802.png" >
+		<img src="/DataStructionLearning.assets/image-20210822113732802.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822113732802">
+	</a>
+	
+	<figcaption>image-20210822113732802</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822113938703.png" >
+		<img src="/DataStructionLearning.assets/image-20210822113938703.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822113938703">
+	</a>
+	
+	<figcaption>image-20210822113938703</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822114002650.png" >
+		<img src="/DataStructionLearning.assets/image-20210822114002650.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822114002650">
+	</a>
+	
+	<figcaption>image-20210822114002650</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822114101318.png" >
+		<img src="/DataStructionLearning.assets/image-20210822114101318.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822114101318">
+	</a>
+	
+	<figcaption>image-20210822114101318</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822114324854.png" >
+		<img src="/DataStructionLearning.assets/image-20210822114324854.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822114324854">
+	</a>
+	
+	<figcaption>image-20210822114324854</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822114521287.png" >
+		<img src="/DataStructionLearning.assets/image-20210822114521287.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822114521287">
+	</a>
+	
+	<figcaption>image-20210822114521287</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822114826316.png" >
+		<img src="/DataStructionLearning.assets/image-20210822114826316.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822114826316">
+	</a>
+	
+	<figcaption>image-20210822114826316</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822115039320.png" >
+		<img src="/DataStructionLearning.assets/image-20210822115039320.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822115039320">
+	</a>
+	
+	<figcaption>image-20210822115039320</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822151804901.png" >
+		<img src="/DataStructionLearning.assets/image-20210822151804901.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822151804901">
+	</a>
+	
+	<figcaption>image-20210822151804901</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822151947780.png" >
+		<img src="/DataStructionLearning.assets/image-20210822151947780.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822151947780">
+	</a>
+	
+	<figcaption>image-20210822151947780</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822152334294.png" >
+		<img src="/DataStructionLearning.assets/image-20210822152334294.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822152334294">
+	</a>
+	
+	<figcaption>image-20210822152334294</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822152933725.png" >
+		<img src="/DataStructionLearning.assets/image-20210822152933725.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822152933725">
+	</a>
+	
+	<figcaption>image-20210822152933725</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822153108950.png" >
+		<img src="/DataStructionLearning.assets/image-20210822153108950.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822153108950">
+	</a>
+	
+	<figcaption>image-20210822153108950</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822153304689.png" >
+		<img src="/DataStructionLearning.assets/image-20210822153304689.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822153304689">
+	</a>
+	
+	<figcaption>image-20210822153304689</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822153425949.png" >
+		<img src="/DataStructionLearning.assets/image-20210822153425949.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822153425949">
+	</a>
+	
+	<figcaption>image-20210822153425949</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822153713250.png" >
+		<img src="/DataStructionLearning.assets/image-20210822153713250.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822153713250">
+	</a>
+	
+	<figcaption>image-20210822153713250</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822153929001.png" >
+		<img src="/DataStructionLearning.assets/image-20210822153929001.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822153929001">
+	</a>
+	
+	<figcaption>image-20210822153929001</figcaption>
+	
+</figure></p>
+<p>实现堆用完全二叉树</p>
+<p>根节点是最大的完全二叉树</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822154053219.png" >
+		<img src="/DataStructionLearning.assets/image-20210822154053219.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822154053219">
+	</a>
+	
+	<figcaption>image-20210822154053219</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822154254474.png" >
+		<img src="/DataStructionLearning.assets/image-20210822154254474.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822154254474">
+	</a>
+	
+	<figcaption>image-20210822154254474</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822154337334.png" >
+		<img src="/DataStructionLearning.assets/image-20210822154337334.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822154337334">
+	</a>
+	
+	<figcaption>image-20210822154337334</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822154516519.png" >
+		<img src="/DataStructionLearning.assets/image-20210822154516519.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822154516519">
+	</a>
+	
+	<figcaption>image-20210822154516519</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822154705009.png" >
+		<img src="/DataStructionLearning.assets/image-20210822154705009.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822154705009">
+	</a>
+	
+	<figcaption>image-20210822154705009</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822154842548.png" >
+		<img src="/DataStructionLearning.assets/image-20210822154842548.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822154842548">
+	</a>
+	
+	<figcaption>image-20210822154842548</figcaption>
+	
+</figure></p>
+<p>i/2就是完全二叉树的父节点</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822155046618.png" >
+		<img src="/DataStructionLearning.assets/image-20210822155046618.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822155046618">
+	</a>
+	
+	<figcaption>image-20210822155046618</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822155243748.png" >
+		<img src="/DataStructionLearning.assets/image-20210822155243748.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822155243748">
+	</a>
+	
+	<figcaption>image-20210822155243748</figcaption>
+	
+</figure></p>
+<p>因为是完全二叉树,所以要用最后一个元素替补删除掉的那个元素,才能满足完全二叉树的性质</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822155357876.png" >
+		<img src="/DataStructionLearning.assets/image-20210822155357876.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822155357876">
+	</a>
+	
+	<figcaption>image-20210822155357876</figcaption>
+	
+</figure></p>
+<p>时间复杂性就是树的高度 log2n</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822160108019.png" >
+		<img src="/DataStructionLearning.assets/image-20210822160108019.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822160108019">
+	</a>
+	
+	<figcaption>image-20210822160108019</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822160408516.png" >
+		<img src="/DataStructionLearning.assets/image-20210822160408516.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822160408516">
+	</a>
+	
+	<figcaption>image-20210822160408516</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822160720461.png" >
+		<img src="/DataStructionLearning.assets/image-20210822160720461.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822160720461">
+	</a>
+	
+	<figcaption>image-20210822160720461</figcaption>
+	
+</figure></p>
+<p>从倒数第二层开始建立堆,建完之后逐层往上建立,</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822160834924.png" >
+		<img src="/DataStructionLearning.assets/image-20210822160834924.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822160834924">
+	</a>
+	
+	<figcaption>image-20210822160834924</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822160855127.png" >
+		<img src="/DataStructionLearning.assets/image-20210822160855127.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822160855127">
+	</a>
+	
+	<figcaption>image-20210822160855127</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161110159.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161110159.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161110159">
+	</a>
+	
+	<figcaption>image-20210822161110159</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161247647.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161247647.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161247647">
+	</a>
+	
+	<figcaption>image-20210822161247647</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161303788.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161303788.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161303788">
+	</a>
+	
+	<figcaption>image-20210822161303788</figcaption>
+	
+</figure></p>
+<p>如何根据节点不同的查找效率构造更有效的搜索树</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161422536.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161422536.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161422536">
+	</a>
+	
+	<figcaption>image-20210822161422536</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161529534.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161529534.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161529534">
+	</a>
+	
+	<figcaption>image-20210822161529534</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161639103.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161639103.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161639103">
+	</a>
+	
+	<figcaption>image-20210822161639103</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161818080.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161818080.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161818080">
+	</a>
+	
+	<figcaption>image-20210822161818080</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210822161934722.png" >
+		<img src="/DataStructionLearning.assets/image-20210822161934722.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210822161934722">
+	</a>
+	
+	<figcaption>image-20210822161934722</figcaption>
+	
+</figure></p>
+<p>由于度为1的节点就是只有一个儿子的节点</p>
+<p>没有度为1的节点</p>
+<p>那么就是n2+n1+n0=n0-1+0+n0=2n0-1</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824222513996.png" >
+		<img src="/DataStructionLearning.assets/image-20210824222513996.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824222513996">
+	</a>
+	
+	<figcaption>image-20210824222513996</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824222657220.png" >
+		<img src="/DataStructionLearning.assets/image-20210824222657220.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824222657220">
+	</a>
+	
+	<figcaption>image-20210824222657220</figcaption>
+	
+</figure></p>
+<p>第二种的意思是, 我用2的三次方也就是8种不同的符号来表示7个字符绰绰有余</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824222809811.png" >
+		<img src="/DataStructionLearning.assets/image-20210824222809811.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824222809811">
+	</a>
+	
+	<figcaption>image-20210824222809811</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824222844586.png" >
+		<img src="/DataStructionLearning.assets/image-20210824222844586.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824222844586">
+	</a>
+	
+	<figcaption>image-20210824222844586</figcaption>
+	
+</figure></p>
+<p>当所以的值都在叶节点上的时候就不可能出现一个字符的编码是另一个字符的前缀</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824223228402.png" >
+		<img src="/DataStructionLearning.assets/image-20210824223228402.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824223228402">
+	</a>
+	
+	<figcaption>image-20210824223228402</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824223351755.png" >
+		<img src="/DataStructionLearning.assets/image-20210824223351755.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824223351755">
+	</a>
+	
+	<figcaption>image-20210824223351755</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824223520102.png" >
+		<img src="/DataStructionLearning.assets/image-20210824223520102.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824223520102">
+	</a>
+	
+	<figcaption>image-20210824223520102</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824223656627.png" >
+		<img src="/DataStructionLearning.assets/image-20210824223656627.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824223656627">
+	</a>
+	
+	<figcaption>image-20210824223656627</figcaption>
+	
+</figure></p>
+<p>用数组实现</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824223823443.png" >
+		<img src="/DataStructionLearning.assets/image-20210824223823443.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824223823443">
+	</a>
+	
+	<figcaption>image-20210824223823443</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824224033563.png" >
+		<img src="/DataStructionLearning.assets/image-20210824224033563.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824224033563">
+	</a>
+	
+	<figcaption>image-20210824224033563</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824224257684.png" >
+		<img src="/DataStructionLearning.assets/image-20210824224257684.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824224257684">
+	</a>
+	
+	<figcaption>image-20210824224257684</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824224312615.png" >
+		<img src="/DataStructionLearning.assets/image-20210824224312615.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824224312615">
+	</a>
+	
+	<figcaption>image-20210824224312615</figcaption>
+	
+</figure></p>
+<p>这样做会导致一边倒,会让高度增加 find操作很难效率查</p>
+<p>可以尝试把集合小的挂到集合大的下面</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824224547703.png" >
+		<img src="/DataStructionLearning.assets/image-20210824224547703.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824224547703">
+	</a>
+	
+	<figcaption>image-20210824224547703</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824225642477.png" >
+		<img src="/DataStructionLearning.assets/image-20210824225642477.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824225642477">
+	</a>
+	
+	<figcaption>image-20210824225642477</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824230108245.png" >
+		<img src="/DataStructionLearning.assets/image-20210824230108245.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824230108245">
+	</a>
+	
+	<figcaption>image-20210824230108245</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824230311976.png" >
+		<img src="/DataStructionLearning.assets/image-20210824230311976.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824230311976">
+	</a>
+	
+	<figcaption>image-20210824230311976</figcaption>
+	
+</figure></p>
+<p>直接简化成把值为3对应为下标为3的数组中的,数组里存的值是他的父节点</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824230758030.png" >
+		<img src="/DataStructionLearning.assets/image-20210824230758030.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824230758030">
+	</a>
+	
+	<figcaption>image-20210824230758030</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824231016070.png" >
+		<img src="/DataStructionLearning.assets/image-20210824231016070.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824231016070">
+	</a>
+	
+	<figcaption>image-20210824231016070</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824231230324.png" >
+		<img src="/DataStructionLearning.assets/image-20210824231230324.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824231230324">
+	</a>
+	
+	<figcaption>image-20210824231230324</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824231506693.png" >
+		<img src="/DataStructionLearning.assets/image-20210824231506693.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824231506693">
+	</a>
+	
+	<figcaption>image-20210824231506693</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824231623358.png" >
+		<img src="/DataStructionLearning.assets/image-20210824231623358.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824231623358">
+	</a>
+	
+	<figcaption>image-20210824231623358</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824232012169.png" >
+		<img src="/DataStructionLearning.assets/image-20210824232012169.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824232012169">
+	</a>
+	
+	<figcaption>image-20210824232012169</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824232158793.png" >
+		<img src="/DataStructionLearning.assets/image-20210824232158793.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824232158793">
+	</a>
+	
+	<figcaption>image-20210824232158793</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824232344637.png" >
+		<img src="/DataStructionLearning.assets/image-20210824232344637.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824232344637">
+	</a>
+	
+	<figcaption>image-20210824232344637</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824232443313.png" >
+		<img src="/DataStructionLearning.assets/image-20210824232443313.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824232443313">
+	</a>
+	
+	<figcaption>image-20210824232443313</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824232956745.png" >
+		<img src="/DataStructionLearning.assets/image-20210824232956745.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824232956745">
+	</a>
+	
+	<figcaption>image-20210824232956745</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824233747366.png" >
+		<img src="/DataStructionLearning.assets/image-20210824233747366.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824233747366">
+	</a>
+	
+	<figcaption>image-20210824233747366</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210824233929998.png" >
+		<img src="/DataStructionLearning.assets/image-20210824233929998.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210824233929998">
+	</a>
+	
+	<figcaption>image-20210824233929998</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827150052047.png" >
+		<img src="/DataStructionLearning.assets/image-20210827150052047.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827150052047">
+	</a>
+	
+	<figcaption>image-20210827150052047</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827150132906.png" >
+		<img src="/DataStructionLearning.assets/image-20210827150132906.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827150132906">
+	</a>
+	
+	<figcaption>image-20210827150132906</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827150336396.png" >
+		<img src="/DataStructionLearning.assets/image-20210827150336396.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827150336396">
+	</a>
+	
+	<figcaption>image-20210827150336396</figcaption>
+	
+</figure></p>
+<p>无向图 对称 那么会不会空间浪费呢</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827151040590.png" >
+		<img src="/DataStructionLearning.assets/image-20210827151040590.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827151040590">
+	</a>
+	
+	<figcaption>image-20210827151040590</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827161401937.png" >
+		<img src="/DataStructionLearning.assets/image-20210827161401937.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827161401937">
+	</a>
+	
+	<figcaption>image-20210827161401937</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827161523060.png" >
+		<img src="/DataStructionLearning.assets/image-20210827161523060.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827161523060">
+	</a>
+	
+	<figcaption>image-20210827161523060</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827161721941.png" >
+		<img src="/DataStructionLearning.assets/image-20210827161721941.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827161721941">
+	</a>
+	
+	<figcaption>image-20210827161721941</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827161814110.png" >
+		<img src="/DataStructionLearning.assets/image-20210827161814110.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827161814110">
+	</a>
+	
+	<figcaption>image-20210827161814110</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827162026003.png" >
+		<img src="/DataStructionLearning.assets/image-20210827162026003.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827162026003">
+	</a>
+	
+	<figcaption>image-20210827162026003</figcaption>
+	
+</figure></p>
+<p>访问完所有的之后一定是原路返回</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827162605593.png" >
+		<img src="/DataStructionLearning.assets/image-20210827162605593.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827162605593">
+	</a>
+	
+	<figcaption>image-20210827162605593</figcaption>
+	
+</figure></p>
+<p>利用堆栈</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827163115572.png" >
+		<img src="/DataStructionLearning.assets/image-20210827163115572.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827163115572">
+	</a>
+	
+	<figcaption>image-20210827163115572</figcaption>
+	
+</figure></p>
+<p>明白为啥是深度优先了</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827163414973.png" >
+		<img src="/DataStructionLearning.assets/image-20210827163414973.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827163414973">
+	</a>
+	
+	<figcaption>image-20210827163414973</figcaption>
+	
+</figure></p>
+<p>会走的比较深</p>
+<p>一圈一圈的搜索</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827163440795.png" >
+		<img src="/DataStructionLearning.assets/image-20210827163440795.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827163440795">
+	</a>
+	
+	<figcaption>image-20210827163440795</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827163728923.png" >
+		<img src="/DataStructionLearning.assets/image-20210827163728923.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827163728923">
+	</a>
+	
+	<figcaption>image-20210827163728923</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827163907704.png" >
+		<img src="/DataStructionLearning.assets/image-20210827163907704.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827163907704">
+	</a>
+	
+	<figcaption>image-20210827163907704</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827164150229.png" >
+		<img src="/DataStructionLearning.assets/image-20210827164150229.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827164150229">
+	</a>
+	
+	<figcaption>image-20210827164150229</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827164252208.png" >
+		<img src="/DataStructionLearning.assets/image-20210827164252208.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827164252208">
+	</a>
+	
+	<figcaption>image-20210827164252208</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827164800507.png" >
+		<img src="/DataStructionLearning.assets/image-20210827164800507.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827164800507">
+	</a>
+	
+	<figcaption>image-20210827164800507</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827165034266.png" >
+		<img src="/DataStructionLearning.assets/image-20210827165034266.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827165034266">
+	</a>
+	
+	<figcaption>image-20210827165034266</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827165238415.png" >
+		<img src="/DataStructionLearning.assets/image-20210827165238415.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827165238415">
+	</a>
+	
+	<figcaption>image-20210827165238415</figcaption>
+	
+</figure></p>
+<p>六度空间</p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827165619918.png" >
+		<img src="/DataStructionLearning.assets/image-20210827165619918.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827165619918">
+	</a>
+	
+	<figcaption>image-20210827165619918</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/DataStructionLearning.assets/image-20210827165905518.png" >
+		<img src="/DataStructionLearning.assets/image-20210827165905518.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210827165905518">
+	</a>
+	
+	<figcaption>image-20210827165905518</figcaption>
+	
+</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#数据结构与算法">数据结构与算法</a>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Linux学习 如果是阿里云记得配置安全组!!!
+css js 静态文件都在wwwroot中,所以如果后台启动或者使用mvcTest.dll 的话会无法找到静态文件 因为静态文件的层级在她们上面一层 , 所以要cp一份wwwroot到存放dll那一层中 , 这样就可以看到样式了!!!
+windows倾向于GUI操作，windows下的命令到了linux下不一定能用
+windows有扩展名，linux中可以没有扩展名
+windows不区分大小写，linux区分大小写
+linux不同版本使用方法配置文件变化很大，要反复查找和调试
+linux内核和发行版
+linux内核是由linus及开源社区维护，内核包含内存管理、存储管理、进程管理、网络通讯等基础模块。很多公司、开元组织基于linux内核打包出很多发行版，不同的发行版的内核版本可能不一致，包含的软件也不一致，界面差别较大，但是命令行操作时互通的，大部分程序也是互通的。
+内核和发行版的关系就像android内核和小米手机系统、华为手机系统的关系一样。常用的发行版有redhat、centos、debian、ubuntu等等。这里我们用ubuntu，因为其内置的软件最适合程序员，其他发行版要自己装。
+linux常见命令
+windows有多根目录
+linux是单根
+常用目录
+boot 存放用于系统引导时的各种文件
+bin 存放二进制可执行文件 例如ls，cat，mkdir等等
+sbin 存放二进制可执行文件，只有root用户才能访问
+usr 用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录
+opt 额外安装的可选应用程序包所放置的位置
+dev用于存放设备文件
+etc存放系统配置文件
+home存放所有用户文件的根目录
+lib存放跟文件系统中的程序运行所需要的共享库及内核模块
+tmp 用于存放各种临时文件
+var 用于存放运行时需要改变数据的文件
+mnt 安装临时文件系统的安装点
+常见命令
+pwd 显示当前工作目录 print working directory
+ls 目录
+cd 更改目录 cd .. 返回上级目录 cd / 返回根目录 cd 文件夹 进入文件夹
+mkdir 创建目录
+rmdir 目录名 删除非空目录
+rm-r 目录名 删除目录及其下目录与文件（递归删除）'><title>CSharpLinux环境部署学习文档</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/csharplinux%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='CSharpLinux环境部署学习文档'>
+<meta property='og:description' content='Linux学习 如果是阿里云记得配置安全组!!!
+css js 静态文件都在wwwroot中,所以如果后台启动或者使用mvcTest.dll 的话会无法找到静态文件 因为静态文件的层级在她们上面一层 , 所以要cp一份wwwroot到存放dll那一层中 , 这样就可以看到样式了!!!
+windows倾向于GUI操作，windows下的命令到了linux下不一定能用
+windows有扩展名，linux中可以没有扩展名
+windows不区分大小写，linux区分大小写
+linux不同版本使用方法配置文件变化很大，要反复查找和调试
+linux内核和发行版
+linux内核是由linus及开源社区维护，内核包含内存管理、存储管理、进程管理、网络通讯等基础模块。很多公司、开元组织基于linux内核打包出很多发行版，不同的发行版的内核版本可能不一致，包含的软件也不一致，界面差别较大，但是命令行操作时互通的，大部分程序也是互通的。
+内核和发行版的关系就像android内核和小米手机系统、华为手机系统的关系一样。常用的发行版有redhat、centos、debian、ubuntu等等。这里我们用ubuntu，因为其内置的软件最适合程序员，其他发行版要自己装。
+linux常见命令
+windows有多根目录
+linux是单根
+常用目录
+boot 存放用于系统引导时的各种文件
+bin 存放二进制可执行文件 例如ls，cat，mkdir等等
+sbin 存放二进制可执行文件，只有root用户才能访问
+usr 用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录
+opt 额外安装的可选应用程序包所放置的位置
+dev用于存放设备文件
+etc存放系统配置文件
+home存放所有用户文件的根目录
+lib存放跟文件系统中的程序运行所需要的共享库及内核模块
+tmp 用于存放各种临时文件
+var 用于存放运行时需要改变数据的文件
+mnt 安装临时文件系统的安装点
+常见命令
+pwd 显示当前工作目录 print working directory
+ls 目录
+cd 更改目录 cd .. 返回上级目录 cd / 返回根目录 cd 文件夹 进入文件夹
+mkdir 创建目录
+rmdir 目录名 删除非空目录
+rm-r 目录名 删除目录及其下目录与文件（递归删除）'>
+<meta property='og:url' content='https://linjianshu.github.io/p/csharplinux%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-06-16T00:25:03&#43;08:00'/><meta property='article:modified_time' content='2021-06-16T00:25:03&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/' />
+<meta name="twitter:site" content="@ljs56495989">
+    <meta name="twitter:creator" content="@ljs56495989"><meta name="twitter:title" content="CSharpLinux环境部署学习文档">
+<meta name="twitter:description" content="Linux学习 如果是阿里云记得配置安全组!!!
+css js 静态文件都在wwwroot中,所以如果后台启动或者使用mvcTest.dll 的话会无法找到静态文件 因为静态文件的层级在她们上面一层 , 所以要cp一份wwwroot到存放dll那一层中 , 这样就可以看到样式了!!!
+windows倾向于GUI操作，windows下的命令到了linux下不一定能用
+windows有扩展名，linux中可以没有扩展名
+windows不区分大小写，linux区分大小写
+linux不同版本使用方法配置文件变化很大，要反复查找和调试
+linux内核和发行版
+linux内核是由linus及开源社区维护，内核包含内存管理、存储管理、进程管理、网络通讯等基础模块。很多公司、开元组织基于linux内核打包出很多发行版，不同的发行版的内核版本可能不一致，包含的软件也不一致，界面差别较大，但是命令行操作时互通的，大部分程序也是互通的。
+内核和发行版的关系就像android内核和小米手机系统、华为手机系统的关系一样。常用的发行版有redhat、centos、debian、ubuntu等等。这里我们用ubuntu，因为其内置的软件最适合程序员，其他发行版要自己装。
+linux常见命令
+windows有多根目录
+linux是单根
+常用目录
+boot 存放用于系统引导时的各种文件
+bin 存放二进制可执行文件 例如ls，cat，mkdir等等
+sbin 存放二进制可执行文件，只有root用户才能访问
+usr 用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录
+opt 额外安装的可选应用程序包所放置的位置
+dev用于存放设备文件
+etc存放系统配置文件
+home存放所有用户文件的根目录
+lib存放跟文件系统中的程序运行所需要的共享库及内核模块
+tmp 用于存放各种临时文件
+var 用于存放运行时需要改变数据的文件
+mnt 安装临时文件系统的安装点
+常见命令
+pwd 显示当前工作目录 print working directory
+ls 目录
+cd 更改目录 cd .. 返回上级目录 cd / 返回根目录 cd 文件夹 进入文件夹
+mkdir 创建目录
+rmdir 目录名 删除非空目录
+rm-r 目录名 删除目录及其下目录与文件（递归删除）"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://linjianshu.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/csharplinux%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">CSharpLinux环境部署学习文档</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jun 16, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="linux学习">Linux学习</h3>
+<p><strong>如果是阿里云记得配置安全组!!!</strong></p>
+<p><strong>css js 静态文件都在wwwroot中,所以如果后台启动或者使用mvcTest.dll 的话会无法找到静态文件 因为静态文件的层级在她们上面一层 , 所以要cp一份wwwroot到存放dll那一层中 , 这样就可以看到样式了!!!</strong></p>
+<p>windows倾向于GUI操作，windows下的命令到了linux下不一定能用</p>
+<p>windows有扩展名，linux中可以没有扩展名</p>
+<p>windows不区分大小写，linux区分大小写</p>
+<p>linux不同版本使用方法配置文件变化很大，要反复查找和调试</p>
+<p>linux内核和发行版</p>
+<p>linux内核是由linus及开源社区维护，内核包含内存管理、存储管理、进程管理、网络通讯等基础模块。很多公司、开元组织基于linux内核打包出很多发行版，不同的发行版的内核版本可能不一致，包含的软件也不一致，界面差别较大，但是命令行操作时互通的，大部分程序也是互通的。</p>
+<p>内核和发行版的关系就像android内核和小米手机系统、华为手机系统的关系一样。常用的发行版有redhat、centos、debian、ubuntu等等。这里我们用ubuntu，因为其内置的软件最适合程序员，其他发行版要自己装。</p>
+<p>linux常见命令</p>
+<p>windows有多根目录</p>
+<p>linux是单根</p>
+<p>常用目录</p>
+<p>boot 存放用于系统引导时的各种文件</p>
+<p>bin 存放二进制可执行文件 例如ls，cat，mkdir等等</p>
+<p>sbin 存放二进制可执行文件，只有root用户才能访问</p>
+<p>usr 用于存放系统应用程序，比较重要的目录/usr/local 本地管理员软件安装目录</p>
+<p>opt 额外安装的可选应用程序包所放置的位置</p>
+<p>dev用于存放设备文件</p>
+<p>etc存放系统配置文件</p>
+<p>home存放所有用户文件的根目录</p>
+<p>lib存放跟文件系统中的程序运行所需要的共享库及内核模块</p>
+<p>tmp 用于存放各种临时文件</p>
+<p>var 用于存放运行时需要改变数据的文件</p>
+<p>mnt 安装临时文件系统的安装点</p>
+<p>常见命令</p>
+<p>pwd 显示当前工作目录 print working directory</p>
+<p>ls 目录</p>
+<p>cd 更改目录  cd .. 返回上级目录 cd / 返回根目录 cd 文件夹 进入文件夹</p>
+<p>mkdir 创建目录</p>
+<p>rmdir 目录名  删除非空目录</p>
+<p>rm-r 目录名 删除目录及其下目录与文件（递归删除）</p>
+<p>mv 移动目录 mv test home/test</p>
+<p>cp 复制文件 cp test test1</p>
+<p>cat 查看文件内容</p>
+<p>more 分页显示文件内容</p>
+<p>find -name ‘lib*’  查找文件</p>
+<p>ps 查看当前用于运行进程</p>
+<p>ps -ef 所有进程</p>
+<p>reboot 重启</p>
+<p>shutdown-now 立即关机</p>
+<p>exit 退出终端</p>
+<p>clear 清屏</p>
+<p>ctrl+L清屏</p>
+<p>上下键可以查看历史命令</p>
+<p>ctrl+C不要当前输入的指令了</p>
+<p>使用tab可能可以自动补齐</p>
+<p>tar 压缩文件</p>
+<p>tar -c -f  name.tar t1 将t1压缩为name.tar的压缩包</p>
+<p>tar -x -C 解压到指定目录 -f 压缩包</p>
+<p>man命令 命令帮助手册</p>
+<p>-r &ndash;recursive 是一样的</p>
+<p>linux管道指令，链式调用呗</p>
+<p>与图形化界面相比，命令就可以粘合在一起</p>
+<p>例如 ps-ef |more  先查看所有进程，然后分页显示</p>
+<p>grep 查找</p>
+<p>sudo：基于安全考虑，一般不建议超级用户权限登陆linux，而是平时使用低权限用户访问，需要高权限的操作再用sudo后跟着指令。比如在/下无法创建文件夹，但是sudo mkdir a就可以，当然需要输入密码。su就是super user 的简写，sudo就是用超级用户权限执行命令</p>
+<p>VI编辑器</p>
+<p>esc + w + q</p>
+<p>上下移动的话首先要按esc 然后才能上下移动</p>
+<p>vim是vi的加强版</p>
+<p>i键 插入模式 x就是x ，d就是d ， 上下左右对应着ABCD的字符呢</p>
+<p>按esc  命令模式 按h删掉一个字符，按dd删除一行，按上下左右就控制光标移动</p>
+<p>末行模式 按： 进入末行模式  w写 q退出</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210626201259638.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210626201259638.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210626201259638">
+	</a>
+	
+	<figcaption>image-20210626201259638</figcaption>
+	
+</figure></p>
+<p>在末行模式中输入！指令 可以不离开vi执行指令</p>
+<p>shift+^ 移动到行首</p>
+<p>shift+$ 移动到行尾</p>
+<p>正则表达式 ， 匹配行首就是^ 匹配行尾就是$</p>
+<p>ctrl + b 滚屏 ctrl + f 向下滚屏</p>
+<p>u就是撤销 undo</p>
+<p>o就是在当前行下新增一行，并且自动进入插入模式</p>
+<p>i和a都是插入模式，就是在前面在后面插入的区别而已</p>
+<p>a就是append  i就是insert</p>
+<p>nano就是简化版的傻瓜式的文本编辑器</p>
+<p>嘻嘻嘻</p>
+<p>linux下很多软件都是自己下载源码、自己编译的，有点痛苦。很多发行版都有自己的安装包格式。比如redhat使用*.rpm文件，ubuntu中使用 *.deb文件。</p>
+<p>自己查找、下载安装还是很麻烦的。因此很多发行版中都提供了类似于应用市场、nuget的东西。</p>
+<p>ubuntu推荐使用apt进行下载、安装。会从ubuntu官网下载，如果下载速度慢的话，可以设置从其他镜像下载，具体搜索ubuntu atp-get 镜像</p>
+<p>执行某些程序的时候，如果程序没有安装还会提示你，比如执行 vim tree等等</p>
+<p>安装软件需要sudo执行。如：</p>
+<p>1.安装 sudo apt-get install 程序名</p>
+<p>2.卸载  sudo apt-get remove 程序名</p>
+<p>使用ifconfig</p>
+<p>网络问题</p>
+<p>虚拟机和主机之间组件了一个局域网，虚拟机通过主机上网。虚拟机的设置的网络可以设置不同的链接方式。主机可以通过ifconfig看到ip地址连接虚拟机的网络。</p>
+<p>虚拟机的网络连接方式有很多种，最主要的有三种：hostonly、nat、桥接（bridge）。hostonly配置较麻烦，需要懂很多网络工程的东西；NAT是虚拟机借助于主机网卡访问网络，藏在主机后面，网络中其他设备不能连这个虚拟机，连主机都不能，但是虚拟机能连接主机的网络，能上外网；桥接模式则是把虚主机也暴露为网络中的一个设备，主机和虚拟主机在网络内是平等的，可以互相访问，但是要求网络中没有设备访问的限制，如果有限制要修改路由器的配置。因为咱们需要主机和虚拟机相互访问，除非网络有限制，否则最好配置为桥接，配置桥接要选择通过哪个网卡上外网，不能选错了，否则就无法访问外网了。后面我们都配置为桥接（bridge）。</p>
+<p>ssh服务</p>
+<p>讲运维人员是怎么远程连接到机房上的服务器的，很少使用图形界面（卡，无法自动化）</p>
+<p>远程登陆有专门的通信协议telnet，telnet就是通过网络进行命令行操作服务器。只有服务器端开始了远程登陆服务，客户端才能通过telnet协议控制服务器端。</p>
+<p>但telnet协议是使用明文传输数据，这会造成严重的安全性问题，所以现在几乎不推荐使用，而是替代协议的是ssh，ssh通讯数据是加密的。</p>
+<p>安装openssh</p>
+<p>ubuntu 默认只安装了客户端 openssh-client</p>
+<p>安装服务器</p>
+<p>sudo apt-get install openssh-server</p>
+<p>ssh服务默认端口是22，可通过修改配置文件修改端口/etc/ssh/sshd_config</p>
+<p>重启的话就是service ssh restart</p>
+<p>putty下载后直接远程连接linux</p>
+<p>使用mysql</p>
+<p>安装sudo apt-get install mysql-server</p>
+<p>根据提示设置root 用户的密码，测试的时候设置为root</p>
+<p>sudo apt-get install mysql-client 安装管理客户端</p>
+<p>mysql-uroot-proot 通过管理客户端连接mysql 不报错就ok</p>
+<p>mysql 客户端中执行（不要直接在shell中直接执行）show databases; (不要丢了结尾的英文分号) 查看有那些数据库，执行一下 select now(); 正确执行。执行quit； 退出mysql 客户端</p>
+<p>ps ： <strong>记得打开服务</strong></p>
+<p>service mysql start</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210626211935982.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210626211935982.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210626211935982">
+	</a>
+	
+	<figcaption>image-20210626211935982</figcaption>
+	
+</figure></p>
+<p>基于安全考虑，mysql默认只能本机连接，如果想通过其他电脑连接（比如主机访问虚拟机中的mysql），就需要配置，最好不要配置成任意电脑都可以连接，因为危险，要配置成只允许某些ip访问</p>
+<p>配置mysql远程访问（需要网络配置为桥接网络）虚拟机情况的话</p>
+<ol>
+<li>编辑mysql的配置文件mysqld.cnf ， 由于mysql是系统服务，因此需要以su 运行vi , 才有权限，执行sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf ， 由于不同mysql版本配置文件的位置可能不一样，因此最好的找路径的方式就是cd / dir 一级级的看看。linux下不同版本差异性很大，之前查资料都是改/etc/mysql/conf.d/mysql.cnf ，但是使用status；命令查询mysql版本之后搜索mysql5.7 远程访问，就可以找到正确的做法<figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210626212914858.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210626212914858.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210626212914858">
+	</a>
+	
+	<figcaption>image-20210626212914858</figcaption>
+	
+</figure></li>
+<li>把bind-address=127.0.0.1注释掉</li>
+<li>执行 sudo /etc/init.d/mysql restart 重启 mysql服务</li>
+<li>在主机上执行ipconfig，查看ip地址，加入是192.168.0.11，那么就执行grant all privileges on *** . *** to root@&ldquo;192.168.0.11&rdquo; identified by &ldquo;这里换成密码&rdquo; with grant option;    再执行 flush privileges;</li>
+<li>外部数据库管理工具navicat连接虚拟机的ip，访问mysql</li>
+<li>主机上连接虚拟机内的mysql一定要连接虚拟机的ip，别连错了</li>
+<li>主机的ip如果变了就要重新配置</li>
+</ol>
+<p><strong>在4之前，由于这个版本的mysql密码是空的，所以没办法呜呜呜，需要改个密码</strong></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210626220925687.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210626220925687.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210626220925687">
+	</a>
+	
+	<figcaption>image-20210626220925687</figcaption>
+	
+</figure></p>
+<p><a class="link" href="https://www.cnblogs.com/liuyakai/p/14341310.html"  target="_blank" rel="noopener"
+    >MySQL 8.0 安装后修改root@localhost的默认空密码 - 汉家羽林郎 - 博客园 (cnblogs.com)</a></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210626220955199.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210626220955199.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210626220955199">
+	</a>
+	
+	<figcaption>image-20210626220955199</figcaption>
+	
+</figure></p>
+<p><a class="link" href="https://blog.csdn.net/zhouzhiwengang/article/details/102909298"  target="_blank" rel="noopener"
+    >解决mysql8 提示 ERROR 1410 (42000): You are not allowed to create a user with GRANT_zhouzhiwengang的专栏-CSDN博客</a></p>
+<p>命令有点点不一样</p>
+<p>mysql8.0之后必须要先创建用户，然后才能授权</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210626232148904.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210626232148904.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210626232148904">
+	</a>
+	
+	<figcaption>image-20210626232148904</figcaption>
+	
+</figure></p>
+<p>安装vsftp服务器</p>
+<p>file transport protol</p>
+<ol>
+<li>什么是ftp 。通过ftp进行文件的上传下载</li>
+<li>sudo apt-get install vsftpd</li>
+<li>这时候可以用linux用户登陆，能够访问/home/用户名下的文件夹。但是没有上传权限。需要 sudo vi /etc/vsftpd.conf 将write_enable=YES 前面的注释# 取消，然后执行 sudo /etc/init.d/vsftpd restart重启</li>
+<li>对于文件数量比较多的，可以先压缩成zip，然后在linux端使用 unzip 文件名 进行解压</li>
+<li>对于文件缩量比较多的，可以在linux端使用zip命令压缩，然后再windows端解压</li>
+</ol>
+<p>.net core</p>
+<p>历史</p>
+<p>.net 设计之处就是考虑像java一样跨平台的，.net framework 是在windows下运行的，大部分类是可以兼容移植到linux下的，但是没人做这个工作。后来novell公司开发了mono，把大部分.net framework功能移植到了linux下。mono也成为xamarin（使用.net 开发Android、IOS app的技术）和unity3d （使用.Net 开发android /ios 游戏的技术）的基础。</p>
+<p>.net core是微软开发的另一个可以跨linux、windows、mac等平台的.net 。</p>
+<p>微软收购了mono的公司，xamarin。为什么还要搞.net core。因为mono完全兼容.net framework ,架构太陈旧，不利于现在云计算、集群等新的架构历年。因此微软推翻重写了.net core。</p>
+<p>.net framework .net core mono的关系</p>
+<p>.net framework .net core xamarin 有通用的类，也有特有的。为了保证代码通用。微软定义了公共的.net standard library (.net 标准库，像FileStream / List等这些)，按照.net standard library编写的代码可以在几个平台下通用。</p>
+<p>大部分.net framework中的类在.net core中还有，方法也还有，只是namespace可能变了，有些方法也有不一样，部分api缺失（注册表等windows平台特有的api），后面会讲区别。</p>
+<p>之前那些在.net framework 中调用的dll，不一定都能用在.net core (linux)中。如何判断</p>
+<p><strong>在linux下需要安装.net core 的环境</strong></p>
+<p>例如.net core sdk 和 .net core runtimes</p>
+<p><a class="link" href="https://docs.microsoft.com/zh-cn/dotnet/core/install/linux-ubuntu"  target="_blank" rel="noopener"
+    >https://docs.microsoft.com/zh-cn/dotnet/core/install/linux-ubuntu</a></p>
+<p>安装完验证一下</p>
+<p>使用linux 来创建.net core 控制台应用程序并运行</p>
+<ol>
+<li>
+<p>创建控制台项目</p>
+<ol>
+<li>dotnet new console -o test1 在当前目录创建目录 test1 , 并且初始化控制台（console）类型的项目结构（第一次运行dotnet new 比较慢）。使用命令创建项目，是目前很流行的风格。</li>
+<li>也可以手动创建test1目录，进入目录，再执行dotnet new console。也就相当于在当前目录下创建控制台项目。</li>
+<li>dotnet restore 通过nuget还原安装当前目录的项目用到的包，一定要cd 到项目根目录下执行. restore执行消息里给出了nuget下载目录的路径</li>
+<li>改一下项目的代码</li>
+<li>dotnet run 编译并运行当前目录的项目,一定要在项目根目录下执行.如果编译报错就会根据报错信息该代码或者是忘了dotnet restore了。</li>
+<li>注意.net core 下的控制台程序不是生成exe的,要通过dotnet 入口dll文件名 方式运行</li>
+<li>三个步骤:new restore run</li>
+</ol>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627111809617.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627111809617.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627111809617">
+	</a>
+	
+	<figcaption>image-20210627111809617</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627112544733.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627112544733.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627112544733">
+	</a>
+	
+	<figcaption>image-20210627112544733</figcaption>
+	
+</figure></p>
+<p>也可以执行debug里的dll文件，linux没有exe哈，执行dll就可以了</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627113402515.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627113402515.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627113402515">
+	</a>
+	
+	<figcaption>image-20210627113402515</figcaption>
+	
+</figure></p>
+</li>
+<li>
+<p>aps .net mvc core 项目</p>
+<ol>
+<li>
+<p>dotnet new mvc -o test2 或者 dotnet new mvc</p>
+</li>
+<li>
+<p>dotnet restore</p>
+</li>
+<li>
+<p>改一下项目的代码</p>
+</li>
+<li>
+<p>dotnet run web项目自带嵌入式服务器，测试阶段不用IIS等单独的服务器，部署阶段再部署到iis、nginx等上</p>
+</li>
+<li>
+<p>再linux的服务器上的浏览器中打开http：//127.0.0.1:5000 (只能本机访问，后面讲通过nginx配置远程访问)</p>
+</li>
+<li>
+<p>ctrl+c 停止服务器</p>
+</li>
+<li>
+<p>修改默认端口绑定的方法：再program.cs的build之前加入useurls(&ldquo;http://*.5001&rdquo;);</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627121128266.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627121128266.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627121128266">
+	</a>
+	
+	<figcaption>image-20210627121128266</figcaption>
+	
+</figure></p>
+<p>新版有点区别</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627121508698.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627121508698.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627121508698">
+	</a>
+	
+	<figcaption>image-20210627121508698</figcaption>
+	
+</figure></p>
+<p><a class="link" href="https://blog.csdn.net/zxy13826134783/article/details/105908201/"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/zxy13826134783/article/details/105908201/</a></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627121540245.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627121540245.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627121540245">
+	</a>
+	
+	<figcaption>image-20210627121540245</figcaption>
+	
+</figure></p>
+<p>ECS做到了呜呜呜</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627122036170.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627122036170.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627122036170">
+	</a>
+	
+	<figcaption>image-20210627122036170</figcaption>
+	
+</figure></p>
+<p>插入个知识点，这里我们退出终端后外网就访问不了了，因此需要程序后台运行</p>
+<p><a class="link" href="https://www.cnblogs.com/bjxxlbm/articles/14790054.html"  target="_blank" rel="noopener"
+    >https://www.cnblogs.com/bjxxlbm/articles/14790054.html</a></p>
+<p>nohup dotnet mvctest.dll &amp;</p>
+<p>ps -ef |grep dotnet 查看dotnet项目</p>
+<p>kill -9 PID（进程id就行了）</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627154748097.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627154748097.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627154748097">
+	</a>
+	
+	<figcaption>image-20210627154748097</figcaption>
+	
+</figure></p>
+</li>
+<li>
+<p>wwwroot底下放的是静态文件</p>
+</li>
+</ol>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627114214395.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627114214395.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627114214395">
+	</a>
+	
+	<figcaption>image-20210627114214395</figcaption>
+	
+</figure></p>
+</li>
+</ol>
+<p>创建其他项目</p>
+<p>.net core目前只支持控制台和aps .net mvc core 不知道winform和webform</p>
+<p>可以创建类库、webapi、解决方案</p>
+<p>新建类库</p>
+<p>dotnet new classlib -o classlibtest</p>
+<p>新建webapi</p>
+<p>dotnet new webapi -o webapitest</p>
+<p>新建解决方案（一个解决方案中包括多个项目）</p>
+<p>dotnet new sln</p>
+<p>还有dotnet new &ndash;help</p>
+<p>历史问题</p>
+<p>旧版本.net core 曾经使用project.json做项目描述文件，后来又改回了project.csproj</p>
+<p>.net core开发的两种方式</p>
+<p>用vi编辑代码没有自动提示，开发麻烦，所以只是进行原理展示。不会真的用vi写代码</p>
+<p>方式1：windows下用vs开发，然后部署到linux下部署运行</p>
+<p>方式2：linux下使用vscode开发，然后linux下部署运行。vscode还是没有vs强大</p>
+<p>windows下可以直接使用命令行来建立项目，就像linux下操作的一样</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627162043186.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627162043186.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627162043186">
+	</a>
+	
+	<figcaption>image-20210627162043186</figcaption>
+	
+</figure></p>
+<p>发布dotnet publish</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627162548407.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627162548407.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627162548407">
+	</a>
+	
+	<figcaption>image-20210627162548407</figcaption>
+	
+</figure></p>
+<p>找到publish，并压缩成zip格式</p>
+<p>然后通过filezilla 传输到linux上</p>
+<p>linux通过 unzip 名字 解压缩</p>
+<p>然后dotnet dll文件 就可以运行起来了呜呜呜</p>
+<p>问题：给wsl windows sub子系统 linux</p>
+<p>我们的linux发行版 ubuntu 是wsl</p>
+<p>需要给他安装一个图形化界面</p>
+<p><a class="link" href="https://www.bilibili.com/video/BV1LA411n7BK/?spm_id_from=333.788.videocard.4"  target="_blank" rel="noopener"
+    >WSL2 Ubuntu GUI 图形用户界面_哔哩哔哩_bilibili</a></p>
+<p>远程桌面需要启动一下xrdp服务</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627195747795.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627195747795.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627195747795">
+	</a>
+	
+	<figcaption>image-20210627195747795</figcaption>
+	
+</figure></p>
+<p>使用命令行添加解决方案和引用关系</p>
+<ol>
+<li>如何创建多个项目的解决方案
+<ol>
+<li>先创建解决方案文件夹rupengbbs,然后再其中dotnet new sln</li>
+<li>dotnet new mvc-o rupengbbs.web 说明：创建web项目</li>
+<li>dotnet new classlib -o rupengbbs.common 创建common项目</li>
+<li>dotnet new sln 说明：解决方案，解决方案名字默认是当前目录的名字</li>
+<li>dotnet sln rupengbbs.sln add rupengbbs.common / rupengbbs.common.csproj 说明L吧rupengbbs.common项目中的rupengbbs.common.csproj添加到解决方案文件中。注意最后一个参数在/ 前后不要加空格 这里指的是rupengbbs.common目录下的rupengbbs.common.csproj文件</li>
+<li>dotnet sln rupengbbs.sln add rupengbbs.web/rupengbbs.web.csproj 说明：把web项目添加到解决方案中</li>
+<li>dotnet  add rupengbbs.web/rupengbbs.web.csproj reference rupengbbs.common/rupengbbs.common.csproj  说明：rupengbbs.web.csproj 项目添加对rupengbbs.common.csproj项目的引用</li>
+<li>dotnet restore 说明：在解决方案下每个项目中执行dotnet restore 如果是在某个项目下执行 dotnet restore 则只是restore 某个项目</li>
+</ol>
+</li>
+<li>查看一下csproj 和sln文件格式，知道如何手动修改</li>
+<li>vscode打开解决方案文件夹即可。在common项目中建一个person.cs，写一个hello方法，然后在web项目中调用</li>
+<li>（*）编译整个解决方案的方法，在解决方案文件夹下dotnet build rupengbbs.sln</li>
+<li>手动创建三层项目：web项目 、 model项目、dal项目、bll项目</li>
+<li>写一个创建三层解决方案的脚本，体现命令行的好处，脚本中的$1$2代表第1.2个参数的值</li>
+</ol>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627202824466.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627202824466.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627202824466">
+	</a>
+	
+	<figcaption>image-20210627202824466</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627203154894.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627203154894.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627203154894">
+	</a>
+	
+	<figcaption>image-20210627203154894</figcaption>
+	
+</figure></p>
+<p>对着主项目运行</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210627203449885.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210627203449885.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210627203449885">
+	</a>
+	
+	<figcaption>image-20210627203449885</figcaption>
+	
+</figure></p>
+<p>如果某一些操作需要反复执行，那么就可以写成脚本。</p>
+<p>windows上</p>
+<p>.bat 批处理命令</p>
+<p>powershell</p>
+<p>linux上</p>
+<p>shell脚本</p>
+<p>写好sh脚本之后，执行bash ./ cjsc.sh RuPeng 会自动把项目和解决方案创建起来了</p>
+<p>因为命令行所有脚本，因为脚本所以自动化。windows下的脚本语言有传统的bat以及新的powershell，windows10安装linux自系统后也可以使用bash</p>
+<p>7.项目添加nugut引用的方法：在项目下执行dotnet add package newtonsoft.json 然后dotnet resotre 一下</p>
+<p>dotnet add package 就等驾驭nuget 的install-package （*）还可以通过dotnet  addnew nugetconfig 创建一个nuget配置文件，指定源</p>
+<p>dotnet core 无法在引用里引用自己家的标准程序集，.netframework 可以，.net core统一在nuget里安装</p>
+<p>因此如果涉密的dll还得传到nugut上，通过nuget安装，可以考虑搭建nuget私服</p>
+<p>6.控制台、web应用程序部署到linux等服务器上的统一方式：服务器上先安装.net core，然后再开发环境发布，然后吧发布包上传到服务器上，然后到目录下执行，dotnet 主程序 dll 即可</p>
+<p>注：可以通过发布到FTP、FTPS服务器上的方式，来试试看，端口是21</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210630110707778.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210630110707778.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210630110707778">
+	</a>
+	
+	<figcaption>image-20210630110707778</figcaption>
+	
+</figure></p>
+<p>但是，需要给ljs用户授予777权限，然后给srv/ftp授予777权限</p>
+<p>否则会出现无法发布www.root 和 config的问题</p>
+<p>chmod -R 777 ljs
+chmod -R 777 srv/ftp</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210630230743574.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210630230743574.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210630230743574">
+	</a>
+	
+	<figcaption>image-20210630230743574</figcaption>
+	
+</figure></p>
+<p>httpwebrequest、webclient不支持，必须使用异步的httpclient</p>
+<p>反编译工具 JustDecompiler 反编译dll文件</p>
+<p>.net core 中配置文件的解析</p>
+<p>.net coer 的配置文件，不再是配置在web.config中了，而是单独的json配置文件</p>
+<p>只要和合法的json格式，怎么写随意，怎么写就怎么解析</p>
+<p>解析方法：</p>
+<p>1.首先nuget安装：microsoft.extensions.configuration 和 microsoft.extensions.configutation.json</p>
+<p>2.然后引用命名空间</p>
+<p>3.下面的代码就把logging下的loglevel下的default读出来了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="kt">var</span> <span class="n">builder</span> <span class="p">=</span> <span class="k">new</span> <span class="n">configurationbuilder</span><span class="p">().</span><span class="n">setbasepath</span><span class="p">(</span><span class="n">directory</span><span class="p">.</span><span class="n">getcurrentdirectory</span><span class="p">()).</span><span class="n">addJsonfile</span><span class="p">(</span><span class="s">&#34;appsettings.json&#34;</span><span class="p">)</span>  <span class="p">;</span> 
+<span class="c1">//设置配置文件所在路径
+</span><span class="c1"></span><span class="kt">var</span> <span class="n">configRoot</span> <span class="p">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">Build</span><span class="p">()</span> <span class="p">;</span> 
+<span class="kt">var</span> <span class="k">value</span> <span class="p">=</span> <span class="n">configRoot</span><span class="p">.</span><span class="n">GetSection</span><span class="p">(</span><span class="s">&#34;Logging&#34;</span><span class="p">).</span><span class="n">getSection</span><span class="p">(</span><span class="s">&#34;loglevel&#34;</span><span class="p">).</span><span class="n">getsection</span><span class="p">(</span><span class="s">&#34;default&#34;</span><span class="p">).</span><span class="k">value</span> <span class="p">;</span> 
+<span class="n">sys</span><span class="p">.</span><span class="n">console</span><span class="p">.</span><span class="n">writeline</span><span class="p">(</span><span class="k">value</span><span class="p">)</span> <span class="p">;</span> 
+</code></pre></div><p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210630235351891.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210630235351891.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210630235351891">
+	</a>
+	
+	<figcaption>image-20210630235351891</figcaption>
+	
+</figure></p>
+<p>EFcore的使用</p>
+<p>EfCore 是EF的.net core版本。EF core 对 sqlserver支持很好，也可以在linux下连接sqlserver。不过如果在linux下首选mysql，因此我们主要介绍mysql 中更实用efcore。sqlserver用法几乎一样，只是换一个Ef provider的nuget包而已。</p>
+<p>EFcore的nuget： entityFrameworkcore</p>
+<p>1.官方的mysql ef provider</p>
+<p>2.可以试试第三方的 eF core provider</p>
+<p>3.使用mysql efcore</p>
+<p>​	把mysql数据库、表创建起来</p>
+<p>​	install-package entityframeworkcore.mysql</p>
+<p>​	编写person类</p>
+<p>​</p>
+<p>通过usemysql这样的扩展方法来配置连接字符串，这是.net core的风格！可以把连接字符串写到配置文件中，然后再读取。</p>
+<p>EF core 和EF的区别</p>
+<p>要使用 AsNoTracking 、 Include 等要using microsoft.entityframeworkdcore ，不能使用 System.Data.Entity</p>
+<p>目前还不支持lazyload，需要显式的include</p>
+<p>没有内置entitytypeconfiguration（要么手动注册config类，复习一下；要么后续课程会给大家提供一个）</p>
+<p>一对多关系配置从builder.hasrequired(e=&gt;e.author).withmany() ; 改成了：builder.hasone(e=&gt;e.author).withmany().hasforeignkey(e=&gt;e.authorid).isrequired();</p>
+<p>或者builder.hasoptionnal(e=&gt;e.author).withMyan();改成：builder.HasOne(e=&gt;e.author).withmany().hasforeignkey(e=&gt;e.antuorid)  ;</p>
+<p>不要中间实体的多对多还不支持，要自己拆成用中间实体的两对一对多</p>
+<p>只要吧配置文件放到ui项目中即可，不再需要在Ui项目中在安装EF</p>
+<p>aps.net core mvc</p>
+<p>selfhost</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210701213916890.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210701213916890.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210701213916890">
+	</a>
+	
+	<figcaption>image-20210701213916890</figcaption>
+	
+</figure></p>
+<p>asp.net core ioc</p>
+<p>1.asp.net mvc coer 内置了ioc容器，不在需要autofac等等，当然autofac 也是支持.net core 的 ， 内置ioc是通过构造函数注入，而不是属性注入。</p>
+<p>2.在startup 的configureservices中进行注入的准备工作</p>
+<p>3.在内置的ioc有三种生命周期</p>
+<p>transient : transient 服务在每次被请求的时候都会被创建。这种生命周期比较适用于轻量级的无状态服务。</p>
+<p>scoped：scoped生命周期的服务是每次web请求被创建</p>
+<p>singleton：singleton生命周期服务在第一次被请求时创建，在后续的每个请求都会使用同一个实例。如果你的应用需要单例服务，推荐的做法是交给服务容器来负责单例的创建和生命周期管理，而不是自己来走这些事情。</p>
+<p>调用方法 services.addsingleton(typeof(imyservice),new myservice())； 来进行注册</p>
+<p>但是最好 services.addsingleton (typeof(imyservice),typeof(myeservice)) ;</p>
+<p>因为这样的话可以在myservcice中通过构造函数注入其他服务</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210701215502596.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210701215502596.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210701215502596">
+	</a>
+	
+	<figcaption>image-20210701215502596</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210701215509943.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210701215509943.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210701215509943">
+	</a>
+	
+	<figcaption>image-20210701215509943</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210701215618664.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210701215618664.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210701215618664">
+	</a>
+	
+	<figcaption>image-20210701215618664</figcaption>
+	
+</figure></p>
+<p>4.controller注入</p>
+<p><strong>这里引入一个问题，之前publish的都不行，原因是为什么呢！！！</strong></p>
+<p>就恨他吗离谱 ， 注意运行时 ，不能选择可移植</p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210702000338015.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210702000338015.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210702000338015">
+	</a>
+	
+	<figcaption>image-20210702000338015</figcaption>
+	
+</figure></p>
+<p>dotnet test.dll &ndash;urls http://*:5005</p>
+<p>手动指定端口</p>
+<p><strong>单元测试</strong></p>
+<p><figure 
+	>
+	<a href="/C%23LinuxDeployLearning.assets/image-20210722203914320.png" >
+		<img src="/C%23LinuxDeployLearning.assets/image-20210722203914320.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210722203914320">
+	</a>
+	
+	<figcaption>image-20210722203914320</figcaption>
+	
+</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#linux学习">Linux学习</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
