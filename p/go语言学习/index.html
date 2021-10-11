@@ -67,7 +67,7 @@ go语言的基本结构
 package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数 //函数外部只能放置标识符（变量、常量、函数、类型）的声明 func main() { fmt.Println(&amp;#34;hello world&amp;#34;) } 变量和常量'>
 <meta property='og:url' content='https://linjianshu.github.io/p/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='think hy how to learn'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-08-24T00:17:57&#43;08:00'/><meta property='article:modified_time' content='2021-08-24T00:17:57&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-08-24T00:17:57&#43;08:00'/><meta property='article:modified_time' content='2021-08-24T00:17:57&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
 <meta name="twitter:site" content="@ljs56495989">
     <meta name="twitter:creator" content="@ljs56495989"><meta name="twitter:title" content="Go语言学习">
 <meta name="twitter:description" content="Go语言学习 alt&#43;enter
@@ -100,10 +100,137 @@ go install
 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET CGO_ENABLE=0 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOOS=linux E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOARCH=amd64 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;go build image-20210725103733683
 go语言的基本结构
 package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数 //函数外部只能放置标识符（变量、常量、函数、类型）的声明 func main() { fmt.Println(&amp;#34;hello world&amp;#34;) } 变量和常量"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://linjianshu.github.io/' />
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' /><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+</head>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+    <script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+    </script>
+    <script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+    <script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+    <script type="text/javascript">
+        var cn = new CanvasNest(document.getElementById('area-render'), {
+            color: '255,0,255',
+            count: 50,
+          });
+          
+          function asyncLoad() {
+            
+            var i = document.createElement("iframe");
+            i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+            i.scrolling = "no";
+            i.frameborder = "0";
+            i.border = "0";
+            i.setAttribute("frameborder", "0", 0);
+            i.width = "100px";
+            i.height = "20px";
+            document.getElementById("github-iframe").appendChild(i);
+          }
+          function loadGitHubBtn() {
+            if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+            else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+            else {window.onload = asyncLoad;}
+          }
+          loadGitHubBtn();
+    </script>
+    <script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+</body>
+
+
+<script type="text/javascript">
+  
+   
+  var a_idx = 0;
+  jQuery(document).ready(function($) {
+      $("body").click(function(e) {
+          var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+          var $i = $("<span></span>").text(a[a_idx]);
+          a_idx = (a_idx + 1) % a.length;
+          var x = e.pageX,
+          y = e.pageY;
+          $i.css({
+              "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+              "top": y - 20,
+              "left": x,
+              "position": "absolute",
+              "font-weight": "bold",
+              "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+          });
+          $("body").append($i);
+          $i.animate({
+              "top": y - 180,
+              "opacity": 0
+          },
+          1500,
+          function() {
+              $i.remove();
+          });
+      });
+  });
+  </script>
+
+<style>
+ 
+body{
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size:cover;
+     cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+}
+ 
+#div_digg {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  border: 2px solid #ECD7B1;
+  padding: 10px;
+  width: 140px;
+  background-color: #fff;
+  border-radius: 5px 5px 5px 5px !important;
+  box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+}
+</style>
+
+<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+          <script>         
+          L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                 "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                  </script>
+</html>
+
+
     </head>
     <body class="
-    article-page has-toc
+    article-page 
 ">
     <script>
         (function() {
@@ -129,22 +256,106 @@ package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数
 </script>
 <div class="container main-container flex 
     
-        extended
+        on-phone--column extended
     
 ">
     
-        <div id="article-toolbar">
-            <a href="https://linjianshu.github.io/" class="back-home">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/about' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="15 6 9 12 15 18" />
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
 </svg>
 
 
 
-                <span>返回</span>
+                
+                <span>About</span>
             </a>
-        </div>
+        </li>
+        
+        
+
+        <li >
+            <a href='/' target="_blank">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
     
 <main class="main full-width">
     <article class="main-article">
@@ -8671,89 +8882,6 @@ func main() {
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-                </div>
-                <h2 class="widget-title section-title">目录</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
-  <ol>
-    <li>
-      <ol>
-        <li><a href="#go语言学习">Go语言学习</a></li>
-        <li><a href="#字符串">字符串</a></li>
-        <li><a href="#内容回顾">内容回顾</a>
-          <ol>
-            <li><a href="#go-命令">go 命令</a></li>
-          </ol>
-        </li>
-        <li><a href="#基本数据类型">基本数据类型</a>
-          <ol>
-            <li></li>
-            <li><a href="#指针">指针</a></li>
-            <li><a href="#map">map</a></li>
-            <li><a href="#内容回顾-1">内容回顾</a></li>
-          </ol>
-        </li>
-        <li><a href="#变量-1">变量</a>
-          <ol>
-            <li></li>
-            <li><a href="#函数类型和变量">函数类型和变量</a></li>
-          </ol>
-        </li>
-        <li><a href="#今日内容">今日内容</a>
-          <ol>
-            <li><a href="#函数">函数</a></li>
-            <li><a href="#go语言fmtprintf使用指南">go语言fmt.printf使用指南</a></li>
-            <li><a href="#结构体-struct">结构体 struct</a></li>
-            <li><a href="#内容回顾-2">内容回顾</a></li>
-            <li><a href="#结构体">结构体</a></li>
-            <li><a href="#day05内容回顾">day05内容回顾</a></li>
-            <li><a href="#内容回顾-3">内容回顾</a></li>
-            <li><a href="#今日内容-1">今日内容</a></li>
-            <li><a href="#今日内容-2">今日内容</a></li>
-            <li><a href="#goroutine与线程">goroutine与线程</a></li>
-            <li><a href="#day08">day08</a></li>
-            <li><a href="#sync包">sync包</a></li>
-            <li><a href="#网络编程">网络编程</a></li>
-            <li><a href="#socket编程">socket编程</a></li>
-            <li><a href="#go语言实现tcp通信">go语言实现TCP通信</a></li>
-            <li><a href="#day09">day09</a></li>
-            <li><a href="#今日分享">今日分享</a></li>
-            <li><a href="#今日内容-4">今日内容</a></li>
-            <li><a href="#内容回顾-5">内容回顾</a></li>
-            <li><a href="#http客户端和服务端">HTTP客户端和服务端</a></li>
-            <li><a href="#今日内容-5">今日内容</a></li>
-            <li><a href="#logtransfer">LogTransfer</a></li>
-            <li><a href="#gin学习">gin学习</a></li>
-            <li><a href="#gin路由">gin路由</a></li>
-            <li><a href="#gin数据解析和绑定">gin数据解析和绑定</a></li>
-            <li><a href="#gin中间件">gin中间件</a></li>
-            <li><a href="#会话控制">会话控制</a></li>
-            <li><a href="#elastic-search-1">Elastic Search</a></li>
-            <li><a href="#微服务">微服务</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-                </div>
-            </section>
-        </aside>
     
 
         </div>
