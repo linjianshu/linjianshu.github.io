@@ -6,7 +6,18 @@
         <description>Recent content on think hy how to learn</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 10 Oct 2021 23:44:44 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Oct 2021 19:35:55 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Mysql高级</title>
+        <link>https://linjianshu.github.io/p/mysql%E9%AB%98%E7%BA%A7/</link>
+        <pubDate>Tue, 12 Oct 2021 19:35:55 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/mysql%E9%AB%98%E7%BA%A7/</guid>
+        <description>Mysql高级学习文档 mysql的架构介绍 mysql简介 mysqllinux版安装 mysql配置文件 mysql逻辑架构介绍 mysql存储引擎 索引优化分析 性能下降sql慢是执行时间长还是等待时间长 常见通用的join查询 索引简介 性能分析 索引优化 查询截取分析 查询优化 慢查询日志 批量数据脚本 show profile 全局查询日志 mysql锁机制 锁的分类 主从复制 主从配置 mysql简介 高级mysql 完整的mysql优化
+ mysql内核 sql优化攻城狮 mysql服务器的优化 各种参数常量设定 查询语句优化 主从复制 软硬件升级 容灾备份 sql编程  mysqllinux版的安装 image-20211012195826053
+#查看当前ubuntu版本 yourtreedad@yourtreedad:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04.3 LTS Release: 20.04 Codename: focal yourtreedad@yourtreedad:~$ 准备工作
+#切换到root账户 yourtreedad@yourtreedad:~$ sudo passwd root New password: Retype new password: passwd: password updated successfully yourtreedad@yourtreedad:~$ su root Password: root@yourtreedad:/home/yourtreedad# #查看电脑里有没有mysql root@yourtreedad:/home/yourtreedad# service mysql status * MySQL is stopped.</description>
+        </item>
+        <item>
         <title>Mysql基础</title>
         <link>https://linjianshu.github.io/p/mysql%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Sun, 10 Oct 2021 23:44:44 +0800</pubDate>
