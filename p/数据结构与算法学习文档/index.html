@@ -20,7 +20,105 @@ Sn = C*N'><title>数据结构与算法学习文档</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='数据结构与算法学习文档'>
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='数据结构与算法学习文档'>
 <meta property='og:description' content='数据结构与算法 解决问题方法的效率，跟数据的组织方式有关。
 循环和递归
 解决问题方法的效率，跟空间的利用效率有关。
@@ -40,8 +138,8 @@ Sn = C*N'>
 <meta property='og:url' content='https://linjianshu.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-09-01T00:22:19&#43;08:00'/><meta property='article:modified_time' content='2021-09-01T00:22:19&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
-<meta name="twitter:site" content="@ljs56495989">
-    <meta name="twitter:creator" content="@ljs56495989"><meta name="twitter:title" content="数据结构与算法学习文档">
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="数据结构与算法学习文档">
 <meta name="twitter:description" content="数据结构与算法 解决问题方法的效率，跟数据的组织方式有关。
 循环和递归
 解决问题方法的效率，跟空间的利用效率有关。
@@ -85,116 +183,19 @@ Sn = C*N"><meta name="twitter:card" content="summary_large_image">
 
 
 <link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
 
 </head>
 
 <body size-sensor-id="1" style="position: relative;">
     
     <div id="area-render"></div>
-    <script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
-    </script>
-    <script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
-    <script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
-    <script type="text/javascript">
-        var cn = new CanvasNest(document.getElementById('area-render'), {
-            color: '255,0,255',
-            count: 50,
-          });
-          
-          function asyncLoad() {
-            
-            var i = document.createElement("iframe");
-            i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
-            i.scrolling = "no";
-            i.frameborder = "0";
-            i.border = "0";
-            i.setAttribute("frameborder", "0", 0);
-            i.width = "100px";
-            i.height = "20px";
-            document.getElementById("github-iframe").appendChild(i);
-          }
-          function loadGitHubBtn() {
-            if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
-            else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
-            else {window.onload = asyncLoad;}
-          }
-          loadGitHubBtn();
-    </script>
-    <script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
-
+   
 
 </body>
 
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
 
-<script type="text/javascript">
-  
-   
-  var a_idx = 0;
-  jQuery(document).ready(function($) {
-      $("body").click(function(e) {
-          var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
-          var $i = $("<span></span>").text(a[a_idx]);
-          a_idx = (a_idx + 1) % a.length;
-          var x = e.pageX,
-          y = e.pageY;
-          $i.css({
-              "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-              "top": y - 20,
-              "left": x,
-              "position": "absolute",
-              "font-weight": "bold",
-              "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
-          });
-          $("body").append($i);
-          $i.animate({
-              "top": y - 180,
-              "opacity": 0
-          },
-          1500,
-          function() {
-              $i.remove();
-          });
-      });
-  });
-  </script>
-
-<style>
- 
-body{
-    background-repeat: repeat;
-    background-attachment: fixed;
-    background-size:cover;
-     cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
-}
- 
-#div_digg {
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  border: 2px solid #ECD7B1;
-  padding: 10px;
-  width: 140px;
-  background-color: #fff;
-  border-radius: 5px 5px 5px 5px !important;
-  box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
-}
-</style>
-
-<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
-
- 
-   
-      
-      
-          
-          <script>         
-          L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
-                "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
-                 "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
-                  </script>
 </html>
 
 
@@ -285,7 +286,7 @@ body{
         
 
         <li >
-            <a href='/' target="_blank">
+            <a href='/' >
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -3334,6 +3335,25 @@ body{
         document.head.appendChild(customFont);
     }());
 </script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+<script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280473365&web_id=1280473365"></script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D2' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body>
+</body>
+
+</html>
+
 
     </body>
 </html>
