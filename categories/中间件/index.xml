@@ -1,40 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>中间件 on think hy how to learn</title>
+    <title>工具与中间件 on think hy how to learn</title>
     <link>https://linjianshu.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
-    <description>Recent content in 中间件 on think hy how to learn</description>
+    <description>Recent content in 工具与中间件 on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 00:29:59 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>RabbitMQ学习文档</title>
-      <link>https://linjianshu.github.io/p/rabbitmq%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
-      <pubDate>Tue, 01 Dec 2020 00:29:59 +0800</pubDate>
-      
-      <guid>https://linjianshu.github.io/p/rabbitmq%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
-      <description>RabbiMQ学习文档 rabbitMQ是遵循amqp协议的一个erlang实现。
-amqp协议：高级消息队列协议
-http协议：request、response
-telnet协议：经常用来查看某一台ip上的指定端口是否是ping通的【远程登陆协议】
-AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
- connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制  详细设计书一样
-image-20201026164558077
-image-20201026164701153
-延时处理，拉长时间
-以更长的时间来换取堆积的业务逻辑
-异步处理：响应很快，增加服务器承载能力
-流量削峰：
-扩展性：UI和业务的解耦，可以独立演化
-高可用：处理器发生故障以后，不会影响可用性
-缺陷：
-即时性降低，降低了用户体验&amp;mdash;无法避免；业务上来屈服；
-复杂性提高
-vhost：避免命名冲突
-exchange：
- direct headers topic fanout  image-20201026211929666
-在windows上是一个服务</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://linjianshu.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
