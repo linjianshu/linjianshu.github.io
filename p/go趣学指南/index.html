@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Go趣学指南 '><title>Go趣学指南</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Go趣学指南 备注:
+内置函数
+ len() cap() append() delete() new() copy()  本书未涉及:
+ iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统  入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
+ go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+ go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go能够利用多核机器商的每个核心获得额外的性能优势.
+包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
+import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
+func关键字用于声明函数,每个函数的函数体body都要用大括号{}包围起来
+main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
+每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
+go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
+速查  fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行  唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
+小结  每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func  命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %'><title>Go趣学指南</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/go%E8%B6%A3%E5%AD%A6%E6%8C%87%E5%8D%97/'>
 
@@ -104,13 +120,45 @@
                   "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
                    "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
                     </script><meta property='og:title' content='Go趣学指南'>
-<meta property='og:description' content='Go趣学指南 '>
+<meta property='og:description' content='Go趣学指南 备注:
+内置函数
+ len() cap() append() delete() new() copy()  本书未涉及:
+ iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统  入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
+ go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+ go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go能够利用多核机器商的每个核心获得额外的性能优势.
+包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
+import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
+func关键字用于声明函数,每个函数的函数体body都要用大括号{}包围起来
+main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
+每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
+go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
+速查  fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行  唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
+小结  每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func  命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %'>
 <meta property='og:url' content='https://linjianshu.github.io/p/go%E8%B6%A3%E5%AD%A6%E6%8C%87%E5%8D%97/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='GO' /><meta property='article:published_time' content='2021-10-11T09:17:59&#43;08:00'/><meta property='article:modified_time' content='2021-10-11T09:17:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
 <meta name="twitter:site" content="@ljsljs56495989">
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="Go趣学指南">
-<meta name="twitter:description" content="Go趣学指南 "><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Go趣学指南 备注:
+内置函数
+ len() cap() append() delete() new() copy()  本书未涉及:
+ iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统  入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
+ go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+ go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go能够利用多核机器商的每个核心获得额外的性能优势.
+包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
+import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
+func关键字用于声明函数,每个函数的函数体body都要用大括号{}包围起来
+main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
+每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
+go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
+速查  fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行  唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
+小结  每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func  命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -377,7 +425,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -388,7 +436,184 @@
 
     <section class="article-content">
     <h3 id="go趣学指南">Go趣学指南</h3>
+<p>备注:</p>
+<p>内置函数</p>
+<ul>
+<li>len()</li>
+<li>cap()</li>
+<li>append()</li>
+<li>delete()</li>
+<li>new()</li>
+<li>copy()</li>
+</ul>
+<p>本书未涉及:</p>
+<ul>
+<li>iota表示声明连续的常量</li>
+<li>移位操作符&laquo; &raquo; 位运算符 &amp; |</li>
+<li>关键字continue和关键字goto和标签</li>
+<li>遮蔽变量的具体规则</li>
+<li>复数和虚数</li>
+<li>裸返回(bare return)</li>
+<li>空借口 interface{} 浅尝即止</li>
+<li>介绍了类型断言但没有介绍类型判断</li>
+<li>双向通道</li>
+<li>初始化操作的init特殊函数</li>
+<li>每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数</li>
+<li>没有说明如何将自己的包分享给别人</li>
+<li>git版本控制</li>
+<li>丰富的工具和库组成的生态系统</li>
+</ul>
+<h4 id="入门">入门</h4>
+<p>并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.</p>
+<p>解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.</p>
+<blockquote>
+<p>go想要构造地像c++和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.</p>
+</blockquote>
+<h5 id="go编译器的优点">go编译器的优点</h5>
+<p>go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.</p>
+<p>go能够利用多核机器商的每个核心获得额外的性能优势.</p>
+<h5 id="包和函数">包和函数</h5>
+<p>package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.</p>
+<p>import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.</p>
+<p>func关键字用于声明函数,每个函数的函数体body都要用大括号{}包围起来</p>
+<p>main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误</p>
+<p>每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.</p>
+<p>go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.</p>
+<h5 id="速查">速查</h5>
+<ul>
+<li>fmt包提供了格式化输入输出的功能</li>
+<li>go程序从main包的main函数开始执行</li>
+</ul>
+<h5 id="唯一允许的大括号放置风格">唯一允许的大括号放置风格</h5>
+<p>go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.</p>
+<p>不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格</p>
+<h5 id="小结">小结</h5>
+<ul>
+<li>每个go程序都有包中包含的函数组成</li>
+<li>编程语言中的标点符号也是至关重要的</li>
+<li>go关键字 package import func</li>
+</ul>
+<h3 id="命令式编程">命令式编程</h3>
+<h4 id="被美化的计算器">被美化的计算器</h4>
+<h5 id="执行计算">执行计算</h5>
+<p>算术操作符  + - * / %</p>
+<p>注释 \\</p>
+<h5 id="格式化输出">格式化输出</h5>
+<p>与print和println不一样,printf接受第一个参数总是string,第二个参数是表达式,格式化变量%v会在之后被替换成表达式的值</p>
+<p>换行符 \n</p>
+<p>可以指定多个格式化变量,按顺序把他们替换成相应的值</p>
+<p>printf还能够调整文本的对齐位置 用户通过指定带有宽度的格式化变量%4v 当宽度为正数时,空格将被填充至文本左边,而当宽度为负数时,空格将被填充至文本右边.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%-15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;SpaceX&#34;</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;Vigin Galactic&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">SpaceX         
+ Vigin Galactic
 
+进程 已完成，退出代码为 <span class="m">0</span>
+</code></pre></div><h5 id="常量和变量">常量和变量</h5>
+<p>两个新的关键字var 和const</p>
+<p>常量是不能被修改的,变量必须先声明后使用</p>
+<p>可以一次声明多个变量,或者在同一行里声明多个变量</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%-15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;SpaceX&#34;</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;Vigin Galactic&#34;</span><span class="p">)</span>
+
+   <span class="kd">var</span> <span class="p">(</span>
+      <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;ljs&#34;</span>
+      <span class="nx">age</span> <span class="p">=</span> <span class="mi">15</span>
+   <span class="p">)</span>
+   <span class="kd">var</span> <span class="nx">name1</span> <span class="p">,</span><span class="nx">age1</span> <span class="p">=</span> <span class="s">&#34;ljs&#34;</span><span class="p">,</span><span class="mi">10</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name1</span><span class="p">,</span><span class="nx">age1</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">SpaceX         
+ Vigin Galactic
+ljs <span class="m">15</span>
+ljs <span class="m">10</span>
+
+进程 已完成，退出代码为 <span class="m">0</span>
+</code></pre></div><h5 id="增量和赋值操作符">增量和赋值操作符</h5>
+<p>赋值的同时执行一些操作 i++ i&ndash;</p>
+<p>go并不支持++i这种前置增量操作</p>
+<h5 id="数字游戏">数字游戏</h5>
+<p>如果我们在写代码的时候忘记对伪随机数执行加一操作,那么程序将返回一个0-n-1数字,而不是我们想要的0-n的数字,这是典型的&quot;差一错误 off-by-one error&quot;的例子</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
+	<span class="nx">intn</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">intn</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;apppppple&#34;</span><span class="p">&gt;</span><span class="s">&#34;banana&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">10</span>
+<span class="nb">false</span>
+
+进程 已完成，退出代码为 <span class="m">0</span>
+</code></pre></div><p>故此,生成56000000至401000000的随机距离,应该是</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">distance</span> <span class="p">=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">345000001</span><span class="p">)</span><span class="o">+</span><span class="mi">56000000</span>
+</code></pre></div><h5 id="小结-1">小结</h5>
+<ul>
+<li>
+<p>print println printf都可以将文本和数值显示到屏幕上</p>
+</li>
+<li>
+<p>const关键字 声明常量 var关键字 声明变量</p>
+</li>
+<li>
+<p>rand包的导入路径为math/rand 包中的Intn可以生成伪随机数</p>
+</li>
+<li>
+<p>认识关键字 import package func const var</p>
+</li>
+</ul>
+<h4 id="循环与分支">循环与分支</h4>
+<ul>
+<li>if 和 switch</li>
+<li>for循环</li>
+<li>基于条件实现循环和分支处理</li>
+</ul>
+<h5 id="真或假">真或假</h5>
+<p>python和js中就把空文本&quot;&ldquo;和数字零看作是&quot;假&rdquo;,但是ruby和elixir却把这两个值看作&quot;真&quot;.对go来说,true是唯一的真值,而false是唯一的假值.</p>
+<p>strings.Contains函数返回真假</p>
+<p>运算符既可以比较数值,<strong>也可以比较文本</strong></p>
+<blockquote>
+<p>js和PHP都提供了特殊的三等号===运算符来实现严格的相等性检查,go只提供了一个相等运算符,而且她不允许直接将文本和数值进行比较.</p>
+</blockquote>
+<p>apple和banana两个单词哪个更大,显然是比较字母 banana更大</p>
+<h5 id="逻辑运算符">逻辑运算符</h5>
+<p>go也采用了短路逻辑</p>
+<h5 id="使用switch实现分支">使用switch实现分支</h5>
+<p>switch a {</p>
+<p>case &ldquo;helloworld&rdquo;: &hellip;</p>
+<p>case &ldquo;hello ljs&rdquo;: &hellip;</p>
+<p>default: &hellip;</p>
+<p>}</p>
+<p>switch {</p>
+<p>case a==&ldquo;helloworld&rdquo;: &hellip;</p>
+<p>case a==&ldquo;hello ljs&rdquo;: &hellip;</p>
+<p>default: &hellip;</p>
+<p>}</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">//说明fallthrough只能将下降延续到下一个case语句中 下下个就不行了 并且啊 fallthrough的时候还不需要判断条件就可以执行
+</span><span class="c1"></span>	<span class="nx">score</span> <span class="o">:=</span> <span class="mi">79</span>
+	<span class="k">switch</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;fuck&#34;</span><span class="p">)</span>
+		<span class="k">fallthrough</span>
+	<span class="k">case</span> <span class="nx">score</span> <span class="o">==</span> <span class="mi">90</span><span class="p">:</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;okok&#34;</span><span class="p">)</span>
+		<span class="k">fallthrough</span>
+	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;just so so&#34;</span><span class="p">)</span>
+	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;shit shit shit&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">fuck
+okok
+just so so
+
+进程 已完成，退出代码为 <span class="m">0</span>
+</code></pre></div>
 </section>
 
 
