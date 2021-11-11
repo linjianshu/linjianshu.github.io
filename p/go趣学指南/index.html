@@ -425,7 +425,7 @@ go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -613,7 +613,201 @@ okok
 just so so
 
 进程 已完成，退出代码为 <span class="m">0</span>
-</code></pre></div>
+</code></pre></div><p>**注意:	**在C Java Js等语言中,下降是switch语句各个分支的默认行为,而go对此此案用了更为谨慎的做法,即用户需要显式地使用fallthrough关键字才会引发下降</p>
+<h5 id="使用循环实现重复执行">使用循环实现重复执行</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">count</span> <span class="o">:=</span> <span class="mi">10</span>
+   <span class="k">for</span> <span class="nx">count</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+      <span class="nx">intn</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">intn</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;发射失败&#34;</span><span class="p">)</span>
+         <span class="k">break</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span>
+         <span class="nx">count</span><span class="o">--</span>
+         <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>通过不为for语句设置任何条件来产生无限循环,然后在有需要的时候通过在循环体内部使用break来跳出循环</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;请输入100以内要猜的数字&#34;</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
+   <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+   <span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
+   <span class="k">for</span>  <span class="p">{</span>
+      <span class="nx">intn</span><span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">intn</span><span class="o">==</span><span class="nx">i</span> <span class="p">{</span>
+         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+         <span class="k">break</span>
+      <span class="p">}</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">intn</span><span class="p">)</span>
+      <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
+   <span class="p">}</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;用时: &#34;</span><span class="p">,</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">now</span><span class="p">).</span><span class="nf">String</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div><h5 id="小结-2">小结</h5>
+<ul>
+<li>go通过if switch for 来实现分支判断和重复执行代码</li>
+</ul>
+<h4 id="变量作用域">变量作用域</h4>
+<p>变量在短暂使用之后会被丢弃</p>
+<h5 id="请考虑这一点">请考虑这一点</h5>
+<p>虽然计算机的随机访问存储器RAM可以记住大量值,但是程序代码除了被计算机读取之外,还需要被人类阅读,所以应该尽可能保持简洁</p>
+<p>如果可以随时修改或者在任何位置随意访问程序中的变量,那么光是跟踪大型程序中的变量就足以让人手忙脚乱.</p>
+<p>变量作用域的好处就是让程序员聚焦于给定函数或者部分代码的相关变量,而不需要考虑除此之外的其他变量.</p>
+<h5 id="审视作用域">审视作用域</h5>
+<p>变量一旦脱离作用域,那么尝试继续访问它将引发错误.</p>
+<p>变量作用域的另一个好处就是我们可以为不同的变量复用相同的名字</p>
+<p>除此之外,变量作用域可以帮助我们更好的阅读代码,我们无需在脑海里记住所有变量</p>
+<h5 id="简短声明">简短声明</h5>
+<p>简短声明为var关键字提供了另一种备选语法,该语法可以在一些无法使用var关键字的地方使用.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="c1">//短声明就是在var不能使用的时候,替代var来声明变量,同时提高可读性,另外缩小变量的作用域范围,提高变量名的复用性
+</span><span class="c1"></span>   <span class="c1">//可以在case里放置if语句诶
+</span><span class="c1"></span>   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+   <span class="p">}</span>
+
+   <span class="k">if</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;大于0&#34;</span><span class="p">)</span>
+   <span class="p">}</span>
+
+   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="mi">1</span> <span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;这是1诶!&#34;</span><span class="p">)</span>
+   <span class="p">}</span>
+
+   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="kc">true</span><span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;真的诶!&#34;</span><span class="p">)</span>
+   <span class="p">}</span>
+
+   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="nx">i</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;真的是1诶!!!&#34;</span><span class="p">)</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>在使用简短声明的情况下,对i变量的声明和初始化将成为for循环的一部分,该变量在循环结束之后脱离作用域,外部无法访问</p>
+<p>**提示:	**从代码可读性考虑,声明变量的位置和使用变量的位置应该尽可能邻近</p>
+<p>除了for循环之外,简短声明还可以在if语句 switch语句中使用</p>
+<h5 id="作用域的范围">作用域的范围</h5>
+<p>**注意:	**包作用域在声明变量时不允许使用简短声明,函数作用域比包作用域的范围狭窄.</p>
+<p>switch分支的作用域是唯一一种无需使用大括号标识的作用域.</p>
+<p>如果作用域约束太死,就会导致代码重复,我们应该根据这种现象判断是否变量太过约束,并实施重构.</p>
+<h5 id="小结-3">小结</h5>
+<ul>
+<li>简短声明不仅仅是var声明的快捷方式,他还可以用在var声明无法使用的地方</li>
+</ul>
+<h3 id="类型">类型</h3>
+<blockquote>
+<p>字符 文本 数字 基本类型</p>
+</blockquote>
+<h4 id="实数">实数</h4>
+<p>浮点数的二进制比位被一分为二,其中一部分用于表示杯子或者说桶bucket,另一部分则用于表示桶中的硬币或者说偏移量</p>
+<p>尽管每个被子能够容纳的最大硬币数量是一致的,但是每个杯子能够表示的数字却是各不相同的.通过控制杯子中的数量可以让一些杯子以较高精度表示小范围数字,或者以较低精度表示大范围数字.</p>
+<h5 id="声明浮点型类型变量">声明浮点型类型变量</h5>
+<p>go编译器支持自动推断,所有带小数点的数字在默认情况下都会被设置为float64类型</p>
+<p>go语言拥有两种浮点类型,默认为float64,很多语言中使用术语双精度浮点数double来描述这种浮点数;另一种浮点类型是float32,又称单精度浮点数,4字节,提供的精度不如float64,使用时需要指定变量类型</p>
+<p>**注意:	**诸如三位游戏中数量庞大的数据时,使用float32牺牲精度的代价来降低内存占用,是有意义的.而math包的函数处理都是float64类型的值,除非有特殊理由,否则应该优先使用float64类型.</p>
+<h5 id="零值">零值</h5>
+<p>每种类型都有对应的默认值,我们称为零值.当声明一个变量但是却没有为它设置初始值的时候,它的值就是零值.float32零值就是0.0</p>
+<h5 id="打印浮点类型">打印浮点类型</h5>
+<p>使用格式化变量%f来指定被打印小数的位数,甚至可以根据给定的宽度和精度格式化变量值</p>
+<p>精度用于指定小数点之后应该出现的数字数量</p>
+<p>宽度指定了打印整个实数(包括整数部分/小数部分/小数点在内)需要显示的最小字符数量</p>
+<p>长了就被截断了truncate</p>
+<p>如果用户给定的宽度比打印实数所需的字符数量要大,那么将使用空格填出输出的左侧</p>
+<p>如果想使用0而不是空格来填充输出的左侧,在宽度前面加上一个0即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+   <span class="nx">third</span><span class="o">:=</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">3</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">third</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%.3f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%4.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%5.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%05.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">0.3333333333333333
+0.3333333333333333
+0.333333
+0.333
+0.33
+ 0.33
+00.33
+</code></pre></div><h5 id="浮点数的精确性">浮点数的精确性</h5>
+<p>浮点数计算经常会受到舍入错误的影响.为了尽可能减少舍入错误,我们可以将乘法放到出除法的前面执行,类似数值分析防止误差放大.</p>
+<h5 id="比较浮点数">比较浮点数</h5>
+<p>为了避免舍入错误,我们不直接比较两个浮点数,而是计算他们之间的差,是否足够小来判断两个浮点数是否相等.因为我们可以使用math包提供的Abs函数来计算绝对值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">)&lt;</span><span class="mf">0.0001</span><span class="p">)</span>
+</code></pre></div><p>**提示:	**引发浮点数错误的上限值被称为机械最小值,float64是2^-52,float32是2^-23.不幸的是,浮点数错误累积的相当快,因为为了对浮点数进行比较,必须想上列中设定的0.0001那样,根据自己的应用选择一个合适的容差.</p>
+<h5 id="小结-4">小结</h5>
+<ul>
+<li>浮点类型的应用范围非常广,但是她的精确性在某些情况下是值得商榷的.</li>
+</ul>
+<h4 id="整数">整数</h4>
+<blockquote>
+<p>不能存储分数,不会出现浮点类型的精度问题,但每种类型的取值范围各不相同</p>
+</blockquote>
+<h5 id="声明整数类型变量">声明整数类型变量</h5>
+<p>众多整数类型中,有5种整数类型是有符号的signed,这意味着他们可以表示正整数也可以表示负整数</p>
+<p>除了有符号整数之外,go还提供了5种只能表示非负整数的无符号unsigned整数类型.例如uint.</p>
+<p>go进行类型推断的时候总是会选择int类型座位整数值的类型</p>
+<h5 id="为不同场合而设的整数类型">为不同场合而设的整数类型</h5>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>取值范围</th>
+<th>内存占用情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int8</td>
+<td>-128-127</td>
+<td>8位</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>0-255</td>
+<td>8位</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>-32768-32767</td>
+<td>16位</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>0-65535</td>
+<td>16位</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>-2147483648-2147483647</td>
+<td>32位</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>0-4294967295</td>
+<td>32位</td>
+</tr>
+<tr>
+<td>int64</td>
+<td></td>
+<td>64位</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td></td>
+<td>64位</td>
+</tr>
+</tbody>
+</table>
+<p>int类型和uint类型会根据目标硬件选择最合适的位长</p>
+<p>**注意:	**int不是任何类型的别名,int int32和int64实际上是三种不同的类型</p>
+
 </section>
 
 
