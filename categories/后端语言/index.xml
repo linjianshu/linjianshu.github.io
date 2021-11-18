@@ -70,5 +70,29 @@ go语言的基本结构
 package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数 //函数外部只能放置标识符（变量、常量、函数、类型）的声明 func main() { fmt.Println(&amp;#34;hello world&amp;#34;) } 变量和常量</description>
     </item>
     
+    <item>
+      <title>真会CSharp吗学习文档</title>
+      <link>https://linjianshu.github.io/p/%E7%9C%9F%E4%BC%9Acsharp%E5%90%97%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sat, 30 Jan 2021 00:17:57 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E7%9C%9F%E4%BC%9Acsharp%E5%90%97%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
+      <description>C#5.0+学习文档 特点：
+ 通用性语言 类型安全 面向对象  目标：生产力
+ 简洁性 表达力 高性能  平台中立，与平台无关
+封装、继承、多态
+统一的类型系统：
+ 类型 共同的基类  类和接口
+ class interface  属性property、方法method和事件event
+  唯一一种函数成员(Function Member):方法(method)
+  方法还包括：属性(Property)和事件(Event)还有其他的
+  属性
+  事件
+  C#主要是一种面向对象的语言，但是也借用了不少函数式编程的特性
+  函数可以当做值来对待
+ 委托Delegate    支持纯(purity)模式
+ 避免使用值可变的变量    类型安全
+ c#主要来说是类型安全的 静态类型 static typing 动态类型 dynamic 强类型 strongly typed language  内存管理</description>
+    </item>
+    
   </channel>
 </rss>

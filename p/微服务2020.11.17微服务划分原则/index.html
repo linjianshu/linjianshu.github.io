@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='2020.11.17微服务划分原则   独立运行、独立部署和持续交付  应该通过功能来划分微服务：微服务应该彼此独立，如果不能交付独立的应用程序功能块，那么划分只能增加复杂性。 划分微服务的目标应该是每个微服务可以单独的运行，单独的测试，不依赖其他的微服务，以便在大型项目开发中达到持续交付的目的，否则拆分微服务就失去意义了。 例如：子若姐的设备点检模块部分的微服务，划分为点检项配置和点检计划自动制定两个微服务，两个微服务可以单独的运行，只要无参调用或者给参数调用就能跑。    每个微服务对应一个数据库（也可以没有数据库）  每个微服务有自己的数据库，并与其他微服务完全解耦。 为每个微服务分配数据库，保证该微服务对其下数据库的支配权，数据库中的表应该包括微服务用到的所有表结构和实体，并且在其他微服务出现次数尽可能少（可以出现，如此就需要用MQTT或Rabbitmq保证数据的最终一致性）。 例如：点检项配置微服务有4个表，点检计划自动指定微服务有4个表，有一个表相同，但另外的表只有对应微服务在使用，其他微服务无法干涉。    微服务划分粒度  没有标准定义，个人认为：1.可以按照数据库的独立性来划分微服务（即：被剥离出来的a数据库，理论上只有A微服务可以调用，其他微服务不行）2.可以按照实现的功能层面来划分微服务（根据简单的CRUD构成了一个复杂/简单的功能，即：点检项的配置和点检计划的制定）3.在满足以上的情况下，不建议划分过小的微服务，例如简单的C、R、U、D划分为四个，那么在微服务调用时就会因为进程间调用造成极大的通信成本，另外微服务的搭建也十分繁琐，这是不合适的）    关于DDD原则划分微服务  书中建议我们，并不是所有的微服务都需要使用DDD原则来划分和构建。**每个微服务可以基于不同设计模式具有不同内部架构。并非所有微服务都应使用先进的DDD模式来实现，因为这可能导致过度设计。对于简单的CRUD维护应用程序，设计和实现DDD模式可能没什么意义。但对于核心领域或核心业务，可能需要应用更先进的模式来应对业务规则不断变化的业务复杂性。**我们不可能用“一种架构模式来解决所有问题”。根据优先级，必须为每个微服务选择不同方法。  image-20201116221753802
+ 个人理解：我们使用的ABP四层框架实际上就是按照DDD原则进行CRUD和构建复杂功能的框架。  image-20201117160828300
+ 在拆分的过程中，我们还应该考虑，是否有一些被拆分出去的微服务，它用不上DDD，诸如简单的CRUD，以及不涉及聚合数据、提取表中特定数据的Dto构造，我们就可以使用简单的单层或其他形式来进行该微服务的构建，以达到最适合该微服务搭建的目的。    低耦合  重点是构建低耦合的微服务，如果我们发现A微服务在运行的过程中会频繁的调用B微服务，那么我们可能会考虑将A微服务和B微服务进行组合。以解耦提高内聚，降低通信成本，降低出现故障的可能。 微服务间的交互越少越好，核心规则是微服务间的交互需要异步    '><title>微服务2020.11.17微服务划分原则</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.17%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86%E5%8E%9F%E5%88%99/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='微服务2020.11.17微服务划分原则'>
+<meta property='og:description' content='2020.11.17微服务划分原则   独立运行、独立部署和持续交付  应该通过功能来划分微服务：微服务应该彼此独立，如果不能交付独立的应用程序功能块，那么划分只能增加复杂性。 划分微服务的目标应该是每个微服务可以单独的运行，单独的测试，不依赖其他的微服务，以便在大型项目开发中达到持续交付的目的，否则拆分微服务就失去意义了。 例如：子若姐的设备点检模块部分的微服务，划分为点检项配置和点检计划自动制定两个微服务，两个微服务可以单独的运行，只要无参调用或者给参数调用就能跑。    每个微服务对应一个数据库（也可以没有数据库）  每个微服务有自己的数据库，并与其他微服务完全解耦。 为每个微服务分配数据库，保证该微服务对其下数据库的支配权，数据库中的表应该包括微服务用到的所有表结构和实体，并且在其他微服务出现次数尽可能少（可以出现，如此就需要用MQTT或Rabbitmq保证数据的最终一致性）。 例如：点检项配置微服务有4个表，点检计划自动指定微服务有4个表，有一个表相同，但另外的表只有对应微服务在使用，其他微服务无法干涉。    微服务划分粒度  没有标准定义，个人认为：1.可以按照数据库的独立性来划分微服务（即：被剥离出来的a数据库，理论上只有A微服务可以调用，其他微服务不行）2.可以按照实现的功能层面来划分微服务（根据简单的CRUD构成了一个复杂/简单的功能，即：点检项的配置和点检计划的制定）3.在满足以上的情况下，不建议划分过小的微服务，例如简单的C、R、U、D划分为四个，那么在微服务调用时就会因为进程间调用造成极大的通信成本，另外微服务的搭建也十分繁琐，这是不合适的）    关于DDD原则划分微服务  书中建议我们，并不是所有的微服务都需要使用DDD原则来划分和构建。**每个微服务可以基于不同设计模式具有不同内部架构。并非所有微服务都应使用先进的DDD模式来实现，因为这可能导致过度设计。对于简单的CRUD维护应用程序，设计和实现DDD模式可能没什么意义。但对于核心领域或核心业务，可能需要应用更先进的模式来应对业务规则不断变化的业务复杂性。**我们不可能用“一种架构模式来解决所有问题”。根据优先级，必须为每个微服务选择不同方法。  image-20201116221753802
+ 个人理解：我们使用的ABP四层框架实际上就是按照DDD原则进行CRUD和构建复杂功能的框架。  image-20201117160828300
+ 在拆分的过程中，我们还应该考虑，是否有一些被拆分出去的微服务，它用不上DDD，诸如简单的CRUD，以及不涉及聚合数据、提取表中特定数据的Dto构造，我们就可以使用简单的单层或其他形式来进行该微服务的构建，以达到最适合该微服务搭建的目的。    低耦合  重点是构建低耦合的微服务，如果我们发现A微服务在运行的过程中会频繁的调用B微服务，那么我们可能会考虑将A微服务和B微服务进行组合。以解耦提高内聚，降低通信成本，降低出现故障的可能。 微服务间的交互越少越好，核心规则是微服务间的交互需要异步    '>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.17%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86%E5%8E%9F%E5%88%99/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='微服务' /><meta property='article:published_time' content='2020-11-17T09:17:59&#43;08:00'/><meta property='article:modified_time' content='2020-11-17T09:17:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="微服务2020.11.17微服务划分原则">
+<meta name="twitter:description" content="2020.11.17微服务划分原则   独立运行、独立部署和持续交付  应该通过功能来划分微服务：微服务应该彼此独立，如果不能交付独立的应用程序功能块，那么划分只能增加复杂性。 划分微服务的目标应该是每个微服务可以单独的运行，单独的测试，不依赖其他的微服务，以便在大型项目开发中达到持续交付的目的，否则拆分微服务就失去意义了。 例如：子若姐的设备点检模块部分的微服务，划分为点检项配置和点检计划自动制定两个微服务，两个微服务可以单独的运行，只要无参调用或者给参数调用就能跑。    每个微服务对应一个数据库（也可以没有数据库）  每个微服务有自己的数据库，并与其他微服务完全解耦。 为每个微服务分配数据库，保证该微服务对其下数据库的支配权，数据库中的表应该包括微服务用到的所有表结构和实体，并且在其他微服务出现次数尽可能少（可以出现，如此就需要用MQTT或Rabbitmq保证数据的最终一致性）。 例如：点检项配置微服务有4个表，点检计划自动指定微服务有4个表，有一个表相同，但另外的表只有对应微服务在使用，其他微服务无法干涉。    微服务划分粒度  没有标准定义，个人认为：1.可以按照数据库的独立性来划分微服务（即：被剥离出来的a数据库，理论上只有A微服务可以调用，其他微服务不行）2.可以按照实现的功能层面来划分微服务（根据简单的CRUD构成了一个复杂/简单的功能，即：点检项的配置和点检计划的制定）3.在满足以上的情况下，不建议划分过小的微服务，例如简单的C、R、U、D划分为四个，那么在微服务调用时就会因为进程间调用造成极大的通信成本，另外微服务的搭建也十分繁琐，这是不合适的）    关于DDD原则划分微服务  书中建议我们，并不是所有的微服务都需要使用DDD原则来划分和构建。**每个微服务可以基于不同设计模式具有不同内部架构。并非所有微服务都应使用先进的DDD模式来实现，因为这可能导致过度设计。对于简单的CRUD维护应用程序，设计和实现DDD模式可能没什么意义。但对于核心领域或核心业务，可能需要应用更先进的模式来应对业务规则不断变化的业务复杂性。**我们不可能用“一种架构模式来解决所有问题”。根据优先级，必须为每个微服务选择不同方法。  image-20201116221753802
+ 个人理解：我们使用的ABP四层框架实际上就是按照DDD原则进行CRUD和构建复杂功能的框架。  image-20201117160828300
+ 在拆分的过程中，我们还应该考虑，是否有一些被拆分出去的微服务，它用不上DDD，诸如简单的CRUD，以及不涉及聚合数据、提取表中特定数据的Dto构造，我们就可以使用简单的单层或其他形式来进行该微服务的构建，以达到最适合该微服务搭建的目的。    低耦合  重点是构建低耦合的微服务，如果我们发现A微服务在运行的过程中会频繁的调用B微服务，那么我们可能会考虑将A微服务和B微服务进行组合。以解耦提高内聚，降低通信成本，降低出现故障的可能。 微服务间的交互越少越好，核心规则是微服务间的交互需要异步    "><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="background-color: #fcd217; color: #fff;">
+                微服务
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.17%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86%E5%8E%9F%E5%88%99/">微服务2020.11.17微服务划分原则</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 17, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="20201117微服务划分原则">2020.11.17微服务划分原则</h3>
+<ul>
+<li>
+<h5 id="独立运行独立部署和持续交付">独立运行、独立部署和持续交付</h5>
+<ul>
+<li><strong>应该通过功能来划分微服务：微服务应该彼此独立，如果不能交付独立的应用程序功能块，那么划分只能增加复杂性。</strong></li>
+<li>划分微服务的目标应该是每个微服务可以单独的运行，单独的测试，不依赖其他的微服务，以便在大型项目开发中达到持续交付的目的，否则拆分微服务就失去意义了。</li>
+<li>例如：子若姐的设备点检模块部分的微服务，<strong>划分为点检项配置和点检计划自动制定两个微服务，两个微服务可以单独的运行，只要无参调用或者给参数调用就能跑。</strong></li>
+</ul>
+</li>
+<li>
+<h5 id="每个微服务对应一个数据库也可以没有数据库">每个微服务对应一个数据库（也可以没有数据库）</h5>
+<ul>
+<li><strong>每个微服务有自己的数据库，并与其他微服务完全解耦。</strong></li>
+<li>为每个微服务分配数据库，保证该微服务对其下数据库的支配权，数据库中的表应该包括微服务用到的所有表结构和实体，并且在其他微服务出现次数尽可能少（可以出现，如此就需要用MQTT或Rabbitmq保证数据的最终一致性）。</li>
+<li>例如：<strong>点检项配置微服务有4个表，点检计划自动指定微服务有4个表，有一个表相同，但另外的表只有对应微服务在使用，其他微服务无法干涉</strong>。</li>
+</ul>
+</li>
+<li>
+<h5 id="微服务划分粒度">微服务划分粒度</h5>
+<ul>
+<li>没有标准定义，个人认为：1.<strong>可以按照数据库的独立性来划分微服务</strong>（即：被剥离出来的a数据库，理论上只有A微服务可以调用，其他微服务不行）2.<strong>可以按照实现的功能层面来划分微服务</strong>（根据简单的CRUD构成了一个复杂/简单的功能，即：点检项的配置和点检计划的制定）3.在满足以上的情况下，<strong>不建议划分过小的微服务</strong>，例如简单的C、R、U、D划分为四个，那么在微服务调用时就会因为进程间调用造成极大的通信成本，另外微服务的搭建也十分繁琐，这是不合适的）</li>
+</ul>
+</li>
+<li>
+<h5 id="关于ddd原则划分微服务">关于DDD原则划分微服务</h5>
+<ul>
+<li>书中建议我们，并不是所有的微服务都需要使用DDD原则来划分和构建。**每个微服务可以基于不同设计模式具有不同内部架构。并非所有微服务都应使用先进的DDD模式来实现，因为这可能导致过度设计。对于简单的CRUD维护应用程序，设计和实现DDD模式可能没什么意义。但对于核心领域或核心业务，可能需要应用更先进的模式来应对业务规则不断变化的业务复杂性。**我们不可能用“一种架构模式来解决所有问题”。根据优先级，必须为每个微服务选择不同方法。</li>
+</ul>
+<p><figure 
+	>
+	<a href="/2020.11.17%e5%be%ae%e6%9c%8d%e5%8a%a1%e5%88%92%e5%88%86%e5%8e%9f%e5%88%99.assets/image-20201116221753802.png" >
+		<img src="/2020.11.17%e5%be%ae%e6%9c%8d%e5%8a%a1%e5%88%92%e5%88%86%e5%8e%9f%e5%88%99.assets/image-20201116221753802.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201116221753802">
+	</a>
+	
+	<figcaption>image-20201116221753802</figcaption>
+	
+</figure></p>
+<ul>
+<li>个人理解：<strong>我们使用的ABP四层框架实际上就是按照DDD原则进行CRUD和构建复杂功能的框架。</strong></li>
+</ul>
+<p><figure 
+	>
+	<a href="/2020.11.17%e5%be%ae%e6%9c%8d%e5%8a%a1%e5%88%92%e5%88%86%e5%8e%9f%e5%88%99.assets/image-20201117160828300.png" >
+		<img src="/2020.11.17%e5%be%ae%e6%9c%8d%e5%8a%a1%e5%88%92%e5%88%86%e5%8e%9f%e5%88%99.assets/image-20201117160828300.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201117160828300">
+	</a>
+	
+	<figcaption>image-20201117160828300</figcaption>
+	
+</figure></p>
+<ul>
+<li>在拆分的过程中，<strong>我们还应该考虑，是否有一些被拆分出去的微服务，它用不上DDD</strong>，诸如简单的CRUD，以及不涉及聚合数据、提取表中特定数据的Dto构造，我们就可以使用简单的单层或其他形式来进行该微服务的构建，以达到最适合该微服务搭建的目的。</li>
+</ul>
+</li>
+<li>
+<h5 id="低耦合">低耦合</h5>
+<ul>
+<li>重点是构建低耦合的微服务，如果我们发现A微服务在运行的过程中会<strong>频繁的调用B微服务</strong>，那么我们<strong>可能会考虑将A微服务和B微服务进行组合</strong>。以解耦提高内聚，降低通信成本，降低出现故障的可能。</li>
+<li><strong>微服务间的交互越少越好</strong>，核心规则是微服务间的交互需要异步</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.16/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.16</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.13/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.13</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务架构学习文档</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务架构设计模式学习文档</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="linjianshu/hugoblogtalks"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>

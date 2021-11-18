@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='微服务架构设计模式学习文档 微服务不在于“微”，而在于单一职责。
+——引自《微服务架构与实践》王磊 特点：  单一职责 轻量通信（无关平台语言、通过轻量级通信机制互联）  image-20201019111933340
+采用xml或json格式达到通用，可以基于http协议或rpc协议达到服务间的轻量级通信
+ 业务独立（开发、测试、部署）  image-20201019112313900
+ 进程隔离  image-20201019162622677
+ 持续交付 技术的可扩展性（接口不依赖于特定语言和平台）  劣势：  网络通信：进程内调用比进程间调用用时短，分布式调用严重依赖网络可靠性与稳定性。 自动化测试条件严苛（测试难度大）  image-20201019161945662
+ 分区数据库架构（需要使用基于最终一致性的方法） 跨越多服务变更（服务之间可能有依赖关系）  难点：  性能（跨进程、跨网络、跨数据库）：考虑通信成本、网络延迟、带宽、多服务交互的响应时间 可靠性：服务数量节点增多可能带来潜在故障点，防止单点故障 异步：同步通信造成阻塞，异步通信缺增加功能实现的复杂度，出现故障时的链路追踪、定位、调试有难度。  image-20201019164512498
+ 数据一致性：保持数据一致性需要使用saga或者什么cqrs视图查询什么的 联表查询：  尝试使用微服务架构改造遗留系统： 改造策略/原则：
+ 最小修改（停止挖掘）  image-20201019165725693
+ 功能剥离  image-20201019165818362
+ 数据解耦  image-20201019171523179'><title>微服务架构设计模式学习文档</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='微服务架构设计模式学习文档'>
+<meta property='og:description' content='微服务架构设计模式学习文档 微服务不在于“微”，而在于单一职责。
+——引自《微服务架构与实践》王磊 特点：  单一职责 轻量通信（无关平台语言、通过轻量级通信机制互联）  image-20201019111933340
+采用xml或json格式达到通用，可以基于http协议或rpc协议达到服务间的轻量级通信
+ 业务独立（开发、测试、部署）  image-20201019112313900
+ 进程隔离  image-20201019162622677
+ 持续交付 技术的可扩展性（接口不依赖于特定语言和平台）  劣势：  网络通信：进程内调用比进程间调用用时短，分布式调用严重依赖网络可靠性与稳定性。 自动化测试条件严苛（测试难度大）  image-20201019161945662
+ 分区数据库架构（需要使用基于最终一致性的方法） 跨越多服务变更（服务之间可能有依赖关系）  难点：  性能（跨进程、跨网络、跨数据库）：考虑通信成本、网络延迟、带宽、多服务交互的响应时间 可靠性：服务数量节点增多可能带来潜在故障点，防止单点故障 异步：同步通信造成阻塞，异步通信缺增加功能实现的复杂度，出现故障时的链路追踪、定位、调试有难度。  image-20201019164512498
+ 数据一致性：保持数据一致性需要使用saga或者什么cqrs视图查询什么的 联表查询：  尝试使用微服务架构改造遗留系统： 改造策略/原则：
+ 最小修改（停止挖掘）  image-20201019165725693
+ 功能剥离  image-20201019165818362
+ 数据解耦  image-20201019171523179'>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='微服务' /><meta property='article:published_time' content='2020-10-13T09:17:59&#43;08:00'/><meta property='article:modified_time' content='2020-10-13T09:17:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="微服务架构设计模式学习文档">
+<meta name="twitter:description" content="微服务架构设计模式学习文档 微服务不在于“微”，而在于单一职责。
+——引自《微服务架构与实践》王磊 特点：  单一职责 轻量通信（无关平台语言、通过轻量级通信机制互联）  image-20201019111933340
+采用xml或json格式达到通用，可以基于http协议或rpc协议达到服务间的轻量级通信
+ 业务独立（开发、测试、部署）  image-20201019112313900
+ 进程隔离  image-20201019162622677
+ 持续交付 技术的可扩展性（接口不依赖于特定语言和平台）  劣势：  网络通信：进程内调用比进程间调用用时短，分布式调用严重依赖网络可靠性与稳定性。 自动化测试条件严苛（测试难度大）  image-20201019161945662
+ 分区数据库架构（需要使用基于最终一致性的方法） 跨越多服务变更（服务之间可能有依赖关系）  难点：  性能（跨进程、跨网络、跨数据库）：考虑通信成本、网络延迟、带宽、多服务交互的响应时间 可靠性：服务数量节点增多可能带来潜在故障点，防止单点故障 异步：同步通信造成阻塞，异步通信缺增加功能实现的复杂度，出现故障时的链路追踪、定位、调试有难度。  image-20201019164512498
+ 数据一致性：保持数据一致性需要使用saga或者什么cqrs视图查询什么的 联表查询：  尝试使用微服务架构改造遗留系统： 改造策略/原则：
+ 最小修改（停止挖掘）  image-20201019165725693
+ 功能剥离  image-20201019165818362
+ 数据解耦  image-20201019171523179"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="background-color: #fcd217; color: #fff;">
+                微服务
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">微服务架构设计模式学习文档</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 13, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="微服务架构设计模式学习文档">微服务架构设计模式学习文档</h2>
+<p>微服务不在于“微”，而在于单一职责。</p>
+<h3 id="引自微服务架构与实践王磊">——引自《微服务架构与实践》王磊</h3>
+<h4 id="特点">特点：</h4>
+<ul>
+<li>单一职责</li>
+<li>轻量通信（无关平台语言、通过轻量级通信机制互联）</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019111933340.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019111933340.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019111933340">
+	</a>
+	
+	<figcaption>image-20201019111933340</figcaption>
+	
+</figure></p>
+<p>采用xml或json格式达到通用，可以基于http协议或rpc协议达到服务间的轻量级通信</p>
+<ul>
+<li>业务独立（开发、测试、部署）</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019112313900.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019112313900.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019112313900">
+	</a>
+	
+	<figcaption>image-20201019112313900</figcaption>
+	
+</figure></p>
+<ul>
+<li>进程隔离</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019162622677.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019162622677.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019162622677">
+	</a>
+	
+	<figcaption>image-20201019162622677</figcaption>
+	
+</figure></p>
+<ul>
+<li>持续交付</li>
+<li>技术的可扩展性（接口不依赖于特定语言和平台）</li>
+</ul>
+<h4 id="劣势">劣势：</h4>
+<ul>
+<li>网络通信：进程内调用比进程间调用用时短，分布式调用严重依赖网络可靠性与稳定性。</li>
+<li>自动化测试条件严苛（测试难度大）</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019161945662.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019161945662.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019161945662">
+	</a>
+	
+	<figcaption>image-20201019161945662</figcaption>
+	
+</figure></p>
+<ul>
+<li>分区数据库架构（需要使用基于最终一致性的方法）</li>
+<li>跨越多服务变更（服务之间可能有依赖关系）</li>
+</ul>
+<h4 id="难点">难点：</h4>
+<ul>
+<li>性能（跨进程、跨网络、跨数据库）：考虑通信成本、网络延迟、带宽、多服务交互的响应时间</li>
+<li>可靠性：服务数量节点增多可能带来潜在故障点，防止单点故障</li>
+<li><strong>异步</strong>：同步通信造成阻塞，异步通信缺增加功能实现的复杂度，出现故障时的链路追踪、定位、调试有难度。</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019164512498.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019164512498.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019164512498">
+	</a>
+	
+	<figcaption>image-20201019164512498</figcaption>
+	
+</figure></p>
+<ul>
+<li><strong>数据一致性</strong>：保持数据一致性需要使用saga或者什么cqrs视图查询什么的</li>
+<li><strong>联表查询</strong>：</li>
+</ul>
+<h4 id="尝试使用微服务架构改造遗留系统">尝试使用微服务架构改造遗留系统：</h4>
+<p>改造策略/原则：</p>
+<ul>
+<li>最小修改（停止挖掘）</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019165725693.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019165725693.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019165725693">
+	</a>
+	
+	<figcaption>image-20201019165725693</figcaption>
+	
+</figure></p>
+<ul>
+<li>功能剥离</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019165818362.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019165818362.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019165818362">
+	</a>
+	
+	<figcaption>image-20201019165818362</figcaption>
+	
+</figure></p>
+<ul>
+<li>数据解耦</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019171523179.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019171523179.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019171523179">
+	</a>
+	
+	<figcaption>image-20201019171523179</figcaption>
+	
+</figure></p>
+<ul>
+<li>数据同步</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019171657915.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019171657915.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019171657915">
+	</a>
+	
+	<figcaption>image-20201019171657915</figcaption>
+	
+</figure></p>
+<h3 id="引自微服务从设计到部署oposguy翻译与排版">——引自《微服务:从设计到部署》Oposguy翻译与排版</h3>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019174033415.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019174033415.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019174033415">
+	</a>
+	
+	<figcaption>image-20201019174033415</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019174056966.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019174056966.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019174056966">
+	</a>
+	
+	<figcaption>image-20201019174056966</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019191811111.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019191811111.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019191811111">
+	</a>
+	
+	<figcaption>image-20201019191811111</figcaption>
+	
+</figure></p>
+<p>每个微服务拥有自己的数据库，这将导致部分数据冗余，但这样可以实现松耦合。</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019174508586.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019174508586.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019174508586">
+	</a>
+	
+	<figcaption>image-20201019174508586</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019175638779.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019175638779.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019175638779">
+	</a>
+	
+	<figcaption>image-20201019175638779</figcaption>
+	
+</figure></p>
+<p>进程间通信：</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019192425195.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019192425195.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019192425195">
+	</a>
+	
+	<figcaption>image-20201019192425195</figcaption>
+	
+</figure></p>
+<p>服务中使用了通知、请求/响应和发布/订阅组合。</p>
+<p>必须要加入熔断处理机制（或者设置超时、限制未完成的请求数量或提供回滚操作），否则将会造成线程堵塞无法响应。</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019192657830.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019192657830.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019192657830">
+	</a>
+	
+	<figcaption>image-20201019192657830</figcaption>
+	
+</figure></p>
+<p>使用异步基于消息的通信，例如使用rabbitmq、amqp等等</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019193109130.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019193109130.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019193109130">
+	</a>
+	
+	<figcaption>image-20201019193109130</figcaption>
+	
+</figure></p>
+<p>如何维护多个服务之间的业务事务一致性，传统的两阶段提交2pc已经不能使用</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019195112681.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019195112681.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019195112681">
+	</a>
+	
+	<figcaption>image-20201019195112681</figcaption>
+	
+</figure></p>
+<p>如何从多个服务中检索数据（利用事件驱动架构作为解决方案，首先发布一个事件，让与其相关的数据库所属的微服务订阅该事件，这样就导致：某个微服务内的事件被触发时，订阅该事件的微服务模块进一步触发，导致更多的事件被发布）</p>
+<p>中间层次是消息代理</p>
+<p>事件驱动的架构能够跨越多服务并提供最终一致性事务，另外就是能够生成和维护<strong>物化视图</strong>。</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019195846736.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019195846736.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019195846736">
+	</a>
+	
+	<figcaption>image-20201019195846736</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019200203845.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019200203845.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019200203845">
+	</a>
+	
+	<figcaption>image-20201019200203845</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019200214661.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019200214661.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019200214661">
+	</a>
+	
+	<figcaption>image-20201019200214661</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019201228525.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019201228525.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019201228525">
+	</a>
+	
+	<figcaption>image-20201019201228525</figcaption>
+	
+</figure></p>
+<p>微服务重构策略：</p>
+<ul>
+<li>停止挖掘</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019202506214.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019202506214.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019202506214">
+	</a>
+	
+	<figcaption>image-20201019202506214</figcaption>
+	
+</figure></p>
+<p>以上需要两个组件，第一个为api网关，提供负载均衡、请求分发、路由控制；第二个是粘合代码，用于与单体集成，毕竟一个服务很少孤立存在，通常需要访问单体的数据库。这就需要粘合代码来负责数据集成。</p>
+<ul>
+<li>提取服务</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019205850332.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019205850332.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019205850332">
+	</a>
+	
+	<figcaption>image-20201019205850332</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019210059948.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019210059948.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019210059948">
+	</a>
+	
+	<figcaption>image-20201019210059948</figcaption>
+	
+</figure></p>
+<h3 id="引自net微服务与容器化net应用架构指南cesar-de-la-torrebill-wagnermike-rousos">——引自《.NET微服务与容器化.NET应用架构指南》Cesar de la Torre,Bill Wagner,Mike Rousos</h3>
+<p>创建微服务的重点是要创建低耦合的微服务，只要他们之间没有太多的直接依赖，就应该尽可能小，重要的还是要有内部一致性和对其他服务的依赖。</p>
+<p>优势：长期敏捷性、独立部署、细粒度、高扩展、可维护、独立进行横向扩展以便节约成本。</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019211612693.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201019211612693.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201019211612693">
+	</a>
+	
+	<figcaption>image-20201019211612693</figcaption>
+	
+</figure></p>
+<p><strong>然而，微服务架构的数据访问会变得更加复杂。即使在一个微服务或限界上下文里能够或者应该做到ACID事务一致，但每个微服务的数据是独立的，所以只能通过微服务的API来访问。将数据进行封装确保了微服务是松耦合且能独立变化的。如果多个服务访问相同数据，数据的更新就要求协调同步到所有服务，这会破坏微服务生命周期的自治性。这就表示，当业务流程跨越多个微服务时，最终一致性是唯一的办法。这比写一个简单的SQL连接要复杂得多。同理，很多其他关系型数据库功能也不支持跨微服务使用。</strong></p>
+<h5 id="分布式数据管理的挑战与解决方案">分布式数据管理的挑战与解决方案</h5>
+<blockquote>
+<ul>
+<li>
+<h4 id="如何定义微服务边界ddd领域驱动设计及界限上下文image-20201020151358861微服务架构设计模式学习文档assetsimage-20201020151358861png">如何定义微服务边界（DDD领域驱动设计及界限上下文）<figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020151358861.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020151358861.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020151358861">
+	</a>
+	
+	<figcaption>image-20201020151358861</figcaption>
+	
+</figure></h4>
+</li>
+</ul>
+</blockquote>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020151420359.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020151420359.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020151420359">
+	</a>
+	
+	<figcaption>image-20201020151420359</figcaption>
+	
+</figure></p>
+<blockquote>
+<ul>
+<li>
+<h4 id="如何创建从多个微服务获取数据的查询聚合信息提高效率1使用api网关但是可能会成为单点故障或者系统瓶颈所以要尽可能使用多个细粒度的api网关2使用cqrs查询即使用物化视图模式">如何创建从多个微服务获取数据的查询（聚合信息提高效率，1.使用api网关，但是可能会成为单点故障或者系统瓶颈，所以要尽可能使用多个细粒度的api网关，2.使用CQRS查询，即使用物化视图模式）</h4>
+</li>
+</ul>
+</blockquote>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020145820045.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020145820045.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020145820045">
+	</a>
+	
+	<figcaption>image-20201020145820045</figcaption>
+	
+</figure><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020151855677.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020151855677.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020151855677">
+	</a>
+	
+	<figcaption>image-20201020151855677</figcaption>
+	
+</figure></p>
+<blockquote>
+<ul>
+<li>
+<h4 id="如何在多个微服务之间实现一致性应该使用基于异步通信或者说是基于事件的通信即异步事件驱动通信image-20201020145954765微服务架构设计模式学习文档assetsimage-20201020145954765png">如何在多个微服务之间实现一致性（应该使用基于异步通信，或者说是基于事件的通信，即异步事件驱动通信）<figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020145954765.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020145954765.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020145954765">
+	</a>
+	
+	<figcaption>image-20201020145954765</figcaption>
+	
+</figure></h4>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020154005367.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020154005367.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020154005367">
+	</a>
+	
+	<figcaption>image-20201020154005367</figcaption>
+	
+</figure></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<h4 id="如何在多个微服务之间通信http同步本质会带来http调用链条造成阻塞和性能低下甚至雪崩式宕机会有这样一种争议实际上是一种单体式应用进程间是基于http的没有进程内通信机制因此我们建议使用基于消息或时间的异步通信或者使用http轮询方式image-20201020153126389微服务架构设计模式学习文档assetsimage-20201020153126389png">如何在多个微服务之间通信（http同步本质，会带来http调用链条，造成阻塞和性能低下甚至雪崩式宕机，会有这样一种争议：实际上是一种单体式应用，进程间是基于http的，没有进程内通信机制。因此我们建议，使用基于消息或时间的异步通信，或者使用http轮询方式）<figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020153126389.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201020153126389.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201020153126389">
+	</a>
+	
+	<figcaption>image-20201020153126389</figcaption>
+	
+</figure></h4>
+</li>
+</ul>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.17%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86%E5%8E%9F%E5%88%99/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.17微服务划分原则</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.16/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.16</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.13/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.13</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务架构学习文档</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="linjianshu/hugoblogtalks"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>

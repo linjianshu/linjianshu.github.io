@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='微服务架构学习文档 Netflix流媒体播放平台微服务架构：
+img
+oes目前设想：
+image-20201013172440573
+image-20201012210849046
+微服务架构特性：  单一职责 轻量级通信（通过http、rpc协议下的xml、json格式，无关语言、平台） 独立开发、测试、部署（并行工程）  preview
+分布式&amp;ndash;集群&amp;ndash;微服务 分布式：不同服务器部署不同业务（应用）
+集群：不同服务器部署同一套业务（应用）
+微服务：同一台服务器可能部署多个微应用
+preview
+问题：  单体应用  优点：便于开发、测试、部署
+缺点：维护成本高、交付周期长、扩展性差
+ 作业平台、移动端、系统平台有功能相同或者重复的代码，相同业务逻辑的代码，修改维护很不方便 数据有时候通过数据库共享，有时候通过接口调用传输。接口调用关系杂乱。 单个应用为了给其他应用提供接口，渐渐地越改越大，包含了很多本来就不属于它的逻辑。应用边界模糊，功能归属混乱。 加入数据分析、深度学习等相关功能后出现性能瓶颈，影响了其他应用。 数据库表结构被多个应用依赖，无法重构和优化。 所有应用都在一个数据库上操作，数据库出现性能瓶颈。 开发、测试、部署、维护愈发困难。即使只改动一个小功能，也需要整个应用一起发布。有时候发布会不小心带上了一些未经测试的代码，或者修改了一个功能后，另一个意想不到的地方出错了。 团队出现推诿扯皮现象。关于一些公用的功能应该建设在哪个应用上的问题常常要争论很久，最后要么干脆各做各的，或者随便放个地方但是都不维护。  紧迫且繁重的任务容易使人陷入局部、短浅的思维方式，从而做出妥协式的决策。在这种架构中，每个人都只关注在自己的一亩三分地，缺乏全局的、长远的设计。长此以往，系统建设将会越来越困难，甚至陷入不断推翻、重建的循环。
+要做改造，首先你需要有足够的精力和资源。如果你的需求方（业务人员、项目经理、上司等）很强势地一心追求需求进度，以致于你无法挪出额外的精力和资源的话，那么你可能无法做任何事……
+整理了业务逻辑，抽象出公用的业务能力，做成几个公共服务
+各个应用后台只需从这些服务获取所需的数据，从而删去了大量冗余的代码，就剩个轻薄的控制层和前端。这一阶段的架构如下：
+img
+数据库依然是共用的，所以一些烟囱式系统的缺点仍然存在：
+  数据库逐渐成为了性能瓶颈
+  可能会有一个服务从数据库中读取另一个服务的现象发生
+  数据库表结构可能被多个服务依赖，导致很难调整
+持久化层相互隔离，由各个服务自己负责。另外，为了提高系统的实时性，加入了消息队列机制。架构如下：
+img
+  数据分析和深度学习可以做数据库持久化层，一些常用的访问可以做memcache缓存机制，大文件非结构化文本可以采用nosql非关系型数据库，例如mongodb、redis
+ 还有一种抽象出公共逻辑的方法是把这些公共逻辑做成公共的框架库。这种方法可以减少服务调用的性能损耗。但是这种方法的管理成本非常高昂，很难保证所有应用版本的一致性。 数据库拆分也有一些问题和挑战：比如说跨库级联的需求，通过服务查询数据颗粒度的粗细问题等。但是这些问题可以通过合理的设计来解决。总体来说，数据库拆分是一个利大于弊的。'><title>微服务架构学习文档</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='微服务架构学习文档'>
+<meta property='og:description' content='微服务架构学习文档 Netflix流媒体播放平台微服务架构：
+img
+oes目前设想：
+image-20201013172440573
+image-20201012210849046
+微服务架构特性：  单一职责 轻量级通信（通过http、rpc协议下的xml、json格式，无关语言、平台） 独立开发、测试、部署（并行工程）  preview
+分布式&amp;ndash;集群&amp;ndash;微服务 分布式：不同服务器部署不同业务（应用）
+集群：不同服务器部署同一套业务（应用）
+微服务：同一台服务器可能部署多个微应用
+preview
+问题：  单体应用  优点：便于开发、测试、部署
+缺点：维护成本高、交付周期长、扩展性差
+ 作业平台、移动端、系统平台有功能相同或者重复的代码，相同业务逻辑的代码，修改维护很不方便 数据有时候通过数据库共享，有时候通过接口调用传输。接口调用关系杂乱。 单个应用为了给其他应用提供接口，渐渐地越改越大，包含了很多本来就不属于它的逻辑。应用边界模糊，功能归属混乱。 加入数据分析、深度学习等相关功能后出现性能瓶颈，影响了其他应用。 数据库表结构被多个应用依赖，无法重构和优化。 所有应用都在一个数据库上操作，数据库出现性能瓶颈。 开发、测试、部署、维护愈发困难。即使只改动一个小功能，也需要整个应用一起发布。有时候发布会不小心带上了一些未经测试的代码，或者修改了一个功能后，另一个意想不到的地方出错了。 团队出现推诿扯皮现象。关于一些公用的功能应该建设在哪个应用上的问题常常要争论很久，最后要么干脆各做各的，或者随便放个地方但是都不维护。  紧迫且繁重的任务容易使人陷入局部、短浅的思维方式，从而做出妥协式的决策。在这种架构中，每个人都只关注在自己的一亩三分地，缺乏全局的、长远的设计。长此以往，系统建设将会越来越困难，甚至陷入不断推翻、重建的循环。
+要做改造，首先你需要有足够的精力和资源。如果你的需求方（业务人员、项目经理、上司等）很强势地一心追求需求进度，以致于你无法挪出额外的精力和资源的话，那么你可能无法做任何事……
+整理了业务逻辑，抽象出公用的业务能力，做成几个公共服务
+各个应用后台只需从这些服务获取所需的数据，从而删去了大量冗余的代码，就剩个轻薄的控制层和前端。这一阶段的架构如下：
+img
+数据库依然是共用的，所以一些烟囱式系统的缺点仍然存在：
+  数据库逐渐成为了性能瓶颈
+  可能会有一个服务从数据库中读取另一个服务的现象发生
+  数据库表结构可能被多个服务依赖，导致很难调整
+持久化层相互隔离，由各个服务自己负责。另外，为了提高系统的实时性，加入了消息队列机制。架构如下：
+img
+  数据分析和深度学习可以做数据库持久化层，一些常用的访问可以做memcache缓存机制，大文件非结构化文本可以采用nosql非关系型数据库，例如mongodb、redis
+ 还有一种抽象出公共逻辑的方法是把这些公共逻辑做成公共的框架库。这种方法可以减少服务调用的性能损耗。但是这种方法的管理成本非常高昂，很难保证所有应用版本的一致性。 数据库拆分也有一些问题和挑战：比如说跨库级联的需求，通过服务查询数据颗粒度的粗细问题等。但是这些问题可以通过合理的设计来解决。总体来说，数据库拆分是一个利大于弊的。'>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='微服务' /><meta property='article:published_time' content='2020-10-23T09:17:59&#43;08:00'/><meta property='article:modified_time' content='2020-10-23T09:17:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="微服务架构学习文档">
+<meta name="twitter:description" content="微服务架构学习文档 Netflix流媒体播放平台微服务架构：
+img
+oes目前设想：
+image-20201013172440573
+image-20201012210849046
+微服务架构特性：  单一职责 轻量级通信（通过http、rpc协议下的xml、json格式，无关语言、平台） 独立开发、测试、部署（并行工程）  preview
+分布式&amp;ndash;集群&amp;ndash;微服务 分布式：不同服务器部署不同业务（应用）
+集群：不同服务器部署同一套业务（应用）
+微服务：同一台服务器可能部署多个微应用
+preview
+问题：  单体应用  优点：便于开发、测试、部署
+缺点：维护成本高、交付周期长、扩展性差
+ 作业平台、移动端、系统平台有功能相同或者重复的代码，相同业务逻辑的代码，修改维护很不方便 数据有时候通过数据库共享，有时候通过接口调用传输。接口调用关系杂乱。 单个应用为了给其他应用提供接口，渐渐地越改越大，包含了很多本来就不属于它的逻辑。应用边界模糊，功能归属混乱。 加入数据分析、深度学习等相关功能后出现性能瓶颈，影响了其他应用。 数据库表结构被多个应用依赖，无法重构和优化。 所有应用都在一个数据库上操作，数据库出现性能瓶颈。 开发、测试、部署、维护愈发困难。即使只改动一个小功能，也需要整个应用一起发布。有时候发布会不小心带上了一些未经测试的代码，或者修改了一个功能后，另一个意想不到的地方出错了。 团队出现推诿扯皮现象。关于一些公用的功能应该建设在哪个应用上的问题常常要争论很久，最后要么干脆各做各的，或者随便放个地方但是都不维护。  紧迫且繁重的任务容易使人陷入局部、短浅的思维方式，从而做出妥协式的决策。在这种架构中，每个人都只关注在自己的一亩三分地，缺乏全局的、长远的设计。长此以往，系统建设将会越来越困难，甚至陷入不断推翻、重建的循环。
+要做改造，首先你需要有足够的精力和资源。如果你的需求方（业务人员、项目经理、上司等）很强势地一心追求需求进度，以致于你无法挪出额外的精力和资源的话，那么你可能无法做任何事……
+整理了业务逻辑，抽象出公用的业务能力，做成几个公共服务
+各个应用后台只需从这些服务获取所需的数据，从而删去了大量冗余的代码，就剩个轻薄的控制层和前端。这一阶段的架构如下：
+img
+数据库依然是共用的，所以一些烟囱式系统的缺点仍然存在：
+  数据库逐渐成为了性能瓶颈
+  可能会有一个服务从数据库中读取另一个服务的现象发生
+  数据库表结构可能被多个服务依赖，导致很难调整
+持久化层相互隔离，由各个服务自己负责。另外，为了提高系统的实时性，加入了消息队列机制。架构如下：
+img
+  数据分析和深度学习可以做数据库持久化层，一些常用的访问可以做memcache缓存机制，大文件非结构化文本可以采用nosql非关系型数据库，例如mongodb、redis
+ 还有一种抽象出公共逻辑的方法是把这些公共逻辑做成公共的框架库。这种方法可以减少服务调用的性能损耗。但是这种方法的管理成本非常高昂，很难保证所有应用版本的一致性。 数据库拆分也有一些问题和挑战：比如说跨库级联的需求，通过服务查询数据颗粒度的粗细问题等。但是这些问题可以通过合理的设计来解决。总体来说，数据库拆分是一个利大于弊的。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="background-color: #fcd217; color: #fff;">
+                微服务
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">微服务架构学习文档</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 23, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="微服务架构学习文档">微服务架构学习文档</h3>
+<p>Netflix流媒体播放平台微服务架构：</p>
+<p><figure 
+	>
+	<a href="https://upload-images.jianshu.io/upload_images/6262276-ce8a86884b9d3637.jpg?imageMogr2/auto-orient/strip%7cimageView2/2/format/webp" >
+		<img src="https://upload-images.jianshu.io/upload_images/6262276-ce8a86884b9d3637.jpg?imageMogr2/auto-orient/strip%7cimageView2/2/format/webp"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+<p>oes目前设想：</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201013172440573.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201013172440573.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201013172440573">
+	</a>
+	
+	<figcaption>image-20201013172440573</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012210849046.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012210849046.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201012210849046">
+	</a>
+	
+	<figcaption>image-20201012210849046</figcaption>
+	
+</figure></p>
+<h5 id="微服务架构特性">微服务架构特性：</h5>
+<ul>
+<li>单一职责</li>
+<li>轻量级通信（通过http、rpc协议下的xml、json格式，无关语言、平台）</li>
+<li>独立开发、测试、部署（并行工程）</li>
+</ul>
+<p><figure 
+	>
+	<a href="https://pic1.zhimg.com/v2-c134c26dfbe69f179dc9e1b440de169a_r.jpg?source=1940ef5c" >
+		<img src="https://pic1.zhimg.com/v2-c134c26dfbe69f179dc9e1b440de169a_r.jpg?source=1940ef5c"
+			
+			
+			
+			loading="lazy"
+			alt="preview">
+	</a>
+	
+	<figcaption>preview</figcaption>
+	
+</figure></p>
+<h5 id="分布式--集群--微服务">分布式&ndash;集群&ndash;微服务</h5>
+<p>分布式：不同服务器部署不同业务（应用）</p>
+<p>集群：不同服务器部署同一套业务（应用）</p>
+<p>微服务：同一台服务器可能部署多个微应用</p>
+<p><figure 
+	>
+	<a href="https://pic4.zhimg.com/v2-b337b7096574c48f2296d3348e4a90fc_r.jpg?source=1940ef5c" >
+		<img src="https://pic4.zhimg.com/v2-b337b7096574c48f2296d3348e4a90fc_r.jpg?source=1940ef5c"
+			
+			
+			
+			loading="lazy"
+			alt="preview">
+	</a>
+	
+	<figcaption>preview</figcaption>
+	
+</figure></p>
+<h5 id="问题">问题：</h5>
+<ol>
+<li>单体应用</li>
+</ol>
+<p>优点：便于开发、测试、部署</p>
+<p>缺点：维护成本高、交付周期长、扩展性差</p>
+<ul>
+<li>作业平台、移动端、系统平台有功能相同或者重复的代码，相同业务逻辑的代码，修改维护很不方便</li>
+<li>数据有时候通过数据库共享，有时候通过接口调用传输。接口调用关系杂乱。</li>
+<li>单个应用为了给其他应用提供接口，渐渐地越改越大，包含了很多本来就不属于它的逻辑。应用边界模糊，功能归属混乱。</li>
+<li>加入数据分析、深度学习等相关功能后出现性能瓶颈，影响了其他应用。</li>
+<li>数据库表结构被多个应用依赖，无法重构和优化。</li>
+<li>所有应用都在一个数据库上操作，数据库出现性能瓶颈。</li>
+<li>开发、测试、部署、维护愈发困难。即使只改动一个小功能，也需要整个应用一起发布。有时候发布会不小心带上了一些未经测试的代码，或者修改了一个功能后，另一个意想不到的地方出错了。</li>
+<li>团队出现推诿扯皮现象。关于一些公用的功能应该建设在哪个应用上的问题常常要争论很久，最后要么干脆各做各的，或者随便放个地方但是都不维护。</li>
+</ul>
+<p><strong>紧迫且繁重的任务容易使人陷入局部、短浅的思维方式，从而做出妥协式的决策</strong>。<strong>在这种架构中，每个人都只关注在自己的一亩三分地，缺乏全局的、长远的设计。长此以往，系统建设将会越来越困难，甚至陷入不断推翻、重建的循环。</strong></p>
+<p><em>要做改造，首先你需要有足够的精力和资源。如果你的需求方（业务人员、项目经理、上司等）很强势地一心追求需求进度，以致于你无法挪出额外的精力和资源的话，那么你可能无法做任何事……</em></p>
+<p><strong>整理了业务逻辑，抽象出公用的业务能力，做成几个公共服务</strong></p>
+<p>各个应用后台只需从这些服务获取所需的数据，从而删去了大量冗余的代码，就剩个轻薄的控制层和前端。这一阶段的架构如下：</p>
+<p><figure 
+	>
+	<a href="https://pic4.zhimg.com/50/v2-0882bc64f3f20939876d3433e51fad72_hd.jpg?source=1940ef5c" >
+		<img src="https://pic4.zhimg.com/50/v2-0882bc64f3f20939876d3433e51fad72_hd.jpg?source=1940ef5c"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+<p>数据库依然是共用的，所以一些烟囱式系统的缺点仍然存在：</p>
+<ul>
+<li>
+<p>数据库逐渐成为了性能瓶颈</p>
+</li>
+<li>
+<p>可能会有一个服务从数据库中读取另一个服务的现象发生</p>
+</li>
+<li>
+<p>数据库表结构可能被多个服务依赖，导致很难调整</p>
+<p>持久化层相互隔离，由各个服务自己负责。另外，为了提高系统的实时性，加入了消息队列机制。架构如下：</p>
+<p><figure 
+	>
+	<a href="https://pic1.zhimg.com/50/v2-90388920d31fe35b791c6a92f758db18_hd.jpg?source=1940ef5c" >
+		<img src="https://pic1.zhimg.com/50/v2-90388920d31fe35b791c6a92f758db18_hd.jpg?source=1940ef5c"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+</li>
+</ul>
+<p>数据分析和深度学习可以做数据库持久化层，一些常用的访问可以做memcache缓存机制，大文件非结构化文本可以采用nosql非关系型数据库，例如mongodb、redis</p>
+<blockquote>
+<p><strong>还有一种抽象出公共逻辑的方法是把这些公共逻辑做成公共的框架库。这种方法可以减少服务调用的性能损耗。但是这种方法的管理成本非常高昂，很难保证所有应用版本的一致性。
+数据库拆分也有一些问题和挑战：比如说跨库级联的需求，通过服务查询数据颗粒度的粗细问题等。但是这些问题可以通过合理的设计来解决。总体来说，数据库拆分是一个利大于弊的。</strong></p>
+</blockquote>
+<ul>
+<li>微服务架构的优点还在于其使得整个系统的分工更为明确，责任更加清晰；单体应用公共部分可能大家都实现了一遍，公共的业务功能没有明确的归属</li>
+<li>微服务架构的缺点：容易产生雪崩效应，即一个服务挂了，另一个服务直接或者间接地调用该服务，导致这个服务也跟着宕机了；此外，整个应用被拆分为了多个服务，定位故障点也十分困难</li>
+</ul>
+<p>问题是解决了，但谁也无法保证不会再发生类似的其他问题。微服务架构虽然逻辑设计上看是完美的，但就像积木搭建的华丽宫殿一样，经不起风吹草动。微服务架构虽然解决了旧问题，也引入了<strong>新的问题</strong>：</p>
+<ul>
+<li>
+<p>微服务架构整个应用分散成多个服务，定位故障点非常困难。</p>
+</li>
+<li>
+<p>稳定性下降。服务数量变多导致其中一个服务出现故障的概率增大，并且一个服务故障可能导致整个系统挂掉。事实上，在大访问量的生产场景下，故障总是会出现的。</p>
+</li>
+<li>
+<p>服务数量非常多，部署、管理的工作量很大。</p>
+</li>
+<li>
+<p>开发方面：如何保证各个服务在持续开发的情况下仍然保持协同合作。</p>
+</li>
+<li>
+<p>测试方面：服务拆分后，几乎所有功能都会涉及多个服务。原本单个程序的测试变为服务间调用的测试。测试变得更加复杂。</p>
+</li>
+</ul>
+<p><strong>如何解决</strong>：</p>
+<ul>
+<li>
+<p>引入监控（微服务监控系统）：使用开源组件获取各接口查看各状态，利用指标采集器来做监控界面和告警处理</p>
+<ul>
+<li>
+<p>redis要监控占用内存值，网络流量；</p>
+</li>
+<li>
+<p>数据库要监控磁盘空间、数据库连接数</p>
+</li>
+<li>
+<p>业务服务要监控错误率，并发数，响应延迟<figure 
+	>
+	<a href="https://pic2.zhimg.com/50/v2-ab2479317923472e06d5f3e0b8943944_hd.jpg?source=1940ef5c" >
+		<img src="https://pic2.zhimg.com/50/v2-ab2479317923472e06d5f3e0b8943944_hd.jpg?source=1940ef5c"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure><figure 
+	>
+	<a href="https://pic2.zhimg.com/80/v2-ab2479317923472e06d5f3e0b8943944_720w.jpg?source=1940ef5c" >
+		<img src="https://pic2.zhimg.com/80/v2-ab2479317923472e06d5f3e0b8943944_720w.jpg?source=1940ef5c"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+</li>
+</ul>
+</li>
+<li>
+<p>定位故障</p>
+</li>
+</ul>
+<p>Dapper</p>
+<ul>
+<li>
+<p>服务容错</p>
+<ul>
+<li>熔断处理：服务异常或者大量延时就主动熔断，直接返回；不继续调用服务防止雪崩效应导致服务器宕机，隔离一段时间后，允许放行少量请求进入半熔断状态，如果仍然调用失败或超时异常，继续熔断，否则关闭熔断模式</li>
+<li>线程隔离（一种隔离模式）不同服务使用不同线程池，即时服务出现故障耗尽线程池资源也不会让其他服务受到影响</li>
+<li>回退操作</li>
+<li>限流处理：对并发量访问量进行控制，超出部分拒绝请求</li>
+</ul>
+</li>
+<li>
+<p>动态配置</p>
+<p>动态修改配置参数，解决方案之一是存放在git私有仓库里，通过docker从git服务器中动态读取，本地仓库发生代码变化时，通过push操作推送到git仓库，git服务器通过消息队列通知配置中心刷新对应的配置文件</p>
+</li>
+<li>
+<p>dubbo（阿里）</p>
+<p>分布式服务框架，基于java RPC协议，核心组件：有RPC（远程过程调用）、负载均衡、服务发现与注册、容错、服务监控，由于集成了众多功能组件，显得框架较重，但经历了阿里电商的考验，是一个值得研究和使用的框架。Netty（基础通信组件）Zookeeper（服务注册与发现）dubbo-monitor（服务监控中心）</p>
+<p>角色定义：consumer/provider/registry/monitor/container</p>
+</li>
+<li>
+<p>spring cloud</p>
+<p>与dubbo不同，其采用http（超文本传输协议）协议restful风格，核心组件：服务发现与注册、服务监控。enruka（服务注册与发现）springboot admin（服务监控中心）</p>
+</li>
+</ul>
+<p><strong>在高并发环境下，线程数量可能会创建太多，操作系统的任务调度压力大，系统负载也会比较高。那怎么办呢？</strong></p>
+<ul>
+<li>
+<p>Zuul</p>
+<p>spring cloud下微服务api网关，集成ribbon负载均衡、鉴权、限流、熔断、提供动态路由、监控、安全认证、负载卸载等功能。网关就可以对外暴露聚合API，屏蔽内部微服务的微小变动，保持整个系统的稳定性。</p>
+</li>
+<li>
+<p>Eureka</p>
+<p>服务注册与发现中心</p>
+<p>1.服务注册：生产者（provider）在提供服务实例的时候注册并存进注册表中</p>
+<p>2.提供注册表：消费者（consumer)在调用服务的时候查询注册表里可用的服务，调用其方法，通常会缓存注册表，并定期想注册中心索取注册表信息</p>
+<p>3.信息同步、服务续约：服务实例通过心跳机制定期向注册中心报告该实例的健康状态，注册中心未检测到就将其从注册表上剔除</p>
+<p>4.服务下线：服务实例下线的时候，注册中心将其剔除</p>
+<p>5.负载均衡：内置Ribbon，多个服务实例时，根据ribbion请求请求分法自动进行负载均衡</p>
+<p>6.自我保护：当检测不到心跳机制时，大量服务从注册中心剔除，有可能是网络问题，这时停止剔除，防止误杀服务；在此期间能够进行服务注册和查询，网络稳定将新的服务实例同步到其他节点中</p>
+<p>7.集群部署：所有eureka节点会定时自动同步微服务的注册信息</p>
+</li>
+<li>
+<p>Nginx</p>
+<p>负载均衡工具（Linux），优秀的反向代理服务器，（正向代理就是替客户端做代理，去请求服务器，例如科学上网，反向代理就是替服务端做代理，将客户端请求分发到真实的服务器上，进而实现负载均衡。）还可以做web服务、web缓存，优点：高并发、低消耗、ip限速、限制连接数、</p>
+<p><figure 
+	>
+	<a href="https://img-blog.csdnimg.cn/20190511170603322.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5Njc3ODY3,size_16,color_FFFFFF,t_70" >
+		<img src="https://img-blog.csdnimg.cn/20190511170603322.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5Njc3ODY3,size_16,color_FFFFFF,t_70"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+</li>
+<li>
+<p>Ribbon</p>
+<p>负载均衡工具，被封装在springcloud内，自动将基于http的restful模版转换成客户端的负载均衡的服务调用。负载均衡是对系统的高可用、网络压力的缓解和处理能力扩容的重要手段之一。</p>
+</li>
+<li>
+<p>Dapper</p>
+<p>谷歌旗下分布式架构跟踪系统，低消耗高拓展，提供链路定位跟踪</p>
+</li>
+<li>
+<p>Mock</p>
+<p>单元测试、生成数据，对不容易获取、构造的对象，创建一个mock对象来模仿对象的行为</p>
+</li>
+<li>
+<p>完美RPC（让远程调用像调用本地方法一样简单，解决分布式系统服务间调用的问题）</p>
+<p>服务注册中心（Zk，负责服务发现、注册与治理）、负载均衡（多种负载均衡算法如轮询、压力最小，请求分发，）、缓存机制（缓存注册表）、异步调用、故障定位、告警和监控、</p>
+</li>
+<li>
+<p>轮询、长连接和心跳机制</p>
+<p>轮询耗资源，每次轮询就要建立连接，间隔时间定义，长连接低消耗，心跳更低，轮询和长连接用来请求数据，获取响应，心跳用来保持连接即可</p>
+</li>
+<li>
+<p>kubernetes</p>
+</li>
+<li>
+<p>Docker</p>
+<p>微服务以镜像的形式，运行在Docker容器中。使用Docker容器技术，我们只需要将所需的基础镜像（jdk等）和微服务生成一个新的镜像，将这个最终的镜像部署在Docker容器中运行，这种方式简单、高效，能够快速部署服务。每个Docker容器中可以运行多个微服务，Docker容器以集群的方式部署，使用Docker Swarm对这些容器进行管理。我们创建一个镜像仓库用来存放所有的基础镜像以及生成的最终交付镜像，在镜像仓库中对所有镜像进行管理。</p>
+</li>
+<li>
+<p>自动化测试+发布</p>
+<ul>
+<li>
+<p>蓝绿发布</p>
+<p>把A组剥离出LB进行升级，升级完了再重新部署进LB中，没问题的话把B组剥离出LB进行升级，升级完了再重新部署进LB中。</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012154800884.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012154800884.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201012154800884">
+	</a>
+	
+	<figcaption>image-20201012154800884</figcaption>
+	
+</figure></p>
+<p>优点：发布平滑/有问题及时回滚/出问题影响范围比较大/策略简单</p>
+<p>缺点：将AB分别剥离出LB，就需要两倍数量的服务器提供支持，否则容易导致因请求量过大服务器意外宕机，短时间内浪费一定资源成本，例如云资源或硬件资源</p>
+</li>
+<li>
+<p>灰度发布</p>
+<p>升级部分服务，让一部分用户继续使用老版本，一部分使用新版本，当新版本无问题客户无反馈，就逐步扩大服务升级范围，至全部升级完毕。（形似公测和内测）从LB中去掉灰度服务器，对灰度服务器进行升级，升级后进行测试，灰度服务器测试成功就升级剩余服务器。</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012154815099.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012154815099.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201012154815099">
+	</a>
+	
+	<figcaption>image-20201012154815099</figcaption>
+	
+</figure></p>
+<p>优点：逐步保证稳定性，一有问题就可以及时发现，影响的范围相对可控，用户无感知，平滑过渡</p>
+<p>缺点：自动化要求比较高</p>
+</li>
+<li>
+<p>滚动发布</p>
+<p>一次升级一个或多个服务，直到全部服务都升级；</p>
+<p><figure 
+	>
+	<a href="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012155403577.png" >
+		<img src="/%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201012155403577.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201012155403577">
+	</a>
+	
+	<figcaption>image-20201012155403577</figcaption>
+	
+</figure></p>
+<p>优点：节约资源/平滑过渡</p>
+<p>缺点：不易回滚/发布策略复杂/自动化要求高</p>
+<ul>
+<li>蓝绿发布：两套环境交替升级，旧版本保留一定时间便于回滚。</li>
+<li>灰度发布：根据比例将老版本升级，例如80%用户访问是老版本，20%用户访问是新版本。</li>
+<li>滚动发布：按批次停止老版本实例，启动新版本实例。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.17%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%92%E5%88%86%E5%8E%9F%E5%88%99/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.17微服务划分原则</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.16/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.16</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.13/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务2020.11.13</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微服务架构设计模式学习文档</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="linjianshu/hugoblogtalks"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>

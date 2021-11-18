@@ -807,6 +807,31 @@ just so so
 </table>
 <p>int类型和uint类型会根据目标硬件选择最合适的位长</p>
 <p>**注意:	**int不是任何类型的别名,int int32和int64实际上是三种不同的类型</p>
+<h5 id="了解类型">了解类型</h5>
+<p>可以使用printf函数提供的格式化变量%T去查看指定变量的类型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">	<span class="c1">//复用格式化变量
+</span><span class="c1"></span>	<span class="nx">day</span> <span class="o">:=</span> <span class="mi">365</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;one year has %05d days , day is %[1]T type \n&#34;</span><span class="p">,</span> <span class="nx">day</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;day is %T type , one year has %05[1]d days\n&#34;</span><span class="p">,</span> <span class="nx">day</span><span class="p">)</span>
+</code></pre></div><p>我们可以将[1]添加到第二个格式化变量%v中,以此来复用第一个格式化变量的值,从而避免代码重复.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">one year has <span class="m">00365</span> days , day is int <span class="nb">type</span> 
+day is int <span class="nb">type</span> , one year has <span class="m">00365</span> days
+</code></pre></div><h5 id="十六进制数">十六进制数</h5>
+<p>十进制对于拥有十根手指的人类来说是一种非常棒的数字系统,但与之相比,十六进制更适合计算机.因为一个十六进制需要消耗4个二进制位,也就是半字节byte,而2个十六进制数则正好需要消耗8个二进制位,也就是1字节.</p>
+<p>go语言要求十六进制数字必须带有0x前缀.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">red</span> <span class="p">,</span> <span class="nx">green</span> <span class="p">,</span> <span class="nx">blue</span> <span class="nx">unit8</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">141</span><span class="p">,</span><span class="mi">213</span>
+<span class="kd">var</span> <span class="nx">red</span> <span class="p">,</span> <span class="nx">green</span> <span class="p">,</span> <span class="nx">bule</span> <span class="nx">unit8</span> <span class="p">=</span> <span class="mh">0x00</span> <span class="p">,</span> <span class="mh">0x8d</span> <span class="p">,</span> <span class="mh">0xd5</span>  <span class="c1">//这两都一样的
+</span></code></pre></div><p>在使用printf函数打印十六进制数字的时候,你可以使用%x或者%X作为格式化变量:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//十六进制打印成二进制
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%05b \n&#34;</span><span class="p">,</span> <span class="mh">0xa</span><span class="p">)</span>
+</code></pre></div><p>为了能够完美适配层叠样式表文件的颜色和数字,我们需要用到格式化变量%2x.和之前一样0表示用0填充,2表示宽度为2.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;color: #%02x%02x%02x;&#34;</span><span class="p">,</span><span class="nx">red</span><span class="p">,</span><span class="nx">green</span><span class="p">,</span><span class="nx">blue</span><span class="p">)</span> <span class="c1">//打印出&#34;color: #008dd5&#34;
+</span></code></pre></div><h5 id="整数回绕">整数回绕</h5>
+<p>整数类型虽然不会像浮点类型那样因为舍入错误而导致不精确,但它也有自己的局限.那就是有限的取值范围.</p>
+<p>在go中,当超过整数类型的取值范围时,会出现整数回绕wrap around现象.</p>
+<p>例如uint8=255 255+1=&gt;0 int8=127 127+1=&gt;-128</p>
+<h5 id="聚焦二进制位">聚焦二进制位</h5>
+<p>同样的,使用格式化变量%b,且可以选择启用零填充.</p>
 
 </section>
 
@@ -853,6 +878,18 @@ just so so
 
         <div class="article-details">
             <h2 class="article-title">Go语言学习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/%E7%9C%9F%E4%BC%9Acsharp%E5%90%97%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">真会CSharp吗学习文档</h2>
         </div>
     </a>
 </article>

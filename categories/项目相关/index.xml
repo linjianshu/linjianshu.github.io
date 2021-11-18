@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>项目相关 on think hy how to learn</title>
+    <link>https://linjianshu.github.io/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/</link>
+    <description>Recent content in 项目相关 on think hy how to learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Oct 1999 23:44:44 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从零搭建微服务框架嗷</title>
+      <link>https://linjianshu.github.io/p/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%97%B7/</link>
+      <pubDate>Sun, 10 Oct 1999 23:44:44 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%97%B7/</guid>
+      <description>从零搭建微服务框架嗷 新建webapi项目
+image-20201026181939602
+新建student控制器，测试运行
+image-20201026182245668
+image-20201026182254921
+添加新项目控制台应用程序，加入model类
+image-20201026182407678
+image-20201026182436593
+image-20201026182536295
+删除program.cs文件，右键属性，修改输出类型为“类库”
+image-20201026182552213
+继续新建项目，interface，作为服务的接口
+image-20201026183008099
+删除program.cs文件，继续修改属性为类库
+定义完了接口，接下来应该定义实现接口的具体服务了，新建控制台应用程序
+编写DBhelper类，原生连接数据库
+添加StudentService实现类，继承IStudentService，实现它未实现的方法
+image-20201026183509062image-20201026183523894
+依然重复上述步骤，右键属性，修改输出类型为类库
+测试，以上依然是个单体结构，只不过分层了，现在我们搭了基层结构如图：
+image-20201026183657453
+分别为，webapi，接口，模型层，接口实现类
+接下来修改webapi内student控制层里的方法，尝试调用通过接口调用服务，进而获取数据库中的数据
+修改前：
+image-20201026183803906
+修改后：
+先在startup.cs中进行服务类的依赖注入
+image-20201026184259317
+在这里，我们对controller进行重新构造：
+定义一个私有只读IStudentService接口 ；
+在构造函数里为它赋值
+在GetAllStu方法里进行调用
+image-20201026184627518
+启动试试，输入url
+image-20201026184827682
+不错不错
+接下来我们要添加服务实例，将原来的单体应用程序，模拟拆分成分布式应用程序
+新建项目，新建webapi</description>
+    </item>
+    
+    <item>
+      <title>windows服务开发备忘</title>
+      <link>https://linjianshu.github.io/p/windows%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98/</link>
+      <pubDate>Fri, 01 Oct 1999 09:17:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/windows%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E5%A4%87%E5%BF%98/</guid>
+      <description>windows服务开发备忘 先开个窗体来调试试试看
+再新增一个service服务进来
+修改默认服务名
+添加安装程序 修改为本地
+image-20210928105412125
+记得引入日志 并将config文件复制到输出目录
+有时候install.bat命令不行可能是系统没有权限
+跑服务的时候记得再program里改成服务,别泡成窗体应用了
+服务的onstart里需要写的是异步方法或者新开一个线程,否则会出现无法服务进程无法连接到服务控制器上的错误
+image-20210928105853916
+image-20210928105911601
+接口服务嘛,最好尝试ping一下服务器,服务器畅通才能工作
+另外最好对间隔时间做到可配置</description>
+    </item>
+    
+  </channel>
+</rss>

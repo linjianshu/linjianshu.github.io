@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='从零搭建微服务框架嗷 新建webapi项目
+image-20201026181939602
+新建student控制器，测试运行
+image-20201026182245668
+image-20201026182254921
+添加新项目控制台应用程序，加入model类
+image-20201026182407678
+image-20201026182436593
+image-20201026182536295
+删除program.cs文件，右键属性，修改输出类型为“类库”
+image-20201026182552213
+继续新建项目，interface，作为服务的接口
+image-20201026183008099
+删除program.cs文件，继续修改属性为类库
+定义完了接口，接下来应该定义实现接口的具体服务了，新建控制台应用程序
+编写DBhelper类，原生连接数据库
+添加StudentService实现类，继承IStudentService，实现它未实现的方法
+image-20201026183509062image-20201026183523894
+依然重复上述步骤，右键属性，修改输出类型为类库
+测试，以上依然是个单体结构，只不过分层了，现在我们搭了基层结构如图：
+image-20201026183657453
+分别为，webapi，接口，模型层，接口实现类
+接下来修改webapi内student控制层里的方法，尝试调用通过接口调用服务，进而获取数据库中的数据
+修改前：
+image-20201026183803906
+修改后：
+先在startup.cs中进行服务类的依赖注入
+image-20201026184259317
+在这里，我们对controller进行重新构造：
+定义一个私有只读IStudentService接口 ；
+在构造函数里为它赋值
+在GetAllStu方法里进行调用
+image-20201026184627518
+启动试试，输入url
+image-20201026184827682
+不错不错
+接下来我们要添加服务实例，将原来的单体应用程序，模拟拆分成分布式应用程序
+新建项目，新建webapi'><title>从零搭建微服务框架嗷</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%97%B7/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='从零搭建微服务框架嗷'>
+<meta property='og:description' content='从零搭建微服务框架嗷 新建webapi项目
+image-20201026181939602
+新建student控制器，测试运行
+image-20201026182245668
+image-20201026182254921
+添加新项目控制台应用程序，加入model类
+image-20201026182407678
+image-20201026182436593
+image-20201026182536295
+删除program.cs文件，右键属性，修改输出类型为“类库”
+image-20201026182552213
+继续新建项目，interface，作为服务的接口
+image-20201026183008099
+删除program.cs文件，继续修改属性为类库
+定义完了接口，接下来应该定义实现接口的具体服务了，新建控制台应用程序
+编写DBhelper类，原生连接数据库
+添加StudentService实现类，继承IStudentService，实现它未实现的方法
+image-20201026183509062image-20201026183523894
+依然重复上述步骤，右键属性，修改输出类型为类库
+测试，以上依然是个单体结构，只不过分层了，现在我们搭了基层结构如图：
+image-20201026183657453
+分别为，webapi，接口，模型层，接口实现类
+接下来修改webapi内student控制层里的方法，尝试调用通过接口调用服务，进而获取数据库中的数据
+修改前：
+image-20201026183803906
+修改后：
+先在startup.cs中进行服务类的依赖注入
+image-20201026184259317
+在这里，我们对controller进行重新构造：
+定义一个私有只读IStudentService接口 ；
+在构造函数里为它赋值
+在GetAllStu方法里进行调用
+image-20201026184627518
+启动试试，输入url
+image-20201026184827682
+不错不错
+接下来我们要添加服务实例，将原来的单体应用程序，模拟拆分成分布式应用程序
+新建项目，新建webapi'>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%97%B7/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='微服务' /><meta property='article:published_time' content='1999-10-10T23:44:44&#43;08:00'/><meta property='article:modified_time' content='1999-10-10T23:44:44&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="从零搭建微服务框架嗷">
+<meta name="twitter:description" content="从零搭建微服务框架嗷 新建webapi项目
+image-20201026181939602
+新建student控制器，测试运行
+image-20201026182245668
+image-20201026182254921
+添加新项目控制台应用程序，加入model类
+image-20201026182407678
+image-20201026182436593
+image-20201026182536295
+删除program.cs文件，右键属性，修改输出类型为“类库”
+image-20201026182552213
+继续新建项目，interface，作为服务的接口
+image-20201026183008099
+删除program.cs文件，继续修改属性为类库
+定义完了接口，接下来应该定义实现接口的具体服务了，新建控制台应用程序
+编写DBhelper类，原生连接数据库
+添加StudentService实现类，继承IStudentService，实现它未实现的方法
+image-20201026183509062image-20201026183523894
+依然重复上述步骤，右键属性，修改输出类型为类库
+测试，以上依然是个单体结构，只不过分层了，现在我们搭了基层结构如图：
+image-20201026183657453
+分别为，webapi，接口，模型层，接口实现类
+接下来修改webapi内student控制层里的方法，尝试调用通过接口调用服务，进而获取数据库中的数据
+修改前：
+image-20201026183803906
+修改后：
+先在startup.cs中进行服务类的依赖注入
+image-20201026184259317
+在这里，我们对controller进行重新构造：
+定义一个私有只读IStudentService接口 ；
+在构造函数里为它赋值
+在GetAllStu方法里进行调用
+image-20201026184627518
+启动试试，输入url
+image-20201026184827682
+不错不错
+接下来我们要添加服务实例，将原来的单体应用程序，模拟拆分成分布式应用程序
+新建项目，新建webapi"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/" style="background-color: #ed3333; color: #fff;">
+                项目相关
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%97%B7/">从零搭建微服务框架嗷</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 10, 1999</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="从零搭建微服务框架嗷">从零搭建微服务框架嗷</h3>
+<p>新建webapi项目</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026181939602.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026181939602.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026181939602">
+	</a>
+	
+	<figcaption>image-20201026181939602</figcaption>
+	
+</figure></p>
+<p>新建student控制器，测试运行</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182245668.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182245668.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026182245668">
+	</a>
+	
+	<figcaption>image-20201026182245668</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182254921.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182254921.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026182254921">
+	</a>
+	
+	<figcaption>image-20201026182254921</figcaption>
+	
+</figure></p>
+<p>添加新项目控制台应用程序，加入model类</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182407678.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182407678.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026182407678">
+	</a>
+	
+	<figcaption>image-20201026182407678</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182436593.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182436593.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026182436593">
+	</a>
+	
+	<figcaption>image-20201026182436593</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182536295.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182536295.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026182536295">
+	</a>
+	
+	<figcaption>image-20201026182536295</figcaption>
+	
+</figure></p>
+<p>删除program.cs文件，右键属性，修改输出类型为“类库”</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182552213.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026182552213.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026182552213">
+	</a>
+	
+	<figcaption>image-20201026182552213</figcaption>
+	
+</figure></p>
+<p>继续新建项目，interface，作为服务的接口</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183008099.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183008099.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026183008099">
+	</a>
+	
+	<figcaption>image-20201026183008099</figcaption>
+	
+</figure></p>
+<p>删除program.cs文件，继续修改属性为类库</p>
+<p>定义完了接口，接下来应该定义实现接口的具体服务了，新建控制台应用程序</p>
+<p>编写DBhelper类，原生连接数据库</p>
+<p>添加StudentService实现类，继承IStudentService，实现它未实现的方法</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183509062.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183509062.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026183509062">
+	</a>
+	
+	<figcaption>image-20201026183509062</figcaption>
+	
+</figure><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183523894.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183523894.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026183523894">
+	</a>
+	
+	<figcaption>image-20201026183523894</figcaption>
+	
+</figure></p>
+<p>依然重复上述步骤，右键属性，修改输出类型为类库</p>
+<p>测试，以上依然是个单体结构，只不过分层了，现在我们搭了基层结构如图：</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183657453.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183657453.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026183657453">
+	</a>
+	
+	<figcaption>image-20201026183657453</figcaption>
+	
+</figure></p>
+<p>分别为，webapi，接口，模型层，接口实现类</p>
+<p>接下来修改webapi内student控制层里的方法，尝试调用通过接口调用服务，进而获取数据库中的数据</p>
+<p>修改前：</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183803906.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026183803906.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026183803906">
+	</a>
+	
+	<figcaption>image-20201026183803906</figcaption>
+	
+</figure></p>
+<p>修改后：</p>
+<p>先在startup.cs中进行服务类的依赖注入</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026184259317.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026184259317.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026184259317">
+	</a>
+	
+	<figcaption>image-20201026184259317</figcaption>
+	
+</figure></p>
+<p>在这里，我们对controller进行重新构造：</p>
+<p>定义一个私有只读IStudentService接口 ；</p>
+<p>在构造函数里为它赋值</p>
+<p>在GetAllStu方法里进行调用</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026184627518.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026184627518.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026184627518">
+	</a>
+	
+	<figcaption>image-20201026184627518</figcaption>
+	
+</figure></p>
+<p>启动试试，输入url</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026184827682.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026184827682.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026184827682">
+	</a>
+	
+	<figcaption>image-20201026184827682</figcaption>
+	
+</figure></p>
+<p>不错不错</p>
+<p>接下来我们要添加服务实例，将原来的单体应用程序，模拟拆分成分布式应用程序</p>
+<p>新建项目，新建webapi</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185004596.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185004596.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026185004596">
+	</a>
+	
+	<figcaption>image-20201026185004596</figcaption>
+	
+</figure></p>
+<p>新建新的控制器，为了和上面的student控制器区分，且，我们要知道，最后上面将作为客户端，调用我们现在正在搭建的服务实例，这个项目，所以真正会和接口、服务、数据库打交道的应该在我们现在搭建的这个控制器里面，在这里我取名为StuImplController控制器。</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185242569.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185242569.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026185242569">
+	</a>
+	
+	<figcaption>image-20201026185242569</figcaption>
+	
+</figure></p>
+<p>在这里面，复制之前的studentcontroller里的内容，作为真正调用的源头</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185405390.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185405390.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026185405390">
+	</a>
+	
+	<figcaption>image-20201026185405390</figcaption>
+	
+</figure></p>
+<p>同时，别忘记了，要正常使用，记得在该项目内startup.cs中增加依赖注入<figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185548164.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026185548164.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026185548164">
+	</a>
+	
+	<figcaption>image-20201026185548164</figcaption>
+	
+</figure></p>
+<p>修改启动项目为该服务实例，我们先试试看能不能跑</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026190458520.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026190458520.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026190458520">
+	</a>
+	
+	<figcaption>image-20201026190458520</figcaption>
+	
+</figure></p>
+<p>nice</p>
+<p>接下来我们做分布式应用程序：我们希望LjsMicroServiceReviewDemo通过ServiceInstance去调用，这样子，前者就可以作为客户端，后者就可以作为服务端，因为是进程间通信，虽然在一台电脑上跑，但是可以理解为是利用网络架起的桥梁，进行分布式应用的部署和调用。</p>
+<p>这时候记录一下网址</p>
+<p>http://localhost:42464/api/StuImpl/GetAllStu</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026190938569.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026190938569.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026190938569">
+	</a>
+	
+	<figcaption>image-20201026190938569</figcaption>
+	
+</figure></p>
+<p>在客户端，写一个调用方法，调用刚刚的网址嘿嘿</p>
+<p>同时启动两个项目，让他搞去吧</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026191036770.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026191036770.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026191036770">
+	</a>
+	
+	<figcaption>image-20201026191036770</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026191232782.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026191232782.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026191232782">
+	</a>
+	
+	<figcaption>image-20201026191232782</figcaption>
+	
+</figure></p>
+<p>爽爆了！</p>
+<p>但是还不够，我们知道，一般情况下，服务器里怎么可能只有一个服务实例在跑呢，那双十一不是炸裂，所以这时候会有很多实例在跑才对，例如两个、三个相同的实例一起运行，同时对外提供服务才对。</p>
+<p>我们要使用命令行运行服务实例，并且赋予相应的端口号</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026193900248.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026193900248.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026193900248">
+	</a>
+	
+	<figcaption>image-20201026193900248</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194428606.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194428606.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026194428606">
+	</a>
+	
+	<figcaption>image-20201026194428606</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194845947.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194845947.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026194845947">
+	</a>
+	
+	<figcaption>image-20201026194845947</figcaption>
+	
+</figure></p>
+<p>在地址栏敲cmd</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194856720.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194856720.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026194856720">
+	</a>
+	
+	<figcaption>image-20201026194856720</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194903514.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194903514.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026194903514">
+	</a>
+	
+	<figcaption>image-20201026194903514</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194909623.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026194909623.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026194909623">
+	</a>
+	
+	<figcaption>image-20201026194909623</figcaption>
+	
+</figure></p>
+<p>开启三个服务实例，端口为5726、5727、5728</p>
+<p>为了验证，可以在浏览器试试</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195019372.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195019372.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195019372">
+	</a>
+	
+	<figcaption>image-20201026195019372</figcaption>
+	
+</figure></p>
+<p>nice</p>
+<p>这时候，客户端调用的url就得改成上述网址了</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195131547.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195131547.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195131547">
+	</a>
+	
+	<figcaption>image-20201026195131547</figcaption>
+	
+</figure></p>
+<p>你有种调用我试试</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195809734.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195809734.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195809734">
+	</a>
+	
+	<figcaption>image-20201026195809734</figcaption>
+	
+</figure></p>
+<p>可是我们做不到负载均衡呀，就是我们不晓得怎么调用5726还是5727还是5728嘞，这时候就要引入Nginx啦！</p>
+<p>下载Nginx和环境变量的配置就不过多赘述了</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195315199.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195315199.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195315199">
+	</a>
+	
+	<figcaption>image-20201026195315199</figcaption>
+	
+</figure></p>
+<p>修改conf文件</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195409611.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195409611.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195409611">
+	</a>
+	
+	<figcaption>image-20201026195409611</figcaption>
+	
+</figure></p>
+<p>配置端口侦听</p>
+<p>配置代理端口号</p>
+<p>最后我们打算舍弃传统的调用方式，寄希望于Nginx反向代理工具来帮我们实现一些负载均衡的策略</p>
+<p>启动Nginx.exe</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195704107.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195704107.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195704107">
+	</a>
+	
+	<figcaption>image-20201026195704107</figcaption>
+	
+</figure></p>
+<p>启动客户端程序，跑一跑</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195954175.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026195954175.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026195954175">
+	</a>
+	
+	<figcaption>image-20201026195954175</figcaption>
+	
+</figure></p>
+<p>问题不大，但是这时候又有个问题了，如果某个服务突然挂了怎么办呢，如果有个服务因为预计可能会有大规模的访问，运维人员又加上了几个服务实例呢，这时候就需要我们手动在conf的配置文件里进行配置，这样十分的低效，假如你在一家超大型的互联网公司，就GG了，所以这时候我们要用consul来替代Nginx</p>
+<p>nuget包必不可少</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026200233953.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026200233953.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026200233953">
+	</a>
+	
+	<figcaption>image-20201026200233953</figcaption>
+	
+</figure></p>
+<p>同样在服务实例项目里也要引入consul包</p>
+<p>在服务实例项目中，加入帮助类，心跳检测控制器，并在startup.cs中配置</p>
+<p>在ReviewDemo中也要注册并使用</p>
+<p>配置完毕后要激活consul，重新生成才行</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026202449309.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026202449309.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026202449309">
+	</a>
+	
+	<figcaption>image-20201026202449309</figcaption>
+	
+</figure><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026202508759.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026202508759.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026202508759">
+	</a>
+	
+	<figcaption>image-20201026202508759</figcaption>
+	
+</figure></p>
+<p>启动成功，接着让三个服务实例上线</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204217548.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204217548.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026204217548">
+	</a>
+	
+	<figcaption>image-20201026204217548</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204225424.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204225424.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026204225424">
+	</a>
+	
+	<figcaption>image-20201026204225424</figcaption>
+	
+</figure></p>
+<p>其实这时候我们不知道如何做负载均衡，如果要做的话，也带在客户端做负载均衡，这样每个客户端都要做一个，就很麻烦，没有什么是加一层不能解决的，所以我们加一层服务网关，Ocelot，用于请求分发、统一负载均衡、熔断、限流、降级</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204426653.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204426653.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026204426653">
+	</a>
+	
+	<figcaption>image-20201026204426653</figcaption>
+	
+</figure></p>
+<p>我们继续创建新项目：webapi</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204640378.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204640378.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026204640378">
+	</a>
+	
+	<figcaption>image-20201026204640378</figcaption>
+	
+</figure></p>
+<p>引入nuget包，ocelot用于服务网关，consul用于网关和注册中心的集成，polly用于熔断、限流、降级等</p>
+<p>当然，在服务实例层也要加入ocelot.provider.consul，否则ocelot怎么知道服务实例从哪里来呢对吧，好了我们再回到gateway层</p>
+<p>在program.cs文件中添加配置的json文件</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204959449.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026204959449.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026204959449">
+	</a>
+	
+	<figcaption>image-20201026204959449</figcaption>
+	
+</figure></p>
+<p>在startup.cs文件中把管道换成ocelot自己的</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205138653.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205138653.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026205138653">
+	</a>
+	
+	<figcaption>image-20201026205138653</figcaption>
+	
+</figure></p>
+<p>配置文件</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205802408.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205802408.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026205802408">
+	</a>
+	
+	<figcaption>image-20201026205802408</figcaption>
+	
+</figure></p>
+<p>给她一个运行端口</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205827534.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205827534.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026205827534">
+	</a>
+	
+	<figcaption>image-20201026205827534</figcaption>
+	
+</figure></p>
+<p>跑一跑</p>
+<p><figure 
+	>
+	<a href="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205837308.png" >
+		<img src="/%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%a1%86%e6%9e%b6%e5%ad%a6%e4%b9%a0%e6%96%87%e6%a1%a3.assets/image-20201026205837308.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20201026205837308">
+	</a>
+	
+	<figcaption>image-20201026205837308</figcaption>
+	
+</figure></p>
+<p>结束了嗷，下个阶段的内容应该是，CQRS命令查询职责分离，以及以及以及数据库如何划分，以及以及以及Rabbitmq以及基于事件的驱动。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="linjianshu/hugoblogtalks"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>
