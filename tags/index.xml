@@ -6,22 +6,40 @@
     <description>Recent content in Tags on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Oct 2021 19:35:55 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Mar 2022 10:11:37 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MYSQL</title>
-      <link>https://linjianshu.github.io/tags/mysql/</link>
-      <pubDate>Tue, 12 Oct 2021 19:35:55 +0800</pubDate>
+      <title>job</title>
+      <link>https://linjianshu.github.io/tags/job/</link>
+      <pubDate>Tue, 01 Mar 2022 10:11:37 +0800</pubDate>
       
-      <guid>https://linjianshu.github.io/tags/mysql/</guid>
+      <guid>https://linjianshu.github.io/tags/job/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leetBook</title>
+      <link>https://linjianshu.github.io/tags/leetbook/</link>
+      <pubDate>Mon, 28 Feb 2022 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/tags/leetbook/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GO</title>
       <link>https://linjianshu.github.io/tags/go/</link>
-      <pubDate>Mon, 11 Oct 2021 09:17:59 +0800</pubDate>
+      <pubDate>Mon, 13 Dec 2021 09:17:59 +0800</pubDate>
       
       <guid>https://linjianshu.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MYSQL</title>
+      <link>https://linjianshu.github.io/tags/mysql/</link>
+      <pubDate>Tue, 12 Oct 2021 19:35:55 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     

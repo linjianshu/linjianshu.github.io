@@ -425,7 +425,7 @@ go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -831,7 +831,258 @@ day is int <span class="nb">type</span> , one year has <span class="m">00365</sp
 <p>在go中,当超过整数类型的取值范围时,会出现整数回绕wrap around现象.</p>
 <p>例如uint8=255 255+1=&gt;0 int8=127 127+1=&gt;-128</p>
 <h5 id="聚焦二进制位">聚焦二进制位</h5>
-<p>同样的,使用格式化变量%b,且可以选择启用零填充.</p>
+<p>同样的,使用格式化变量%b,且可以选择启用零填充并指定格式化输出的最小长度。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%08b\n&#34;</span><span class="p">,</span> <span class="nx">green</span><span class="p">)</span>   <span class="c1">//00000011
+</span></code></pre></div><p>由于int类型和uint类型的位长在不同硬件上可能会有所不同,因此math包没有定义这两种类型的最大值常量和最小值常量.</p>
+<h5 id="避免时间回绕">避免时间回绕</h5>
+<p>基于unix的操作系统都使用协调世界时UTC 1970.1.1以来的秒数来表示时间,但这个秒数在2038年将超过20亿,大致相当于int32类型的最大值.幸运的是,这个问题可以通过使用64位整数来解决,使用int64或uint64都可以存储&gt;20亿的数字.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//使用int64解决int32只能表示到2038年的问题
+</span><span class="c1"></span><span class="nx">unix</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="mi">12622780800</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unix</span><span class="p">)</span>
+</code></pre></div><h5 id="小结-5">小结</h5>
+<ul>
+<li>除非回绕正是你所需要的,否则就应该谨慎的选择合适的整数类型以避免回绕.</li>
+</ul>
+<h4 id="大数">大数</h4>
+<ul>
+<li>学会使用指数来减少键入0的次数</li>
+<li>学会使用big包处理非常大的数</li>
+<li>学会使用大常量和字面值</li>
+</ul>
+<p>计算机编程经常需要权衡利弊,取舍折中.例如浮点数虽然可以存储任意大小的数字,但是有时候会不精确和不准确,相反,整数虽然准确,但是会收到取值范围的限制.本章将介绍两种方案,可以代替float和int,提供数值巨大并且计算精确的数字.</p>
+<h5 id="请考虑这一点-1">请考虑这一点</h5>
+<p>CPU都会为整数运算和浮点数运算提供优化,并且这种优化有时候也适用于其他数值表示.</p>
+<h5 id="指数形式写法">指数形式写法</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//利用指数来减少0的键入次数  
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="mf">10e2</span><span class="p">)</span>  <span class="c1">//1000
+</span></code></pre></div><p><strong>如果</strong>:如果用户没有显式的为包含指数的数值变量指定类型,那么go将推断其类型为float64</p>
+<h5 id="big包">big包</h5>
+<ul>
+<li>big.Int</li>
+<li>big.Float</li>
+<li>big.Rat  存储1/3</li>
+</ul>
+<p>一旦决定使用big.Int,就需要在等式的每个部分都是用这种类型,即使对于已经存在的常量来说也是如此.big.Int类型的最基本的方法就是使用NewInt函数,函数接受一个int64类型的值作为输入,返回一个big.Int类型的值作为输出.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">newInt</span> <span class="o">:=</span> <span class="nx">big</span><span class="p">.</span><span class="nf">NewInt</span><span class="p">(</span><span class="mi">240000000</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">newInt</span><span class="p">)</span>
+</code></pre></div><p>此外,对于&gt;int64取值范围的数字,我们可以通过给定一个string来创建响应的big.Int类型的值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//大数
+</span><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="p">)</span>
+<span class="nx">b</span><span class="p">.</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;2400000000&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</code></pre></div><p>因为数值是基于十进制的,所以第二个参数是10</p>
+<p>**注意:	**方法跟函数非常相似,至于内置函数new则是为指针而设的.</p>
+<p>可以使用Div方法去执行相应的除法操作</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//大数
+</span><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="p">)</span>
+<span class="nx">b</span><span class="p">.</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;2400000000&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+
+<span class="nx">newInt</span> <span class="o">:=</span> <span class="nx">big</span><span class="p">.</span><span class="nf">NewInt</span><span class="p">(</span><span class="mi">240000000</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">newInt</span><span class="p">)</span>
+
+<span class="nx">b</span><span class="p">.</span><span class="nf">Div</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">newInt</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>   <span class="c1">//10
+</span></code></pre></div><p>正如所示,big.Int这样的大类型虽然能够精确地表示任意大小的数值,但代价是用起来比int/float等原生类型要麻烦,而且运行速度也会相对较慢.</p>
+<h5 id="大小非同寻常的常量">大小非同寻常的常量</h5>
+<p>常量声明可以跟变量声明一样带有类型,但常量也无法用uint64来表示巨大的数值</p>
+<p>所以go语言在处理常量时的做法与处理变量时的做法并不相同.go语言不会为常量推断类型,而是直接将其标识为无类型untyped,这样就不会引发溢出错误.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">const</span> <span class="nx">name</span> <span class="p">=</span> <span class="mi">1</span> <span class="c1">//不会自动推断类型 类型是untyped
+</span><span class="c1">//字面量和常量底层将由big包提供支持 不会为常量和字面量推断类型
+</span><span class="c1">//常量和bigint无法转换
+</span><span class="c1"></span>
+<span class="kd">const</span> <span class="nx">distance</span> <span class="p">=</span> <span class="mi">236000000000000000</span>
+<span class="kd">const</span> <span class="nx">guangnian</span> <span class="p">=</span> <span class="mi">100000000</span>
+<span class="c1">//b2 := new(big.Int)
+</span><span class="c1">//setString, _ := b2.SetString(&#34;236000000000000000&#34;, 10)
+</span><span class="c1">//setString.Div(setString,guangnian)
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">distance</span> <span class="o">/</span> <span class="nx">guangnian</span><span class="p">)</span>
+</code></pre></div><p>常量通过关键字const来进行声明,除此之外,程序里的每个字面量值literal value也都是常量.</p>
+<p>因为go的编译器就是用go语言编写的,并且在底层实现中,无类型的数值常量将由big包提供支持.</p>
+<p>变量也可以使用常量作为值,只要变量的大小能够容纳常量即可.</p>
+<p>尽管go编译器使用big包处理无类型的数值常量,但常量和big.Int值是无法互换的</p>
+<h5 id="小结-6">小结</h5>
+<ul>
+<li>无类型常量可以存储非常大的数值,并且所有数值型字面量都是无类型常量.</li>
+<li>无类型常量在被用作函数参数的时候,必须转换为有类型变量.</li>
+</ul>
+<h4 id="多语言文本">多语言文本</h4>
+<p>计算机在表示文本的时候使用了一些特殊技巧,从而使这种表示既节省存储空间又足够灵活.</p>
+<p>如果你声明了一个变量,但是没有为它赋值,那么go语言将使用变量类型的零值对其进行初始化,而string类型的零值就是空字符串&quot;&quot;</p>
+<h5 id="原始字符串字面量">原始字符串字面量</h5>
+<p>字符串字面量可以包含转义字符,可以使用反引号`而不是双引号来包围文本</p>
+<p>原始字符串字面量可以在代码里跨越多个文本行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//使用反引号包围的叫做原始字符字面量
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hello world \t\t&#34;</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">`hello world \t\t`</span><span class="p">)</span>
+</code></pre></div><h5 id="字符代码点符文和字节">字符/代码点/符文和字节</h5>
+<p>go语言提供了rune(符文)类型,该类型是int32的别名,此外go语言还提供了uint8类型的别名byte,这种类型可以很好地表示二进制数据,也可以表示ASCII的英文字符,刚好128个</p>
+<p>**类型别名:	**因为类型别名实际上就是同一类型的不同名字,所以rune和int32是可以互换的,当然,用户也可以自行声明类型别名</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="kt">byte</span> <span class="p">=</span> <span class="kt">uint8</span>
+</code></pre></div><p>使用格式化变量%c来打印字符而不是数字本身</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="mi">128515</span><span class="p">)</span>
+<span class="kd">var</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">65</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="kt">rune</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="sc">&#39;😃&#39;</span><span class="p">)))</span> <span class="c1">//这样不行 只能给string进行转换成int 比如&#34;110&#34;-&gt;110
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d\n&#34;</span><span class="p">,</span> <span class="sc">&#39;😃&#39;</span><span class="p">)</span>           
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">A
+😃
+A0 strconv.Atoi: parsing <span class="s2">&#34;😃&#34;</span>: invalid syntax
+<span class="m">128515</span>
+</code></pre></div><p>**提示:	**虽然任意一种整数类型都可以使用格式化变量%c,但是通过使用别名rune可以表明数字960的用途是用来表示字符的,而不是用来表示数字.</p>
+<p>go提供了相应的字符字面量句法,用户只需要向&rsquo;A&rsquo;这样使用单引号将字符包围起来,就可以取得该字符的代码点.如果用户声明了一个字符字面量却没有为其指定类型,那么go将推断该变量的类型为rune</p>
+<p>虽然rune类型代表的是一个字符,但它实际上存储的仍然是数字值.</p>
+<h5 id="字符串操作">字符串操作</h5>
+<p>go的字符串并不容易被操纵.我们可以将不同字符串赋值给同一个变量,但是无法对字符串本身进行修改</p>
+<p>可以通过方括号[]指定指向字符串的索引,但是不能修改这些字符</p>
+<p>Ruby中的字符串和C的字符数组允许被修改,而go中的字符串与python/java/js中的字符串一样,都是不可变的,你不能修改go中的字符串.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;shalom&#34;</span>
+<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="sc">&#39;A&#39;</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c\n&#34;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="o">+</span><span class="mi">3</span><span class="o">-</span><span class="mi">26</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">115</span>
+<span class="m">104</span>
+<span class="m">97</span>
+<span class="m">108</span>
+<span class="m">111</span>
+<span class="m">109</span>
+-32
+a
+</code></pre></div><h5 id="将字符串解码为符文">将字符串解码为符文</h5>
+<p>以往我们访问字符串通常都是访问字符串的每个字节(8位),但是没有考虑到各个字符可能会由多个字节组成(如16位或32位),例如中文/韩文/日语等.所以处理字符串前,先将他们解码为rune类型,也就是4字节32位.</p>
+<p>**注意:	**go语言和很多编程语言不同的一点在于,go允许函数返回多个值</p>
+<p>forrange关键字可以迭代各种不同的收集器,还可以解码UTF-8编码的字符串,而fori就不行.</p>
+<p>不需要某个返回值的时候,使用_来省略即可.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//forrange可以解析UTF-8的编码 所以这里遍历是没有问题的
+</span><span class="c1"></span><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="s">&#34;镜中花,水中月&#34;</span> <span class="p">{</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %[1]T \n&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//fori不能解析UTF-8编码 求len的时候就已经出问题了
+</span><span class="c1"></span><span class="nx">shi</span> <span class="o">:=</span> <span class="s">&#34;镜中花,水中月&#34;</span>
+<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">shi</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %[1]T \n&#34;</span><span class="p">,</span> <span class="nx">shi</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">&#34;镜中花,水中月&#34;</span><span class="p">))</span> <span class="c1">//len返回的是字符串占位的字节长度 这里返回19
+</span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">镜 int32
+中 int32
+花 int32
+, int32
+水 int32
+中 int32
+月 int32
+é uint8
+
+
+ä uint8
+¸ uint8
+­ uint8
+è uint8
+
+± uint8
+, uint8
+æ uint8
+° uint8
+´ uint8
+ä uint8
+¸ uint8
+­ uint8
+æ uint8
+
+
+
+<span class="m">19</span>
+</code></pre></div><p>此外,可以使用utf8包的函数来处理字符串</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//使用utf8包和函数
+</span><span class="c1">//解析第一个字占几字节  具体值是多少
+</span><span class="c1"></span><span class="nx">decodeRune</span><span class="p">,</span> <span class="nx">size</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRune</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">shi</span><span class="p">))</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c \n&#34;</span><span class="p">,</span> <span class="nx">decodeRune</span><span class="p">)</span>
+<span class="c1">//查看一共解析了几个字
+</span><span class="c1"></span><span class="nx">inString</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">RuneCountInString</span><span class="p">(</span><span class="nx">shi</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">inString</span><span class="p">)</span>
+<span class="c1">//解析第一个字占几字节  具体值是多少
+</span><span class="c1"></span><span class="nx">runeInString</span><span class="p">,</span> <span class="nx">size1</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="nx">shi</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %d bytes\n&#34;</span><span class="p">,</span> <span class="nx">runeInString</span><span class="p">,</span> <span class="nx">size1</span><span class="p">)</span>
+
+<span class="nx">s3</span> <span class="o">:=</span> <span class="s">&#34;abcdefghijklmnopqrstuvwxyz&#34;</span>
+<span class="nx">decodeRuneInString</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="nx">s3</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">decodeRuneInString</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+
+<span class="c1">//判断它占了几个字节
+</span><span class="c1"></span><span class="nx">r</span><span class="p">,</span> <span class="nx">size2</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="s">&#34;¿&#34;</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="nx">size2</span><span class="p">)</span>
+
+<span class="c1">//go使用UTF-8可变长度编码,每个字符根据需要占用1-4个字节的内存空间
+</span><span class="c1">//可能会问fori和forr的区别吧
+</span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">3</span>
+镜
+<span class="m">7</span>
+镜 <span class="m">3</span> bytes
+<span class="m">97</span>   <span class="m">1</span>
+<span class="m">191</span>   <span class="m">2</span>
+</code></pre></div><h5 id="小结-7">小结</h5>
+<ul>
+<li>使用反引号` 可以包围原始字符串字面量,像\n这样的转义字符将原样保留</li>
+<li>字符串是不可变的,可以独立访问字符串中的每个字符,但是不能修改他们</li>
+<li>字符串使用UTF-8可变长度编码,每个字符需要占用1-4个字节内存空间</li>
+<li>byte是uint8类型的别名,而rune是int32类型的别名</li>
+<li>关键字range可以将UTF-8编码的字符串解码为符文</li>
+</ul>
+<h4 id="类型转换">类型转换</h4>
+<ul>
+<li>学会在数值、字符串和布尔值之间实施类型转换</li>
+</ul>
+<h5 id="类型不能混合使用">类型不能混合使用</h5>
+<p>如果尝试拼接数值和字符串,那么go编译器将报告一个错误(无效操作:不匹配的类型)</p>
+<h5 id="在其他语言中混合使用多种类型">在其他语言中混合使用多种类型</h5>
+<p>有些编程语言在程序员同时给定两种或多种不同类型的值时,会尽可能猜测程序员的意图.对于实施隐式类型转换的语言来说,不能熟记各种隐式转换规则的人将难以预测代码行为.对go编译器而言,它不会这样,只会引发一个类型不匹配的错误.</p>
+<p>混合使用整数类型和浮点类型同样会引发类型不匹配的错误.</p>
+<p>go不会对你的意图做任何的假设,你必须通过显式的类型转换来解决这个问题.</p>
+<h5 id="数字类型转换">数字类型转换</h5>
+<p>虽然go语言不允许混合使用不同类型的变量,但是通过类型转换,可以顺利运行.</p>
+<p>将浮点转为整数,将直接被截断而不会做任何舍入操作.</p>
+<p>此外,各种长度不同的类型之间的转换.从取值范围小的类型转换为取值范围较大的类型总是安全的,但其他方式的类型转换则存在风险.</p>
+<h5 id="类型转换的危险之处">类型转换的危险之处</h5>
+<p>之所以go希望我们进行显式的类型转换,就是让我们三思而后行,思考类型转换可能引发的后果.</p>
+<p>例如整数类型变量转化的时候会不会出现数值过大产生回绕行为.</p>
+<p>我们可以通过math包提供的最小常量和最大常量,来检测值的转换是否得到了无效值.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">	<span class="kd">var</span> <span class="nx">bh</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">32768</span>
+	<span class="k">if</span> <span class="nx">bh</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt16</span> <span class="o">||</span> <span class="nx">bh</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MinInt16</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">bh</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt16</span> <span class="o">||</span> <span class="nx">bh</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MinInt16</span><span class="p">)</span>
+	<span class="p">}</span>
+</code></pre></div><p>**注意:	**因为math包提供的最小常量和最大常量都是无类型的,所以程序可以直接使用浮点数bh去跟整数maxint16做比较.</p>
+<h5 id="字符串转换">字符串转换</h5>
+<p>将rune或者byte转换为string,和使用格式化变量%c将符文和字节显示成字符得到的结果是一样的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">pi</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">960</span>
+<span class="kd">var</span> <span class="nx">alpha</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">940</span>
+<span class="kd">var</span> <span class="nx">omega</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">969</span>
+<span class="kd">var</span> <span class="nx">bang</span> <span class="kt">byte</span> <span class="p">=</span> <span class="mi">33</span>
+<span class="c1">//直接对数字执行string 不会把33=&gt;&#34;33&#34; 而是会把33代表的字符char找出来
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">pi</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">alpha</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">omega</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">bang</span><span class="p">))</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %c %c %c \n&#34;</span><span class="p">,</span> <span class="nx">pi</span><span class="p">,</span> <span class="nx">alpha</span><span class="p">,</span> <span class="nx">omega</span><span class="p">,</span> <span class="nx">bang</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">π ά ω !
+π ά ω !   
+</code></pre></div><p>如前所述,数字代码点转换为字符串的方法实际山适用于所有整数类型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">countdown</span> <span class="o">:=</span> <span class="mi">10</span>
+<span class="c1">//将数字直接变成字符串 而不是char 使用itoa或者sprint
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;launch in T minus &#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">countdown</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34; seconds.&#34;</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;launch in T minus &#34;</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">countdown</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34; seconds.&#34;</span><span class="p">)</span>
+</code></pre></div><p>另外,如果我们需要把字符串转换为数值,那么可以使用strconv包提供的atoi函数.需要注意的是,因为字符串里面可能含有无法转换为数字的奇怪文字,或者非常大以至于无法用整数类型表示的数字,那么atoi会返回一个错误,我们需要对错误进行处理.</p>
+<h5 id="静态类型">静态类型</h5>
+<p>在go中,变量一旦被声明,就有了类型并且无法改变它的类型,这种机制成为静态类型.尝试在go中使用同一个变量操纵多个不同类型的值,将引发go编译器报告错误.</p>
+<p>与静态类型相反,js/python/ruby等语言都采用了名为动态类型的机制.</p>
+<p>go也提供了一些特殊的机制来应对类型不确定的情况.我猜的,例如反射,断言,空接口类型.</p>
+<h5 id="转换布尔值">转换布尔值</h5>
+<p>在go语言中,布尔值并没有与之相等的数字值或字符串值,因此尝试使用string(false) int(false)huozhe bool(1) bool(&ldquo;yes&rdquo;) 都会导致编译器报错.</p>
+<h5 id="小结-8">小结</h5>
+<ul>
+<li>显式的类型转换能够避免编程中的歧义</li>
+</ul>
 
 </section>
 
@@ -872,24 +1123,60 @@ day is int <span class="nb">type</span> , one year has <span class="m">00365</sp
                 
                     
 <article class="">
-    <a href="/p/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+    <a href="/p/%E5%B0%9A%E7%A1%85%E8%B0%B7go%E5%AD%A6%E4%B9%A0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Go语言学习</h2>
+            <h2 class="article-title">尚硅谷Go学习</h2>
         </div>
     </a>
 </article>
                 
                     
 <article class="">
-    <a href="/p/%E7%9C%9F%E4%BC%9Acsharp%E5%90%97%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter9/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">真会CSharp吗学习文档</h2>
+            <h2 class="article-title">Go Web编程 Chapter9</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter7</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter6</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter5</h2>
         </div>
     </a>
 </article>
@@ -950,7 +1237,7 @@ day is int <span class="nb">type</span> , one year has <span class="m">00365</sp
         
             2020 - 
         
-        2021 think hy how to learn
+        2022 think hy how to learn
     </section>
     
     <section class="powerby">

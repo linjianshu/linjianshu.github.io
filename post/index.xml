@@ -6,7 +6,130 @@
     <description>Recent content in Posts on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Oct 2021 10:24:40 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Mar 2022 10:11:37 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>找工作相关</title>
+      <link>https://linjianshu.github.io/p/%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Tue, 01 Mar 2022 10:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/</guid>
+      <description>找工作相关 github.com
+image-20220215111209406
+image-20220215111227477
+image-20220215111249762
+image-20220215111421252
+image-20220215111554764
+image-20220215111730527
+image-20220215111802867
+image-20220215111813725
+image-20220215111837478
+image-20220215111846849
+image-20220215112302045
+image-20220215112349551</description>
+    </item>
+    
+    <item>
+      <title>leetBook_冲刺攻略</title>
+      <link>https://linjianshu.github.io/p/leetbook_%E5%86%B2%E5%88%BA%E6%94%BB%E7%95%A5/</link>
+      <pubDate>Mon, 28 Feb 2022 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/leetbook_%E5%86%B2%E5%88%BA%E6%94%BB%E7%95%A5/</guid>
+      <description>leetBook_冲刺攻略 image-20220227100312893
+根据提示的数据范围推定时间复杂度 根据时间复杂度推定算法集合 根据题目特征确定算法
+image-20220227100007364
+没有给出数据范围通常使用枚举 枚举通常是n~nlog(n)的时间复杂度 然后再确定算法集合
+image-20220227100056863
+image-20220228103152097
+image-20220228103157567</description>
+    </item>
+    
+    <item>
+      <title>leetBook_数组和字符串</title>
+      <link>https://linjianshu.github.io/p/leetbook_%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 10 Feb 2022 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/leetbook_%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>leetBook_数组和字符串   理解数组的 基本概念 及其 操作方式；
+  理解 二维数组 的基本概念，熟悉二维数组的使用；
+  了解 字符串 的概念以及字符串所具有的不同特性；
+  理解字符串匹配中的 KMP 算法；
+  能够运用 双指针 解决实际问题。
+  数组简介 image-20220228130907972
+集合列表与数组 集合:由一个或多个确定的元素构成的整体
+集合里的元素类型不一定相同,集合里的元素没有顺序
+列表:一种数据项构成的有限序列,即按照一定的线性顺序,排列而成的数据项的集合
+列表的概念是在集合的特征上形成的,他具有顺序,且长度是可变的.
+列表最常见的形式有数组和链表;栈和队列是两种特殊类型的列表
+数组:列表的实现方式之一
+如何区分列表和数组:索引
+数组中的元素在内存中是连续存储的,且每个元素占用相同大小的内存
+相反,列表中的元素在内存中可能彼此相邻,也可能不相邻.比如链表的元素在内存中则不一定是连续的
+列表是集合的一种表现形式,在集合的特征上形成的;数组是列表的一种实现方式,链表是列表的另一种实现方式.
+image-20220228131524791
+数组的操作 连续存储
+读取元素:按照索引访问 , o(1)
+查找元素:全数组遍历,o(n)
+插入元素:要挪位子,很麻烦.如果需要频繁地对数组元素进行插入操作，会造成时间的浪费。事实上，另一种数据结构，即链表可以有效解决这个问题。
+删除元素:删掉后,把后面的挪到前面,很麻烦.删除操作具有线性时间复杂度，即时间复杂度为 O(N)，N 为数组的长度。
+题目  寻找数组的中心索引  给你一个整数数组 nums ，请计算数组的 中心下标 。
+数组 中心下标 是数组的一个下标，其左侧所有元素相加的和等于右侧所有元素相加的和。
+如果中心下标位于数组最左端，那么左侧数之和视为 0 ，因为在下标的左侧不存在元素。这一点对于中心下标位于数组最右端同样适用。</description>
+    </item>
+    
+    <item>
+      <title>尚硅谷Go学习</title>
+      <link>https://linjianshu.github.io/p/%E5%B0%9A%E7%A1%85%E8%B0%B7go%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 13 Dec 2021 09:17:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E5%B0%9A%E7%A1%85%E8%B0%B7go%E5%AD%A6%E4%B9%A0/</guid>
+      <description>尚硅谷Go学习 进制： 对于整数，有四种表示方式：
+ 二进制  在golang中，不能直接使用二进制来表示一个整数，她沿用了c的特点   十进制 八进制 以数字0开头 十六进制 以0x或0X开头表示 此处A-F不区分大小写  进制转换   其他进制转十进制
+  十进制转其他进制
+ 将该数不断除以其他进制的基数，直到商为0为止，然后将每步得到的余数倒过来，就是对应的二进制。  image-20211106093415401
+  二进制转八进制、十六进制
+ 转八进制 三位一组，低位开始组合，转成八进制就可以了。 转十六进制 思维一组，低位开始组合，转成十六进制就可以了。    其他进制转二进制
+ 八进制、十六进制 每三位、四位转成二进制即可    位运算 运算符 &amp;amp;按位与 |按位或 ^按位异或 &amp;laquo;左移 &amp;raquo;右移
+image-20211106094703255
+原码、反码、补码  二进制的最高位是符号位：0表示正数 1表示负数 正数的原码、反码、补码都一样 负数的反码=它的原码符号位不变，其他位取反 负数的补码=负数的反码+1  -1 原码[1000 0001] 反码[1111 1110] 补码[1111 1111]   0的反码补码都是0 在计算机运算的时候，都是以补码的方式来运算的  image-20211106100410526</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter9</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter9/</link>
+      <pubDate>Sun, 28 Nov 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter9/</guid>
+      <description>Go web编程 Chapter_9 Go_Concurrency channel_message package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; ) func thrower(c chan int) { for i := 0; i &amp;lt; 5; i++ { c &amp;lt;- i fmt.Println(&amp;#34;Threw &amp;gt;&amp;gt;&amp;#34;, i) } } func catcher(c chan int) { for i := 0; i &amp;lt; 5; i++ { num := &amp;lt;-c fmt.Println(&amp;#34;Caught &amp;lt;&amp;lt;&amp;#34;, num) } } func main() { c := make(chan int, 3) go thrower(c) go catcher(c) time.Sleep(100 * time.</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter7</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter7/</link>
+      <pubDate>Sat, 20 Nov 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter7/</guid>
+      <description>Go web编程 Chapter_7 Creating_Web_Servies json_creating_encoder package main import ( &amp;#34;encoding/json&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;os&amp;#34; ) type Post struct { Id int `json:&amp;#34;id&amp;#34;` Content string `json:&amp;#34;content&amp;#34;` Author Author `json:&amp;#34;author&amp;#34;` Comments []Comment `json:&amp;#34;comments&amp;#34;` } type Author struct { Id int `json:&amp;#34;id&amp;#34;` Name string `json:&amp;#34;name&amp;#34;` } type Comment struct { Id int `json:&amp;#34;id&amp;#34;` Content string `json:&amp;#34;content&amp;#34;` Author string `json:&amp;#34;author&amp;#34;` } func main() { post := Post{ Id: 1, Content: &amp;#34;Hello World!&amp;#34;, Author: Author{ Id: 2, Name: &amp;#34;Sau Sheong&amp;#34;, }, Comments: []Comment{ Comment{ Id: 1, Content: &amp;#34;Have a great day!</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter6</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter6/</link>
+      <pubDate>Fri, 12 Nov 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter6/</guid>
+      <description>Go web编程 Chapter_6 Storing_Data csv_store package main import ( &amp;#34;encoding/csv&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;strconv&amp;#34; ) type Post struct { Id int Content string Author string } func main() { // creating a CSV file  csvFile, err := os.Create(&amp;#34;posts.csv&amp;#34;) if err != nil { panic(err) } defer csvFile.Close() allPosts := []Post{ Post{Id: 1, Content: &amp;#34;Hello World!&amp;#34;, Author: &amp;#34;Sau Sheong&amp;#34;}, Post{Id: 2, Content: &amp;#34;Bonjour Monde!&amp;#34;, Author: &amp;#34;Pierre&amp;#34;}, Post{Id: 3, Content: &amp;#34;Hola Mundo!&amp;#34;, Author: &amp;#34;Pedro&amp;#34;}, Post{Id: 4, Content: &amp;#34;Greetings Earthlings!</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter5</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter5/</link>
+      <pubDate>Sun, 31 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter5/</guid>
+      <description>Go web编程 Chapter_5 Displaying_Content context_aware package main import ( &amp;#34;html/template&amp;#34; &amp;#34;net/http&amp;#34; ) func process(w http.ResponseWriter, r *http.Request) { t, _ := template.ParseFiles(&amp;#34;tmpl.html&amp;#34;) content := `I asked: &amp;lt;i&amp;gt;&amp;#34;What&amp;#39;s up?&amp;#34;&amp;lt;/i&amp;gt;` t.Execute(w, content) } func main() { server := http.Server{ Addr: &amp;#34;127.0.0.1:8080&amp;#34;, } http.HandleFunc(&amp;#34;/process&amp;#34;, process) server.ListenAndServe() } tmpl.html
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;#34;Content-Type&amp;#34; content=&amp;#34;text/html; charset=utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Go Web Programming&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div&amp;gt;{{ . }}&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;a href=&amp;#34;/{{ . }}&amp;#34;&amp;gt;Path&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;a href=&amp;#34;/?q={{ . }}&amp;#34;&amp;gt;Query&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;a onclick=&amp;#34;f(&amp;#39;{{ . }}&amp;#39;)&amp;#34;&amp;gt;Onclick&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; costom_function package main import ( &amp;#34;html/template&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;time&amp;#34; ) func formatDate(t time.</description>
+    </item>
+    
     <item>
       <title>活连上线学习文档</title>
       <link>https://linjianshu.github.io/p/%E6%B4%BB%E8%BF%9E%E4%B8%8A%E7%BA%BF%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
@@ -15,6 +138,24 @@
       <guid>https://linjianshu.github.io/p/%E6%B4%BB%E8%BF%9E%E4%B8%8A%E7%BA%BF%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
       <description>维保
  优化内存占用 提高sql执行效率 索引 性能分析 慢查询日志 多线程上传数据 以后要设定阀值 上传数据总量等于5w(估算)的时候,先上传,放置因为很久没上传的数据因为累积过多,导致一次性上传50w数据裂开  image-20211117085507371</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter4</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter4/</link>
+      <pubDate>Wed, 20 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter4/</guid>
+      <description>Go web编程 Chapter_4 Processing_Requests body package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func body(w http.ResponseWriter, r *http.Request) { len := r.ContentLength body := make([]byte, len) r.Body.Read(body) fmt.Fprintln(w, string(body)) } func main() { server := http.Server{ Addr: &amp;#34;127.0.0.1:8080&amp;#34;, } http.HandleFunc(&amp;#34;/body&amp;#34;, body) server.ListenAndServe() } cookie package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func setCookie(w http.ResponseWriter, r *http.Request) { c1 := http.Cookie{ Name: &amp;#34;first_cookie&amp;#34;, Value: &amp;#34;Go Web Programming&amp;#34;, HttpOnly: true, } c2 := http.</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter3</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter3/</link>
+      <pubDate>Fri, 15 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter3/</guid>
+      <description>Go web编程 Chapter_3 Handling_Requests chain_handler package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) type HelloHandler struct{} func (h HelloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w, &amp;#34;Hello!&amp;#34;) } func log(h http.Handler) http.Handler { return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { fmt.Printf(&amp;#34;Handler called - %T\n&amp;#34;, h) h.ServeHTTP(w, r) }) } func protect(h http.Handler) http.Handler { return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { // some code to make sure the user is authorized 	h.ServeHTTP(w, r) }) } func main() { server := http.</description>
     </item>
     
     <item>
@@ -122,6 +263,15 @@ SQL 结构化查询语言 structure query language :专门用来与数据库通�
 ​	专业:工业工程与管理
 ​	学生类别:全日制
 😜💖💕😋</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter1</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter1/</link>
+      <pubDate>Fri, 01 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter1/</guid>
+      <description>Go web编程 Chapter_1 Go_And_Web_Application first_web_app package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func handler(writer http.ResponseWriter, request *http.Request) { fmt.Fprintf(writer, &amp;#34;Hello World, %s!&amp;#34;, request.URL.Path[1:]) } func main() { http.HandleFunc(&amp;#34;/&amp;#34;, handler) http.ListenAndServe(&amp;#34;:8080&amp;#34;, nil) } </description>
     </item>
     
     <item>
