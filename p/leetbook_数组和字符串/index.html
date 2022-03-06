@@ -449,7 +449,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 4 分钟
                 </time>
             </div>
         
@@ -700,7 +700,70 @@
       <span class="p">}</span>
    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div><ul>
+<li>
+<h5 id="对角线遍历">对角线遍历</h5>
+</li>
+</ul>
+<p>给你一个大小为 <code>m x n</code> 的矩阵 <code>mat</code> ，请以对角线遍历的顺序，用一个数组返回这个矩阵中的所有元素。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//对角线的特征是 行索引和列索引和相等 可以利用和是奇数和偶数来判断 正向遍历还是反向遍历
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">findDiagonalOrder</span><span class="p">(</span><span class="nx">mat</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
+   <span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="p">}</span>
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ints</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">mat</span> <span class="p">{</span>
+         <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">res</span>
+   <span class="p">}</span>
+
+   <span class="nx">sum</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">sum</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="nx">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nx">i</span><span class="o">-</span><span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span><span class="o">-</span><span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+               <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">mat</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">j</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
+            <span class="p">}</span>
+         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span><span class="o">-</span><span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span><span class="o">-</span><span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+               <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">mat</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">i</span><span class="o">-</span><span class="nx">j</span><span class="p">])</span>
+            <span class="p">}</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="字符串">字符串</h4>
+<h5 id="字符串简介">字符串简介</h5>
+<ul>
+<li>字符串的基本操作对象通常是字符串整体或者其子串</li>
+</ul>
+<p><strong>I like leetcode</strong> 反向输出 更愿意接受<strong>Leetcode like I</strong> 而不是<strong>edocteel ekil I</strong></p>
+<ul>
+<li>
+<p>字符串的比较和连接操作相对复杂</p>
+</li>
+<li>
+<p>语言支持运算符重载 那么就可以对字符串进行==比较</p>
+</li>
+<li>
+<p>字符串进行连接操作,根据语言的不同效率不同</p>
+<ul>
+<li>
+<p>​		C++可以修改字符串 在连接操作的时候效率就比较高</p>
+</li>
+<li>
+<p>​		Java Go 不能修改字符串 在连接操作的时候就会重新分配内存给新字符串 然后再拷贝就的字符串中的内容到新的内存地址中 这样就会造成效率下降</p>
+</li>
+<li>
+<p>因此如果需要连接 可以尝试使用stringbuilder数据结构 或者转换成[]byte切片进行连接或者修改</p>
+</li>
+</ul>
+</li>
+</ul>
+
 </section>
 
 

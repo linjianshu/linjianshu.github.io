@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Go模版与BootStrap3使用 Go模版看了老容易忘记,今天正好项目上工艺部门想要安全件的解析规则清单,我想着用.net开发还不如用Go模版&#43;Bootstrap来个最佳实践得了.结果在公司多加班了半小时 : )
+成品样图 image-20220307001641199
+实现了搜索功能 隔行变色 其他的表头排序还在研究中
+文件结构 image-20220307001737794
+image-20220307001747021
+简单的 一个main.go 一个html(bootstrap.html没用 作为参考) 几张图片拼凑拼凑
+实现步骤   连接数据库 oracle 构造结构体完成数据库的数据映射问题   image-20220307002353869
+package main import ( &amp;#34;database/sql&amp;#34; &amp;#34;fmt&amp;#34; _ &amp;#34;github.com/mattn/go-oci8&amp;#34; &amp;#34;html/template&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;path/filepath&amp;#34; &amp;#34;time&amp;#34; ) type Items struct { ROW_NUM string PART_CODE string PART_NAME string PART_MODEL_NO sql.NullString PART_PLATFORM string PART_ABB string RESERVE07 string } var DB *sql.'><title>GoTemplateAndBootStrap3</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/gotemplateandbootstrap3/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='GoTemplateAndBootStrap3'>
+<meta property='og:description' content='Go模版与BootStrap3使用 Go模版看了老容易忘记,今天正好项目上工艺部门想要安全件的解析规则清单,我想着用.net开发还不如用Go模版&#43;Bootstrap来个最佳实践得了.结果在公司多加班了半小时 : )
+成品样图 image-20220307001641199
+实现了搜索功能 隔行变色 其他的表头排序还在研究中
+文件结构 image-20220307001737794
+image-20220307001747021
+简单的 一个main.go 一个html(bootstrap.html没用 作为参考) 几张图片拼凑拼凑
+实现步骤   连接数据库 oracle 构造结构体完成数据库的数据映射问题   image-20220307002353869
+package main import ( &amp;#34;database/sql&amp;#34; &amp;#34;fmt&amp;#34; _ &amp;#34;github.com/mattn/go-oci8&amp;#34; &amp;#34;html/template&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;path/filepath&amp;#34; &amp;#34;time&amp;#34; ) type Items struct { ROW_NUM string PART_CODE string PART_NAME string PART_MODEL_NO sql.NullString PART_PLATFORM string PART_ABB string RESERVE07 string } var DB *sql.'>
+<meta property='og:url' content='https://linjianshu.github.io/p/gotemplateandbootstrap3/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='GO' /><meta property='article:published_time' content='2022-03-06T23:56:51&#43;08:00'/><meta property='article:modified_time' content='2022-03-06T23:56:51&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="GoTemplateAndBootStrap3">
+<meta name="twitter:description" content="Go模版与BootStrap3使用 Go模版看了老容易忘记,今天正好项目上工艺部门想要安全件的解析规则清单,我想着用.net开发还不如用Go模版&#43;Bootstrap来个最佳实践得了.结果在公司多加班了半小时 : )
+成品样图 image-20220307001641199
+实现了搜索功能 隔行变色 其他的表头排序还在研究中
+文件结构 image-20220307001737794
+image-20220307001747021
+简单的 一个main.go 一个html(bootstrap.html没用 作为参考) 几张图片拼凑拼凑
+实现步骤   连接数据库 oracle 构造结构体完成数据库的数据映射问题   image-20220307002353869
+package main import ( &amp;#34;database/sql&amp;#34; &amp;#34;fmt&amp;#34; _ &amp;#34;github.com/mattn/go-oci8&amp;#34; &amp;#34;html/template&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;path/filepath&amp;#34; &amp;#34;time&amp;#34; ) type Items struct { ROW_NUM string PART_CODE string PART_NAME string PART_MODEL_NO sql.NullString PART_PLATFORM string PART_ABB string RESERVE07 string } var DB *sql."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/" style="background-color: #CC00FF; color: #fff;">
+                后端语言
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/gotemplateandbootstrap3/">GoTemplateAndBootStrap3</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 06, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="go模版与bootstrap3使用">Go模版与BootStrap3使用</h3>
+<p>Go模版看了老容易忘记,今天正好项目上工艺部门想要安全件的解析规则清单,我想着用.net开发还不如用Go模版+Bootstrap来个最佳实践得了.结果在公司多加班了半小时 : )</p>
+<h4 id="成品样图">成品样图</h4>
+<p><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307001641199.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307001641199.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307001641199">
+	</a>
+	
+	<figcaption>image-20220307001641199</figcaption>
+	
+</figure></p>
+<p>实现了搜索功能 隔行变色 其他的表头排序还在研究中</p>
+<h4 id="文件结构">文件结构</h4>
+<p><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307001737794.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307001737794.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307001737794">
+	</a>
+	
+	<figcaption>image-20220307001737794</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307001747021.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307001747021.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307001747021">
+	</a>
+	
+	<figcaption>image-20220307001747021</figcaption>
+	
+</figure></p>
+<p>简单的 一个main.go 一个html(bootstrap.html没用 作为参考) 几张图片拼凑拼凑</p>
+<h4 id="实现步骤">实现步骤</h4>
+<ul>
+<li>
+<h5 id="连接数据库-oracle-构造结构体完成数据库的数据映射问题">连接数据库 oracle 构造结构体完成数据库的数据映射问题</h5>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307002353869.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307002353869.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307002353869">
+	</a>
+	
+	<figcaption>image-20220307002353869</figcaption>
+	
+</figure></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+   <span class="s">&#34;database/sql&#34;</span>
+   <span class="s">&#34;fmt&#34;</span>
+   <span class="nx">_</span> <span class="s">&#34;github.com/mattn/go-oci8&#34;</span>
+   <span class="s">&#34;html/template&#34;</span>
+   <span class="s">&#34;log&#34;</span>
+   <span class="s">&#34;net/http&#34;</span>
+   <span class="s">&#34;os&#34;</span>
+   <span class="s">&#34;os/exec&#34;</span>
+   <span class="s">&#34;path/filepath&#34;</span>
+   <span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Items</span> <span class="kd">struct</span> <span class="p">{</span>
+   <span class="nx">ROW_NUM</span>       <span class="kt">string</span>
+   <span class="nx">PART_CODE</span>     <span class="kt">string</span>
+   <span class="nx">PART_NAME</span>     <span class="kt">string</span>
+   <span class="nx">PART_MODEL_NO</span> <span class="nx">sql</span><span class="p">.</span><span class="nx">NullString</span>
+   <span class="nx">PART_PLATFORM</span> <span class="kt">string</span>
+   <span class="nx">PART_ABB</span>      <span class="kt">string</span>
+   <span class="nx">RESERVE07</span>     <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">DB</span> <span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span>
+
+<span class="kd">func</span> <span class="nf">DBconnect</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
+   <span class="c1">//go连接mysql实例
+</span><span class="c1"></span>   <span class="c1">//数据库源信息
+</span><span class="c1"></span>   <span class="nx">dsn</span> <span class="o">:=</span> <span class="s">&#34;隐藏&#34;</span>
+   <span class="c1">//连接数据库
+</span><span class="c1"></span>   <span class="nx">DB</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">sql</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;oci8&#34;</span><span class="p">,</span> <span class="nx">dsn</span><span class="p">)</span> <span class="c1">//不会校验用户名和密码是否正确
+</span><span class="c1"></span>   <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+   <span class="p">}</span>
+   <span class="nx">err</span> <span class="p">=</span> <span class="nx">DB</span><span class="p">.</span><span class="nf">Ping</span><span class="p">()</span>
+
+   <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">)</span>
+      <span class="nf">DBconnect</span><span class="p">()</span>
+   <span class="p">}</span>
+   <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>
+<h5 id="根据go-template语法书写html代码">根据Go Template语法书写html代码</h5>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307002733907.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307002733907.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307002733907">
+	</a>
+	
+	<figcaption>image-20220307002733907</figcaption>
+	
+</figure></p>
+<p>使用简单的 range . 和 .Row_num的迭代和.方法 并使用了bootstrap的link<figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307002825445.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307002825445.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307002825445">
+	</a>
+	
+	<figcaption>image-20220307002825445</figcaption>
+	
+</figure></p>
+<ul>
+<li>
+<h5 id="主函数解析模版-书写相应处理函数-回传数据完成渲染">主函数解析模版 书写相应处理函数 回传数据完成渲染</h5>
+</li>
+</ul>
+<h5 id="image-20220307002922090gotemplateandbootstrap3assetsimage-20220307002922090png"><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307002922090.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307002922090.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307002922090">
+	</a>
+	
+	<figcaption>image-20220307002922090</figcaption>
+	
+</figure></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">t</span> <span class="o">:=</span> <span class="nx">template</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">template</span><span class="p">.</span><span class="nf">ParseFiles</span><span class="p">(</span><span class="s">&#34;template.html&#34;</span><span class="p">))</span>
+
+<span class="c1">// FileServer返回一个使用FileSystem接口root提供文件访问服务的HTTP处理器
+</span><span class="c1"></span><span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">LookPath</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">//得到全路径，比如在windows下E:\\golang\\test\\a.exe
+</span><span class="c1"></span><span class="nx">path</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+<span class="nx">rst</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nf">Dir</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span>
+<span class="nx">http</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nf">FileServer</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">Dir</span><span class="p">(</span><span class="nx">rst</span><span class="p">)))</span>
+</code></pre></div><ul>
+<li>
+<h5 id="主函数书写处理函数-处理界面跳转-发布端口监听服务">主函数书写处理函数 处理界面跳转 发布端口监听服务</h5>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/GoTemplateAndBootStrap3.assets/image-20220307002539437.png" >
+		<img src="/GoTemplateAndBootStrap3.assets/image-20220307002539437.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220307002539437">
+	</a>
+	
+	<figcaption>image-20220307002539437</figcaption>
+	
+</figure></p>
+<p>这个函数完成检索数据 并渲染到界面上的功能 t就是模版</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">t</span> <span class="o">:=</span> <span class="nx">template</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">template</span><span class="p">.</span><span class="nf">ParseFiles</span><span class="p">(</span><span class="s">&#34;template.html&#34;</span><span class="p">))</span>
+<span class="c1">//检索所有
+</span><span class="c1"></span><span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/CheckPart&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">writer</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">request</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nf">DBconnect</span><span class="p">()</span>
+   <span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Items</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+   <span class="k">if</span> <span class="nx">DB</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="s">&#34;sry , please try again ...&#34;</span><span class="p">)</span>
+      <span class="k">return</span>
+   <span class="p">}</span>
+   <span class="nx">rows</span><span class="p">,</span> <span class="nx">err2</span> <span class="o">:=</span> <span class="nx">DB</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;select ROWNUM, PART_CODE ,PART_NAME ,PART_MODEL_NO,PART_PLATFORM ,PART_ABB ,case RESERVE07 when &#39;是&#39; then &#39;默认规则&#39; when &#39;否&#39; then &#39;不解析&#39; else Reserve07 end RESERVE07 from part where PART_NAME like &#39;%AQJ%&#39;&#34;</span><span class="p">)</span>
+   <span class="k">if</span> <span class="nx">err2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="s">&#34;sry , please try again ...&#34;</span><span class="p">)</span>
+      <span class="k">return</span>
+   <span class="p">}</span>
+   <span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">i</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Items</span><span class="p">)</span>
+      <span class="nx">rows</span><span class="p">.</span><span class="nf">Scan</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">ROW_NUM</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_CODE</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_NAME</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_MODEL_NO</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_PLATFORM</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_ABB</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">RESERVE07</span><span class="p">)</span>
+      <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="o">*</span><span class="nx">i</span><span class="p">)</span>
+   <span class="p">}</span>
+   <span class="nx">err2</span> <span class="p">=</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+   <span class="k">if</span> <span class="nx">err2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+      <span class="nb">panic</span><span class="p">(</span><span class="nx">err2</span><span class="p">)</span>
+   <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">//查询
+</span><span class="c1"></span><span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/Search&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">writer</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">request</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">m</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>
+		<span class="nx">m</span><span class="p">[</span><span class="s">&#34;默认规则&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;是&#34;</span>
+		<span class="nx">m</span><span class="p">[</span><span class="s">&#34;不解析&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;否&#34;</span>
+		<span class="nx">request</span><span class="p">.</span><span class="nf">ParseForm</span><span class="p">()</span>
+		<span class="nx">value</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">FormValue</span><span class="p">(</span><span class="s">&#34;keyword&#34;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">value</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+			<span class="nx">value</span> <span class="p">=</span> <span class="nx">v</span>
+		<span class="p">}</span>
+		<span class="nx">value</span> <span class="p">=</span> <span class="s">&#34;%&#34;</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s">&#34;%&#34;</span>
+		<span class="nf">DBconnect</span><span class="p">()</span>
+		<span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Items</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="nx">query</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">DB</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;select ROWNUM, PART_CODE ,PART_NAME ,PART_MODEL_NO,PART_PLATFORM ,PART_ABB ,case RESERVE07 when &#39;是&#39; then &#39;默认规则&#39; when &#39;否&#39; then &#39;不解析&#39; else Reserve07 end RESERVE07 from part where PART_NAME like &#39;%AQJ%&#39; and (part_code like :1 or part_name like :2 or part_model_no like :3 or part_platform like :4 or part_abb like :5 or reserve07 like :6)&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+		<span class="k">for</span> <span class="nx">query</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nx">i</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Items</span><span class="p">)</span>
+			<span class="nx">query</span><span class="p">.</span><span class="nf">Scan</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">ROW_NUM</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_CODE</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_NAME</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_MODEL_NO</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_PLATFORM</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">PART_ABB</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">.</span><span class="nx">RESERVE07</span><span class="p">)</span>
+			<span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="o">*</span><span class="nx">i</span><span class="p">)</span>
+		<span class="p">}</span>
+		<span class="nx">err2</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">err2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nb">panic</span><span class="p">(</span><span class="nx">err2</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">})</span>
+
+<span class="c1">//监听端口 发布服务
+</span><span class="c1"></span><span class="nx">server</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Server</span><span class="p">{</span>
+		<span class="nx">Addr</span><span class="p">:</span>              <span class="s">&#34;:8081&#34;</span><span class="p">,</span>
+		<span class="nx">Handler</span><span class="p">:</span>           <span class="kc">nil</span><span class="p">,</span>
+		<span class="nx">TLSConfig</span><span class="p">:</span>         <span class="kc">nil</span><span class="p">,</span>
+		<span class="nx">ReadTimeout</span><span class="p">:</span>       <span class="mi">0</span><span class="p">,</span>
+		<span class="nx">ReadHeaderTimeout</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+		<span class="nx">WriteTimeout</span><span class="p">:</span>      <span class="mi">0</span><span class="p">,</span>
+		<span class="nx">IdleTimeout</span><span class="p">:</span>       <span class="mi">0</span><span class="p">,</span>
+		<span class="nx">MaxHeaderBytes</span><span class="p">:</span>    <span class="mi">0</span><span class="p">,</span>
+		<span class="nx">TLSNextProto</span><span class="p">:</span>      <span class="kc">nil</span><span class="p">,</span>
+		<span class="nx">ConnState</span><span class="p">:</span>         <span class="kc">nil</span><span class="p">,</span>
+		<span class="nx">ErrorLog</span><span class="p">:</span>          <span class="kc">nil</span><span class="p">,</span>
+		<span class="nx">BaseContext</span><span class="p">:</span>       <span class="kc">nil</span><span class="p">,</span>
+		<span class="nx">ConnContext</span><span class="p">:</span>       <span class="kc">nil</span><span class="p">,</span>
+	<span class="p">}</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">server</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">())</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/go/">GO</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/%E5%B0%9A%E7%A1%85%E8%B0%B7go%E5%AD%A6%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">尚硅谷Go学习</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter9</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter7</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter6</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/go-web%E7%BC%96%E7%A8%8B-chapter5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Go Web编程 Chapter5</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="linjianshu/hugoblogtalks"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>
