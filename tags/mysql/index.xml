@@ -14,8 +14,7 @@
       
       <guid>https://linjianshu.github.io/p/test-chinese/</guid>
       <description>Mysql高级学习文档 mysql的架构介绍 mysql简介 mysqllinux版安装 mysql配置文件 mysql逻辑架构介绍 mysql存储引擎 索引优化分析 性能下降sql慢是执行时间长还是等待时间长 常见通用的join查询 索引简介 性能分析 索引优化 查询截取分析 查询优化 慢查询日志 批量数据脚本 show profile 全局查询日志 mysql锁机制 锁的分类 主从复制 主从配置 mysql简介 高级mysql 完整的mysql优化
- mysql内核 sql优化攻城狮 mysql服务器的优化 各种参数常量设定 查询语句优化 主从复制 软硬件升级 容灾备份 sql编程  mysqllinux版的安装 image-20211012195826053
-#查看当前ubuntu版本 yourtreedad@yourtreedad:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04.3 LTS Release: 20.04 Codename: focal yourtreedad@yourtreedad:~$ 准备工作
+mysql内核 sql优化攻城狮 mysql服务器的优化 各种参数常量设定 查询语句优化 主从复制 软硬件升级 容灾备份 sql编程 mysqllinux版的安装 image-20211012195826053#查看当前ubuntu版本 yourtreedad@yourtreedad:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 20.04.3 LTS Release: 20.04 Codename: focal yourtreedad@yourtreedad:~$ 准备工作
 #切换到root账户 yourtreedad@yourtreedad:~$ sudo passwd root New password: Retype new password: passwd: password updated successfully yourtreedad@yourtreedad:~$ su root Password: root@yourtreedad:/home/yourtreedad# #查看电脑里有没有mysql root@yourtreedad:/home/yourtreedad# service mysql status * MySQL is stopped.</description>
     </item>
     
@@ -50,7 +49,7 @@ union联合查询
 数组 集合 内存数据 断电就没了
 文件 但是文件不好查找
 因此把文件做成方便增删改查的软件 对文件进行操作 这样的软件就叫做数据库
-数据库的好处  实现数据持久化 使用完整的管理系统统一管理,易于查询  数据库的概念 DB 数据库 database:存储数据的仓库,保存了一系列有组织的数据.
+数据库的好处 实现数据持久化 使用完整的管理系统统一管理,易于查询 数据库的概念 DB 数据库 database:存储数据的仓库,保存了一系列有组织的数据.
 DBMS 数据库管理系统 database management system 数据库是通过dbms创建和操作的容器
 常见的数据库管理系统 mysql oracle db2 sqlserver
 SQL 结构化查询语言 structure query language :专门用来与数据库通信的语言</description>

@@ -3,11 +3,11 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Go趣学指南 备注:
 内置函数
- len() cap() append() delete() new() copy()  本书未涉及:
- iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统  入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+len() cap() append() delete() new() copy() 本书未涉及:
+iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统 入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
 解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
- go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
- go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
 go能够利用多核机器商的每个核心获得额外的性能优势.
 包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
 import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
@@ -15,9 +15,9 @@ func关键字用于声明函数,每个函数的函数体body都要用大括号{}
 main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
 每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
 go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
-速查  fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行  唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+速查 fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行 唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
 不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
-小结  每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func  命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %'><title>Go趣学指南</title>
+小结 每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func 命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %'><title>Go趣学指南</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/go%E8%B6%A3%E5%AD%A6%E6%8C%87%E5%8D%97/'>
 
@@ -122,11 +122,11 @@ go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各
                     </script><meta property='og:title' content='Go趣学指南'>
 <meta property='og:description' content='Go趣学指南 备注:
 内置函数
- len() cap() append() delete() new() copy()  本书未涉及:
- iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统  入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+len() cap() append() delete() new() copy() 本书未涉及:
+iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统 入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
 解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
- go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
- go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
 go能够利用多核机器商的每个核心获得额外的性能优势.
 包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
 import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
@@ -134,9 +134,9 @@ func关键字用于声明函数,每个函数的函数体body都要用大括号{}
 main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
 每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
 go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
-速查  fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行  唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+速查 fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行 唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
 不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
-小结  每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func  命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %'>
+小结 每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func 命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %'>
 <meta property='og:url' content='https://linjianshu.github.io/p/go%E8%B6%A3%E5%AD%A6%E6%8C%87%E5%8D%97/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='GO' /><meta property='article:published_time' content='2021-10-11T09:17:59&#43;08:00'/><meta property='article:modified_time' content='2021-10-11T09:17:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
@@ -144,11 +144,11 @@ go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="Go趣学指南">
 <meta name="twitter:description" content="Go趣学指南 备注:
 内置函数
- len() cap() append() delete() new() copy()  本书未涉及:
- iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统  入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+len() cap() append() delete() new() copy() 本书未涉及:
+iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统 入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
 解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
- go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
- go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go想要构造地像c&#43;&#43;和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
 go能够利用多核机器商的每个核心获得额外的性能优势.
 包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
 import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
@@ -156,9 +156,9 @@ func关键字用于声明函数,每个函数的函数体body都要用大括号{}
 main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
 每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
 go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
-速查  fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行  唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+速查 fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行 唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
 不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
-小结  每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func  命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %"><meta name="twitter:card" content="summary_large_image">
+小结 每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func 命令式编程 被美化的计算器 执行计算 算术操作符 &#43; - * / %"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -384,8 +384,8 @@ go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各
     
     <header class="article-category">
         
-            <a href="/categories/%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/" style="background-color: #CC00FF; color: #fff;">
-                后端语言
+            <a href="/categories/-%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/" >
+                -后端语言
             </a>
         
     </header>
@@ -503,54 +503,54 @@ go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各
 <p>换行符 \n</p>
 <p>可以指定多个格式化变量,按顺序把他们替换成相应的值</p>
 <p>printf还能够调整文本的对齐位置 用户通过指定带有宽度的格式化变量%4v 当宽度为正数时,空格将被填充至文本左边,而当宽度为负数时,空格将被填充至文本右边.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%-15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;SpaceX&#34;</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;Vigin Galactic&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">SpaceX         
- Vigin Galactic
-
-进程 已完成，退出代码为 <span class="m">0</span>
-</code></pre></div><h5 id="常量和变量">常量和变量</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%-15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;SpaceX&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;Vigin Galactic&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">SpaceX         
+</span></span><span class="line"><span class="cl"> Vigin Galactic
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">进程 已完成，退出代码为 <span class="m">0</span>
+</span></span></code></pre></div><h5 id="常量和变量">常量和变量</h5>
 <p>两个新的关键字var 和const</p>
 <p>常量是不能被修改的,变量必须先声明后使用</p>
 <p>可以一次声明多个变量,或者在同一行里声明多个变量</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%-15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;SpaceX&#34;</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;Vigin Galactic&#34;</span><span class="p">)</span>
-
-   <span class="kd">var</span> <span class="p">(</span>
-      <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;ljs&#34;</span>
-      <span class="nx">age</span> <span class="p">=</span> <span class="mi">15</span>
-   <span class="p">)</span>
-   <span class="kd">var</span> <span class="nx">name1</span> <span class="p">,</span><span class="nx">age1</span> <span class="p">=</span> <span class="s">&#34;ljs&#34;</span><span class="p">,</span><span class="mi">10</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name1</span><span class="p">,</span><span class="nx">age1</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">SpaceX         
- Vigin Galactic
-ljs <span class="m">15</span>
-ljs <span class="m">10</span>
-
-进程 已完成，退出代码为 <span class="m">0</span>
-</code></pre></div><h5 id="增量和赋值操作符">增量和赋值操作符</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%-15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;SpaceX&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%15v\n&#34;</span><span class="p">,</span> <span class="s">&#34;Vigin Galactic&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;ljs&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">age</span> <span class="p">=</span> <span class="mi">15</span>
+</span></span><span class="line"><span class="cl">   <span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">var</span> <span class="nx">name1</span> <span class="p">,</span><span class="nx">age1</span> <span class="p">=</span> <span class="s">&#34;ljs&#34;</span><span class="p">,</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name1</span><span class="p">,</span><span class="nx">age1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SpaceX         
+</span></span><span class="line"><span class="cl"> Vigin Galactic
+</span></span><span class="line"><span class="cl">ljs <span class="m">15</span>
+</span></span><span class="line"><span class="cl">ljs <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">进程 已完成，退出代码为 <span class="m">0</span>
+</span></span></code></pre></div><h5 id="增量和赋值操作符">增量和赋值操作符</h5>
 <p>赋值的同时执行一些操作 i++ i&ndash;</p>
 <p>go并不支持++i这种前置增量操作</p>
 <h5 id="数字游戏">数字游戏</h5>
 <p>如果我们在写代码的时候忘记对伪随机数执行加一操作,那么程序将返回一个0-n-1数字,而不是我们想要的0-n的数字,这是典型的&quot;差一错误 off-by-one error&quot;的例子</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
-	<span class="nx">intn</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">intn</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;apppppple&#34;</span><span class="p">&gt;</span><span class="s">&#34;banana&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">10</span>
-<span class="nb">false</span>
-
-进程 已完成，退出代码为 <span class="m">0</span>
-</code></pre></div><p>故此,生成56000000至401000000的随机距离,应该是</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">distance</span> <span class="p">=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">345000001</span><span class="p">)</span><span class="o">+</span><span class="mi">56000000</span>
-</code></pre></div><h5 id="小结-1">小结</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">intn</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">intn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;apppppple&#34;</span><span class="p">&gt;</span><span class="s">&#34;banana&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="nb">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">进程 已完成，退出代码为 <span class="m">0</span>
+</span></span></code></pre></div><p>故此,生成56000000至401000000的随机距离,应该是</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">distance</span> <span class="p">=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">345000001</span><span class="p">)</span><span class="o">+</span><span class="mi">56000000</span>
+</span></span></code></pre></div><h5 id="小结-1">小结</h5>
 <ul>
 <li>
 <p>print println printf都可以将文本和数值显示到屏幕上</p>
@@ -592,62 +592,62 @@ ljs <span class="m">10</span>
 <p>case a==&ldquo;hello ljs&rdquo;: &hellip;</p>
 <p>default: &hellip;</p>
 <p>}</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c1">//说明fallthrough只能将下降延续到下一个case语句中 下下个就不行了 并且啊 fallthrough的时候还不需要判断条件就可以执行
-</span><span class="c1"></span>	<span class="nx">score</span> <span class="o">:=</span> <span class="mi">79</span>
-	<span class="k">switch</span> <span class="p">{</span>
-	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">:</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;fuck&#34;</span><span class="p">)</span>
-		<span class="k">fallthrough</span>
-	<span class="k">case</span> <span class="nx">score</span> <span class="o">==</span> <span class="mi">90</span><span class="p">:</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;okok&#34;</span><span class="p">)</span>
-		<span class="k">fallthrough</span>
-	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">80</span><span class="p">:</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;just so so&#34;</span><span class="p">)</span>
-	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">60</span><span class="p">:</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;shit shit shit&#34;</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">fuck
-okok
-just so so
-
-进程 已完成，退出代码为 <span class="m">0</span>
-</code></pre></div><p>**注意:	**在C Java Js等语言中,下降是switch语句各个分支的默认行为,而go对此此案用了更为谨慎的做法,即用户需要显式地使用fallthrough关键字才会引发下降</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//说明fallthrough只能将下降延续到下一个case语句中 下下个就不行了 并且啊 fallthrough的时候还不需要判断条件就可以执行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">score</span> <span class="o">:=</span> <span class="mi">79</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;fuck&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">fallthrough</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">score</span> <span class="o">==</span> <span class="mi">90</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;okok&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">fallthrough</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;just so so&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="nx">score</span> <span class="p">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;shit shit shit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fuck
+</span></span><span class="line"><span class="cl">okok
+</span></span><span class="line"><span class="cl">just so so
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">进程 已完成，退出代码为 <span class="m">0</span>
+</span></span></code></pre></div><p>**注意:	**在C Java Js等语言中,下降是switch语句各个分支的默认行为,而go对此此案用了更为谨慎的做法,即用户需要显式地使用fallthrough关键字才会引发下降</p>
 <h5 id="使用循环实现重复执行">使用循环实现重复执行</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="nx">count</span> <span class="o">:=</span> <span class="mi">10</span>
-   <span class="k">for</span> <span class="nx">count</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
-      <span class="nx">intn</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-      <span class="k">if</span> <span class="nx">intn</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;发射失败&#34;</span><span class="p">)</span>
-         <span class="k">break</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span>
-         <span class="nx">count</span><span class="o">--</span>
-         <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>通过不为for语句设置任何条件来产生无限循环,然后在有需要的时候通过在循环体内部使用break来跳出循环</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;请输入100以内要猜的数字&#34;</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
-   <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
-   <span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
-   <span class="k">for</span>  <span class="p">{</span>
-      <span class="nx">intn</span><span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-      <span class="k">if</span> <span class="nx">intn</span><span class="o">==</span><span class="nx">i</span> <span class="p">{</span>
-         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-         <span class="k">break</span>
-      <span class="p">}</span>
-      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">intn</span><span class="p">)</span>
-      <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
-   <span class="p">}</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;用时: &#34;</span><span class="p">,</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">now</span><span class="p">).</span><span class="nf">String</span><span class="p">())</span>
-<span class="p">}</span>
-</code></pre></div><h5 id="小结-2">小结</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">count</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="nx">count</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">intn</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="nx">intn</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;发射失败&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">count</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>通过不为for语句设置任何条件来产生无限循环,然后在有需要的时候通过在循环体内部使用break来跳出循环</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;请输入100以内要猜的数字&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">   <span class="k">for</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">intn</span><span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="nx">intn</span><span class="o">==</span><span class="nx">i</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">intn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;用时: &#34;</span><span class="p">,</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">now</span><span class="p">).</span><span class="nf">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="小结-2">小结</h5>
 <ul>
 <li>go通过if switch for 来实现分支判断和重复执行代码</li>
 </ul>
@@ -663,30 +663,30 @@ just so so
 <p>除此之外,变量作用域可以帮助我们更好的阅读代码,我们无需在脑海里记住所有变量</p>
 <h5 id="简短声明">简短声明</h5>
 <p>简短声明为var关键字提供了另一种备选语法,该语法可以在一些无法使用var关键字的地方使用.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="c1">//短声明就是在var不能使用的时候,替代var来声明变量,同时提高可读性,另外缩小变量的作用域范围,提高变量名的复用性
-</span><span class="c1"></span>   <span class="c1">//可以在case里放置if语句诶
-</span><span class="c1"></span>   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-   <span class="p">}</span>
-
-   <span class="k">if</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
-      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;大于0&#34;</span><span class="p">)</span>
-   <span class="p">}</span>
-
-   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">{</span>
-   <span class="k">case</span> <span class="mi">1</span> <span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;这是1诶!&#34;</span><span class="p">)</span>
-   <span class="p">}</span>
-
-   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
-   <span class="k">case</span> <span class="kc">true</span><span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;真的诶!&#34;</span><span class="p">)</span>
-   <span class="p">}</span>
-
-   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">{</span>
-   <span class="k">case</span> <span class="nx">i</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;真的是1诶!!!&#34;</span><span class="p">)</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>在使用简短声明的情况下,对i变量的声明和初始化将成为for循环的一部分,该变量在循环结束之后脱离作用域,外部无法访问</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">//短声明就是在var不能使用的时候,替代var来声明变量,同时提高可读性,另外缩小变量的作用域范围,提高变量名的复用性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="c1">//可以在case里放置if语句诶
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;大于0&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="mi">1</span> <span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;这是1诶!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="kc">true</span><span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;真的诶!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="k">switch</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">case</span> <span class="nx">i</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;真的是1诶!!!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>在使用简短声明的情况下,对i变量的声明和初始化将成为for循环的一部分,该变量在循环结束之后脱离作用域,外部无法访问</p>
 <p>**提示:	**从代码可读性考虑,声明变量的位置和使用变量的位置应该尽可能邻近</p>
 <p>除了for循环之外,简短声明还可以在if语句 switch语句中使用</p>
 <h5 id="作用域的范围">作用域的范围</h5>
@@ -717,30 +717,30 @@ just so so
 <p>长了就被截断了truncate</p>
 <p>如果用户给定的宽度比打印实数所需的字符数量要大,那么将使用空格填出输出的左侧</p>
 <p>如果想使用0而不是空格来填充输出的左侧,在宽度前面加上一个0即可</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-
-   <span class="nx">third</span><span class="o">:=</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">3</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">third</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%.3f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%4.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%5.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%05.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">0.3333333333333333
-0.3333333333333333
-0.333333
-0.333
-0.33
- 0.33
-00.33
-</code></pre></div><h5 id="浮点数的精确性">浮点数的精确性</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="nx">third</span><span class="o">:=</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%.3f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%4.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%5.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%05.2f\n&#34;</span><span class="p">,</span><span class="nx">third</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">0.3333333333333333
+</span></span><span class="line"><span class="cl">0.3333333333333333
+</span></span><span class="line"><span class="cl">0.333333
+</span></span><span class="line"><span class="cl">0.333
+</span></span><span class="line"><span class="cl">0.33
+</span></span><span class="line"><span class="cl"> 0.33
+</span></span><span class="line"><span class="cl">00.33
+</span></span></code></pre></div><h5 id="浮点数的精确性">浮点数的精确性</h5>
 <p>浮点数计算经常会受到舍入错误的影响.为了尽可能减少舍入错误,我们可以将乘法放到出除法的前面执行,类似数值分析防止误差放大.</p>
 <h5 id="比较浮点数">比较浮点数</h5>
 <p>为了避免舍入错误,我们不直接比较两个浮点数,而是计算他们之间的差,是否足够小来判断两个浮点数是否相等.因为我们可以使用math包提供的Abs函数来计算绝对值</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">)&lt;</span><span class="mf">0.0001</span><span class="p">)</span>
-</code></pre></div><p>**提示:	**引发浮点数错误的上限值被称为机械最小值,float64是2^-52,float32是2^-23.不幸的是,浮点数错误累积的相当快,因为为了对浮点数进行比较,必须想上列中设定的0.0001那样,根据自己的应用选择一个合适的容差.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">)&lt;</span><span class="mf">0.0001</span><span class="p">)</span>
+</span></span></code></pre></div><p>**提示:	**引发浮点数错误的上限值被称为机械最小值,float64是2^-52,float32是2^-23.不幸的是,浮点数错误累积的相当快,因为为了对浮点数进行比较,必须想上列中设定的0.0001那样,根据自己的应用选择一个合适的容差.</p>
 <h5 id="小结-4">小结</h5>
 <ul>
 <li>浮点类型的应用范围非常广,但是她的精确性在某些情况下是值得商榷的.</li>
@@ -809,37 +809,37 @@ just so so
 <p>**注意:	**int不是任何类型的别名,int int32和int64实际上是三种不同的类型</p>
 <h5 id="了解类型">了解类型</h5>
 <p>可以使用printf函数提供的格式化变量%T去查看指定变量的类型</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">	<span class="c1">//复用格式化变量
-</span><span class="c1"></span>	<span class="nx">day</span> <span class="o">:=</span> <span class="mi">365</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;one year has %05d days , day is %[1]T type \n&#34;</span><span class="p">,</span> <span class="nx">day</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;day is %T type , one year has %05[1]d days\n&#34;</span><span class="p">,</span> <span class="nx">day</span><span class="p">)</span>
-</code></pre></div><p>我们可以将[1]添加到第二个格式化变量%v中,以此来复用第一个格式化变量的值,从而避免代码重复.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">one year has <span class="m">00365</span> days , day is int <span class="nb">type</span> 
-day is int <span class="nb">type</span> , one year has <span class="m">00365</span> days
-</code></pre></div><h5 id="十六进制数">十六进制数</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">	<span class="c1">//复用格式化变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">day</span> <span class="o">:=</span> <span class="mi">365</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;one year has %05d days , day is %[1]T type \n&#34;</span><span class="p">,</span> <span class="nx">day</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;day is %T type , one year has %05[1]d days\n&#34;</span><span class="p">,</span> <span class="nx">day</span><span class="p">)</span>
+</span></span></code></pre></div><p>我们可以将[1]添加到第二个格式化变量%v中,以此来复用第一个格式化变量的值,从而避免代码重复.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">one year has <span class="m">00365</span> days , day is int <span class="nb">type</span> 
+</span></span><span class="line"><span class="cl">day is int <span class="nb">type</span> , one year has <span class="m">00365</span> days
+</span></span></code></pre></div><h5 id="十六进制数">十六进制数</h5>
 <p>十进制对于拥有十根手指的人类来说是一种非常棒的数字系统,但与之相比,十六进制更适合计算机.因为一个十六进制需要消耗4个二进制位,也就是半字节byte,而2个十六进制数则正好需要消耗8个二进制位,也就是1字节.</p>
 <p>go语言要求十六进制数字必须带有0x前缀.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">red</span> <span class="p">,</span> <span class="nx">green</span> <span class="p">,</span> <span class="nx">blue</span> <span class="nx">unit8</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">141</span><span class="p">,</span><span class="mi">213</span>
-<span class="kd">var</span> <span class="nx">red</span> <span class="p">,</span> <span class="nx">green</span> <span class="p">,</span> <span class="nx">bule</span> <span class="nx">unit8</span> <span class="p">=</span> <span class="mh">0x00</span> <span class="p">,</span> <span class="mh">0x8d</span> <span class="p">,</span> <span class="mh">0xd5</span>  <span class="c1">//这两都一样的
-</span></code></pre></div><p>在使用printf函数打印十六进制数字的时候,你可以使用%x或者%X作为格式化变量:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//十六进制打印成二进制
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%05b \n&#34;</span><span class="p">,</span> <span class="mh">0xa</span><span class="p">)</span>
-</code></pre></div><p>为了能够完美适配层叠样式表文件的颜色和数字,我们需要用到格式化变量%2x.和之前一样0表示用0填充,2表示宽度为2.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;color: #%02x%02x%02x;&#34;</span><span class="p">,</span><span class="nx">red</span><span class="p">,</span><span class="nx">green</span><span class="p">,</span><span class="nx">blue</span><span class="p">)</span> <span class="c1">//打印出&#34;color: #008dd5&#34;
-</span></code></pre></div><h5 id="整数回绕">整数回绕</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">red</span> <span class="p">,</span> <span class="nx">green</span> <span class="p">,</span> <span class="nx">blue</span> <span class="nx">unit8</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">141</span><span class="p">,</span><span class="mi">213</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">red</span> <span class="p">,</span> <span class="nx">green</span> <span class="p">,</span> <span class="nx">bule</span> <span class="nx">unit8</span> <span class="p">=</span> <span class="mh">0x00</span> <span class="p">,</span> <span class="mh">0x8d</span> <span class="p">,</span> <span class="mh">0xd5</span>  <span class="c1">//这两都一样的
+</span></span></span></code></pre></div><p>在使用printf函数打印十六进制数字的时候,你可以使用%x或者%X作为格式化变量:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//十六进制打印成二进制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%05b \n&#34;</span><span class="p">,</span> <span class="mh">0xa</span><span class="p">)</span>
+</span></span></code></pre></div><p>为了能够完美适配层叠样式表文件的颜色和数字,我们需要用到格式化变量%2x.和之前一样0表示用0填充,2表示宽度为2.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;color: #%02x%02x%02x;&#34;</span><span class="p">,</span><span class="nx">red</span><span class="p">,</span><span class="nx">green</span><span class="p">,</span><span class="nx">blue</span><span class="p">)</span> <span class="c1">//打印出&#34;color: #008dd5&#34;
+</span></span></span></code></pre></div><h5 id="整数回绕">整数回绕</h5>
 <p>整数类型虽然不会像浮点类型那样因为舍入错误而导致不精确,但它也有自己的局限.那就是有限的取值范围.</p>
 <p>在go中,当超过整数类型的取值范围时,会出现整数回绕wrap around现象.</p>
 <p>例如uint8=255 255+1=&gt;0 int8=127 127+1=&gt;-128</p>
 <h5 id="聚焦二进制位">聚焦二进制位</h5>
 <p>同样的,使用格式化变量%b,且可以选择启用零填充并指定格式化输出的最小长度。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%08b\n&#34;</span><span class="p">,</span> <span class="nx">green</span><span class="p">)</span>   <span class="c1">//00000011
-</span></code></pre></div><p>由于int类型和uint类型的位长在不同硬件上可能会有所不同,因此math包没有定义这两种类型的最大值常量和最小值常量.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%08b\n&#34;</span><span class="p">,</span> <span class="nx">green</span><span class="p">)</span>   <span class="c1">//00000011
+</span></span></span></code></pre></div><p>由于int类型和uint类型的位长在不同硬件上可能会有所不同,因此math包没有定义这两种类型的最大值常量和最小值常量.</p>
 <h5 id="避免时间回绕">避免时间回绕</h5>
 <p>基于unix的操作系统都使用协调世界时UTC 1970.1.1以来的秒数来表示时间,但这个秒数在2038年将超过20亿,大致相当于int32类型的最大值.幸运的是,这个问题可以通过使用64位整数来解决,使用int64或uint64都可以存储&gt;20亿的数字.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//使用int64解决int32只能表示到2038年的问题
-</span><span class="c1"></span><span class="nx">unix</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="mi">12622780800</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unix</span><span class="p">)</span>
-</code></pre></div><h5 id="小结-5">小结</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//使用int64解决int32只能表示到2038年的问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">unix</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="mi">12622780800</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unix</span><span class="p">)</span>
+</span></span></code></pre></div><h5 id="小结-5">小结</h5>
 <ul>
 <li>除非回绕正是你所需要的,否则就应该谨慎的选择合适的整数类型以避免回绕.</li>
 </ul>
@@ -853,9 +853,9 @@ day is int <span class="nb">type</span> , one year has <span class="m">00365</sp
 <h5 id="请考虑这一点-1">请考虑这一点</h5>
 <p>CPU都会为整数运算和浮点数运算提供优化,并且这种优化有时候也适用于其他数值表示.</p>
 <h5 id="指数形式写法">指数形式写法</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//利用指数来减少0的键入次数  
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="mf">10e2</span><span class="p">)</span>  <span class="c1">//1000
-</span></code></pre></div><p><strong>如果</strong>:如果用户没有显式的为包含指数的数值变量指定类型,那么go将推断其类型为float64</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//利用指数来减少0的键入次数  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="mf">10e2</span><span class="p">)</span>  <span class="c1">//1000
+</span></span></span></code></pre></div><p><strong>如果</strong>:如果用户没有显式的为包含指数的数值变量指定类型,那么go将推断其类型为float64</p>
 <h5 id="big包">big包</h5>
 <ul>
 <li>big.Int</li>
@@ -863,41 +863,41 @@ day is int <span class="nb">type</span> , one year has <span class="m">00365</sp
 <li>big.Rat  存储1/3</li>
 </ul>
 <p>一旦决定使用big.Int,就需要在等式的每个部分都是用这种类型,即使对于已经存在的常量来说也是如此.big.Int类型的最基本的方法就是使用NewInt函数,函数接受一个int64类型的值作为输入,返回一个big.Int类型的值作为输出.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">newInt</span> <span class="o">:=</span> <span class="nx">big</span><span class="p">.</span><span class="nf">NewInt</span><span class="p">(</span><span class="mi">240000000</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">newInt</span><span class="p">)</span>
-</code></pre></div><p>此外,对于&gt;int64取值范围的数字,我们可以通过给定一个string来创建响应的big.Int类型的值</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//大数
-</span><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="p">)</span>
-<span class="nx">b</span><span class="p">.</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;2400000000&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
-</code></pre></div><p>因为数值是基于十进制的,所以第二个参数是10</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">newInt</span> <span class="o">:=</span> <span class="nx">big</span><span class="p">.</span><span class="nf">NewInt</span><span class="p">(</span><span class="mi">240000000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">newInt</span><span class="p">)</span>
+</span></span></code></pre></div><p>此外,对于&gt;int64取值范围的数字,我们可以通过给定一个string来创建响应的big.Int类型的值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//大数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span><span class="p">.</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;2400000000&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</span></span></code></pre></div><p>因为数值是基于十进制的,所以第二个参数是10</p>
 <p>**注意:	**方法跟函数非常相似,至于内置函数new则是为指针而设的.</p>
 <p>可以使用Div方法去执行相应的除法操作</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//大数
-</span><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="p">)</span>
-<span class="nx">b</span><span class="p">.</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;2400000000&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
-
-<span class="nx">newInt</span> <span class="o">:=</span> <span class="nx">big</span><span class="p">.</span><span class="nf">NewInt</span><span class="p">(</span><span class="mi">240000000</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">newInt</span><span class="p">)</span>
-
-<span class="nx">b</span><span class="p">.</span><span class="nf">Div</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">newInt</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>   <span class="c1">//10
-</span></code></pre></div><p>正如所示,big.Int这样的大类型虽然能够精确地表示任意大小的数值,但代价是用起来比int/float等原生类型要麻烦,而且运行速度也会相对较慢.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//大数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span><span class="p">.</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;2400000000&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">newInt</span> <span class="o">:=</span> <span class="nx">big</span><span class="p">.</span><span class="nf">NewInt</span><span class="p">(</span><span class="mi">240000000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">newInt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">b</span><span class="p">.</span><span class="nf">Div</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">newInt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>   <span class="c1">//10
+</span></span></span></code></pre></div><p>正如所示,big.Int这样的大类型虽然能够精确地表示任意大小的数值,但代价是用起来比int/float等原生类型要麻烦,而且运行速度也会相对较慢.</p>
 <h5 id="大小非同寻常的常量">大小非同寻常的常量</h5>
 <p>常量声明可以跟变量声明一样带有类型,但常量也无法用uint64来表示巨大的数值</p>
 <p>所以go语言在处理常量时的做法与处理变量时的做法并不相同.go语言不会为常量推断类型,而是直接将其标识为无类型untyped,这样就不会引发溢出错误.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">const</span> <span class="nx">name</span> <span class="p">=</span> <span class="mi">1</span> <span class="c1">//不会自动推断类型 类型是untyped
-</span><span class="c1">//字面量和常量底层将由big包提供支持 不会为常量和字面量推断类型
-</span><span class="c1">//常量和bigint无法转换
-</span><span class="c1"></span>
-<span class="kd">const</span> <span class="nx">distance</span> <span class="p">=</span> <span class="mi">236000000000000000</span>
-<span class="kd">const</span> <span class="nx">guangnian</span> <span class="p">=</span> <span class="mi">100000000</span>
-<span class="c1">//b2 := new(big.Int)
-</span><span class="c1">//setString, _ := b2.SetString(&#34;236000000000000000&#34;, 10)
-</span><span class="c1">//setString.Div(setString,guangnian)
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">distance</span> <span class="o">/</span> <span class="nx">guangnian</span><span class="p">)</span>
-</code></pre></div><p>常量通过关键字const来进行声明,除此之外,程序里的每个字面量值literal value也都是常量.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">name</span> <span class="p">=</span> <span class="mi">1</span> <span class="c1">//不会自动推断类型 类型是untyped
+</span></span></span><span class="line"><span class="cl"><span class="c1">//字面量和常量底层将由big包提供支持 不会为常量和字面量推断类型
+</span></span></span><span class="line"><span class="cl"><span class="c1">//常量和bigint无法转换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">distance</span> <span class="p">=</span> <span class="mi">236000000000000000</span>
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">guangnian</span> <span class="p">=</span> <span class="mi">100000000</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//b2 := new(big.Int)
+</span></span></span><span class="line"><span class="cl"><span class="c1">//setString, _ := b2.SetString(&#34;236000000000000000&#34;, 10)
+</span></span></span><span class="line"><span class="cl"><span class="c1">//setString.Div(setString,guangnian)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">distance</span> <span class="o">/</span> <span class="nx">guangnian</span><span class="p">)</span>
+</span></span></code></pre></div><p>常量通过关键字const来进行声明,除此之外,程序里的每个字面量值literal value也都是常量.</p>
 <p>因为go的编译器就是用go语言编写的,并且在底层实现中,无类型的数值常量将由big包提供支持.</p>
 <p>变量也可以使用常量作为值,只要变量的大小能够容纳常量即可.</p>
 <p>尽管go编译器使用big包处理无类型的数值常量,但常量和big.Int值是无法互换的</p>
@@ -912,120 +912,120 @@ day is int <span class="nb">type</span> , one year has <span class="m">00365</sp
 <h5 id="原始字符串字面量">原始字符串字面量</h5>
 <p>字符串字面量可以包含转义字符,可以使用反引号`而不是双引号来包围文本</p>
 <p>原始字符串字面量可以在代码里跨越多个文本行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//使用反引号包围的叫做原始字符字面量
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hello world \t\t&#34;</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">`hello world \t\t`</span><span class="p">)</span>
-</code></pre></div><h5 id="字符代码点符文和字节">字符/代码点/符文和字节</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//使用反引号包围的叫做原始字符字面量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hello world \t\t&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">`hello world \t\t`</span><span class="p">)</span>
+</span></span></code></pre></div><h5 id="字符代码点符文和字节">字符/代码点/符文和字节</h5>
 <p>go语言提供了rune(符文)类型,该类型是int32的别名,此外go语言还提供了uint8类型的别名byte,这种类型可以很好地表示二进制数据,也可以表示ASCII的英文字符,刚好128个</p>
 <p>**类型别名:	**因为类型别名实际上就是同一类型的不同名字,所以rune和int32是可以互换的,当然,用户也可以自行声明类型别名</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="kt">byte</span> <span class="p">=</span> <span class="kt">uint8</span>
-</code></pre></div><p>使用格式化变量%c来打印字符而不是数字本身</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="mi">128515</span><span class="p">)</span>
-<span class="kd">var</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">65</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="kt">rune</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="sc">&#39;😃&#39;</span><span class="p">)))</span> <span class="c1">//这样不行 只能给string进行转换成int 比如&#34;110&#34;-&gt;110
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d\n&#34;</span><span class="p">,</span> <span class="sc">&#39;😃&#39;</span><span class="p">)</span>           
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">A
-😃
-A0 strconv.Atoi: parsing <span class="s2">&#34;😃&#34;</span>: invalid syntax
-<span class="m">128515</span>
-</code></pre></div><p>**提示:	**虽然任意一种整数类型都可以使用格式化变量%c,但是通过使用别名rune可以表明数字960的用途是用来表示字符的,而不是用来表示数字.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="kt">byte</span> <span class="p">=</span> <span class="kt">uint8</span>
+</span></span></code></pre></div><p>使用格式化变量%c来打印字符而不是数字本身</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="mi">128515</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">65</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n%c&#34;</span><span class="p">,</span> <span class="kt">rune</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="sc">&#39;😃&#39;</span><span class="p">)))</span> <span class="c1">//这样不行 只能给string进行转换成int 比如&#34;110&#34;-&gt;110
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d\n&#34;</span><span class="p">,</span> <span class="sc">&#39;😃&#39;</span><span class="p">)</span>           
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">A
+</span></span><span class="line"><span class="cl">😃
+</span></span><span class="line"><span class="cl">A0 strconv.Atoi: parsing <span class="s2">&#34;😃&#34;</span>: invalid syntax
+</span></span><span class="line"><span class="cl"><span class="m">128515</span>
+</span></span></code></pre></div><p>**提示:	**虽然任意一种整数类型都可以使用格式化变量%c,但是通过使用别名rune可以表明数字960的用途是用来表示字符的,而不是用来表示数字.</p>
 <p>go提供了相应的字符字面量句法,用户只需要向&rsquo;A&rsquo;这样使用单引号将字符包围起来,就可以取得该字符的代码点.如果用户声明了一个字符字面量却没有为其指定类型,那么go将推断该变量的类型为rune</p>
 <p>虽然rune类型代表的是一个字符,但它实际上存储的仍然是数字值.</p>
 <h5 id="字符串操作">字符串操作</h5>
 <p>go的字符串并不容易被操纵.我们可以将不同字符串赋值给同一个变量,但是无法对字符串本身进行修改</p>
 <p>可以通过方括号[]指定指向字符串的索引,但是不能修改这些字符</p>
 <p>Ruby中的字符串和C的字符数组允许被修改,而go中的字符串与python/java/js中的字符串一样,都是不可变的,你不能修改go中的字符串.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;shalom&#34;</span>
-<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="sc">&#39;A&#39;</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c\n&#34;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="o">+</span><span class="mi">3</span><span class="o">-</span><span class="mi">26</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">115</span>
-<span class="m">104</span>
-<span class="m">97</span>
-<span class="m">108</span>
-<span class="m">111</span>
-<span class="m">109</span>
--32
-a
-</code></pre></div><h5 id="将字符串解码为符文">将字符串解码为符文</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;shalom&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="sc">&#39;A&#39;</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c\n&#34;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="o">+</span><span class="mi">3</span><span class="o">-</span><span class="mi">26</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">115</span>
+</span></span><span class="line"><span class="cl"><span class="m">104</span>
+</span></span><span class="line"><span class="cl"><span class="m">97</span>
+</span></span><span class="line"><span class="cl"><span class="m">108</span>
+</span></span><span class="line"><span class="cl"><span class="m">111</span>
+</span></span><span class="line"><span class="cl"><span class="m">109</span>
+</span></span><span class="line"><span class="cl">-32
+</span></span><span class="line"><span class="cl">a
+</span></span></code></pre></div><h5 id="将字符串解码为符文">将字符串解码为符文</h5>
 <p>以往我们访问字符串通常都是访问字符串的每个字节(8位),但是没有考虑到各个字符可能会由多个字节组成(如16位或32位),例如中文/韩文/日语等.所以处理字符串前,先将他们解码为rune类型,也就是4字节32位.</p>
 <p>**注意:	**go语言和很多编程语言不同的一点在于,go允许函数返回多个值</p>
 <p>forrange关键字可以迭代各种不同的收集器,还可以解码UTF-8编码的字符串,而fori就不行.</p>
 <p>不需要某个返回值的时候,使用_来省略即可.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//forrange可以解析UTF-8的编码 所以这里遍历是没有问题的
-</span><span class="c1"></span><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="s">&#34;镜中花,水中月&#34;</span> <span class="p">{</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %[1]T \n&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">//fori不能解析UTF-8编码 求len的时候就已经出问题了
-</span><span class="c1"></span><span class="nx">shi</span> <span class="o">:=</span> <span class="s">&#34;镜中花,水中月&#34;</span>
-<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">shi</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %[1]T \n&#34;</span><span class="p">,</span> <span class="nx">shi</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-<span class="p">}</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">&#34;镜中花,水中月&#34;</span><span class="p">))</span> <span class="c1">//len返回的是字符串占位的字节长度 这里返回19
-</span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">镜 int32
-中 int32
-花 int32
-, int32
-水 int32
-中 int32
-月 int32
-é uint8
-
-
-ä uint8
-¸ uint8
-­ uint8
-è uint8
-
-± uint8
-, uint8
-æ uint8
-° uint8
-´ uint8
-ä uint8
-¸ uint8
-­ uint8
-æ uint8
-
-
-
-<span class="m">19</span>
-</code></pre></div><p>此外,可以使用utf8包的函数来处理字符串</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">//使用utf8包和函数
-</span><span class="c1">//解析第一个字占几字节  具体值是多少
-</span><span class="c1"></span><span class="nx">decodeRune</span><span class="p">,</span> <span class="nx">size</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRune</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">shi</span><span class="p">))</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c \n&#34;</span><span class="p">,</span> <span class="nx">decodeRune</span><span class="p">)</span>
-<span class="c1">//查看一共解析了几个字
-</span><span class="c1"></span><span class="nx">inString</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">RuneCountInString</span><span class="p">(</span><span class="nx">shi</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">inString</span><span class="p">)</span>
-<span class="c1">//解析第一个字占几字节  具体值是多少
-</span><span class="c1"></span><span class="nx">runeInString</span><span class="p">,</span> <span class="nx">size1</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="nx">shi</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %d bytes\n&#34;</span><span class="p">,</span> <span class="nx">runeInString</span><span class="p">,</span> <span class="nx">size1</span><span class="p">)</span>
-
-<span class="nx">s3</span> <span class="o">:=</span> <span class="s">&#34;abcdefghijklmnopqrstuvwxyz&#34;</span>
-<span class="nx">decodeRuneInString</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="nx">s3</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">decodeRuneInString</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-
-<span class="c1">//判断它占了几个字节
-</span><span class="c1"></span><span class="nx">r</span><span class="p">,</span> <span class="nx">size2</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="s">&#34;¿&#34;</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="nx">size2</span><span class="p">)</span>
-
-<span class="c1">//go使用UTF-8可变长度编码,每个字符根据需要占用1-4个字节的内存空间
-</span><span class="c1">//可能会问fori和forr的区别吧
-</span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">3</span>
-镜
-<span class="m">7</span>
-镜 <span class="m">3</span> bytes
-<span class="m">97</span>   <span class="m">1</span>
-<span class="m">191</span>   <span class="m">2</span>
-</code></pre></div><h5 id="小结-7">小结</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//forrange可以解析UTF-8的编码 所以这里遍历是没有问题的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="s">&#34;镜中花,水中月&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %[1]T \n&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//fori不能解析UTF-8编码 求len的时候就已经出问题了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">shi</span> <span class="o">:=</span> <span class="s">&#34;镜中花,水中月&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">shi</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %[1]T \n&#34;</span><span class="p">,</span> <span class="nx">shi</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">&#34;镜中花,水中月&#34;</span><span class="p">))</span> <span class="c1">//len返回的是字符串占位的字节长度 这里返回19
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">镜 int32
+</span></span><span class="line"><span class="cl">中 int32
+</span></span><span class="line"><span class="cl">花 int32
+</span></span><span class="line"><span class="cl">, int32
+</span></span><span class="line"><span class="cl">水 int32
+</span></span><span class="line"><span class="cl">中 int32
+</span></span><span class="line"><span class="cl">月 int32
+</span></span><span class="line"><span class="cl">é uint8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ä uint8
+</span></span><span class="line"><span class="cl">¸ uint8
+</span></span><span class="line"><span class="cl">­ uint8
+</span></span><span class="line"><span class="cl">è uint8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">± uint8
+</span></span><span class="line"><span class="cl">, uint8
+</span></span><span class="line"><span class="cl">æ uint8
+</span></span><span class="line"><span class="cl">° uint8
+</span></span><span class="line"><span class="cl">´ uint8
+</span></span><span class="line"><span class="cl">ä uint8
+</span></span><span class="line"><span class="cl">¸ uint8
+</span></span><span class="line"><span class="cl">­ uint8
+</span></span><span class="line"><span class="cl">æ uint8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">19</span>
+</span></span></code></pre></div><p>此外,可以使用utf8包的函数来处理字符串</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//使用utf8包和函数
+</span></span></span><span class="line"><span class="cl"><span class="c1">//解析第一个字占几字节  具体值是多少
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">decodeRune</span><span class="p">,</span> <span class="nx">size</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRune</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">shi</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c \n&#34;</span><span class="p">,</span> <span class="nx">decodeRune</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//查看一共解析了几个字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">inString</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">RuneCountInString</span><span class="p">(</span><span class="nx">shi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">inString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//解析第一个字占几字节  具体值是多少
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">runeInString</span><span class="p">,</span> <span class="nx">size1</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="nx">shi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %d bytes\n&#34;</span><span class="p">,</span> <span class="nx">runeInString</span><span class="p">,</span> <span class="nx">size1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">s3</span> <span class="o">:=</span> <span class="s">&#34;abcdefghijklmnopqrstuvwxyz&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">decodeRuneInString</span><span class="p">,</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="nx">s3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">decodeRuneInString</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//判断它占了几个字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">r</span><span class="p">,</span> <span class="nx">size2</span> <span class="o">:=</span> <span class="nx">utf8</span><span class="p">.</span><span class="nf">DecodeRuneInString</span><span class="p">(</span><span class="s">&#34;¿&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="nx">size2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//go使用UTF-8可变长度编码,每个字符根据需要占用1-4个字节的内存空间
+</span></span></span><span class="line"><span class="cl"><span class="c1">//可能会问fori和forr的区别吧
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">3</span>
+</span></span><span class="line"><span class="cl">镜
+</span></span><span class="line"><span class="cl"><span class="m">7</span>
+</span></span><span class="line"><span class="cl">镜 <span class="m">3</span> bytes
+</span></span><span class="line"><span class="cl"><span class="m">97</span>   <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="m">191</span>   <span class="m">2</span>
+</span></span></code></pre></div><h5 id="小结-7">小结</h5>
 <ul>
 <li>使用反引号` 可以包围原始字符串字面量,像\n这样的转义字符将原样保留</li>
 <li>字符串是不可变的,可以独立访问字符串中的每个字符,但是不能修改他们</li>
@@ -1051,28 +1051,28 @@ a
 <p>之所以go希望我们进行显式的类型转换,就是让我们三思而后行,思考类型转换可能引发的后果.</p>
 <p>例如整数类型变量转化的时候会不会出现数值过大产生回绕行为.</p>
 <p>我们可以通过math包提供的最小常量和最大常量,来检测值的转换是否得到了无效值.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">	<span class="kd">var</span> <span class="nx">bh</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">32768</span>
-	<span class="k">if</span> <span class="nx">bh</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt16</span> <span class="o">||</span> <span class="nx">bh</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MinInt16</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">bh</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt16</span> <span class="o">||</span> <span class="nx">bh</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MinInt16</span><span class="p">)</span>
-	<span class="p">}</span>
-</code></pre></div><p>**注意:	**因为math包提供的最小常量和最大常量都是无类型的,所以程序可以直接使用浮点数bh去跟整数maxint16做比较.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">bh</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">32768</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">bh</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt16</span> <span class="o">||</span> <span class="nx">bh</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MinInt16</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">bh</span> <span class="p">&gt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt16</span> <span class="o">||</span> <span class="nx">bh</span> <span class="p">&lt;</span> <span class="nx">math</span><span class="p">.</span><span class="nx">MinInt16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span></code></pre></div><p>**注意:	**因为math包提供的最小常量和最大常量都是无类型的,所以程序可以直接使用浮点数bh去跟整数maxint16做比较.</p>
 <h5 id="字符串转换">字符串转换</h5>
 <p>将rune或者byte转换为string,和使用格式化变量%c将符文和字节显示成字符得到的结果是一样的</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">pi</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">960</span>
-<span class="kd">var</span> <span class="nx">alpha</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">940</span>
-<span class="kd">var</span> <span class="nx">omega</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">969</span>
-<span class="kd">var</span> <span class="nx">bang</span> <span class="kt">byte</span> <span class="p">=</span> <span class="mi">33</span>
-<span class="c1">//直接对数字执行string 不会把33=&gt;&#34;33&#34; 而是会把33代表的字符char找出来
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">pi</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">alpha</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">omega</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">bang</span><span class="p">))</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %c %c %c \n&#34;</span><span class="p">,</span> <span class="nx">pi</span><span class="p">,</span> <span class="nx">alpha</span><span class="p">,</span> <span class="nx">omega</span><span class="p">,</span> <span class="nx">bang</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">π ά ω !
-π ά ω !   
-</code></pre></div><p>如前所述,数字代码点转换为字符串的方法实际山适用于所有整数类型</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">countdown</span> <span class="o">:=</span> <span class="mi">10</span>
-<span class="c1">//将数字直接变成字符串 而不是char 使用itoa或者sprint
-</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;launch in T minus &#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">countdown</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34; seconds.&#34;</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;launch in T minus &#34;</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">countdown</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34; seconds.&#34;</span><span class="p">)</span>
-</code></pre></div><p>另外,如果我们需要把字符串转换为数值,那么可以使用strconv包提供的atoi函数.需要注意的是,因为字符串里面可能含有无法转换为数字的奇怪文字,或者非常大以至于无法用整数类型表示的数字,那么atoi会返回一个错误,我们需要对错误进行处理.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">pi</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">960</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">alpha</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">940</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">omega</span> <span class="kt">rune</span> <span class="p">=</span> <span class="mi">969</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">bang</span> <span class="kt">byte</span> <span class="p">=</span> <span class="mi">33</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//直接对数字执行string 不会把33=&gt;&#34;33&#34; 而是会把33代表的字符char找出来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">pi</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">alpha</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">omega</span><span class="p">),</span> <span class="nb">string</span><span class="p">(</span><span class="nx">bang</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c %c %c %c \n&#34;</span><span class="p">,</span> <span class="nx">pi</span><span class="p">,</span> <span class="nx">alpha</span><span class="p">,</span> <span class="nx">omega</span><span class="p">,</span> <span class="nx">bang</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">π ά ω !
+</span></span><span class="line"><span class="cl">π ά ω !   
+</span></span></code></pre></div><p>如前所述,数字代码点转换为字符串的方法实际山适用于所有整数类型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">countdown</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//将数字直接变成字符串 而不是char 使用itoa或者sprint
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;launch in T minus &#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">countdown</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34; seconds.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;launch in T minus &#34;</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">countdown</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34; seconds.&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>另外,如果我们需要把字符串转换为数值,那么可以使用strconv包提供的atoi函数.需要注意的是,因为字符串里面可能含有无法转换为数字的奇怪文字,或者非常大以至于无法用整数类型表示的数字,那么atoi会返回一个错误,我们需要对错误进行处理.</p>
 <h5 id="静态类型">静态类型</h5>
 <p>在go中,变量一旦被声明,就有了类型并且无法改变它的类型,这种机制成为静态类型.尝试在go中使用同一个变量操纵多个不同类型的值,将引发go编译器报告错误.</p>
 <p>与静态类型相反,js/python/ruby等语言都采用了名为动态类型的机制.</p>

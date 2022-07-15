@@ -2,18 +2,26 @@
 <html lang="en-us">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Git学习文档 学习git之前，我们需要先明白一个概念，版本控制！
-版本控制  什么是版本控制 版本迭代 版本管理器
- 版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
- 实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误  简单说就是用于管理多人协同开发项目的技术。
+版本控制 什么是版本控制 版本迭代 版本管理器
+版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
+实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误 简单说就是用于管理多人协同开发项目的技术。
 没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将引入很多问题，如关键代码的冗余，软件过程的事物性，软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。
 多人开发就必须要使用版本控制，否则代价比较大
- 常见的版本控制工具
- 主流的版本控制器有如下这些：
- Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online  版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
- 版本控制分类
-   本地版本控制
+常见的版本控制工具
+主流的版本控制器有如下这些：
+Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online 版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
+版本控制分类
+本地版本控制
 记录文件每次的更新，可以对每个版本做一个快照，或者记录补丁文件，适合个人用，如RCS
-image-20210722211743148'><title>git学习文档</title>
+image-20210722211743148集中版本控制
+所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改
+image-20210722211927845所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品有：SVN、CVS、VSS
+分布版本控制 “GIT”
+每个人都拥有全部的代码 安全隐患
+所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题，就可以恢复所有的数据，但这增加了本地存储空间的占用
+不会因为服务器损坏或者网络问题，造成不能工作的情况！
+image-20210722212449100git和svn最主要区别
+svn是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所有首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要吧自己做完的推送到中央服务器。集中式版本控制是必须连网才能工作，对网络带宽要求较高。'><title>git学习文档</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/git%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 
@@ -117,36 +125,52 @@
                    "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
                     </script><meta property='og:title' content='git学习文档'>
 <meta property='og:description' content='Git学习文档 学习git之前，我们需要先明白一个概念，版本控制！
-版本控制  什么是版本控制 版本迭代 版本管理器
- 版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
- 实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误  简单说就是用于管理多人协同开发项目的技术。
+版本控制 什么是版本控制 版本迭代 版本管理器
+版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
+实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误 简单说就是用于管理多人协同开发项目的技术。
 没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将引入很多问题，如关键代码的冗余，软件过程的事物性，软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。
 多人开发就必须要使用版本控制，否则代价比较大
- 常见的版本控制工具
- 主流的版本控制器有如下这些：
- Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online  版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
- 版本控制分类
-   本地版本控制
+常见的版本控制工具
+主流的版本控制器有如下这些：
+Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online 版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
+版本控制分类
+本地版本控制
 记录文件每次的更新，可以对每个版本做一个快照，或者记录补丁文件，适合个人用，如RCS
-image-20210722211743148'>
+image-20210722211743148集中版本控制
+所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改
+image-20210722211927845所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品有：SVN、CVS、VSS
+分布版本控制 “GIT”
+每个人都拥有全部的代码 安全隐患
+所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题，就可以恢复所有的数据，但这增加了本地存储空间的占用
+不会因为服务器损坏或者网络问题，造成不能工作的情况！
+image-20210722212449100git和svn最主要区别
+svn是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所有首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要吧自己做完的推送到中央服务器。集中式版本控制是必须连网才能工作，对网络带宽要求较高。'>
 <meta property='og:url' content='https://linjianshu.github.io/p/git%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-24T16:18:59&#43;08:00'/><meta property='article:modified_time' content='2021-07-24T16:18:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
 <meta name="twitter:site" content="@ljsljs56495989">
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="git学习文档">
 <meta name="twitter:description" content="Git学习文档 学习git之前，我们需要先明白一个概念，版本控制！
-版本控制  什么是版本控制 版本迭代 版本管理器
- 版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
- 实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误  简单说就是用于管理多人协同开发项目的技术。
+版本控制 什么是版本控制 版本迭代 版本管理器
+版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
+实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误 简单说就是用于管理多人协同开发项目的技术。
 没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将引入很多问题，如关键代码的冗余，软件过程的事物性，软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。
 多人开发就必须要使用版本控制，否则代价比较大
- 常见的版本控制工具
- 主流的版本控制器有如下这些：
- Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online  版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
- 版本控制分类
-   本地版本控制
+常见的版本控制工具
+主流的版本控制器有如下这些：
+Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online 版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
+版本控制分类
+本地版本控制
 记录文件每次的更新，可以对每个版本做一个快照，或者记录补丁文件，适合个人用，如RCS
-image-20210722211743148"><meta name="twitter:card" content="summary_large_image">
+image-20210722211743148集中版本控制
+所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改
+image-20210722211927845所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品有：SVN、CVS、VSS
+分布版本控制 “GIT”
+每个人都拥有全部的代码 安全隐患
+所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题，就可以恢复所有的数据，但这增加了本地存储空间的占用
+不会因为服务器损坏或者网络问题，造成不能工作的情况！
+image-20210722212449100git和svn最主要区别
+svn是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所有首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要吧自己做完的推送到中央服务器。集中式版本控制是必须连网才能工作，对网络带宽要求较高。"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -372,8 +396,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%B8%8E%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="background-color: #CC00FF; color: #fff;">
-                工具与中间件
+            <a href="/categories/-%E5%B7%A5%E5%85%B7%E4%B8%8E%E4%B8%AD%E9%97%B4%E4%BB%B6/" >
+                -工具与中间件
             </a>
         
     </header>
@@ -560,7 +584,7 @@
 <li>history查看命令历史</li>
 <li>help帮助</li>
 <li>exit 退出</li>
-<li>#''  表示注释</li>
+<li>#&rsquo;&rsquo;  表示注释</li>
 </ol>
 <p>平时一定要多使用这些命令</p>
 <blockquote>
@@ -693,16 +717,16 @@
 </blockquote>
 <p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库</p>
 <p>1.创建全新的仓库，需要用git管理的项目的根目录执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 在当前目录新建一个git代码库</span>
-$ git init
-</code></pre></div><p>2.执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 在当前目录新建一个git代码库</span>
+</span></span><span class="line"><span class="cl">$ git init
+</span></span></code></pre></div><p>2.执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
 <blockquote>
 <p>克隆远程仓库</p>
 </blockquote>
 <p>1.另一种方式是克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地！</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 克隆一个项目和它的整个代码历史（版本信息）</span>
- git clone <span class="o">[</span>url<span class="o">]</span>
-</code></pre></div><p>2.去gitee或者github上克隆一个试试看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 克隆一个项目和它的整个代码历史（版本信息）</span>
+</span></span><span class="line"><span class="cl"> git clone <span class="o">[</span>url<span class="o">]</span>
+</span></span></code></pre></div><p>2.去gitee或者github上克隆一个试试看</p>
 <p><figure 
 	>
 	<a href="/githubLearning.assets/image-20210724000439421-16304204111219.png" >
@@ -760,15 +784,15 @@ $ git init
 <p>查看文件状态</p>
 </blockquote>
 <p>上面说文件有四种状态，通过如下命令可以查看到文件的状态：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 查看指定文件状态</span>
-git status <span class="o">[</span>filename<span class="o">]</span>
-
-<span class="c1"># 查看所有文件状态</span>
-git status 
-
-<span class="c1"># git add . 添加所有文件到暂存区</span>
-<span class="c1"># git commit -m 提交暂存区中的内容到本地仓库 -m 提交信息</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 查看指定文件状态</span>
+</span></span><span class="line"><span class="cl">git status <span class="o">[</span>filename<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看所有文件状态</span>
+</span></span><span class="line"><span class="cl">git status 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># git add . 添加所有文件到暂存区</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># git commit -m 提交暂存区中的内容到本地仓库 -m 提交信息</span>
+</span></span></code></pre></div><blockquote>
 <p>忽略文件</p>
 </blockquote>
 <p>有些时候我们不想吧某些文件纳入进版本控制中，比如数据库文件，临时文件，设计文件等</p>
@@ -778,23 +802,23 @@ git status
 <p>3.如果名称的最前面有一个感叹号！，表示例外规则，将不被忽略</p>
 <p>4.如果名称的最前面是一个路径分隔符/，表示要忽略的此文件在此目录下，而子目录中的文件不忽略。</p>
 <p>5.如果名称的最后面是一个路径分隔符/，表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 为注释</span>
-*.txt  <span class="c1">#忽略所有 .txt 结尾的文件，这样的话上传就不会被选中</span>
-!llib.txt <span class="c1">#但lib.txt除外</span>
-/temp  <span class="c1">#仅忽略项目根目录下的todo文件，不包括其他目录temp</span>
-build/ <span class="c1">#仅忽略build/目录下的所有文件</span>
-doc/*.txt <span class="c1">#会忽略 doc/notes.txt 但不包括doc/server/arch.txt</span>
-</code></pre></div><h3 id="使用码云">使用码云</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 为注释</span>
+</span></span><span class="line"><span class="cl">*.txt  <span class="c1">#忽略所有 .txt 结尾的文件，这样的话上传就不会被选中</span>
+</span></span><span class="line"><span class="cl">!llib.txt <span class="c1">#但lib.txt除外</span>
+</span></span><span class="line"><span class="cl">/temp  <span class="c1">#仅忽略项目根目录下的todo文件，不包括其他目录temp</span>
+</span></span><span class="line"><span class="cl">build/ <span class="c1">#仅忽略build/目录下的所有文件</span>
+</span></span><span class="line"><span class="cl">doc/*.txt <span class="c1">#会忽略 doc/notes.txt 但不包括doc/server/arch.txt</span>
+</span></span></code></pre></div><h3 id="使用码云">使用码云</h3>
 <blockquote>
 <p>github是有墙的，比较慢，在国内的话，我们一般使用gitee，公司中有时候会搭建自己的gitlab服务器</p>
 </blockquote>
 <p>1.注册登陆码云，完善个人信息</p>
 <p>这个其实可以作为大家未来找工作的</p>
 <p>2.设置本机绑定ssh公钥，实现免密码登陆！（免密码登陆，这一步挺重要的，码云是远程仓库，我们是平时工作在本地仓库！）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 进入C:\Users\Sweetie\.ssh 目录</span>
-<span class="c1"># 生成公钥</span>
-ssh-keygen
-</code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 进入C:\Users\Sweetie\.ssh 目录</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成公钥</span>
+</span></span><span class="line"><span class="cl">ssh-keygen
+</span></span></code></pre></div><p><figure 
 	>
 	<a href="/githubLearning.assets/image-20210724202958752-163042041112112.png" >
 		<img src="/githubLearning.assets/image-20210724202958752-163042041112112.png"
@@ -1005,28 +1029,28 @@ ssh-keygen
 	
 </figure></p>
 <p>git分支中常用指令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 列出所有本地分支</span>
-git branch 
-
-<span class="c1"># 列出所有远程分支</span>
-git branch -r 
-
-<span class="c1"># 新建一个分支，但依然停留在当前分支</span>
-git branch <span class="o">[</span>branch-name<span class="o">]</span>
-
-<span class="c1"># 新建一个分支，并切换到该分支</span>
-git checkout -b <span class="o">[</span>branch<span class="o">]</span>
-
-<span class="c1"># 合并指定分支到当前分支</span>
-git merge <span class="o">[</span>branch<span class="o">]</span>
-
-<span class="c1"># 删除分支</span>
-git branch -d <span class="o">[</span>branch-name<span class="o">]</span>
-
-<span class="c1"># 删除远程分支</span>
-git push origin --delete <span class="o">[</span>branch-name<span class="o">]</span>
-git branch -dr <span class="o">[</span>remote/branch<span class="o">]</span>
-</code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 列出所有本地分支</span>
+</span></span><span class="line"><span class="cl">git branch 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 列出所有远程分支</span>
+</span></span><span class="line"><span class="cl">git branch -r 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 新建一个分支，但依然停留在当前分支</span>
+</span></span><span class="line"><span class="cl">git branch <span class="o">[</span>branch-name<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 新建一个分支，并切换到该分支</span>
+</span></span><span class="line"><span class="cl">git checkout -b <span class="o">[</span>branch<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 合并指定分支到当前分支</span>
+</span></span><span class="line"><span class="cl">git merge <span class="o">[</span>branch<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除分支</span>
+</span></span><span class="line"><span class="cl">git branch -d <span class="o">[</span>branch-name<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除远程分支</span>
+</span></span><span class="line"><span class="cl">git push origin --delete <span class="o">[</span>branch-name<span class="o">]</span>
+</span></span><span class="line"><span class="cl">git branch -dr <span class="o">[</span>remote/branch<span class="o">]</span>
+</span></span></code></pre></div><p><figure 
 	>
 	<a href="/githubLearning.assets/image-20210724212621289-163042041112225.png" >
 		<img src="/githubLearning.assets/image-20210724212621289-163042041112225.png"

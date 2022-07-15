@@ -6,10 +6,8 @@ amqp协议：高级消息队列协议
 http协议：request、response
 telnet协议：经常用来查看某一台ip上的指定端口是否是ping通的【远程登陆协议】
 AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
- connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制  详细设计书一样
-image-20201026164558077
-image-20201026164701153
-延时处理，拉长时间
+connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制 详细设计书一样
+image-20201026164558077image-20201026164701153延时处理，拉长时间
 以更长的时间来换取堆积的业务逻辑
 异步处理：响应很快，增加服务器承载能力
 流量削峰：
@@ -20,8 +18,11 @@ AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
 复杂性提高
 vhost：避免命名冲突
 exchange：
- direct headers topic fanout  image-20201026211929666
-在windows上是一个服务'><title>RabbitMQ学习文档</title>
+direct headers topic fanout image-20201026211929666在windows上是一个服务
+UI工具可以查看rabbitmq的事实状况，http api的方式也可以查看
+http://127.0.0.1:15672/#/
+image-20201027095638965ui和命令行的区别：ui只是命令行的子集
+image-20201026215957380应用层序和集群的管理 application and Cluster Management'><title>RabbitMQ学习文档</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/rabbitmq%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 
@@ -129,10 +130,8 @@ amqp协议：高级消息队列协议
 http协议：request、response
 telnet协议：经常用来查看某一台ip上的指定端口是否是ping通的【远程登陆协议】
 AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
- connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制  详细设计书一样
-image-20201026164558077
-image-20201026164701153
-延时处理，拉长时间
+connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制 详细设计书一样
+image-20201026164558077image-20201026164701153延时处理，拉长时间
 以更长的时间来换取堆积的业务逻辑
 异步处理：响应很快，增加服务器承载能力
 流量削峰：
@@ -143,8 +142,11 @@ AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
 复杂性提高
 vhost：避免命名冲突
 exchange：
- direct headers topic fanout  image-20201026211929666
-在windows上是一个服务'>
+direct headers topic fanout image-20201026211929666在windows上是一个服务
+UI工具可以查看rabbitmq的事实状况，http api的方式也可以查看
+http://127.0.0.1:15672/#/
+image-20201027095638965ui和命令行的区别：ui只是命令行的子集
+image-20201026215957380应用层序和集群的管理 application and Cluster Management'>
 <meta property='og:url' content='https://linjianshu.github.io/p/rabbitmq%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-12-01T00:29:59&#43;08:00'/><meta property='article:modified_time' content='2020-12-01T00:29:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
@@ -155,10 +157,8 @@ amqp协议：高级消息队列协议
 http协议：request、response
 telnet协议：经常用来查看某一台ip上的指定端口是否是ping通的【远程登陆协议】
 AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
- connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制  详细设计书一样
-image-20201026164558077
-image-20201026164701153
-延时处理，拉长时间
+connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制 详细设计书一样
+image-20201026164558077image-20201026164701153延时处理，拉长时间
 以更长的时间来换取堆积的业务逻辑
 异步处理：响应很快，增加服务器承载能力
 流量削峰：
@@ -169,8 +169,11 @@ AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
 复杂性提高
 vhost：避免命名冲突
 exchange：
- direct headers topic fanout  image-20201026211929666
-在windows上是一个服务"><meta name="twitter:card" content="summary_large_image">
+direct headers topic fanout image-20201026211929666在windows上是一个服务
+UI工具可以查看rabbitmq的事实状况，http api的方式也可以查看
+http://127.0.0.1:15672/#/
+image-20201027095638965ui和命令行的区别：ui只是命令行的子集
+image-20201026215957380应用层序和集群的管理 application and Cluster Management"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -396,8 +399,8 @@ exchange：
     
     <header class="article-category">
         
-            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%B8%8E%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="background-color: #CC00FF; color: #fff;">
-                工具与中间件
+            <a href="/categories/-%E5%B7%A5%E5%85%B7%E4%B8%8E%E4%B8%AD%E9%97%B4%E4%BB%B6/" >
+                -工具与中间件
             </a>
         
     </header>
@@ -686,79 +689,77 @@ exchange：
 </ul>
 <p>服务器配置，guest不可以被外网访问，在生产环境中，默认都是新增用户的</p>
 <p>这是生产者代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">RabbitMQ.Client</span><span class="p">;</span>
-
-<span class="k">namespace</span> <span class="nn">RabbitmqDemo</span>
-<span class="p">{</span>
-    <span class="k">class</span> <span class="nc">Program</span>
-    <span class="p">{</span>
-        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">ConnectionFactory</span> <span class="n">factory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConnectionFactory</span><span class="p">()</span>
-            <span class="p">{</span>
-                <span class="n">HostName</span> <span class="p">=</span> <span class="s">&#34;127.0.0.1&#34;</span><span class="p">,</span>
-                <span class="n">UserName</span> <span class="p">=</span> <span class="s">&#34;datamip&#34;</span><span class="p">,</span>
-                <span class="n">Password</span> <span class="p">=</span> <span class="s">&#34;123456&#34;</span>
-            <span class="p">};</span>
-            <span class="c1">//第一步：创建connection
-</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">CreateConnection</span><span class="p">();</span>
-            
-            <span class="c1">//第二步：创建channel
-</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">channel</span> <span class="p">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">CreateModel</span><span class="p">();</span>
-            <span class="c1">//第三步：声明交换机（因为rabbitmq已经有了自定义的amqp default exchange ，所以这里不声明也能自动创建）
-</span><span class="c1"></span>            
-            <span class="c1">//第四步：创建一个队列（queue）
-</span><span class="c1"></span>            <span class="n">channel</span><span class="p">.</span><span class="n">QueueDeclare</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-
-            <span class="kt">var</span> <span class="n">msg</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&#34;你好&#34;</span><span class="p">);</span> 
-            <span class="c1">//第五步：发布消息
-</span><span class="c1"></span>            <span class="n">channel</span><span class="p">.</span><span class="n">BasicPublish</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span><span class="n">basicProperties</span><span class="p">:</span><span class="k">null</span><span class="p">,</span><span class="n">body</span><span class="p">:</span><span class="n">msg</span><span class="p">);</span>
-
-            <span class="c1">// using...
-</span><span class="c1"></span>            <span class="c1">// connection.Dispose();
-</span><span class="c1"></span>            <span class="c1">// channel.Dispose();
-</span><span class="c1"></span>            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></div><p>这是消费者代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">RabbitMQ.Client</span><span class="p">;</span>
-
-<span class="k">namespace</span> <span class="nn">RabbitmqConsumer</span>
-<span class="p">{</span>
-    <span class="k">class</span> <span class="nc">Program</span>
-    <span class="p">{</span>
-        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">ConnectionFactory</span> <span class="n">factory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConnectionFactory</span><span class="p">()</span>
-            <span class="p">{</span>
-                <span class="n">HostName</span> <span class="p">=</span> <span class="s">&#34;127.0.0.1&#34;</span><span class="p">,</span>
-                <span class="n">UserName</span> <span class="p">=</span> <span class="s">&#34;datamip&#34;</span><span class="p">,</span>
-                <span class="n">Password</span> <span class="p">=</span> <span class="s">&#34;123456&#34;</span>
-            <span class="p">};</span>
-            <span class="c1">//第一步：创建connection
-</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">CreateConnection</span><span class="p">();</span>
-
-            <span class="c1">//第二步：创建channel
-</span><span class="c1"></span>            <span class="kt">var</span> <span class="n">channel</span> <span class="p">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">CreateModel</span><span class="p">();</span>
-            <span class="c1">//第三步：声明交换机（因为rabbitmq已经有了自定义的amqp default exchange ，所以这里不声明也能自动创建）
-</span><span class="c1"></span>
-            <span class="c1">//第四步：获取消息
-</span><span class="c1"></span>            <span class="n">BasicGetResult</span> <span class="n">basicGetResult</span> <span class="p">=</span> <span class="n">channel</span><span class="p">.</span><span class="n">BasicGet</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-            <span class="n">ReadOnlyMemory</span><span class="p">&lt;</span><span class="kt">byte</span><span class="p">&gt;</span> <span class="n">msg</span> <span class="p">=</span> <span class="n">basicGetResult</span><span class="p">.</span><span class="n">Body</span><span class="p">;</span>
-
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></div><h5 id="交换机机制exchangedirectfanoutheaderstopic">交换机机制：exchange:direct/fanout/headers/topic</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Net.Http</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">RabbitMQ.Client</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nn">RabbitmqDemo</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Program</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ConnectionFactory</span> <span class="n">factory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConnectionFactory</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">HostName</span> <span class="p">=</span> <span class="s">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">UserName</span> <span class="p">=</span> <span class="s">&#34;datamip&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Password</span> <span class="p">=</span> <span class="s">&#34;123456&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//第一步：创建connection</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">CreateConnection</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1">//第二步：创建channel</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">channel</span> <span class="p">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">CreateModel</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//第三步：声明交换机（因为rabbitmq已经有了自定义的amqp default exchange ，所以这里不声明也能自动创建）</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1">//第四步：创建一个队列（queue）</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span><span class="p">.</span><span class="n">QueueDeclare</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">msg</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&#34;你好&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">            <span class="c1">//第五步：发布消息</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span><span class="p">.</span><span class="n">BasicPublish</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span><span class="n">basicProperties</span><span class="p">:</span><span class="k">null</span><span class="p">,</span><span class="n">body</span><span class="p">:</span><span class="n">msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// using...</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// connection.Dispose();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// channel.Dispose();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这是消费者代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">RabbitMQ.Client</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nn">RabbitmqConsumer</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Program</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ConnectionFactory</span> <span class="n">factory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConnectionFactory</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">HostName</span> <span class="p">=</span> <span class="s">&#34;127.0.0.1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">UserName</span> <span class="p">=</span> <span class="s">&#34;datamip&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Password</span> <span class="p">=</span> <span class="s">&#34;123456&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//第一步：创建connection</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">connection</span> <span class="p">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">CreateConnection</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//第二步：创建channel</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">var</span> <span class="n">channel</span> <span class="p">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">CreateModel</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//第三步：声明交换机（因为rabbitmq已经有了自定义的amqp default exchange ，所以这里不声明也能自动创建）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//第四步：获取消息</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BasicGetResult</span> <span class="n">basicGetResult</span> <span class="p">=</span> <span class="n">channel</span><span class="p">.</span><span class="n">BasicGet</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ReadOnlyMemory</span><span class="p">&lt;</span><span class="kt">byte</span><span class="p">&gt;</span> <span class="n">msg</span> <span class="p">=</span> <span class="n">basicGetResult</span><span class="p">.</span><span class="n">Body</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="交换机机制exchangedirectfanoutheaderstopic">交换机机制：exchange:direct/fanout/headers/topic</h5>
 <p><figure 
 	>
 	<a href="/RabbitMQLearning.assets/image-20201027110100918.png" >
@@ -777,22 +778,22 @@ exchange：
 <p><strong>workqueue</strong>方式</p>
 <p>EventingBasicConsumer:多个consumer可以分摊我们的cpu计算压力</p>
 <p>如果申明自定义交换机，一定要手动绑定</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="c1">//第三步：声明交换机（因为rabbitmq已经有了自定义的amqp default exchange ，所以这里不声明也能自动创建）可选
-</span><span class="c1"></span>            <span class="n">channel</span><span class="p">.</span><span class="n">ExchangeDeclare</span><span class="p">(</span><span class="s">&#34;myexchange&#34;</span><span class="p">,</span><span class="n">ExchangeType</span><span class="p">.</span><span class="n">Direct</span><span class="p">,</span><span class="k">true</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">null</span><span class="p">);</span>
-
-            <span class="c1">//第四步：创建一个队列（queue）
-</span><span class="c1"></span>            <span class="n">channel</span><span class="p">.</span><span class="n">QueueDeclare</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
-            <span class="n">channel</span><span class="p">.</span><span class="n">QueueBind</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="s">&#34;myexchange&#34;</span><span class="p">,</span> <span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">100</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
-            <span class="p">{</span>
-                 <span class="kt">var</span> <span class="n">msg</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;{0}:{1}&#34;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s">&#34;你好&#34;</span><span class="p">));</span>
-                <span class="c1">//第五步：发布消息
-</span><span class="c1"></span>                <span class="c1">// channel.BasicPublish(string.Empty, &#34;mytest&#34;, basicProperties: null, body: msg);
-</span><span class="c1"></span>                <span class="n">channel</span><span class="p">.</span><span class="n">BasicPublish</span><span class="p">(</span><span class="s">&#34;myexchange&#34;</span><span class="p">,</span> <span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="n">basicProperties</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="n">msg</span><span class="p">);</span>
-
-            <span class="p">}</span>
-</code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="cl"><span class="c1">//第三步：声明交换机（因为rabbitmq已经有了自定义的amqp default exchange ，所以这里不声明也能自动创建）可选</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span><span class="p">.</span><span class="n">ExchangeDeclare</span><span class="p">(</span><span class="s">&#34;myexchange&#34;</span><span class="p">,</span><span class="n">ExchangeType</span><span class="p">.</span><span class="n">Direct</span><span class="p">,</span><span class="k">true</span><span class="p">,</span><span class="k">false</span><span class="p">,</span><span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//第四步：创建一个队列（queue）</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span><span class="p">.</span><span class="n">QueueDeclare</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">channel</span><span class="p">.</span><span class="n">QueueBind</span><span class="p">(</span><span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="s">&#34;myexchange&#34;</span><span class="p">,</span> <span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">100</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="kt">var</span> <span class="n">msg</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&#34;{0}:{1}&#34;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s">&#34;你好&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">//第五步：发布消息</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// channel.BasicPublish(string.Empty, &#34;mytest&#34;, basicProperties: null, body: msg);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">channel</span><span class="p">.</span><span class="n">BasicPublish</span><span class="p">(</span><span class="s">&#34;myexchange&#34;</span><span class="p">,</span> <span class="s">&#34;mytest&#34;</span><span class="p">,</span> <span class="n">basicProperties</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="n">msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span></code></pre></div><p><figure 
 	>
 	<a href="/RabbitMQLearning.assets/image-20201027155658033.png" >
 		<img src="/RabbitMQLearning.assets/image-20201027155658033.png"

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>-容器 on think hy how to learn</title>
+    <link>https://linjianshu.github.io/categories/-%E5%AE%B9%E5%99%A8/</link>
+    <description>Recent content in -容器 on think hy how to learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 00:23:34 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/categories/-%E5%AE%B9%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Learning</title>
+      <link>https://linjianshu.github.io/p/docker-learning/</link>
+      <pubDate>Mon, 26 Jul 2021 00:23:34 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/docker-learning/</guid>
+      <description>docker学习 docker概述
+docker安装
+docker命令
+镜像命令 容器命令 操作命令 &amp;hellip; docker镜像
+容器数据卷
+dockerfile
+docker网络原理
+idea整合docker
+以上单机版本docker
+集群 docker compose docker swarm 简化版k8s ci/cd jenkins docker概述
+开发&amp;ndash;上线 两套环境 应用环境，应用配置
+开发人员 运维人员
+开发即运维！
+环境配置麻烦，每个机器都要部署环境（集群redis、es、hadoop&amp;hellip;）费事费力
+发布项目 jar（redis mysql jdk es） war
+jar带上环境进行发布，项目能不能带上环境安装打包
+之前在服务器配置一个应用的环境 redis mysql jdk es hadoop ，配置超麻烦，不能跨平台
+windows与linux
+传统：开发提供jar 运维部署环境
+现在：开发打包部署上线，一套流程做完
+docker给以上的问题，提出解决方案
+java&amp;mdash;apk&amp;mdash;发布（应用商店） &amp;mdash;张三使用apk &amp;mdash;安装即可用
+java&amp;mdash;jar（环境）&amp;mdash;打包项目带上环境（镜像） &amp;mdash;-docker仓库：商店 &amp;mdash;- 下载我们发布的镜像 &amp;ndash;直接运行即可
+docker思想就来自于集装箱！
+jre&amp;mdash;多个应用 （端口冲突）&amp;mdash;原来都是交叉的
+隔离：Docker核心思想，打包装箱！每个箱子都是互相隔离的！
+docker通过隔离机制，可以将服务器利用到极致
+本质：所有的技术都是因为出现了一些问题，我们需要去解决，才去学习。
+docker历史
+容器化技术命名就是docker
+刚刚诞生的时候没有引起行业注意！dotcloud，开源
+开源，docker优点
+在容器技术出来之前，我们都是使用虚拟机技术，
+虚拟机：在windows中装一个虚拟机软件vmware，通过这个软件我们可以虚拟出来一台或者多台电脑！笨重！
+虚拟机：也是属于虚拟化技术，docker容器技术，也是一种虚拟化技术</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?'><title>实习小结20220714</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220714/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='实习小结20220714'>
+<meta property='og:description' content='实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?'>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220714/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-07-15T15:10:39&#43;08:00'/><meta property='article:modified_time' content='2022-07-15T15:10:39&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="实习小结20220714">
+<meta name="twitter:description" content="实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220714/">实习小结20220714</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 15, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="实习进度汇报">实习进度汇报</h3>
+<h4 id="这几天在做什么">这几天在做什么:</h4>
+<ul>
+<li>环境搭建</li>
+<li>restful api开发</li>
+<li>go web开发 (原生api)</li>
+<li>hugo 更新实习日记至github主页上</li>
+<li>git代码管理 上传demo方便导师检查</li>
+</ul>
+<h4 id="这些事情的进度">这些事情的进度:</h4>
+<h5 id="1环境搭建">1.环境搭建</h5>
+<ul>
+<li>windows端
+<ul>
+<li>安装了Go sdk和 GoLand IDE 配置好了环境变量</li>
+<li>安装了docker 还未开始使用</li>
+</ul>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657867093520.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657867093520.png"
+			
+			
+			
+			loading="lazy"
+			alt="1657867093520">
+	</a>
+	
+	<figcaption>1657867093520</figcaption>
+	
+</figure></p>
+<ul>
+<li>WSL-Linux端
+<ul>
+<li>ubuntu 安装了Go sdk</li>
+</ul>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657867136423.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657867136423.png"
+			
+			
+			
+			loading="lazy"
+			alt="1657867136423">
+	</a>
+	
+	<figcaption>1657867136423</figcaption>
+	
+</figure></p>
+<ul>
+<li>阿里云ECS-Linux
+<ul>
+<li>ubuntu 安装了Go sdk</li>
+</ul>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657867231001.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657867231001.png"
+			
+			
+			
+			loading="lazy"
+			alt="1657867231001">
+	</a>
+	
+	<figcaption>1657867231001</figcaption>
+	
+</figure></p>
+<h5 id="2restful-api开发-在3中">2.restful api开发 (在3中)</h5>
+<h5 id="3go-web开发">3.go web开发</h5>
+<ul>
+<li>复习了go web知识</li>
+<li>简单编写go 文件服务器</li>
+<li>部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657868172601.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657868172601.png"
+			
+			
+			
+			loading="lazy"
+			alt="1657868172601">
+	</a>
+	
+	<figcaption>1657868172601</figcaption>
+	
+</figure></p>
+<h5 id="4对项目代码进行简单的git版本管理">4.对项目代码进行简单的git版本管理</h5>
+<h4 id="存在哪些问题">存在哪些问题:</h4>
+<ul>
+<li>目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识</li>
+<li>GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面)</li>
+<li>写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范</li>
+<li>错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断</li>
+<li>对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善</li>
+<li>之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛? 以后应该怎么防止被黑(被黑了之后 hacker直接把root权限给改了 现在新增不了数据库 删除不了这个数据库 之前没有做备份 好像通过bin-log还原不回来)</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902600597.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902600597.png"
+			
+			
+			
+			loading="lazy"
+			alt="1657902600597">
+	</a>
+	
+	<figcaption>1657902600597</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902791284.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902791284.png"
+			
+			
+			
+			loading="lazy"
+			alt="1657902791284">
+	</a>
+	
+	<figcaption>1657902791284</figcaption>
+	
+</figure></p>
+<ul>
+<li>给Go项目初始化git的repository,通常如何写.gitigonre文件;如果刚开始没有写.gitignore后来新增/修改了.gitignore文件怎么生效 之前给.net项目弄的时候不太行</li>
+</ul>
+<h4 id="打算接下来做什么">打算接下来做什么:</h4>
+<ul>
+<li>容器技术学习</li>
+<li>mysql学习</li>
+<li>听导师的安排继续学习</li>
+<li>使用gorm和go操纵数据库</li>
+<li>了解gin框架 使用gin重构文件管理web应用程序</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="linjianshu/hugoblogtalks"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>

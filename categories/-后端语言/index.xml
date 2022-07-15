@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>-后端语言 on think hy how to learn</title>
+    <link>https://linjianshu.github.io/categories/-%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/</link>
+    <description>Recent content in -后端语言 on think hy how to learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Mar 2022 23:56:51 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/categories/-%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GoTemplateAndBootStrap3</title>
+      <link>https://linjianshu.github.io/p/gotemplateandbootstrap3/</link>
+      <pubDate>Sun, 06 Mar 2022 23:56:51 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/gotemplateandbootstrap3/</guid>
+      <description>Go模版与BootStrap3使用 Go模版看了老容易忘记,今天正好项目上工艺部门想要安全件的解析规则清单,我想着用.net开发还不如用Go模版+Bootstrap来个最佳实践得了.结果在公司多加班了半小时 : )
+成品样图 image-20220307001641199实现了搜索功能 隔行变色 其他的表头排序还在研究中
+文件结构 image-20220307001737794image-20220307001747021简单的 一个main.go 一个html(bootstrap.html没用 作为参考) 几张图片拼凑拼凑
+实现步骤 连接数据库 oracle 构造结构体完成数据库的数据映射问题 image-20220307002353869package main import ( &amp;#34;database/sql&amp;#34; &amp;#34;fmt&amp;#34; _ &amp;#34;github.com/mattn/go-oci8&amp;#34; &amp;#34;html/template&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;path/filepath&amp;#34; &amp;#34;time&amp;#34; ) type Items struct { ROW_NUM string PART_CODE string PART_NAME string PART_MODEL_NO sql.NullString PART_PLATFORM string PART_ABB string RESERVE07 string } var DB *sql.DB func DBconnect() { var err error //go连接mysql实例 //数据库源信息 dsn := &amp;#34;隐藏&amp;#34; //连接数据库 DB, err = sql.</description>
+    </item>
+    
+    <item>
+      <title>尚硅谷Go学习</title>
+      <link>https://linjianshu.github.io/p/%E5%B0%9A%E7%A1%85%E8%B0%B7go%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 13 Dec 2021 09:17:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E5%B0%9A%E7%A1%85%E8%B0%B7go%E5%AD%A6%E4%B9%A0/</guid>
+      <description>尚硅谷Go学习 进制： 对于整数，有四种表示方式：
+二进制 在golang中，不能直接使用二进制来表示一个整数，她沿用了c的特点 十进制 八进制 以数字0开头 十六进制 以0x或0X开头表示 此处A-F不区分大小写 进制转换 其他进制转十进制
+十进制转其他进制
+将该数不断除以其他进制的基数，直到商为0为止，然后将每步得到的余数倒过来，就是对应的二进制。 image-20211106093415401二进制转八进制、十六进制
+转八进制 三位一组，低位开始组合，转成八进制就可以了。 转十六进制 思维一组，低位开始组合，转成十六进制就可以了。 其他进制转二进制
+八进制、十六进制 每三位、四位转成二进制即可 位运算 运算符 &amp;amp;按位与 |按位或 ^按位异或 &amp;laquo;左移 &amp;raquo;右移
+image-20211106094703255原码、反码、补码 二进制的最高位是符号位：0表示正数 1表示负数 正数的原码、反码、补码都一样 负数的反码=它的原码符号位不变，其他位取反 负数的补码=负数的反码+1 -1 原码[1000 0001] 反码[1111 1110] 补码[1111 1111] 0的反码补码都是0 在计算机运算的时候，都是以补码的方式来运算的 image-20211106100410526函数调用机制 image-20211106101741641回收栈
+image-20211106101856688说明：
+在调用一个函数时，会给该函数分配一个新的空间，编译器会通过自身的处理让这个新的空间和其他的栈的空间区分开来 在每个函数对应的栈中，数据空间是独立的，不会混淆 当一个函数调用完毕（执行完毕）后，程序会销毁这个函数对应的栈空间 func main() { n1 := 10 test(n1) fmt.Println(&amp;#34;main() &amp;#34;, n1) sum := getSum(1,2) fmt.Println(&amp;#34;main sum = &amp;#34;, sum) fmt.</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter9</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter9/</link>
+      <pubDate>Sun, 28 Nov 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter9/</guid>
+      <description>Go web编程 Chapter_9 Go_Concurrency channel_message package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; ) func thrower(c chan int) { for i := 0; i &amp;lt; 5; i++ { c &amp;lt;- i fmt.Println(&amp;#34;Threw &amp;gt;&amp;gt;&amp;#34;, i) } } func catcher(c chan int) { for i := 0; i &amp;lt; 5; i++ { num := &amp;lt;-c fmt.Println(&amp;#34;Caught &amp;lt;&amp;lt;&amp;#34;, num) } } func main() { c := make(chan int, 3) go thrower(c) go catcher(c) time.Sleep(100 * time.</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter7</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter7/</link>
+      <pubDate>Sat, 20 Nov 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter7/</guid>
+      <description>Go web编程 Chapter_7 Creating_Web_Servies json_creating_encoder package main import ( &amp;#34;encoding/json&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;os&amp;#34; ) type Post struct { Id int `json:&amp;#34;id&amp;#34;` Content string `json:&amp;#34;content&amp;#34;` Author Author `json:&amp;#34;author&amp;#34;` Comments []Comment `json:&amp;#34;comments&amp;#34;` } type Author struct { Id int `json:&amp;#34;id&amp;#34;` Name string `json:&amp;#34;name&amp;#34;` } type Comment struct { Id int `json:&amp;#34;id&amp;#34;` Content string `json:&amp;#34;content&amp;#34;` Author string `json:&amp;#34;author&amp;#34;` } func main() { post := Post{ Id: 1, Content: &amp;#34;Hello World!&amp;#34;, Author: Author{ Id: 2, Name: &amp;#34;Sau Sheong&amp;#34;, }, Comments: []Comment{ Comment{ Id: 1, Content: &amp;#34;Have a great day!</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter6</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter6/</link>
+      <pubDate>Fri, 12 Nov 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter6/</guid>
+      <description>Go web编程 Chapter_6 Storing_Data csv_store package main import ( &amp;#34;encoding/csv&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;strconv&amp;#34; ) type Post struct { Id int Content string Author string } func main() { // creating a CSV file csvFile, err := os.Create(&amp;#34;posts.csv&amp;#34;) if err != nil { panic(err) } defer csvFile.Close() allPosts := []Post{ Post{Id: 1, Content: &amp;#34;Hello World!&amp;#34;, Author: &amp;#34;Sau Sheong&amp;#34;}, Post{Id: 2, Content: &amp;#34;Bonjour Monde!&amp;#34;, Author: &amp;#34;Pierre&amp;#34;}, Post{Id: 3, Content: &amp;#34;Hola Mundo!&amp;#34;, Author: &amp;#34;Pedro&amp;#34;}, Post{Id: 4, Content: &amp;#34;Greetings Earthlings!</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter5</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter5/</link>
+      <pubDate>Sun, 31 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter5/</guid>
+      <description>Go web编程 Chapter_5 Displaying_Content context_aware package main import ( &amp;#34;html/template&amp;#34; &amp;#34;net/http&amp;#34; ) func process(w http.ResponseWriter, r *http.Request) { t, _ := template.ParseFiles(&amp;#34;tmpl.html&amp;#34;) content := `I asked: &amp;lt;i&amp;gt;&amp;#34;What&amp;#39;s up?&amp;#34;&amp;lt;/i&amp;gt;` t.Execute(w, content) } func main() { server := http.Server{ Addr: &amp;#34;127.0.0.1:8080&amp;#34;, } http.HandleFunc(&amp;#34;/process&amp;#34;, process) server.ListenAndServe() } tmpl.html
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta http-equiv=&amp;#34;Content-Type&amp;#34; content=&amp;#34;text/html; charset=utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Go Web Programming&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div&amp;gt;{{ . }}&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;a href=&amp;#34;/{{ . }}&amp;#34;&amp;gt;Path&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;a href=&amp;#34;/?q={{ . }}&amp;#34;&amp;gt;Query&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;a onclick=&amp;#34;f(&amp;#39;{{ . }}&amp;#39;)&amp;#34;&amp;gt;Onclick&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; costom_function package main import ( &amp;#34;html/template&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;time&amp;#34; ) func formatDate(t time.</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter4</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter4/</link>
+      <pubDate>Wed, 20 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter4/</guid>
+      <description>Go web编程 Chapter_4 Processing_Requests body package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func body(w http.ResponseWriter, r *http.Request) { len := r.ContentLength body := make([]byte, len) r.Body.Read(body) fmt.Fprintln(w, string(body)) } func main() { server := http.Server{ Addr: &amp;#34;127.0.0.1:8080&amp;#34;, } http.HandleFunc(&amp;#34;/body&amp;#34;, body) server.ListenAndServe() } cookie package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func setCookie(w http.ResponseWriter, r *http.Request) { c1 := http.Cookie{ Name: &amp;#34;first_cookie&amp;#34;, Value: &amp;#34;Go Web Programming&amp;#34;, HttpOnly: true, } c2 := http.</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter3</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter3/</link>
+      <pubDate>Fri, 15 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter3/</guid>
+      <description>Go web编程 Chapter_3 Handling_Requests chain_handler package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) type HelloHandler struct{} func (h HelloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w, &amp;#34;Hello!&amp;#34;) } func log(h http.Handler) http.Handler { return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { fmt.Printf(&amp;#34;Handler called - %T\n&amp;#34;, h) h.ServeHTTP(w, r) }) } func protect(h http.Handler) http.Handler { return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { // some code to make sure the user is authorized h.ServeHTTP(w, r) }) } func main() { server := http.</description>
+    </item>
+    
+    <item>
+      <title>Go趣学指南</title>
+      <link>https://linjianshu.github.io/p/go%E8%B6%A3%E5%AD%A6%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Mon, 11 Oct 2021 09:17:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go%E8%B6%A3%E5%AD%A6%E6%8C%87%E5%8D%97/</guid>
+      <description>Go趣学指南 备注:
+内置函数
+len() cap() append() delete() new() copy() 本书未涉及:
+iota表示声明连续的常量 移位操作符&amp;laquo; &amp;raquo; 位运算符 &amp;amp; | 关键字continue和关键字goto和标签 遮蔽变量的具体规则 复数和虚数 裸返回(bare return) 空借口 interface{} 浅尝即止 介绍了类型断言但没有介绍类型判断 双向通道 初始化操作的init特殊函数 每个内置函数没有详细介绍,例如分配内存并返回指针的new函数和复制切片的copy函数 没有说明如何将自己的包分享给别人 git版本控制 丰富的工具和库组成的生态系统 入门 并非所有编程语言都需要编译才能运行,如python ruby和其他一些流行语言就选择了在程序运行的时候,通过解释器一条接一条地转换代码中的声明,但这也意味着bug可能会隐藏在测试尚未触及的代码当中.
+解释器不仅能够让开发过程变得迅速且具有交互性,还能够让语言本身变得灵活,相反编译语言因为缓慢的编译速度常常为人诟病,但实际上并非所有的编译语言都是如此.
+go想要构造地像c++和java这类静态编译语言一样安全高效,还可以像python这类动态型解释性语言一样轻巧且充满乐趣.
+go编译器的优点 go的编译可以在极短的时间内完成,只需要一条命令,排除了可能会导致歧义的特性,为传统语言死板的数据结构提供了轻量级别的代替品.它可以在程序运行之前找出代码中一些人为失误,如拼写错误等.
+go能够利用多核机器商的每个核心获得额外的性能优势.
+包和函数 package关键字声明了代码所属的包,编写代码都会被组织称各式各样的包.go语言本身就提供了这些包,标准库.
+import关键字导入自己将要用到的包,math包提供了sin cos tan sqrt 等等函数,fmt包则提供了用于格式化输入和输出的函数.
+func关键字用于声明函数,每个函数的函数体body都要用大括号{}包围起来
+main标识符具有特殊意义,从main包的main函数开始执行,如果main不存在,将报告一个错误
+每次用到被导入包中的某个函数时,我们都需要在函数的名字前面加上包的名字以及一个点号座位前缀.
+go语言的这一特性可以让用户在阅读代码的时候立即弄清楚各个函数分别来自哪些包.
+速查 fmt包提供了格式化输入输出的功能 go程序从main包的main函数开始执行 唯一允许的大括号放置风格 go对于大括号{}的摆放位置非常挑剔.左大括号与func关键字位于同一行,而右大括号单独占一行,除此之外,其他的放置风格都是不允许的.
+不需要加封号,go编译器将自动代劳,代价是遵守大括号放置风格
+小结 每个go程序都有包中包含的函数组成 编程语言中的标点符号也是至关重要的 go关键字 package import func 命令式编程 被美化的计算器 执行计算 算术操作符 + - * / %</description>
+    </item>
+    
+    <item>
+      <title>Go Web编程 Chapter1</title>
+      <link>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter1/</link>
+      <pubDate>Fri, 01 Oct 2021 12:11:37 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go-web%E7%BC%96%E7%A8%8B-chapter1/</guid>
+      <description>Go web编程 Chapter_1 Go_And_Web_Application first_web_app package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func handler(writer http.ResponseWriter, request *http.Request) { fmt.Fprintf(writer, &amp;#34;Hello World, %s!&amp;#34;, request.URL.Path[1:]) } func main() { http.HandleFunc(&amp;#34;/&amp;#34;, handler) http.ListenAndServe(&amp;#34;:8080&amp;#34;, nil) } </description>
+    </item>
+    
+    <item>
+      <title>Go语言学习</title>
+      <link>https://linjianshu.github.io/p/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 24 Aug 2021 00:17:57 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Go语言学习 alt+enter
+ctrl+space
+ctrl+shift+space
+ctrl+alt+L
+ctrl+alt+M重构
+F2查看错误
+alt+6查看问题
+ctrl+shift+/
+alt+F8 评估表达式
+ctrl+F8 切换断点
+环境搭建，编译之后生成可执行exe文件，就可以直接使用了
+image-20210725102106105image-20210725102139391编译
+使用 go build
+1.在项目目录下执行go build
+2.在其他路径下执行go build ，需要在后面加上项目的路径（项目路径从gopath/src后开始写起，编译之后的可执行文件就保存在当前目录下）
+3.go build -o hello.exe
+go run
+像执行脚本文件一样执行go代码
+go install
+分为两步：
+1.先编译得到一个可执行文件
+2.将可执行文件拷贝到gopath的bin目录
+交叉编译，可以跨平台跑程序
+例如在windows平台编译一个能在linux平台上执行的可执行文件
+这个似乎要在源文件位置处使用cmd命令操作,并且要用大写!!!
+E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET CGO_ENABLE=0 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOOS=linux E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;SET GOARCH=amd64 E:\project\GOproject\code.oldboyedu.com\day1&amp;gt;go build image-20210725103733683go语言的基本结构
+package main //导入的包 import &amp;#34;fmt&amp;#34; //程序的入口函数 //函数外部只能放置标识符（变量、常量、函数、类型）的声明 func main() { fmt.Println(&amp;#34;hello world&amp;#34;) } 变量和常量
+go语言中的变量必须先声明后使用
+var s1 string :声明一个保存字符串数据的变量
+var name string</description>
+    </item>
+    
+    <item>
+      <title>真会CSharp吗学习文档</title>
+      <link>https://linjianshu.github.io/p/%E7%9C%9F%E4%BC%9Acsharp%E5%90%97%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sat, 30 Jan 2021 00:17:57 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E7%9C%9F%E4%BC%9Acsharp%E5%90%97%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
+      <description>C#5.0+学习文档 特点：
+通用性语言 类型安全 面向对象 目标：生产力
+简洁性 表达力 高性能 平台中立，与平台无关
+封装、继承、多态
+统一的类型系统：
+类型 共同的基类 类和接口
+class interface 属性property、方法method和事件event
+唯一一种函数成员(Function Member):方法(method)
+方法还包括：属性(Property)和事件(Event)还有其他的
+属性
+事件
+C#主要是一种面向对象的语言，但是也借用了不少函数式编程的特性
+函数可以当做值来对待
+委托Delegate 支持纯(purity)模式
+避免使用值可变的变量 类型安全
+c#主要来说是类型安全的 静态类型 static typing 动态类型 dynamic 强类型 strongly typed language 内存管理
+依赖于运行时来执行自动内存管理 CLR:Common Language Runtime (公共语言运行时) GC： Garbage Collector (垃圾收集器) c#没有消灭指针 通常情况下不需要使用指针 unsafe 平台支持
+原来c#主要是在window上面运行
+现在可以在所有的平台上运行
+windows macs linux ios android &amp;hellip; .Net Core
+.Net/.Net Core 的核心就是CLR: Comman Language Runtime
+CLR和语言无关</description>
+    </item>
+    
+  </channel>
+</rss>

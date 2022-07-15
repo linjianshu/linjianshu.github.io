@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>-工具与中间件 on think hy how to learn</title>
+    <link>https://linjianshu.github.io/categories/-%E5%B7%A5%E5%85%B7%E4%B8%8E%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <description>Recent content in -工具与中间件 on think hy how to learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Jul 2021 16:18:59 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/categories/-%E5%B7%A5%E5%85%B7%E4%B8%8E%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git学习文档</title>
+      <link>https://linjianshu.github.io/p/git%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sat, 24 Jul 2021 16:18:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/git%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
+      <description>Git学习文档 学习git之前，我们需要先明白一个概念，版本控制！
+版本控制 什么是版本控制 版本迭代 版本管理器
+版本控制（revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份一遍恢复以前的版本的软件工程技术。
+实现跨区域多人协同开发 追踪和记载一个或者多个文件的历史记录 组织和保护你的源代码和文档 统计工作量 并行开发、提高开发效率 跟踪记录整个软件的开发过程 减轻开发人员的负担，节省时间，同时降低人为错误 简单说就是用于管理多人协同开发项目的技术。
+没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将引入很多问题，如关键代码的冗余，软件过程的事物性，软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。
+多人开发就必须要使用版本控制，否则代价比较大
+常见的版本控制工具
+主流的版本控制器有如下这些：
+Git SVN(subversion) CVS(concurrent versions system) VSS(Microsoft Visual SourceSafe) TFS(team Foundation Server) Visual Studio Online 版本控制产品非常的多（preforce 、 rational clearcase 、 rcs 、serena dimention 、 svk 、bitkeeper、 monotone 、 bazaar 、 mercurial 、 sourcegear vault），现在影响力最大且使用最广泛的是git和svn
+版本控制分类
+本地版本控制
+记录文件每次的更新，可以对每个版本做一个快照，或者记录补丁文件，适合个人用，如RCS
+image-20210722211743148集中版本控制
+所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改
+image-20210722211927845所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品有：SVN、CVS、VSS
+分布版本控制 “GIT”
+每个人都拥有全部的代码 安全隐患
+所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题，就可以恢复所有的数据，但这增加了本地存储空间的占用
+不会因为服务器损坏或者网络问题，造成不能工作的情况！
+image-20210722212449100git和svn最主要区别
+svn是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所有首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要吧自己做完的推送到中央服务器。集中式版本控制是必须连网才能工作，对网络带宽要求较高。</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ学习文档</title>
+      <link>https://linjianshu.github.io/p/rabbitmq%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Tue, 01 Dec 2020 00:29:59 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/rabbitmq%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
+      <description>RabbiMQ学习文档 rabbitMQ是遵循amqp协议的一个erlang实现。
+amqp协议：高级消息队列协议
+http协议：request、response
+telnet协议：经常用来查看某一台ip上的指定端口是否是ping通的【远程登陆协议】
+AMQP 0-9-1 complete Reference Guide rabbitmq 实现的amqp协议的版本号
+connection =&amp;gt;open , use , close [open-ok , close , une-ok] channel =&amp;gt;open, flow , close , [构建在connection之上，在amqp中常作为长连接] exchange =&amp;gt; queue basic =&amp;gt;发布和获取 message中的一些设置 tx =&amp;gt;事务处理 confirm =&amp;gt;发布确认机制 详细设计书一样
+image-20201026164558077image-20201026164701153延时处理，拉长时间
+以更长的时间来换取堆积的业务逻辑
+异步处理：响应很快，增加服务器承载能力
+流量削峰：
+扩展性：UI和业务的解耦，可以独立演化
+高可用：处理器发生故障以后，不会影响可用性
+缺陷：
+即时性降低，降低了用户体验&amp;mdash;无法避免；业务上来屈服；
+复杂性提高
+vhost：避免命名冲突
+exchange：
+direct headers topic fanout image-20201026211929666在windows上是一个服务
+UI工具可以查看rabbitmq的事实状况，http api的方式也可以查看
+http://127.0.0.1:15672/#/
+image-20201027095638965ui和命令行的区别：ui只是命令行的子集
+image-20201026215957380应用层序和集群的管理 application and Cluster Management</description>
+    </item>
+    
+  </channel>
+</rss>

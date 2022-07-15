@@ -44,11 +44,9 @@ app=&amp;gt;dal=&amp;gt;mysql
 3.访问量，读写混合，一个服务器受不了
 2.Memcached（缓存）mysql&#43;垂直拆分（读写分离）
 网站80%都在读，如果每次去查询数据库的话就十分的麻烦！所以说我们希望减轻数据的压力，我们可以使用缓存来保证效率
-image-20200923185840123
-发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
+image-20200923185840123发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
 3.分库分表&#43;水平拆分&#43;mysql集群
-image-20200923190414174
-本质：数据库（读写）
+image-20200923190414174本质：数据库（读写）
 早些年mysiam：表锁（影响效率），高并发下出现严重的锁问题
 早些年innodb：行锁，慢慢的就开始使用分库分表来解决写的压力！mysql在那个年代推出了表分区，这个并没有多少公司使用！
 mysql的集群，很好的满足了那个年代的所有需求！
@@ -58,8 +56,12 @@ mysql的集群，很好的满足了那个年代的所有需求！
 mysql等关系型数据库就不够用了！数据量很多，变化很快！
 mysql有的使用它来存储一些比较大的文件、播客、图片！数据库表很大，效率就很低了
 如果有一种数据库来专门处理这种数据，mysql的压力就会变得十分小，（研究如何处理这些问题）大数据的io压力下，表几乎没法更改，
- 目前一个基本互联网项目！
- image-20200923191743309'><title>Redis学习文档</title>
+目前一个基本互联网项目！
+image-20200923191743309为什么要用nosql
+用户的个人信息，社交温昂罗，地理位置，用户自己产生的数据，用户日志等等爆发式增长！
+这时候我们就需要使用nosql数据库的，nosql可以很好的处理以上情况
+什么是nosql
+nosql = not only sql(不仅仅是sql)'><title>Redis学习文档</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/redis%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 
@@ -205,11 +207,9 @@ app=&amp;gt;dal=&amp;gt;mysql
 3.访问量，读写混合，一个服务器受不了
 2.Memcached（缓存）mysql&#43;垂直拆分（读写分离）
 网站80%都在读，如果每次去查询数据库的话就十分的麻烦！所以说我们希望减轻数据的压力，我们可以使用缓存来保证效率
-image-20200923185840123
-发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
+image-20200923185840123发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
 3.分库分表&#43;水平拆分&#43;mysql集群
-image-20200923190414174
-本质：数据库（读写）
+image-20200923190414174本质：数据库（读写）
 早些年mysiam：表锁（影响效率），高并发下出现严重的锁问题
 早些年innodb：行锁，慢慢的就开始使用分库分表来解决写的压力！mysql在那个年代推出了表分区，这个并没有多少公司使用！
 mysql的集群，很好的满足了那个年代的所有需求！
@@ -219,8 +219,12 @@ mysql的集群，很好的满足了那个年代的所有需求！
 mysql等关系型数据库就不够用了！数据量很多，变化很快！
 mysql有的使用它来存储一些比较大的文件、播客、图片！数据库表很大，效率就很低了
 如果有一种数据库来专门处理这种数据，mysql的压力就会变得十分小，（研究如何处理这些问题）大数据的io压力下，表几乎没法更改，
- 目前一个基本互联网项目！
- image-20200923191743309'>
+目前一个基本互联网项目！
+image-20200923191743309为什么要用nosql
+用户的个人信息，社交温昂罗，地理位置，用户自己产生的数据，用户日志等等爆发式增长！
+这时候我们就需要使用nosql数据库的，nosql可以很好的处理以上情况
+什么是nosql
+nosql = not only sql(不仅仅是sql)'>
 <meta property='og:url' content='https://linjianshu.github.io/p/redis%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-09-19T00:33:33&#43;08:00'/><meta property='article:modified_time' content='2020-09-19T00:33:33&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
@@ -269,11 +273,9 @@ app=&amp;gt;dal=&amp;gt;mysql
 3.访问量，读写混合，一个服务器受不了
 2.Memcached（缓存）mysql&#43;垂直拆分（读写分离）
 网站80%都在读，如果每次去查询数据库的话就十分的麻烦！所以说我们希望减轻数据的压力，我们可以使用缓存来保证效率
-image-20200923185840123
-发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
+image-20200923185840123发展过程：优化数据结构和索引===&amp;gt;文件缓存（IO）===&amp;gt;memchched(当时最热门的技术)===&amp;gt;
 3.分库分表&#43;水平拆分&#43;mysql集群
-image-20200923190414174
-本质：数据库（读写）
+image-20200923190414174本质：数据库（读写）
 早些年mysiam：表锁（影响效率），高并发下出现严重的锁问题
 早些年innodb：行锁，慢慢的就开始使用分库分表来解决写的压力！mysql在那个年代推出了表分区，这个并没有多少公司使用！
 mysql的集群，很好的满足了那个年代的所有需求！
@@ -283,8 +285,12 @@ mysql的集群，很好的满足了那个年代的所有需求！
 mysql等关系型数据库就不够用了！数据量很多，变化很快！
 mysql有的使用它来存储一些比较大的文件、播客、图片！数据库表很大，效率就很低了
 如果有一种数据库来专门处理这种数据，mysql的压力就会变得十分小，（研究如何处理这些问题）大数据的io压力下，表几乎没法更改，
- 目前一个基本互联网项目！
- image-20200923191743309"><meta name="twitter:card" content="summary_large_image">
+目前一个基本互联网项目！
+image-20200923191743309为什么要用nosql
+用户的个人信息，社交温昂罗，地理位置，用户自己产生的数据，用户日志等等爆发式增长！
+这时候我们就需要使用nosql数据库的，nosql可以很好的处理以上情况
+什么是nosql
+nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -510,8 +516,8 @@ mysql有的使用它来存储一些比较大的文件、播客、图片！数据
     
     <header class="article-category">
         
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background-color: #2a9d8f; color: #fff;">
-                数据库
+            <a href="/categories/-%E6%95%B0%E6%8D%AE%E5%BA%93/" >
+                -数据库
             </a>
         
     </header>
@@ -683,23 +689,23 @@ mysql有的使用它来存储一些比较大的文件、播客、图片！数据
 <p>2.大数据量高性能（Redis 一秒写80000次，读取110000次，nosql的缓存记录级，是一种细粒度的缓存，性能会比较高！）</p>
 <p>3.数据类型是多样型！（不需要事先设计数据库！随取随用！如果数据量十分大的表，很多人就无法设计了！）</p>
 <p>4.传统的rdbms 和nosql的区别</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">传统的rdbms</span>
-<span class="o">-</span><span class="n">结构化组织</span>
-<span class="o">-</span><span class="n">sql</span>
-<span class="o">-</span><span class="n">数据和关系都存在单独的表中</span>
-<span class="o">-</span><span class="n">操作操作</span><span class="err">，</span><span class="n">数据定义语言</span>
-<span class="o">-</span><span class="n">严格的一致性</span>
-<span class="o">-</span><span class="n">基础的事务</span>
-<span class="o">-....</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">nosql</span>
-<span class="o">-</span><span class="n">不仅仅是数据</span>
-<span class="o">-</span><span class="n">没有固定的查询语言</span>
-<span class="o">-</span><span class="n">键值对存储</span><span class="err">，</span><span class="n">列存储</span><span class="err">，</span><span class="n">文档存储</span><span class="err">，</span><span class="n">图形数据库</span><span class="err">（</span><span class="n">社交关系</span><span class="err">）</span>
-<span class="o">-</span><span class="n">最终一致性</span>
-<span class="o">-</span><span class="n">CAP定理</span> <span class="n">和</span> <span class="n">BASE</span><span class="err">（</span><span class="n">异地多活</span><span class="err">！）</span> <span class="n">初级架构师</span>
-<span class="o">-</span><span class="n">高性能</span><span class="err">，</span><span class="n">高可用</span><span class="err">，</span><span class="n">高可扩</span>
-<span class="o">-....</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">传统的rdbms</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">结构化组织</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">sql</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">数据和关系都存在单独的表中</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">操作操作</span><span class="err">，</span><span class="n">数据定义语言</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">严格的一致性</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">基础的事务</span>
+</span></span><span class="line"><span class="cl"><span class="o">-....</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">nosql</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">不仅仅是数据</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">没有固定的查询语言</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">键值对存储</span><span class="err">，</span><span class="n">列存储</span><span class="err">，</span><span class="n">文档存储</span><span class="err">，</span><span class="n">图形数据库</span><span class="err">（</span><span class="n">社交关系</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">最终一致性</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">CAP定理</span> <span class="n">和</span> <span class="n">BASE</span><span class="err">（</span><span class="n">异地多活</span><span class="err">！）</span> <span class="n">初级架构师</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">高性能</span><span class="err">，</span><span class="n">高可用</span><span class="err">，</span><span class="n">高可扩</span>
+</span></span><span class="line"><span class="cl"><span class="o">-....</span>
+</span></span></code></pre></div><blockquote>
 <p>了解：3V+3高</p>
 </blockquote>
 <p>大数据时代的3V：主要是描述问题的</p>
@@ -747,28 +753,28 @@ mysql有的使用它来存储一些比较大的文件、播客、图片！数据
 	<figcaption>image-20200923200304616</figcaption>
 	
 </figure></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="err">#</span> <span class="n">1</span><span class="o">.</span><span class="na">商品基本信息</span>
-<span class="n">名称</span><span class="err">、</span><span class="n">价格</span><span class="err">、</span><span class="n">商家信息</span><span class="err">；</span>
-<span class="n">关系型数据库就可以解决了</span><span class="err">！</span><span class="n">mysql</span> <span class="o">/</span><span class="n">oracle</span><span class="o">(</span><span class="n">淘宝早年就去IOE</span><span class="o">!--</span><span class="n">王坚</span><span class="o">)</span>
-<span class="n">淘宝内部的mysql</span> <span class="n">不是大家用的mysql</span>
-<span class="err">#</span><span class="n">2</span><span class="o">.</span><span class="na">商品的描述</span><span class="err">、</span><span class="n">评论</span><span class="err">（</span><span class="n">文字比较多</span><span class="err">）</span>
-<span class="n">文档型数据库中</span><span class="err">，</span><span class="n">mongodb</span>
-<span class="err">#</span><span class="n">3</span><span class="o">.</span><span class="na">图片</span>
-<span class="n">分布式文件系统</span> <span class="n">FastDFS</span>
- <span class="o">-</span><span class="n">淘宝自己的TFS</span>
- <span class="err">—</span><span class="n">google自己的GFS</span>
- <span class="o">-</span><span class="n">Hadoop</span> <span class="n">HDFS</span>
- <span class="o">-</span><span class="n">阿里云的</span> <span class="n">oss</span>
- <span class="err">#</span><span class="n">4</span><span class="o">.</span><span class="na">商品的关键字</span><span class="err">（</span><span class="n">搜索</span><span class="err">）</span>
- <span class="o">-</span><span class="n">搜索引擎</span> <span class="n">solr</span>  <span class="n">elasticsearch</span>
- <span class="o">-</span><span class="n">iseacher</span>  <span class="n">多隆</span> 
- <span class="n">所有牛逼的人都有一段苦逼的岁月</span>
- <span class="err">#</span><span class="n">5</span><span class="o">.</span><span class="na">商品热门的波段信息</span>
- <span class="o">-</span><span class="n">内存数据库</span>
- <span class="o">-</span><span class="n">redis</span> <span class="n">tair</span><span class="err">、</span><span class="n">memarche</span>
- <span class="err">#</span><span class="n">6</span><span class="o">.</span><span class="na">商品的交易</span><span class="err">，</span><span class="n">外部的支付接口</span>
- <span class="o">-</span><span class="n">三方应用</span>
-</code></pre></div><p>要知道，一个简单的网页背后的技术一定不是大家想的那么简单</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span> <span class="n">1</span><span class="o">.</span><span class="na">商品基本信息</span>
+</span></span><span class="line"><span class="cl"><span class="n">名称</span><span class="err">、</span><span class="n">价格</span><span class="err">、</span><span class="n">商家信息</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="n">关系型数据库就可以解决了</span><span class="err">！</span><span class="n">mysql</span> <span class="o">/</span><span class="n">oracle</span><span class="o">(</span><span class="n">淘宝早年就去IOE</span><span class="o">!--</span><span class="n">王坚</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">淘宝内部的mysql</span> <span class="n">不是大家用的mysql</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="n">2</span><span class="o">.</span><span class="na">商品的描述</span><span class="err">、</span><span class="n">评论</span><span class="err">（</span><span class="n">文字比较多</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="n">文档型数据库中</span><span class="err">，</span><span class="n">mongodb</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="n">3</span><span class="o">.</span><span class="na">图片</span>
+</span></span><span class="line"><span class="cl"><span class="n">分布式文件系统</span> <span class="n">FastDFS</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">淘宝自己的TFS</span>
+</span></span><span class="line"><span class="cl"> <span class="err">—</span><span class="n">google自己的GFS</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">Hadoop</span> <span class="n">HDFS</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">阿里云的</span> <span class="n">oss</span>
+</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="n">4</span><span class="o">.</span><span class="na">商品的关键字</span><span class="err">（</span><span class="n">搜索</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">搜索引擎</span> <span class="n">solr</span>  <span class="n">elasticsearch</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">iseacher</span>  <span class="n">多隆</span> 
+</span></span><span class="line"><span class="cl"> <span class="n">所有牛逼的人都有一段苦逼的岁月</span>
+</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="n">5</span><span class="o">.</span><span class="na">商品热门的波段信息</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">内存数据库</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">redis</span> <span class="n">tair</span><span class="err">、</span><span class="n">memarche</span>
+</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="n">6</span><span class="o">.</span><span class="na">商品的交易</span><span class="err">，</span><span class="n">外部的支付接口</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">三方应用</span>
+</span></span></code></pre></div><p>要知道，一个简单的网页背后的技术一定不是大家想的那么简单</p>
 <p>大型互联网应用问题：</p>
 <ul>
 <li>数据类型太多了</li>
@@ -1025,11 +1031,11 @@ mysql有的使用它来存储一些比较大的文件、播客、图片！数据
 <h4 id="基础知识">基础知识</h4>
 <p>redis默认有16个数据库</p>
 <p>默认使用第0个，可以切换数据库</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">127.0.0.1:6379&gt; <span class="k">select</span> 3	<span class="c1">#切换数据库</span>
-OK
-127.0.0.1:6379<span class="o">[</span>3<span class="o">]</span>&gt; dbsize	<span class="c1">#查看大小</span>
-<span class="o">(</span>integer<span class="o">)</span> <span class="m">0</span>
-</code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">127.0.0.1:6379&gt; <span class="k">select</span> 3	<span class="c1">#切换数据库</span>
+</span></span><span class="line"><span class="cl">OK
+</span></span><span class="line"><span class="cl">127.0.0.1:6379<span class="o">[</span>3<span class="o">]</span>&gt; dbsize	<span class="c1">#查看大小</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>integer<span class="o">)</span> <span class="m">0</span>
+</span></span></code></pre></div><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102052855.png" >
 		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102052855.png"
@@ -1122,13 +1128,13 @@ OK
 <p>单点登陆</p>
 </blockquote>
 <h4 id="redis-key">redis-key</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">keys * 查看所以的key
-exists name 判断当前的key是否存在
-move name 移除当前的key
-expire name <span class="m">10</span> 设置key的过期时间 单位是秒哦
-ttl 查看当前key的剩余时间
-<span class="nb">type</span> name 查看当前key的类型
-</code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keys * 查看所以的key
+</span></span><span class="line"><span class="cl">exists name 判断当前的key是否存在
+</span></span><span class="line"><span class="cl">move name 移除当前的key
+</span></span><span class="line"><span class="cl">expire name <span class="m">10</span> 设置key的过期时间 单位是秒哦
+</span></span><span class="line"><span class="cl">ttl 查看当前key的剩余时间
+</span></span><span class="line"><span class="cl"><span class="nb">type</span> name 查看当前key的类型
+</span></span></code></pre></div><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104300213.png" >
 		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104300213.png"
@@ -1200,7 +1206,7 @@ ttl 查看当前key的剩余时间
 	<figcaption>image-20200924105632891</figcaption>
 	
 </figure></p>
-<pre><code>append 追加字符串 ， 如果key不存在 ， 就相当于set key value
+<pre tabindex="0"><code>append 追加字符串 ， 如果key不存在 ， 就相当于set key value
 exists 判断某个key是否存在
 strlen 获取字符串的长度
 </code></pre><p><figure 
@@ -1217,7 +1223,7 @@ strlen 获取字符串的长度
 	<figcaption>image-20200924110407868</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">incr key 自增命令，自增1
+<pre tabindex="0"><code class="language-bush" data-lang="bush">incr key 自增命令，自增1
 decr key 自减命令，自减1
 incrby key increment 自增多少步长
 decrby key decrement 自减多少步长
@@ -1235,7 +1241,7 @@ decrby key decrement 自减多少步长
 	<figcaption>image-20200924110748593</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">范围
+<pre tabindex="0"><code class="language-bush" data-lang="bush">范围
 getrange key start end
 其实就是截取字符串
 从0开始
@@ -1246,7 +1252,6 @@ setrange key offset value 替换 key 从哪里开始算起，替换多少个字�
 
 setex（set with expire)   #设置过期时间
 setnx(set if not exist)  #不存在设置
-
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111131931.png" >
@@ -1261,7 +1266,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924111131931</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">setex key time value 设置过期时间ttl key 查看多久过期setnx key value 设置原本不存在的key的value值返回值是0代表没有成功 1代表成功
+<pre tabindex="0"><code class="language-bush" data-lang="bush">setex key time value 设置过期时间ttl key 查看多久过期setnx key value 设置原本不存在的key的value值返回值是0代表没有成功 1代表成功
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111716363.png" >
@@ -1276,7 +1281,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924111716363</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">mset 同时设置多个值 mget 同时获取多个值msetnx 是一个原子性的操作，要么一起成功，要么一起失败
+<pre tabindex="0"><code class="language-bush" data-lang="bush">mset 同时设置多个值 mget 同时获取多个值msetnx 是一个原子性的操作，要么一起成功，要么一起失败
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112237809.png" >
@@ -1291,7 +1296,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924112237809</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">#对象set user1:1 {name:zhangsan,age:3}#设置user:1对象 值为json字符串来保存一个对象#这里的key是一个巧妙的设置：user：{id}：{filed}，如此设计在redis中是完全ok的
+<pre tabindex="0"><code class="language-bush" data-lang="bush">#对象set user1:1 {name:zhangsan,age:3}#设置user:1对象 值为json字符串来保存一个对象#这里的key是一个巧妙的设置：user：{id}：{filed}，如此设计在redis中是完全ok的
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112908580.png" >
@@ -1320,7 +1325,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924113631933</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">getset key value 没有就设置设置完了就可以再改
+<pre tabindex="0"><code class="language-bush" data-lang="bush">getset key value 没有就设置设置完了就可以再改
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150037955.png" >
@@ -1375,7 +1380,7 @@ setnx(set if not exist)  #不存在设置
 <h4 id="list">list</h4>
 <p>在redis里，我们可以把list玩成一个栈、队列、阻塞队列！</p>
 <p>所有的list命令都是以L开头的</p>
-<pre><code class="language-bush" data-lang="bush">lpush 将一个值或多个值，插入到列表头部（左）rpush 将一个值或多个值，插入到列表尾部（右）lrange key start end 获取值
+<pre tabindex="0"><code class="language-bush" data-lang="bush">lpush 将一个值或多个值，插入到列表头部（左）rpush 将一个值或多个值，插入到列表尾部（右）lrange key start end 获取值
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151313766.png" >
@@ -1390,7 +1395,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924151313766</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">lpop 移除list的第一个元素rpop 移除list的最后一个元素
+<pre tabindex="0"><code class="language-bush" data-lang="bush">lpop 移除list的第一个元素rpop 移除list的最后一个元素
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151853384.png" >
@@ -1405,7 +1410,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924151853384</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">lindex key index 通过下标获取某一个值
+<pre tabindex="0"><code class="language-bush" data-lang="bush">lindex key index 通过下标获取某一个值
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152048330.png" >
@@ -1420,7 +1425,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924152048330</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">llen list的长度
+<pre tabindex="0"><code class="language-bush" data-lang="bush">llen list的长度
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152237266.png" >
@@ -1435,7 +1440,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924152237266</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">移除指定的值！取消关注 uidlrem key count value 移除特定个数的指定值
+<pre tabindex="0"><code class="language-bush" data-lang="bush">移除指定的值！取消关注 uidlrem key count value 移除特定个数的指定值
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152956569.png" >
@@ -1450,7 +1455,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924152956569</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">trim 修剪ltrim 截断list集合并获取特定下标的集合ltrim key start end 
+<pre tabindex="0"><code class="language-bush" data-lang="bush">trim 修剪ltrim 截断list集合并获取特定下标的集合ltrim key start end 
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153243035.png" >
@@ -1465,7 +1470,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924153243035</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">rpoplpush移除列表右边最后一个元素并且将其加入到一个新的列表中rpoplpush source destination
+<pre tabindex="0"><code class="language-bush" data-lang="bush">rpoplpush移除列表右边最后一个元素并且将其加入到一个新的列表中rpoplpush source destination
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153737788.png" >
@@ -1480,7 +1485,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924153737788</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">lset key index value 将列表中指定下标的值替换为另外一个值，更新操作如果不存在指定下标，就会报错
+<pre tabindex="0"><code class="language-bush" data-lang="bush">lset key index value 将列表中指定下标的值替换为另外一个值，更新操作如果不存在指定下标，就会报错
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924154630068.png" >
@@ -1496,7 +1501,7 @@ setnx(set if not exist)  #不存在设置
 	
 </figure></p>
 <p>list中多用lrrange、lpush、lpop而非lset</p>
-<pre><code class="language-bush" data-lang="bush">linsert key before/after 特定的value 要插入的value将某一个具体的value插入到列表中某个特定元素的前面或者后面
+<pre tabindex="0"><code class="language-bush" data-lang="bush">linsert key before/after 特定的value 要插入的value将某一个具体的value插入到列表中某个特定元素的前面或者后面
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924155744795.png" >
@@ -1524,7 +1529,7 @@ setnx(set if not exist)  #不存在设置
 <p>消息排队！lpush rpop（消息队列） lpush lpop（栈）</p>
 <h4 id="set集合">set（集合）</h4>
 <p>set中的值不能重复</p>
-<pre><code class="language-bush" data-lang="bush">set通常都是以s开头的sadd  key member 向集合中添加元素sismember key member 判断某元素是否在指定的集合中smembers key  查看指定集合的所有元素scard key 查看指定集合的长度
+<pre tabindex="0"><code class="language-bush" data-lang="bush">set通常都是以s开头的sadd  key member 向集合中添加元素sismember key member 判断某元素是否在指定的集合中smembers key  查看指定集合的所有元素scard key 查看指定集合的长度
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924162841343.png" >
@@ -1539,7 +1544,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924162841343</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">srem (s remove缩写) key value 删除指定集合里的指定元素
+<pre tabindex="0"><code class="language-bush" data-lang="bush">srem (s remove缩写) key value 删除指定集合里的指定元素
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163026477.png" >
@@ -1554,7 +1559,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924163026477</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">set无需不重复集合，可以实现抽随机srandmember key 数量  随机抽取指定数量的元素从某指定集合中
+<pre tabindex="0"><code class="language-bush" data-lang="bush">set无需不重复集合，可以实现抽随机srandmember key 数量  随机抽取指定数量的元素从某指定集合中
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163406035.png" >
@@ -1569,7 +1574,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924163406035</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">删除指定的key， 随机删除指定的key0spop key count 随机移除指定集合内指定数量的元素
+<pre tabindex="0"><code class="language-bush" data-lang="bush">删除指定的key， 随机删除指定的key0spop key count 随机移除指定集合内指定数量的元素
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163558641.png" >
@@ -1584,7 +1589,7 @@ setnx(set if not exist)  #不存在设置
 	<figcaption>image-20200924163558641</figcaption>
 	
 </figure></p>
-<pre><code class="language-bush" data-lang="bush">将一个指定的集合中的指定元素移除至另一个指定集合中smove source destination value 
+<pre tabindex="0"><code class="language-bush" data-lang="bush">将一个指定的集合中的指定元素移除至另一个指定集合中smove source destination value 
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163918565.png" >
@@ -1600,7 +1605,7 @@ setnx(set if not exist)  #不存在设置
 	
 </figure></p>
 <p>微博、B站、共同关注（交集）</p>
-<pre><code class="language-bush" data-lang="bush">差集sdiff(set different) sdiff key1 key2 与 sdiff key2 key1不同，参考系不一样sunion key1 key2 sinter key1 key2
+<pre tabindex="0"><code class="language-bush" data-lang="bush">差集sdiff(set different) sdiff key1 key2 与 sdiff key2 key1不同，参考系不一样sunion key1 key2 sinter key1 key2
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924164627415.png" >
@@ -1619,7 +1624,7 @@ setnx(set if not exist)  #不存在设置
 <p>共同关注：A用户和B用户的共同关注，二度好友，推荐好友，六度分割理论</p>
 <h4 id="hash哈希">hash（哈希）</h4>
 <p>想象成map集合，key-map集合， key -&lt;key,value&gt;集合，只是这个值是一个map集合，其实本质和string类型没有太大区别，还是一个简单的key-value</p>
-<pre><code class="language-bush" data-lang="bush">hset key field value 设置值hget key field 		获取值hmset key field1 value1 field2 value2 批量设置值hget key field1 field2 批量设置值hgetall key 获取所有的值
+<pre tabindex="0"><code class="language-bush" data-lang="bush">hset key field value 设置值hget key field 		获取值hmset key field1 value1 field2 value2 批量设置值hget key field1 field2 批量设置值hgetall key 获取所有的值
 </code></pre><p><figure 
 	>
 	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924170715011.png" >

@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='本周工作情况： 1.Dapper学习及使用（完成） 2.MQTT学习及使用（完成） 3.Dapper&amp;amp;MQTT保证数据一致性Demo（批量增、删、改）（完成） 4.跨服务事务一致性学习（saga)（未完成） 计划下阶段任务： 1.了解oes各个模块业务逻辑，上层：王锐师兄，下层：丽俊师兄，App：子若姐，重点了解流程，不慌搭建微服务 2.继续学习微服务划分原则和示例，根据领域驱动设计（DDD）及师兄师姐的理解划分各模块构建微服务蓝图 3.了解数据池化技术，斟酌数据库选用 Dapper入门及使用 ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术 EF框架加载树： image-20201113095855356
-Dapper加载树： image-20201113092949378
-MQTT学习及使用 image-20201113094906752
-MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
-使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布 image-20201113090134383
-批量增加 image-20201113090214669
-image-20201113090255394
-批量修改 image-20201113090947812
-image-20201113090956564
-image-20201113091105493
-批量删除 image-20201113091511010
-image-20201113091524415
-image-20201113091600481'><title>微服务2020.11.13</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='本周工作情况： 1.Dapper学习及使用（完成） 2.MQTT学习及使用（完成） 3.Dapper&amp;amp;MQTT保证数据一致性Demo（批量增、删、改）（完成） 4.跨服务事务一致性学习（saga)（未完成） 计划下阶段任务： 1.了解oes各个模块业务逻辑，上层：王锐师兄，下层：丽俊师兄，App：子若姐，重点了解流程，不慌搭建微服务 2.继续学习微服务划分原则和示例，根据领域驱动设计（DDD）及师兄师姐的理解划分各模块构建微服务蓝图 3.了解数据池化技术，斟酌数据库选用 Dapper入门及使用 ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术 EF框架加载树： image-20201113095855356Dapper加载树： image-20201113092949378MQTT学习及使用 image-20201113094906752MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布 image-20201113090134383批量增加 image-20201113090214669image-20201113090255394批量修改 image-20201113090947812image-20201113090956564image-20201113091105493批量删除 image-20201113091511010image-20201113091524415image-20201113091600481'><title>微服务2020.11.13</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.13/'>
 
@@ -116,37 +104,13 @@ MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
                   "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
                    "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
                     </script><meta property='og:title' content='微服务2020.11.13'>
-<meta property='og:description' content='本周工作情况： 1.Dapper学习及使用（完成） 2.MQTT学习及使用（完成） 3.Dapper&amp;amp;MQTT保证数据一致性Demo（批量增、删、改）（完成） 4.跨服务事务一致性学习（saga)（未完成） 计划下阶段任务： 1.了解oes各个模块业务逻辑，上层：王锐师兄，下层：丽俊师兄，App：子若姐，重点了解流程，不慌搭建微服务 2.继续学习微服务划分原则和示例，根据领域驱动设计（DDD）及师兄师姐的理解划分各模块构建微服务蓝图 3.了解数据池化技术，斟酌数据库选用 Dapper入门及使用 ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术 EF框架加载树： image-20201113095855356
-Dapper加载树： image-20201113092949378
-MQTT学习及使用 image-20201113094906752
-MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
-使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布 image-20201113090134383
-批量增加 image-20201113090214669
-image-20201113090255394
-批量修改 image-20201113090947812
-image-20201113090956564
-image-20201113091105493
-批量删除 image-20201113091511010
-image-20201113091524415
-image-20201113091600481'>
+<meta property='og:description' content='本周工作情况： 1.Dapper学习及使用（完成） 2.MQTT学习及使用（完成） 3.Dapper&amp;amp;MQTT保证数据一致性Demo（批量增、删、改）（完成） 4.跨服务事务一致性学习（saga)（未完成） 计划下阶段任务： 1.了解oes各个模块业务逻辑，上层：王锐师兄，下层：丽俊师兄，App：子若姐，重点了解流程，不慌搭建微服务 2.继续学习微服务划分原则和示例，根据领域驱动设计（DDD）及师兄师姐的理解划分各模块构建微服务蓝图 3.了解数据池化技术，斟酌数据库选用 Dapper入门及使用 ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术 EF框架加载树： image-20201113095855356Dapper加载树： image-20201113092949378MQTT学习及使用 image-20201113094906752MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布 image-20201113090134383批量增加 image-20201113090214669image-20201113090255394批量修改 image-20201113090947812image-20201113090956564image-20201113091105493批量删除 image-20201113091511010image-20201113091524415image-20201113091600481'>
 <meta property='og:url' content='https://linjianshu.github.io/p/%E5%BE%AE%E6%9C%8D%E5%8A%A12020.11.13/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='微服务' /><meta property='article:published_time' content='2020-11-13T09:17:59&#43;08:00'/><meta property='article:modified_time' content='2020-11-13T09:17:59&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
 <meta name="twitter:site" content="@ljsljs56495989">
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="微服务2020.11.13">
-<meta name="twitter:description" content="本周工作情况： 1.Dapper学习及使用（完成） 2.MQTT学习及使用（完成） 3.Dapper&amp;amp;MQTT保证数据一致性Demo（批量增、删、改）（完成） 4.跨服务事务一致性学习（saga)（未完成） 计划下阶段任务： 1.了解oes各个模块业务逻辑，上层：王锐师兄，下层：丽俊师兄，App：子若姐，重点了解流程，不慌搭建微服务 2.继续学习微服务划分原则和示例，根据领域驱动设计（DDD）及师兄师姐的理解划分各模块构建微服务蓝图 3.了解数据池化技术，斟酌数据库选用 Dapper入门及使用 ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术 EF框架加载树： image-20201113095855356
-Dapper加载树： image-20201113092949378
-MQTT学习及使用 image-20201113094906752
-MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
-使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布 image-20201113090134383
-批量增加 image-20201113090214669
-image-20201113090255394
-批量修改 image-20201113090947812
-image-20201113090956564
-image-20201113091105493
-批量删除 image-20201113091511010
-image-20201113091524415
-image-20201113091600481"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="本周工作情况： 1.Dapper学习及使用（完成） 2.MQTT学习及使用（完成） 3.Dapper&amp;amp;MQTT保证数据一致性Demo（批量增、删、改）（完成） 4.跨服务事务一致性学习（saga)（未完成） 计划下阶段任务： 1.了解oes各个模块业务逻辑，上层：王锐师兄，下层：丽俊师兄，App：子若姐，重点了解流程，不慌搭建微服务 2.继续学习微服务划分原则和示例，根据领域驱动设计（DDD）及师兄师姐的理解划分各模块构建微服务蓝图 3.了解数据池化技术，斟酌数据库选用 Dapper入门及使用 ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术 EF框架加载树： image-20201113095855356Dapper加载树： image-20201113092949378MQTT学习及使用 image-20201113094906752MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布 image-20201113090134383批量增加 image-20201113090214669image-20201113090255394批量修改 image-20201113090947812image-20201113090956564image-20201113091105493批量删除 image-20201113091511010image-20201113091524415image-20201113091600481"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -372,8 +336,8 @@ MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
     
     <header class="article-category">
         
-            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="background-color: #fcd217; color: #fff;">
-                微服务
+            <a href="/categories/-%E5%BE%AE%E6%9C%8D%E5%8A%A1/" >
+                -微服务
             </a>
         
     </header>
@@ -434,8 +398,8 @@ MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
 <h5 id="3了解数据池化技术斟酌数据库选用">3.了解数据池化技术，斟酌数据库选用</h5>
 <h3 id="dapper入门及使用">Dapper入门及使用</h3>
 <h5 id="orm对象关系映射轻量级框架数据库持久化技术池化技术">ORM（对象关系映射）轻量级框架：数据库持久化技术，池化技术</h5>
-<p><!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h5 id="ef框架加载树">EF框架加载树：</h5>
 <p><figure 
 	>
@@ -467,7 +431,7 @@ MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
 	
 </figure></p>
 <h3 id="mqtt学习及使用">MQTT学习及使用</h3>
-<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p><figure 
 	>
 	<a href="/2020.11.13.assets/image-20201113094906752.png" >
@@ -497,7 +461,7 @@ MQTT&amp;amp;Dapper保证跨数据库的数据一致性 image-20201113091711501
 	<figcaption>image-20201113091711501</figcaption>
 	
 </figure></p>
-<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <h5 id="使用emq可视化界面作为代理来管理mqtt的客户端及主题订阅发布">使用EMQ可视化界面作为代理来管理mqTT的客户端及主题、订阅、发布</h5>
 <p><figure 
 	>

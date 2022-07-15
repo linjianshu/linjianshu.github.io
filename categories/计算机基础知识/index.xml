@@ -5,55 +5,6 @@
     <link>https://linjianshu.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
     <description>Recent content in 计算机基础知识 on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 28 Feb 2022 12:11:37 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>leetBook_冲刺攻略</title>
-      <link>https://linjianshu.github.io/p/leetbook_%E5%86%B2%E5%88%BA%E6%94%BB%E7%95%A5/</link>
-      <pubDate>Mon, 28 Feb 2022 12:11:37 +0800</pubDate>
-      
-      <guid>https://linjianshu.github.io/p/leetbook_%E5%86%B2%E5%88%BA%E6%94%BB%E7%95%A5/</guid>
-      <description>leetBook_冲刺攻略 image-20220227100312893
-根据提示的数据范围推定时间复杂度 根据时间复杂度推定算法集合 根据题目特征确定算法
-image-20220227100007364
-没有给出数据范围通常使用枚举 枚举通常是n~nlog(n)的时间复杂度 然后再确定算法集合
-image-20220227100056863
-image-20220228103152097
-image-20220228103157567</description>
-    </item>
-    
-    <item>
-      <title>leetBook_数组和字符串</title>
-      <link>https://linjianshu.github.io/p/leetbook_%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <pubDate>Thu, 10 Feb 2022 12:11:37 +0800</pubDate>
-      
-      <guid>https://linjianshu.github.io/p/leetbook_%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-      <description>leetBook_数组和字符串   理解数组的 基本概念 及其 操作方式；
-  理解 二维数组 的基本概念，熟悉二维数组的使用；
-  了解 字符串 的概念以及字符串所具有的不同特性；
-  理解字符串匹配中的 KMP 算法；
-  能够运用 双指针 解决实际问题。
-  数组简介 image-20220228130907972
-集合列表与数组 集合:由一个或多个确定的元素构成的整体
-集合里的元素类型不一定相同,集合里的元素没有顺序
-列表:一种数据项构成的有限序列,即按照一定的线性顺序,排列而成的数据项的集合
-列表的概念是在集合的特征上形成的,他具有顺序,且长度是可变的.
-列表最常见的形式有数组和链表;栈和队列是两种特殊类型的列表
-数组:列表的实现方式之一
-如何区分列表和数组:索引
-数组中的元素在内存中是连续存储的,且每个元素占用相同大小的内存
-相反,列表中的元素在内存中可能彼此相邻,也可能不相邻.比如链表的元素在内存中则不一定是连续的
-列表是集合的一种表现形式,在集合的特征上形成的;数组是列表的一种实现方式,链表是列表的另一种实现方式.
-image-20220228131524791
-数组的操作 连续存储
-读取元素:按照索引访问 , o(1)
-查找元素:全数组遍历,o(n)
-插入元素:要挪位子,很麻烦.如果需要频繁地对数组元素进行插入操作，会造成时间的浪费。事实上，另一种数据结构，即链表可以有效解决这个问题。
-删除元素:删掉后,把后面的挪到前面,很麻烦.删除操作具有线性时间复杂度，即时间复杂度为 O(N)，N 为数组的长度。
-题目  寻找数组的中心索引  给你一个整数数组 nums ，请计算数组的 中心下标 。
-数组 中心下标 是数组的一个下标，其左侧所有元素相加的和等于右侧所有元素相加的和。
-如果中心下标位于数组最左端，那么左侧数之和视为 0 ，因为在下标的左侧不存在元素。这一点对于中心下标位于数组最右端同样适用。</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://linjianshu.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
