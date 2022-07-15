@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?'><title>实习小结20220714</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-bookNew
+存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?'><title>实习小结20220714</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220714/'>
 
@@ -104,13 +105,15 @@
                   "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
                    "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
                     </script><meta property='og:title' content='实习小结20220714'>
-<meta property='og:description' content='实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?'>
+<meta property='og:description' content='实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-bookNew
+存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?'>
 <meta property='og:url' content='https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220714/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-07-15T15:10:39&#43;08:00'/><meta property='article:modified_time' content='2022-07-15T15:10:39&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
 <meta name="twitter:site" content="@ljsljs56495989">
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="实习小结20220714">
-<meta name="twitter:description" content="实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="实习进度汇报 这几天在做什么: 环境搭建 restful api开发 go web开发 (原生api) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.环境搭建 windows端 安装了Go sdk和 GoLand IDE 配置好了环境变量 安装了docker 还未开始使用 1657867093520WSL-Linux端 ubuntu 安装了Go sdk 1657867136423阿里云ECS-Linux ubuntu 安装了Go sdk 16578672310012.restful api开发 (在3中) 3.go web开发 复习了go web知识 简单编写go 文件服务器 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 16578681726014.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-bookNew
+存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 GoLand进行goweb开发的时候 调试的时候打开html文件总会在src下打开 往往是page no found(因为文件在项目文件夹的根目录下而不是在src的根目录下 通常我的解决方案是1.直接go build然后打开生成的exe 但是这样做不了调试2.把项目的html拷贝到src的根目录下 这是IDE中的设置问题吗还是? vscode好像就可以直接编译运行出界面) 写的时候很潦草 导师能否给一些指导方案 或者优化方案或者编码规范 错误处理很难看 不知道应该怎么一层一层往上处理 经常性需要对err进行判断 对web应用的功能能否提一些简单的功能或者修改或者UI上的建议 我可以进一步慢慢完善 之前做的论坛web和其他的应用程序 底层依赖的云服务器mysql数据库给人黑了 导师知道怎么进行恢复嘛?"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -476,6 +479,8 @@
 	
 </figure></p>
 <h5 id="4对项目代码进行简单的git版本管理">4.对项目代码进行简单的git版本管理</h5>
+<p><a class="link" href="https://github.com/linjianshu/e-bookNew"  target="_blank" rel="noopener"
+    >https://github.com/linjianshu/e-bookNew</a></p>
 <h4 id="存在哪些问题">存在哪些问题:</h4>
 <ul>
 <li>目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识</li>
@@ -487,8 +492,8 @@
 </ul>
 <p><figure 
 	>
-	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902600597.png" >
-		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902600597.png"
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657902600597.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657902600597.png"
 			
 			
 			
@@ -501,8 +506,8 @@
 </figure></p>
 <p><figure 
 	>
-	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902791284.png" >
-		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets%5c1657902791284.png"
+	<a href="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657902791284.png" >
+		<img src="/20220714%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/1657902791284.png"
 			
 			
 			
@@ -514,7 +519,7 @@
 	
 </figure></p>
 <ul>
-<li>给Go项目初始化git的repository,通常如何写.gitigonre文件;如果刚开始没有写.gitignore后来新增/修改了.gitignore文件怎么生效 之前给.net项目弄的时候不太行</li>
+<li>阿里云服务器里Go sdk版本是1.13 有些api使用不了如何更新至1.18 网上的解决方案是卸载掉重装🫥 有没有更好的方法</li>
 </ul>
 <h4 id="打算接下来做什么">打算接下来做什么:</h4>
 <ul>
