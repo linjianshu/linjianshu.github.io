@@ -6,7 +6,16 @@
     <description>Recent content in Posts on think hy how to learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Jul 2022 15:10:39 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 23:48:18 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>实习小结20220718</title>
+      <link>https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/</link>
+      <pubDate>Sun, 17 Jul 2022 23:48:18 +0800</pubDate>
+      
+      <guid>https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/</guid>
+      <description>实习进度汇报 这几天在做什么: go web开发 (使用gin框架) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.go web开发 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 4.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 </description>
+    </item>
+    
     <item>
       <title>实习小结20220714</title>
       <link>https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220714/</link>
