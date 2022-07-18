@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='实习进度汇报 这几天在做什么: go web开发 (使用gin框架) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.go web开发 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 4.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 '><title>实习小结20220718</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=' 实习进度汇报 这几天在做什么: go web开发 (使用gin框架重构上次的web程序) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 linux更新了gosdk至1.18 这些事情的进度: 1.go web开发(使用gin框架 了解常用api) 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:7777/index) 目前仅完成查找和上传 删除还没做 16581121113772.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+3.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-book-Gin
+4.linux更新了go-sdk至1.18 gostudy网站中下载linux-amd64压缩包=&amp;gt;ecs中解压=&amp;gt;删除原先1.13的文件夹=&amp;gt;把解压的内容丢进去=&amp;gt;更新/etc/profile=&amp;gt;刷新profile source /etc/profile=&amp;gt;验证 go version
+不知道有没有简单的做法
+1658110937384存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 gin框架通常配合前端什么技术呀?还是说直接使用gotemplate嘛? 下载功能可以实现 但是看日志发现调用了三次 最后一次才完成传输 前面两次是broken pipe 请问这个是什么原因呀? 1658109545148打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 (浏览之前项目代码尝试手动构建被黑数据库表结构 尝试使用gorm重构sql 使用gin重构http调用) '><title>实习小结20220718</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/'>
 
@@ -104,13 +108,21 @@
                   "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
                    "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
                     </script><meta property='og:title' content='实习小结20220718'>
-<meta property='og:description' content='实习进度汇报 这几天在做什么: go web开发 (使用gin框架) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.go web开发 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 4.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 '>
+<meta property='og:description' content=' 实习进度汇报 这几天在做什么: go web开发 (使用gin框架重构上次的web程序) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 linux更新了gosdk至1.18 这些事情的进度: 1.go web开发(使用gin框架 了解常用api) 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:7777/index) 目前仅完成查找和上传 删除还没做 16581121113772.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+3.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-book-Gin
+4.linux更新了go-sdk至1.18 gostudy网站中下载linux-amd64压缩包=&amp;gt;ecs中解压=&amp;gt;删除原先1.13的文件夹=&amp;gt;把解压的内容丢进去=&amp;gt;更新/etc/profile=&amp;gt;刷新profile source /etc/profile=&amp;gt;验证 go version
+不知道有没有简单的做法
+1658110937384存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 gin框架通常配合前端什么技术呀?还是说直接使用gotemplate嘛? 下载功能可以实现 但是看日志发现调用了三次 最后一次才完成传输 前面两次是broken pipe 请问这个是什么原因呀? 1658109545148打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 (浏览之前项目代码尝试手动构建被黑数据库表结构 尝试使用gorm重构sql 使用gin重构http调用) '>
 <meta property='og:url' content='https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-07-17T23:48:18&#43;08:00'/><meta property='article:modified_time' content='2022-07-17T23:48:18&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
 <meta name="twitter:site" content="@ljsljs56495989">
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="实习小结20220718">
-<meta name="twitter:description" content="实习进度汇报 这几天在做什么: go web开发 (使用gin框架) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 这些事情的进度: 1.go web开发 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做 4.对项目代码进行简单的git版本管理 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 "><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content=" 实习进度汇报 这几天在做什么: go web开发 (使用gin框架重构上次的web程序) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 linux更新了gosdk至1.18 这些事情的进度: 1.go web开发(使用gin框架 了解常用api) 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:7777/index) 目前仅完成查找和上传 删除还没做 16581121113772.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+3.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-book-Gin
+4.linux更新了go-sdk至1.18 gostudy网站中下载linux-amd64压缩包=&amp;gt;ecs中解压=&amp;gt;删除原先1.13的文件夹=&amp;gt;把解压的内容丢进去=&amp;gt;更新/etc/profile=&amp;gt;刷新profile source /etc/profile=&amp;gt;验证 go version
+不知道有没有简单的做法
+1658110937384存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 gin框架通常配合前端什么技术呀?还是说直接使用gotemplate嘛? 下载功能可以实现 但是看日志发现调用了三次 最后一次才完成传输 前面两次是broken pipe 请问这个是什么原因呀? 1658109545148打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 (浏览之前项目代码尝试手动构建被黑数据库表结构 尝试使用gorm重构sql 使用gin重构http调用) "><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -379,32 +391,88 @@
 </header>
 
     <section class="article-content">
-    <h3 id="实习进度汇报">实习进度汇报</h3>
+    <ul>
+<li>
+<h3 id="实习进度汇报">实习进度汇报</h3>
 <h4 id="这几天在做什么">这几天在做什么:</h4>
 <ul>
-<li>go web开发 (使用gin框架)</li>
+<li>go web开发 (使用gin框架重构上次的web程序)</li>
 <li>hugo 更新实习日记至github主页上</li>
 <li>git代码管理 上传demo方便导师检查</li>
+<li>linux更新了gosdk至1.18</li>
 </ul>
 <h4 id="这些事情的进度">这些事情的进度:</h4>
-<h5 id="1go-web开发">1.go web开发</h5>
+<h5 id="1go-web开发使用gin框架-了解常用api">1.go web开发(使用gin框架 了解常用api)</h5>
 <ul>
 <li>了解了gin框架常用知识点</li>
 <li>使用gin框架重构上次的demo</li>
-<li>部署至阿里云 供公网访问 (http://118.178.236.128:9876/index) 目前仅完成查找和上传 删除还没做</li>
+<li>部署至阿里云 供公网访问 (http://118.178.236.128:7777/index) 目前仅完成查找和上传 删除还没做</li>
 </ul>
-<h5 id="4对项目代码进行简单的git版本管理">4.对项目代码进行简单的git版本管理</h5>
+<p><figure 
+	>
+	<a href="/20220718%e5%ae%9e%e4%b9%a0%e5%b7%a5%e4%bd%9c%e8%bf%9b%e5%ba%a6%e6%b1%87%e6%8a%a5.assets/1658112111377.png" >
+		<img src="/20220718%e5%ae%9e%e4%b9%a0%e5%b7%a5%e4%bd%9c%e8%bf%9b%e5%ba%a6%e6%b1%87%e6%8a%a5.assets/1658112111377.png"
+			
+			
+			
+			loading="lazy"
+			alt="1658112111377">
+	</a>
+	
+	<figcaption>1658112111377</figcaption>
+	
+</figure></p>
+<h5 id="2使用hugo更新实习日记至github主页">2.使用hugo更新实习日记至github主页</h5>
+<p><a class="link" href="https://linjianshu.github.io/"  target="_blank" rel="noopener"
+    >github主页 (linjianshu.github.io)</a></p>
+<h5 id="3对项目代码进行简单的git版本管理">3.对项目代码进行简单的git版本管理</h5>
+<p><a class="link" href="https://github.com/linjianshu/e-book-Gin"  target="_blank" rel="noopener"
+    >https://github.com/linjianshu/e-book-Gin</a></p>
+<h5 id="4linux更新了go-sdk至118">4.linux更新了go-sdk至1.18</h5>
+<p>gostudy网站中下载linux-amd64压缩包=&gt;ecs中解压=&gt;删除原先1.13的文件夹=&gt;把解压的内容丢进去=&gt;更新/etc/profile=&gt;刷新profile source /etc/profile=&gt;验证 go version</p>
+<p><strong>不知道有没有简单的做法</strong></p>
+<p><figure 
+	>
+	<a href="/20220718%e5%ae%9e%e4%b9%a0%e5%b7%a5%e4%bd%9c%e8%bf%9b%e5%ba%a6%e6%b1%87%e6%8a%a5.assets/1658110937384.png" >
+		<img src="/20220718%e5%ae%9e%e4%b9%a0%e5%b7%a5%e4%bd%9c%e8%bf%9b%e5%ba%a6%e6%b1%87%e6%8a%a5.assets/1658110937384.png"
+			
+			
+			
+			loading="lazy"
+			alt="1658110937384">
+	</a>
+	
+	<figcaption>1658110937384</figcaption>
+	
+</figure></p>
 <h4 id="存在哪些问题">存在哪些问题:</h4>
 <ul>
 <li>目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识</li>
-<li></li>
+<li>gin框架通常配合前端什么技术呀?还是说直接使用gotemplate嘛?</li>
+<li>下载功能可以实现 但是看日志发现调用了三次 最后一次才完成传输 前面两次是broken pipe 请问这个是什么原因呀?</li>
 </ul>
+<p><figure 
+	>
+	<a href="/20220718%e5%ae%9e%e4%b9%a0%e5%b7%a5%e4%bd%9c%e8%bf%9b%e5%ba%a6%e6%b1%87%e6%8a%a5.assets/1658109545148.png" >
+		<img src="/20220718%e5%ae%9e%e4%b9%a0%e5%b7%a5%e4%bd%9c%e8%bf%9b%e5%ba%a6%e6%b1%87%e6%8a%a5.assets/1658109545148.png"
+			
+			
+			
+			loading="lazy"
+			alt="1658109545148">
+	</a>
+	
+	<figcaption>1658109545148</figcaption>
+	
+</figure></p>
 <h4 id="打算接下来做什么">打算接下来做什么:</h4>
 <ul>
 <li>容器技术学习</li>
 <li>mysql学习</li>
 <li>听导师的安排继续学习</li>
-<li>使用gorm和go操纵数据库</li>
+<li>使用gorm和go操纵数据库 (浏览之前项目代码尝试手动构建被黑数据库表结构 尝试使用gorm重构sql 使用gin重构http调用)</li>
+</ul>
+</li>
 </ul>
 
 </section>
