@@ -6,7 +6,39 @@
         <description>Recent content on think hy how to learn</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 17 Jul 2022 23:48:18 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 21 Jul 2022 01:50:14 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>20220720实习工作进度汇报</title>
+        <link>https://linjianshu.github.io/p/20220720%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</link>
+        <pubDate>Thu, 21 Jul 2022 01:50:14 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/20220720%E5%AE%9E%E4%B9%A0%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</guid>
+        <description>实习进度汇报 这几天在做什么: go web开发 (使用gorm框架增加论坛模块 用户登录权限模块) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 linux中mysql重装(由于之前mysql被黑了) docker学习 这些事情的进度: 1.go web开发(使用gin框架 了解常用api) 了解了gorm框架常用知识点 CRUD 高级特性还没有了解 使用gorm操纵mysql数据库 部署至阿里云 供公网访问 (http://118.178.236.128:7777/index) 目前文件删除 博客删除和审核还没做 部分存在bug image-202207210156558122.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+3.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-book-Gin
+4.linux中mysql重装(由于之前mysql被黑了) 存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 部分存在bug 需要再进行完善 没有掌握web测试的技能 Db.Model(&amp;amp;Session{}).Where(&amp;ldquo;user_id = ?&amp;quot;,user.Id) 底层的sql语句会不会select * 呀? 框架会不会自动优化? 测试用的很别扭 还是得看数据库有没有数据多了或者少了 test的时候 有时候会对数据库进行新增删除和修改 是否需要掌握测试的东西 ? 比如桩代码和mono模拟测试之类的技能 ? 企业后端的岗位需要用到测试嘛? log那一块没有使用别人的库 自己写了一个是不是已经弄巧成拙了 麻烦老师指点一下 后续我改成别人的库优化一下 打算接下来做什么: 容器技术学习 mysql复习 听导师的安排继续学习 搭建k8s </description>
+        </item>
+        <item>
+        <title>面试薄弱复习</title>
+        <link>https://linjianshu.github.io/p/%E9%9D%A2%E8%AF%95%E8%96%84%E5%BC%B1%E5%A4%8D%E4%B9%A0/</link>
+        <pubDate>Mon, 18 Jul 2022 16:34:40 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/%E9%9D%A2%E8%AF%95%E8%96%84%E5%BC%B1%E5%A4%8D%E4%B9%A0/</guid>
+        <description> 算法
+树 平衡二叉树 镜像二叉树 最低公共祖先 前序后续便利构造二叉树 节点和等于整数的路径 两个节点的最长距离 二叉查找树 链表 奇升偶降 如何有序 数组 二维数组旋转90° 2sum问题 位运算 动态规划 背包问题 0-1 背包问题 完全 排序 复杂度 冒泡 插入 归并 快排 希尔 堆排序 基数排序 桶排序 如何求中位数 大根堆与小根堆 优先队列 单调栈 单调队列 接雨水 最大矩形 滑动窗口 二分 DFS BFS 递归 回溯 LRU 辅助栈 并查集 堆栈
+内存中的堆、栈、静态区 </description>
+        </item>
+        <item>
+        <title>实习小结20220718</title>
+        <link>https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/</link>
+        <pubDate>Mon, 18 Jul 2022 15:10:39 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/</guid>
+        <description>实习进度汇报 这几天在做什么: go web开发 (使用gin框架重构上次的web程序) hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 linux更新了gosdk至1.18 这些事情的进度: 1.go web开发(使用gin框架 了解常用api) 了解了gin框架常用知识点 使用gin框架重构上次的demo 部署至阿里云 供公网访问 (http://118.178.236.128:7777/index) 目前仅完成查找和上传 删除还没做 16581121113772.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+3.对项目代码进行简单的git版本管理 https://github.com/linjianshu/e-book-Gin
+4.linux更新了go-sdk至1.18 gostudy网站中下载linux-amd64压缩包=&amp;gt;ecs中解压=&amp;gt;删除原先1.13的文件夹=&amp;gt;把解压的内容丢进去=&amp;gt;更新/etc/profile=&amp;gt;刷新profile source /etc/profile=&amp;gt;验证 go version
+不知道有没有简单的做法
+1658110937384存在哪些问题: 目前是自己安排任务给自己做 是已经学过的知识 但不知道有哪些知识企业用到的偏多 希望导师给一点意见 指定一下复习的重点或者提供方向 我可以自学新知识 gin框架通常配合前端什么技术呀?还是说直接使用gotemplate嘛? 下载功能可以实现 但是看日志发现调用了三次 最后一次才完成传输 前面两次是broken pipe 请问这个是什么原因呀? 1658109545148打算接下来做什么: 容器技术学习 mysql学习 听导师的安排继续学习 使用gorm和go操纵数据库 (浏览之前项目代码尝试手动构建被黑数据库表结构 尝试使用gorm重构sql 使用gin重构http调用) </description>
+        </item>
+        <item>
         <title>实习小结20220718</title>
         <link>https://linjianshu.github.io/p/%E5%AE%9E%E4%B9%A0%E5%B0%8F%E7%BB%9320220718/</link>
         <pubDate>Sun, 17 Jul 2022 23:48:18 +0800</pubDate>
