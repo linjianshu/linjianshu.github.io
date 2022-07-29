@@ -6,7 +6,38 @@
         <description>Recent content on think hy how to learn</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 22 Jul 2022 01:13:49 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 29 Jul 2022 14:54:20 +0800</lastBuildDate><atom:link href="https://linjianshu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>20220729实习进度汇报</title>
+        <link>https://linjianshu.github.io/p/20220729%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</link>
+        <pubDate>Fri, 29 Jul 2022 14:54:20 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/20220729%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</guid>
+        <description>实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker复习 编译镜像推送至阿里云镜像仓库 k8s学习 (之前都没有接触过 学习的进度很慢) 尝试搭建minikube环境/云服务器搭建kubernetes集群/裸机搭建 三种方式 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+https://github.com/linjianshu/e-bookNew/tree/master
+3.编译镜像推送至阿里云镜像仓库 仓库地址(私有) https://cr.console.aliyun.com/repository/cn-hangzhou/hfutie/e-book/details
+image-20220729153325022docker登录阿里云账户 pull images到Ecs docker内运行 image-20220729153819033运行截图(乱码的问题暂时还没有解决) image-202207291538567054.k8s学习 完全没有接触过 还在看学习资料ing😥
+5.尝试搭建本机wsl minikube环境/云服务器搭建kubernetes集群/裸机搭建 三种方式 还在搭建ing
+存在哪些问题: 编译镜像推送至docker hub 没推送上去 推到一半就卡住了(换成了推送至阿里云) k8s集群搭建问题(还在百度中) 打算接下来做什么: 容器技术学习 搭建k8s k8s学习 go web开发 (有时间进行修缮 功能:上传文件删除 文章审核等功能) docker利用dockerfile写数据卷挂载 把有数据库依赖的demo镜像编译 尝试缩小镜像大小 </description>
+        </item>
+        <item>
+        <title>Kubernetes学习文档</title>
+        <link>https://linjianshu.github.io/p/kubernetes%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</link>
+        <pubDate>Thu, 28 Jul 2022 09:20:43 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/kubernetes%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</guid>
+        <description>Kubernetes学习文档 特性 灰度更新 不影响业务正常运转 高可用 不宕机 自动灾难恢复 一键回滚到历史版本 方便的伸缩扩展(应用伸缩,机器加减) 提供负载均衡 有一个完善的生态 不同的应用部署方案 image-20220728092456835传统部署方式: 应用直接在物理机上部署 机器资源分配不好控制 出现bug时 可能机器的大部分资源被某个应用占用 导致其他应用无法正常运行 无法做到应用隔离 虚拟机部署 在单个物理机上运行多个虚拟机 每个虚拟机都是完整独立的系统 性能损耗大 容器部署 所有容器共享主机的系统 轻量级的虚拟机 性能损耗小 资源隔离 CPU和内存可按需分配 什么时候需要Kubernetes 当应用只是跑在一台机器 直接一个docker+ docker-compose 就够了 方便轻松 当应用需要跑在3 4 台机器 依旧可以每台机器单独配置运行环境 + 负载均衡器 当应用访问数不断增加 机器逐渐增加到上百台 上千台 每次加机器 软件更新 版本回滚 就会变得非常麻烦 这时候就需要kubernetes 轻松管理百万千万机器的集群 kubernetes 可以为你提供集中式的管理集群机器的应用 加机器 版本升级 版本回滚都是一个命令就搞定的事情 不停机的灰度更新 确保高可用 高性能 搞扩展 kubernetes集群架构 master
+主节点 控制平台 不需要很高的性能 不跑任务 通常一个就行了 也可以开多个主节点来提高集群的可用度 worker
+工作节点 可以是虚拟机或物理计算机 任务都在这里跑 机器性能都需要好点 通常有很多个 可以不断加机器扩大集群 每个工作节点由主节点管理 重要概念pod</description>
+        </item>
+        <item>
+        <title>行为认知测评技巧</title>
+        <link>https://linjianshu.github.io/p/%E8%A1%8C%E4%B8%BA%E8%AE%A4%E7%9F%A5%E6%B5%8B%E8%AF%84%E6%8A%80%E5%B7%A7/</link>
+        <pubDate>Sat, 23 Jul 2022 11:52:38 +0800</pubDate>
+        
+        <guid>https://linjianshu.github.io/p/%E8%A1%8C%E4%B8%BA%E8%AE%A4%E7%9F%A5%E6%B5%8B%E8%AF%84%E6%8A%80%E5%B7%A7/</guid>
+        <description>数字规律题 标序列号 把变量和序列号放在一起比较看看 公因式法 找出最小公因式 看看有无规律 对每一位数减去第一位数 替换掉第2&amp;hellip;.位 结合上面的看看有无规律 对每一位数同时加上/乘以/除以第一位数 结合上面看看有无规律 同时除以1/2/3 加法和减法可能性稍大 能否分成奇数和偶数数组 看增幅 是否有规律 +1 +2 +4 +8 等比或者等差 前两个和/积是后一个 类斐波那契数列 前一个数是后一个数的比例关系 图形推理题 是否间隔排列或者对称排列 寻找共同特征 顺时针/逆时针 变化 白*黑=白 重合的题目 对称与不对称 轴对称与中心对称 切割三角形 相交相切 一全一半 叠加 求同存异 相对位置 内部还是外部 </description>
+        </item>
+        <item>
         <title>20220722实习进度汇报</title>
         <link>https://linjianshu.github.io/p/20220722%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</link>
         <pubDate>Fri, 22 Jul 2022 01:13:49 +0800</pubDate>
