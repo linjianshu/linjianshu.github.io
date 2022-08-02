@@ -3,8 +3,7 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql&#43;web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
 https://github.com/linjianshu/e-bookNew/tree/master
-3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
-我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http.'><title>20220802实习进度汇报</title>
+3.docker 数据卷挂载 部署有状态应用 容器通信 Dockerfile FROM golang:alpine AS builder LABEL stage=gobuilder ENV GO111MODULE=on \ CGO_ENABLE=0 \ GOOS=linux \ GOARCH=amd64 \ GOPROXY=&amp;#34;https://goproxy.cn,direct&amp;#34; ENV LANG C.UTF-8 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache tzdata RUN #apt-get install -y mysql-server WORKDIR /build COPY . . EXPOSE 7777 RUN go build -ldflags=&amp;#34;-s -w&amp;#34; -o /app/main FROM alpine EXPOSE 3306 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache ca-certificates COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/Shanghai ENV TZ Asia/Shanghai ENV LANG C.'><title>20220802实习进度汇报</title>
 
 <link rel='canonical' href='https://linjianshu.github.io/p/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/'>
 
@@ -109,8 +108,7 @@ https://github.com/linjianshu/e-bookNew/tree/master
                     </script><meta property='og:title' content='20220802实习进度汇报'>
 <meta property='og:description' content='实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql&#43;web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
 https://github.com/linjianshu/e-bookNew/tree/master
-3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
-我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http.'>
+3.docker 数据卷挂载 部署有状态应用 容器通信 Dockerfile FROM golang:alpine AS builder LABEL stage=gobuilder ENV GO111MODULE=on \ CGO_ENABLE=0 \ GOOS=linux \ GOARCH=amd64 \ GOPROXY=&amp;#34;https://goproxy.cn,direct&amp;#34; ENV LANG C.UTF-8 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache tzdata RUN #apt-get install -y mysql-server WORKDIR /build COPY . . EXPOSE 7777 RUN go build -ldflags=&amp;#34;-s -w&amp;#34; -o /app/main FROM alpine EXPOSE 3306 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache ca-certificates COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/Shanghai ENV TZ Asia/Shanghai ENV LANG C.'>
 <meta property='og:url' content='https://linjianshu.github.io/p/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/'>
 <meta property='og:site_name' content='think hy how to learn'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-08-02T09:16:05&#43;08:00'/><meta property='article:modified_time' content='2022-08-02T09:16:05&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
@@ -118,8 +116,7 @@ https://github.com/linjianshu/e-bookNew/tree/master
     <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="20220802实习进度汇报">
 <meta name="twitter:description" content="实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql&#43;web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
 https://github.com/linjianshu/e-bookNew/tree/master
-3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
-我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http."><meta name="twitter:card" content="summary_large_image">
+3.docker 数据卷挂载 部署有状态应用 容器通信 Dockerfile FROM golang:alpine AS builder LABEL stage=gobuilder ENV GO111MODULE=on \ CGO_ENABLE=0 \ GOOS=linux \ GOARCH=amd64 \ GOPROXY=&amp;#34;https://goproxy.cn,direct&amp;#34; ENV LANG C.UTF-8 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache tzdata RUN #apt-get install -y mysql-server WORKDIR /build COPY . . EXPOSE 7777 RUN go build -ldflags=&amp;#34;-s -w&amp;#34; -o /app/main FROM alpine EXPOSE 3306 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache ca-certificates COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/Shanghai ENV TZ Asia/Shanghai ENV LANG C."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -378,7 +375,7 @@ https://github.com/linjianshu/e-bookNew/tree/master
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 4 分钟
                 </time>
             </div>
         
@@ -405,6 +402,55 @@ https://github.com/linjianshu/e-bookNew/tree/master
     >https://github.com/linjianshu/e-bookNew/tree/master</a></p>
 <h5 id="3docker-数据卷挂载-部署有状态应用-容器通信">3.docker 数据卷挂载 部署有状态应用 容器通信</h5>
 <ul>
+<li>Dockerfile</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> golang:alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">stage</span><span class="o">=</span>gobuilder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">ENV</span> <span class="nv">GO111MODULE</span><span class="o">=</span>on <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">CGO_ENABLE</span><span class="o">=</span><span class="m">0</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">GOOS</span><span class="o">=</span>linux <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">GOARCH</span><span class="o">=</span>amd64 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">GOPROXY</span><span class="o">=</span><span class="s2">&#34;https://goproxy.cn,direct&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> LANG C.UTF-8<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk update --no-cache <span class="o">&amp;&amp;</span> apk add --no-cache tzdata<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="c1">#apt-get install -y mysql-server</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /build</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 7777</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> go build -ldflags<span class="o">=</span><span class="s2">&#34;-s -w&#34;</span> -o /app/main<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 3306</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk update --no-cache <span class="o">&amp;&amp;</span> apk add --no-cache ca-certificates<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/Shanghai<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> TZ Asia/Shanghai<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> LANG C.UTF-8<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#COPY --from=builder /build/. /app/.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span>  . /app/.<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /app/main /app/main<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 7777</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./main&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><ul>
 <li>挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files   -p 3310:3306 -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">123456</span> mysql
@@ -650,6 +696,11 @@ https://github.com/linjianshu/e-bookNew/tree/master
 	<figcaption>image-20220802092832969</figcaption>
 	
 </figure></p>
+<ul>
+<li>上午实验的时候发现 如果pod里两个容器都是mysql 一个是3310 一个是3311的话 是可以通过 mysql -u root -P 3311 -h localhost -p123456来相互访问的  理论上 是要通过pod的IP来作为host 才能通才对</li>
+<li>数据库容器和web应用容器通过一台宿主机连接 生产环境中是这么用的嘛 如果宿主机都不一致的话(web应用在A服务器上 mysql应用在B服务器上)应该怎么使用呢 是修改web应用中的数据库连接字符串吗</li>
+<li>dockerfile是不是有点问题 目前dockerfile的逻辑是先build之后然后运行 但如果数据库连接不成功的话容器就启动不起来 也无法进入容器修改连接字符串重启容器 不知道应该怎么处理</li>
+</ul>
 <h4 id="打算接下来做什么">打算接下来做什么:</h4>
 <ul>
 <li>k8s学习 以service方式部署mysql+web应用</li>

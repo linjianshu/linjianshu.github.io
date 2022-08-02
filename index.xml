@@ -14,8 +14,7 @@
         <guid>https://linjianshu.github.io/p/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</guid>
         <description>实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql+web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
 https://github.com/linjianshu/e-bookNew/tree/master
-3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
-我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http.</description>
+3.docker 数据卷挂载 部署有状态应用 容器通信 Dockerfile FROM golang:alpine AS builder LABEL stage=gobuilder ENV GO111MODULE=on \ CGO_ENABLE=0 \ GOOS=linux \ GOARCH=amd64 \ GOPROXY=&amp;#34;https://goproxy.cn,direct&amp;#34; ENV LANG C.UTF-8 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache tzdata RUN #apt-get install -y mysql-server WORKDIR /build COPY . . EXPOSE 7777 RUN go build -ldflags=&amp;#34;-s -w&amp;#34; -o /app/main FROM alpine EXPOSE 3306 RUN apk update --no-cache &amp;amp;&amp;amp; apk add --no-cache ca-certificates COPY --from=builder /usr/share/zoneinfo/Asia/Shanghai /usr/share/zoneinfo/Asia/Shanghai ENV TZ Asia/Shanghai ENV LANG C.</description>
         </item>
         <item>
         <title>20220729实习进度汇报</title>
