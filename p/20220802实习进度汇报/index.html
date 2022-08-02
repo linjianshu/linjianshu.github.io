@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql&#43;web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+https://github.com/linjianshu/e-bookNew/tree/master
+3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
+我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http.'><title>20220802实习进度汇报</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='20220802实习进度汇报'>
+<meta property='og:description' content='实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql&#43;web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+https://github.com/linjianshu/e-bookNew/tree/master
+3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
+我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http.'>
+<meta property='og:url' content='https://linjianshu.github.io/p/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-08-02T09:16:05&#43;08:00'/><meta property='article:modified_time' content='2022-08-02T09:16:05&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="20220802实习进度汇报">
+<meta name="twitter:description" content="实习进度汇报 这几天在做什么: hugo 更新实习日记至github主页上 git代码管理 上传demo方便导师检查 docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库 搭建minikube环境 k8s 以pod方式部署 mysql&#43;web应用 这些事情的进度: 1.对demo编写dockerfile镜像编译 2.使用hugo更新实习日记至github主页 github主页 (linjianshu.github.io)
+https://github.com/linjianshu/e-bookNew/tree/master
+3.docker 数据卷挂载 部署有状态应用 容器通信 挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区 docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql 问题解决方案: https://docs.docker.com/desktop/networking/
+我想从容器连接到主机上的服务 主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。 您也可以使用gateway.docker.internal. 如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务： 运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。 python -m http."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/">20220802实习进度汇报</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 02, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h3 id="实习进度汇报">实习进度汇报</h3>
+<h4 id="这几天在做什么">这几天在做什么:</h4>
+<ul>
+<li>hugo 更新实习日记至github主页上</li>
+<li>git代码管理 上传demo方便导师检查</li>
+<li>docker 数据卷挂载 部署有状态应用 容器通信 编译镜像推送至华为云镜像仓库</li>
+<li>搭建minikube环境 k8s 以pod方式部署 mysql+web应用</li>
+</ul>
+<h4 id="这些事情的进度">这些事情的进度:</h4>
+<h5 id="1对demo编写dockerfile镜像编译">1.对demo编写dockerfile镜像编译</h5>
+<h5 id="2使用hugo更新实习日记至github主页">2.使用hugo更新实习日记至github主页</h5>
+<p><a class="link" href="https://linjianshu.github.io/"  target="_blank" rel="noopener"
+    >github主页 (linjianshu.github.io)</a></p>
+<p><a class="link" href="https://github.com/linjianshu/e-bookNew/tree/master"  target="_blank" rel="noopener"
+    >https://github.com/linjianshu/e-bookNew/tree/master</a></p>
+<h5 id="3docker-数据卷挂载-部署有状态应用-容器通信">3.docker 数据卷挂载 部署有状态应用 容器通信</h5>
+<ul>
+<li>挂载mysql 开放3310 默认密码123456 提高权限 后台运行 设定时区</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --privileged -d --name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files   -p 3310:3306 -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">123456</span> mysql
+</span></span></code></pre></div><ul>
+<li>问题解决方案:</li>
+</ul>
+<p><a class="link" href="https://docs.docker.com/desktop/networking/"  target="_blank" rel="noopener"
+    >https://docs.docker.com/desktop/networking/</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">我想从容器连接到主机上的服务
+</span></span><span class="line"><span class="cl">主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">您也可以使用gateway.docker.internal.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">运行以下命令在端口 <span class="m">8000</span> 上启动一个简单的 HTTP 服务器。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python -m http.server <span class="m">8000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">如果您已安装 Python 2.x，请运行python -m SimpleHTTPServer 8000.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">现在，运行一个容器，安装curl，并尝试使用以下命令连接到主机：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> docker run --rm -it alpine sh
+</span></span><span class="line"><span class="cl"> apk add curl
+</span></span><span class="line"><span class="cl"> curl http://host.docker.internal:8000
+</span></span><span class="line"><span class="cl"> <span class="nb">exit</span>
+</span></span></code></pre></div><ul>
+<li>部署到华为云 供外网访问  http://124.220.207.169:7777/blog</li>
+</ul>
+<p><a class="link" href="http://124.220.207.169:7777/blog"  target="_blank" rel="noopener"
+    >来人 把书掏出来</a></p>
+<ul>
+<li>运行截图</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095017747-16594051684344.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095017747-16594051684344.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802095017747">
+	</a>
+	
+	<figcaption>image-20220802095017747</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095335957.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095335957.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802095335957">
+	</a>
+	
+	<figcaption>image-20220802095335957</figcaption>
+	
+</figure></p>
+<h5 id="4搭建minikube环境">4.搭建minikube环境</h5>
+<p>又租了一台RAM&gt;2GB的华为云服务器 搭建minikube</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">minikube start --kubernetes-version<span class="o">=</span>v1.23.3 --registry-mirror<span class="o">=</span>https://bmtb46e4.mirror.aliyuncs.com --vm-driver<span class="o">=</span>docker --base-image<span class="o">=</span><span class="s2">&#34;anjone/kicbase&#34;</span> --image-repository<span class="o">=</span>registry.cn-hangzhou.aliyuncs.com/google_containers
+</span></span></code></pre></div><ul>
+<li>运行截图</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095616280.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095616280.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802095616280">
+	</a>
+	
+	<figcaption>image-20220802095616280</figcaption>
+	
+</figure></p>
+<h5 id="5k8s-以pod方式部署-mysqlweb应用">5.k8s 以pod方式部署 mysql+web应用</h5>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095657532.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095657532.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802095657532">
+	</a>
+	
+	<figcaption>image-20220802095657532</figcaption>
+	
+</figure></p>
+<ul>
+<li>Pod.yaml文件  web应用</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#定义容器 可以多个</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-pod</span><span class="w"> </span><span class="c">#容器名字</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ccr.ccs.tencentyun.com/hfut-ie/e-book-gin:v3.0</span><span class="w"> </span><span class="c">#镜像</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">7777</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">7777</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  dnsPolicy: ClusterFirst</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  hostNetwork: true</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>mysql.yaml文件 mysql3310</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v1.0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v1.0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RollingUpdate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v1.0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#            - &#34;--ignore-db-dir=lost+found&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="s2">&#34;--character-set-server=utf8&#34;</span><span class="w">     </span><span class="c">#  指定字符编码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="s2">&#34;--collation-server=utf8_general_ci&#34;</span><span class="w">    </span><span class="c">#  指定字符编码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">MYSQL_ROOT_PASSWORD   </span><span class="w"> </span><span class="c">#  指定root用户的用户名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;123456&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#            - name: MYSQL_PASSWORD     #  新建用户的用户名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#              value: &#34;123456&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#            - name: MYSQL_USER        # 新建的用户</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#              value: &#34;ljs&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">MYSQL_DATABASE   </span><span class="w"> </span><span class="c"># 新建的数据库</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;datashare&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">3310</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/mysql/mysql.conf.d/mysqld.cnf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l">mysqld.cnf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#          persistentVolumeClaim:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#            claimName: mysql-pvc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#          configMap:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#            name: mysql-configmap</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>数据库连接字符串  尝试了好多次 最后使用ip地址:3306 连接宿主机本地数据库</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095955401.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802095955401.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802095955401">
+	</a>
+	
+	<figcaption>image-20220802095955401</figcaption>
+	
+</figure></p>
+<ul>
+<li>运行截图</li>
+</ul>
+<p>port-forward</p>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802100528339.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802100528339.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802100528339">
+	</a>
+	
+	<figcaption>image-20220802100528339</figcaption>
+	
+</figure></p>
+<p>curl验证</p>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802100555894.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802100555894.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802100555894">
+	</a>
+	
+	<figcaption>image-20220802100555894</figcaption>
+	
+</figure></p>
+<h4 id="存在哪些问题">存在哪些问题:</h4>
+<ul>
+<li>pod理解还有点问题 请问pod内有一组容器 A B 容器A和B本身是一个docker文件系统吗? 那Pod也是一个docker文件系统嘛 是属于docker文件系统里套了两个docker文件系统吗?</li>
+<li>使用kubectl port-forward 7777:7777如何后台跑 好像需要一直开着</li>
+<li>使用kubectl port-forward 7777:7777 为什么不能通过公网ip:7777/index访问 只能通过本机localhost:7777/index跑</li>
+<li>原来打算把pod里放了两个容器 一个是mysql端口3310 一个是web应用端口是7777 所以打算使用的数据库连接字符串是localhost 我认为pod之间应该是能够通信的 但是实际上解析不出来 我不太清楚是为啥 (是因为web应用程序解析localhost的时候 会认为是宿主机的localhost吗? 如果认为是pod的localhost的话 应该是能连的通的才对)</li>
+</ul>
+<p><figure 
+	>
+	<a href="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802092832969.png" >
+		<img src="/20220802%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5.assets/image-20220802092832969.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220802092832969">
+	</a>
+	
+	<figcaption>image-20220802092832969</figcaption>
+	
+</figure></p>
+<h4 id="打算接下来做什么">打算接下来做什么:</h4>
+<ul>
+<li>k8s学习 以service方式部署mysql+web应用</li>
+<li>修改service的yaml 尝试数据挂载</li>
+<li>client-go学习</li>
+</ul>
+<h4 id="过程记录踩坑">过程记录(踩坑):</h4>
+<p>docker run &ndash;privileged -d &ndash;name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files   -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql</p>
+<h5 id="ubuntu重装mysql">ubuntu重装mysql</h5>
+<p>1、删除 mysql</p>
+<p>sudo apt-get autoremove &ndash;purge mysql-server-5.0</p>
+<p>sudo apt-get remove mysql-server</p>
+<p>sudo apt-get autoremove mysql-server</p>
+<p>sudo apt-get remove mysql-common (非常重要)</p>
+<p>上面的其实有一些是多余的，建议还是按照顺序执行一遍</p>
+<p>清理残留数据</p>
+<p>dpkg -l |grep ^rc|awk &lsquo;{print $2}&rsquo; |sudo xargs dpkg -P</p>
+<p>2、安装 mysql</p>
+<p>sudo apt-get install mysql-server</p>
+<p>记得启动服务 设置密码</p>
+<h5 id="docker连接宿主机">docker连接宿主机</h5>
+<p><a class="link" href="https://docs.docker.com/desktop/networking/"  target="_blank" rel="noopener"
+    >https://docs.docker.com/desktop/networking/</a>
+我想从容器连接到主机上的服务
+主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。</p>
+<p>您也可以使用gateway.docker.internal.</p>
+<p>如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务：</p>
+<p>运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。</p>
+<p>python -m http.server 8000</p>
+<p>如果您已安装 Python 2.x，请运行python -m SimpleHTTPServer 8000.</p>
+<p>现在，运行一个容器，安装curl，并尝试使用以下命令连接到主机：</p>
+<p>docker run &ndash;rm -it alpine sh
+apk add curl
+curl <a class="link" href="http://host.docker.internal:8000"  target="_blank" rel="noopener"
+    >http://host.docker.internal:8000</a>
+exit</p>
+<h5 id="minikube版本和镜像问题">minikube版本和镜像问题</h5>
+<p>minikube start &ndash;kubernetes-version=v1.23.3 &ndash;base-image=&ldquo;kicbase/stable:v0.0.32&rdquo;</p>
+<p>minikube start &ndash;kubernetes-version=v1.23.3 &ndash;registry-mirror=https://bmtb46e4.mirror.aliyuncs.com &ndash;vm-driver=docker &ndash;base-image=&ldquo;anjone/kicbase&rdquo; &ndash;image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers</p>
+<h5 id="kubectl常用指令">kubectl常用指令</h5>
+<p>kubectl get node</p>
+<p>kubectl run testapp &ndash;image=ccr.ccs.tencentyun.com/hfut/e-book-gin:v1.0</p>
+<p>kubectl apply -f ./mysql.yaml</p>
+<p>kubectl get pod</p>
+<p>kubectl get deployment</p>
+<p>kubectl get pod -o wide</p>
+<p>kubectl describe pod [testapp]</p>
+<p>kubectl logs testapp &ndash;previous</p>
+<p>kubectl delete pod my-mysql-6b8cf957fc-2sl59</p>
+<p>kubectl delete deploy/my-mysql</p>
+<h5 id="ssh突然连接不上问题">ssh突然连接不上问题</h5>
+<p>不要对etc/ssh目录盲目扩大权限
+chmod 600 /etc/ssh/*key
+使用ssh -t 查看问题
+lsof -i:22 确定是否开着</p>
+<h5 id="centos8-重装mysql问题">centos8 重装mysql问题</h5>
+<p>1、卸载
+之前是用yum安装的，现在通过yum去卸载yum remove -y mysql
+find / -name mysql 找到残留的文件，再通过rm -rf去删除对应的文件</p>
+<p>注意将所有有关的文件全部删除，不然会有问题！</p>
+<p>2、安装
+yum update
+yum install mysql-server</p>
+<p>ps -ef | grep mysql</p>
+<p>systemctl start mysqld</p>
+<p>systemctl enable mysqld</p>
+<p>systemctl status mysqld</p>
+<p>3、修改root用户密码
+修改root用户的密码。</p>
+<p>alter user &lsquo;root&rsquo;@&rsquo;localhost&rsquo; identified by &lsquo;password&rsquo;</p>
+<p>刷新权限</p>
+<p>flush privileges</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>
