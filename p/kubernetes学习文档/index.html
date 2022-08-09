@@ -375,7 +375,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -516,7 +516,180 @@
 </ul>
 <p>查看节点</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get node 
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>docker run &ndash;privileged -d &ndash;name mysql84 -v /etc/mysql:/etc/mysql -v /var/lib/data/mysql:/var/lib/mysql -v /var/lib/mysql-files:/var/lib/mysql-files   -p 3310:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 mysql</p>
+<p>ubuntu重装mysql
+1、删除 mysql</p>
+<p>1 sudo apt-get autoremove &ndash;purge mysql-server-5.0</p>
+<p>2 sudo apt-get remove mysql-server</p>
+<p>3 sudo apt-get autoremove mysql-server</p>
+<p>4 sudo apt-get remove mysql-common (非常重要)</p>
+<p>上面的其实有一些是多余的，建议还是按照顺序执行一遍</p>
+<p>清理残留数据</p>
+<p>dpkg -l |grep ^rc|awk &lsquo;{print $2}&rsquo; |sudo xargs dpkg -P</p>
+<p>2、安装 mysql</p>
+<p>1 sudo apt-get install mysql-server</p>
+<p>记得启动服务
+设置密码</p>
+<p><a class="link" href="https://docs.docker.com/desktop/networking/"  target="_blank" rel="noopener"
+    >https://docs.docker.com/desktop/networking/</a>
+我想从容器连接到主机上的服务
+主机有一个不断变化的 IP 地址（如果您没有网络访问权限，则没有）。我们建议您连接到 host.docker.internal解析为主机使用的内部 IP 地址的特殊 DNS 名称。这是出于开发目的，不适用于 Docker Desktop 之外的生产环境。</p>
+<p>您也可以使用gateway.docker.internal.</p>
+<p>如果您的机器上安装了 Python，请使用以下说明作为示例，从容器连接到主机上的服务：</p>
+<p>运行以下命令在端口 8000 上启动一个简单的 HTTP 服务器。</p>
+<p>python -m http.server 8000</p>
+<p>如果您已安装 Python 2.x，请运行python -m SimpleHTTPServer 8000.</p>
+<p>现在，运行一个容器，安装curl，并尝试使用以下命令连接到主机：</p>
+<p>docker run &ndash;rm -it alpine sh
+apk add curl
+curl <a class="link" href="http://host.docker.internal:8000"  target="_blank" rel="noopener"
+    >http://host.docker.internal:8000</a>
+exit</p>
+<p>minikube start &ndash;kubernetes-version=v1.23.3 &ndash;base-image=&ldquo;kicbase/stable:v0.0.32&rdquo;</p>
+<p>minikube start &ndash;kubernetes-version=v1.23.3 &ndash;registry-mirror=https://bmtb46e4.mirror.aliyuncs.com &ndash;vm-driver=docker &ndash;base-image=&ldquo;anjone/kicbase&rdquo; &ndash;image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers</p>
+<p>kubectl get node</p>
+<p>kubectl run testapp &ndash;image=ccr.ccs.tencentyun.com/hfut/e-book-gin:v1.0</p>
+<p>kubectl apply -f ./mysql.yaml</p>
+<p>kubectl get pod</p>
+<p>kubectl get deployment</p>
+<p>kubectl get pod -o wide</p>
+<p>kubectl describe pod [testapp]</p>
+<p>kubectl logs testapp &ndash;previous</p>
+<p>kubectl delete pod my-mysql-6b8cf957fc-2sl59</p>
+<p>kubectl delete deploy/my-mysql</p>
+<p>不要对etc/ssh目录盲目扩大权限
+chmod 600 /etc/ssh/*key
+使用ssh -t 查看问题
+lsof -i:22 确定是否开着</p>
+<p>1、卸载
+之前是用yum安装的，现在通过yum去卸载yum remove -y mysql
+find / -name mysql 找到残留的文件，再通过rm -rf去删除对应的文件</p>
+<p>注意将所有有关的文件全部删除，不然会有问题！</p>
+<p>2、安装
+yum update
+yum install mysql-server</p>
+<p>ps -ef | grep mysql</p>
+<p>systemctl start mysqld</p>
+<p>systemctl enable mysqld</p>
+<p>systemctl status mysqld</p>
+<p>3、修改root用户密码
+修改root用户的密码。</p>
+<p>alter user &lsquo;root&rsquo;@&rsquo;localhost&rsquo; identified by &lsquo;password&rsquo;</p>
+<p>刷新权限</p>
+<p>flush privileges</p>
+<p>灰度更新</p>
+<p>先启动 启动成功再把之前的销毁</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">伸缩副本
+</span></span><span class="line"><span class="cl">kubectl scale deployment test-k8s --replicas<span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">查看历史版本
+</span></span><span class="line"><span class="cl">kubectl rollout <span class="nb">history</span> deployment <span class="o">[</span>deployment<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">回到上个版本
+</span></span><span class="line"><span class="cl">kubectl rollout undo deployment <span class="o">[</span>deployment<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">回退指定版本
+</span></span><span class="line"><span class="cl">kubectl rollout undo deployment test-k8s --to-revision<span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">删除部署
+</span></span><span class="line"><span class="cl">kubectl delete deployment test-k8s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">查看所有信息
+</span></span><span class="line"><span class="cl">kubectl get all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">重新部署
+</span></span><span class="line"><span class="cl">kubectl rullout restart deployment test-k8s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 命令修改镜像，--record 表示把这个命令记录到操作历史中</span>
+</span></span><span class="line"><span class="cl">kubectl <span class="nb">set</span> image deployment test-k8s test-k8s<span class="o">=</span>ccr.ccs.tencentyun.com/k8s-tutorial/test-k8s:v2-with-error --record
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">暂停运行 去做想做的事情 比如修改其他的pod之类的
+</span></span><span class="line"><span class="cl">kubectl rollout pause deployment my-mysql
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">恢复
+</span></span><span class="line"><span class="cl">kubectl rollout resume deployment my-mysql
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">输出到文件
+</span></span><span class="line"><span class="cl">kubectl get deployment my-mysql -o yaml &gt;&gt; toyaml.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubectl delete all --all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">可以将pod指定到某个节点进行运行
+</span></span><span class="line"><span class="cl">在yaml里指定
+</span></span></code></pre></div><h5 id="工作负载分类">工作负载分类</h5>
+<ul>
+<li>deployment
+<ul>
+<li>适合无状态应用 所有POD等价 可以替代</li>
+</ul>
+</li>
+<li>statefulset
+<ul>
+<li>有状态的应用 适合数据库这种类型</li>
+</ul>
+</li>
+<li>daemonset
+<ul>
+<li>在每个节点上跑一个pod 可以用来做节点监控 节点日志收集等等</li>
+</ul>
+</li>
+<li>job &amp; cronjob
+<ul>
+<li>job用来表达一次性的任务 而cronjob会根据其时间规划反复运行</li>
+</ul>
+</li>
+</ul>
+<h5 id="现存问题">现存问题</h5>
+<ul>
+<li>每次只能访问一个pod 没有负载均衡自动转发到不同pod</li>
+<li>访问还需要端口转发</li>
+<li>pod重建之后ip变了 名字也变了</li>
+</ul>
+<h5 id="service">service</h5>
+<p>特性</p>
+<ul>
+<li>service通过label关联对应的pod</li>
+<li>service生命周期不跟pod绑定 不会因为pod重新建立而改变IP</li>
+<li>提供了负载均衡功能 自动转发流量到不同的pod</li>
+<li>可对集群外部提供访问端口</li>
+<li>集群内部可通过服务名字访问</li>
+</ul>
+<p><figure 
+	>
+	<a href="/kubernetes%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3.assets/image-20220806093538047.png" >
+		<img src="/kubernetes%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3.assets/image-20220806093538047.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20220806093538047">
+	</a>
+	
+	<figcaption>image-20220806093538047</figcaption>
+	
+</figure></p>
+<p>service.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">test-pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#    默认 ClusterIP 集群内可访问 NodePort节点可访问 LoadBalancer 负载均衡模式 (需要负载均衡器才可用)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">  </span><span class="c">#本 service端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">7777</span><span class="w"> </span><span class="c">#容器端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">31000</span><span class="w"> </span><span class="c">#节点端口 范围固定 从30000-32767</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubectl get svc
+</span></span></code></pre></div><p>type 可以有三种</p>
+<p>loadbalancer需要云服务提供商的支持 逻辑可以安装metallb测试  会额外生成一个IP对外提供服务</p>
+<p>nodeport需要进入节点访问 所以通过docker进入minikube 访问31000才能get到</p>
+<p>clusterIP 默认的 仅在集群内可用</p>
+<p>headless  适合数据库 clusterip设置为none就变成headless 就不会分配ip 后续讲解具体用法</p>
+
 </section>
 
 
